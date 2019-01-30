@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 namespace CommandPattern
 {
@@ -8,11 +9,16 @@ namespace CommandPattern
         // bool pause=false;
         private Command Pause, Unpause;
         bool pause = false;
+        public Button bttn;
+        private List<Command> pauseQueue;
         // Start is called before the first frame update
         void Start()
         {
-            Pause=new PauseGame();
-            Unpause= new UnpauseGame();
+            Pause = new PauseGame();
+            Unpause = new UnpauseGame();
+            bttn.gameObject.SetActive(false);
+            bttn.onClick.AddListener(addToQueue);
+            pauseQueue = new List<Command>();
         }
 
         // Update is called once per frame
@@ -21,11 +27,18 @@ namespace CommandPattern
             if(Input.GetKeyDown(KeyCode.P)){
                 if(!pause){
                     Pause.Execute(Pause);
-                    pause=true;
+                    bttn.gameObject.SetActive(true);
+                    pause = true;
+                    pauseQueue.Clear();
                 }
                 else{
                     Unpause.Execute(Unpause);
-                    pause=false;
+                    bttn.gameObject.SetActive(false);
+                    foreach (Command com in pauseQueue)
+                    {
+                        com.Execute(com);
+                    }
+                    pause = false;
                 }
                 
             }
@@ -36,6 +49,9 @@ namespace CommandPattern
             else if(Input.GetKeyDown(KeyCode.P)&&pause){
                 Time.timeScale=1;
             }*/
+        }
+            void addToQueue(){
+            pauseQueue.Add(new dummyCom());
         }
     }
 }

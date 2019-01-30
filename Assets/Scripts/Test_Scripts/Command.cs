@@ -12,12 +12,17 @@ namespace CommandPattern
     
     public class PauseGame : Command{
         public override void Execute(Command command){
-            Time.timeScale=0.0f;
+            Time.timeScale = 0.0f;
         }
     }
     public class UnpauseGame : Command{
         public override void Execute(Command command){
-            Time.timeScale=1.0f;
+            Time.timeScale = 1.0f;
+        }
+    }
+    public class dummyCom: Command{
+        public override void Execute(Command command){
+            Debug.Log("24234234");
         }
     }
 }
