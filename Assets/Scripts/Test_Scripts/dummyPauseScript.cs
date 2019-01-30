@@ -25,6 +25,8 @@ namespace CommandPattern
         void Update()
         {
             if(Input.GetKeyDown(KeyCode.P)){
+                //To Do: try to add all the UI and other stuff to the command rather than being a part of this script
+                //should be in the InputHandler 
                 if(!pause){
                     Pause.Execute(Pause);
                     bttn.gameObject.SetActive(true);
