@@ -25,8 +25,9 @@ public class PauseUIManager : MonoBehaviour
     }
     void addToQueue(Button bttn){
         //need to fix instantiating buttons, which will be added to another list and removed when clicked
-        //Button newBttn=Instantiate(bttn);
-        //newBttn.gameObject.transform.position=currentPos;
-        //currentPos.x+=newBttn.GetComponent<RectTransform>().sizeDelta.x;
+        Button newBttn=Instantiate(bttn);
+        RectTransform rect=newBttn.GetComponent<RectTransform>();
+        rect.transform.position=currentPos;
+        currentPos.x+=rect.sizeDelta.x;
     }
 }
