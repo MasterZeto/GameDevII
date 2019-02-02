@@ -7,6 +7,7 @@ public class PauseUIManager : MonoBehaviour
 {
     public Button[] bttns;
     private Vector3 startPos, currentPos;
+    private Transform parent;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class PauseUIManager : MonoBehaviour
         }
         startPos=new Vector3(0,0,0);
         currentPos=startPos;
+        parent=bttns[0].GetComponent<RectTransform>().transform.parent;
     }
 
     // Update is called once per frame
@@ -27,7 +29,12 @@ public class PauseUIManager : MonoBehaviour
         //need to fix instantiating buttons, which will be added to another list and removed when clicked
         Button newBttn=Instantiate(bttn);
         RectTransform rect=newBttn.GetComponent<RectTransform>();
+        rect.transform.SetParent(parent);
         rect.transform.position=currentPos;
         currentPos.x+=rect.sizeDelta.x;
+        newBttn.onClick.AddListener(() => DeleteButton(newBttn));
+    }
+    void DeleteButton(Button bttn){
+        Destroy(bttn.gameObject);
     }
 }
