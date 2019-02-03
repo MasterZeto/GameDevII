@@ -51,13 +51,6 @@ namespace CommandPattern
                 }
                 
             }
-            /* if(Input.GetKeyDown(KeyCode.P)&&!pause){
-            Time.timeScale=0;
-            //UI shit here... change this to command pattern too
-            }
-            else if(Input.GetKeyDown(KeyCode.P)&&pause){
-                Time.timeScale=1;
-            }*/
         }
         public void addToQueue(int i){
             pauseQueue.Add(possibleComs[i]);

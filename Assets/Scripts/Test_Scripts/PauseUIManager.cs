@@ -8,11 +8,13 @@ namespace CommandPattern
 
 public class PauseUIManager : MonoBehaviour
 {
-    //change this to change dynamically, ex. with the customizations once they are implemented
+    //change this to change dynamically, ex. with the customizations once they are implemented, might want it to be a list
     public Button[] bttns;
     //To Do: change this to a dictionary, and have addToQueue in the PauseScript add different commands based on the value
     private Dictionary<Button, int> queueButtons;
-    private Vector3 startPos, currentPos;
+    private Dictionary<Button, RectTransform> buttonLoc;
+    private Vector3 currentPos;
+    public Vector3 startPos;
     private Transform parent;
     //change dummyPauseScript to just PauseScript later once it is more fleshed out
     public GameObject pauseManager;
@@ -22,12 +24,12 @@ public class PauseUIManager : MonoBehaviour
     void Start()
     {
         queueButtons=new Dictionary<Button, int>();
+        buttonLoc=new Dictionary<Button, RectTransform>();
         PauseScript=pauseManager.GetComponent<DummyPauseScript>();
         foreach (Button bttn in bttns)
         {
             bttn.onClick.AddListener(() => AddToQueue(bttn));
         }
-        startPos=new Vector3(0,0,0);
         currentPos=startPos;
         parent=bttns[0].GetComponent<RectTransform>().transform.parent;
         Hide();
@@ -42,6 +44,7 @@ public class PauseUIManager : MonoBehaviour
         Button newBttn=Instantiate(bttn);
         RectTransform rect=newBttn.GetComponent<RectTransform>();
         queueButtons.Add(newBttn,currentIndex);
+        buttonLoc.Add(newBttn,rect);
         currentIndex++;
         rect.transform.SetParent(parent);
         rect.transform.position=currentPos;
@@ -57,13 +60,18 @@ public class PauseUIManager : MonoBehaviour
         int index=queueButtons[bttn];
         currentIndex--;
         queueButtons.Remove(bttn);
-        Destroy(bttn.gameObject);
+        
         List<Button> tempBttns=new List<Button>(queueButtons.Keys);
         foreach(Button otherBttn in tempBttns){
             if(queueButtons[otherBttn]>index){
                queueButtons[otherBttn]--;
+                Vector3 newLoc = buttonLoc[otherBttn].transform.position;
+                newLoc.x -= buttonLoc[bttn].sizeDelta.x;
+                buttonLoc[otherBttn].transform.position=newLoc;
             }
         }
+        currentPos.x-=buttonLoc[bttn].sizeDelta.x;
+        Destroy(bttn.gameObject);
     }
     public void SetUp(){
         currentIndex=0;
