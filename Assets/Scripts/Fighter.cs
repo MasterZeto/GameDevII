@@ -58,7 +58,7 @@ public class Fighter : MonoBehaviour
         foreach(Collider c in cols)
         {
             //check if the collider we hit is ourself 
-            if (c.transform.parent.parent == transform)
+            if (c.transform.root == transform)
                 continue;
             //only print the collider from enemy  
             Debug.Log(c.name);
