@@ -16,6 +16,8 @@ namespace CommandPattern
         public GameObject pauseManager;
         public PauseUIManager UIManager;
         private float deltaTime, lastFrozenTime;
+        //will change this once timing is added to commands or w/e
+        private bool waiting=false;
         // Start is called before the first frame update
         void Start()
         {
@@ -40,15 +42,16 @@ namespace CommandPattern
             if(Input.GetKeyDown(KeyCode.P)){
                 //To Do: try to add all the UI and other stuff to the command rather than being a part of this script
                 //Also change the input thing and move it to the InputHandler 
-                if(!pause){
+                if(!pause&&!waiting){
                     Pause.Execute(Pause);
                     UIManager.SetUp();
                     pause = true;
                     pauseQueue.Clear();
                 }
-                else{
+                else if(!waiting){
                     Unpause.Execute(Unpause);
                     UIManager.Hide();
+                    StartCoroutine(ExecuteComs());
                     foreach (Command com in pauseQueue)
                     {
                         com.Execute(com);
@@ -77,6 +80,14 @@ namespace CommandPattern
         }
         public void addToQueue(int i){
             pauseQueue.Add(possibleComs[i]);
+        }
+        private IEnumerator ExecuteComs(){
+            waiting=true;
+            foreach(Command com in pauseQueue){
+                com.Execute(com);
+                yield return new WaitForSeconds(2);
+            }
+            waiting=false;
         }
     }
 }

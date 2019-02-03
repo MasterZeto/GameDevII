@@ -89,7 +89,9 @@ public class PauseUIManager : MonoBehaviour
         }
         foreach(var bttn in queueButtons){
             //To do: change so that it doesn't destroy itself until the action is done
-            Destroy(bttn.Key.gameObject);
+            if(bttn.Key.gameObject!=null){
+                Destroy(bttn.Key.gameObject);
+            }
         }
     }
 }
