@@ -13,8 +13,7 @@ public class PauseUIManager : MonoBehaviour
     //To Do: change this to a dictionary, and have addToQueue in the PauseScript add different commands based on the value
     private Dictionary<Button, int> queueButtons;
     private Dictionary<Button, RectTransform> buttonLoc;
-    private Vector3 currentPos;
-    public Vector3 startPos;
+    private Vector3 currentPos, startPos;
     private Transform parent;
     //change dummyPauseScript to just PauseScript later once it is more fleshed out
     public GameObject pauseManager;
@@ -30,6 +29,9 @@ public class PauseUIManager : MonoBehaviour
         {
             bttn.onClick.AddListener(() => AddToQueue(bttn));
         }
+        startPos.x=Screen.width/2-2*bttns[0].GetComponent<RectTransform>().sizeDelta.x;
+        startPos.y=2*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
+        startPos.z=0;
         currentPos=startPos;
         parent=bttns[0].GetComponent<RectTransform>().transform.parent;
         Hide();
