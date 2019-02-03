@@ -6,6 +6,7 @@ public delegate MachineState GetNextState(MachineState s);
 
 public abstract class MachineState
 {
+    public string name { get; protected set; }
     public abstract void Update(GameObject g, float dt);
 }
 

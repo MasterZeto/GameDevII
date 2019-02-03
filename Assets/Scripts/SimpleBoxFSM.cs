@@ -6,6 +6,8 @@ public class SimpleBoxFSM : MonoBehaviour
 {
     private class RotateYState : MachineState
     {
+        public RotateYState() { name = "RotateYState"; }
+        
         public override void Update(GameObject g, float dt)
         {
             g.transform.Rotate(0, 180 * dt, 0);
@@ -14,6 +16,8 @@ public class SimpleBoxFSM : MonoBehaviour
 
     private class OrbitState : MachineState
     {
+        public OrbitState() { name = "OrbitState"; }
+
         public override void Update(GameObject g, float dt)
         {
             g.transform.RotateAround(Vector3.zero, Vector3.up, 120 * dt);
@@ -22,6 +26,8 @@ public class SimpleBoxFSM : MonoBehaviour
 
     private class RotateZState : MachineState
     {
+        public RotateZState() { name = "RotateZState"; }
+
         public override void Update(GameObject g, float dt)
         {
             g.transform.Rotate(0, 0, 180 * dt);
@@ -30,17 +36,17 @@ public class SimpleBoxFSM : MonoBehaviour
 
     MachineState BoxStateTransition(MachineState s)
     {
-        switch (s.GetType().ToString())
+        switch (s.name)
         {
-            case "SimpleBoxFSM+OrbitState": 
+            case "OrbitState": 
                 if (Input.GetKeyDown(KeyCode.Q)) { return new RotateYState(); }
                 if (Input.GetKeyDown(KeyCode.W)) { return new RotateZState(); }
                 break;
-            case "SimpleBoxFSM+RotateYState": 
+            case "RotateYState": 
                 if (Input.GetKeyDown(KeyCode.E)) { return new OrbitState(); }
                 if (Input.GetKeyDown(KeyCode.R)) { return new RotateZState(); }
                 break;
-            case "SimpleBoxFSM+RotateZState": 
+            case "RotateZState": 
                 if (Input.GetKeyDown(KeyCode.T)) { return new OrbitState(); }
                 if (Input.GetKeyDown(KeyCode.Y)) { return new RotateYState(); }
                 break;
