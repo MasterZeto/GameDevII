@@ -4,20 +4,20 @@ using UnityEngine.UI;
 using UnityEngine;
 namespace CommandPattern
 {
-    public class dummyPauseScript : MonoBehaviour
+    public class DummyPauseScript : MonoBehaviour
     {
         // bool pause=false;
         private Command Pause, Unpause;
         bool pause = false;
-        public Button bttn;
         private List<Command> pauseQueue;
+        public GameObject pauseManager;
+        public PauseUIManager UIManager;
         // Start is called before the first frame update
         void Start()
         {
+            UIManager=pauseManager.GetComponent<PauseUIManager>();
             Pause = new PauseGame();
             Unpause = new UnpauseGame();
-            bttn.gameObject.SetActive(false);
-            bttn.onClick.AddListener(addToQueue);
             pauseQueue = new List<Command>();
         }
 
@@ -26,16 +26,16 @@ namespace CommandPattern
         {
             if(Input.GetKeyDown(KeyCode.P)){
                 //To Do: try to add all the UI and other stuff to the command rather than being a part of this script
-                //should be in the InputHandler 
+                //Also change the input thing and move it to the InputHandler 
                 if(!pause){
                     Pause.Execute(Pause);
-                    bttn.gameObject.SetActive(true);
+                    UIManager.SetUp();
                     pause = true;
                     pauseQueue.Clear();
                 }
                 else{
                     Unpause.Execute(Unpause);
-                    bttn.gameObject.SetActive(false);
+                    UIManager.Hide();
                     foreach (Command com in pauseQueue)
                     {
                         com.Execute(com);
@@ -52,7 +52,7 @@ namespace CommandPattern
                 Time.timeScale=1;
             }*/
         }
-            void addToQueue(){
+        public void addToQueue(){
             pauseQueue.Add(new dummyCom());
         }
     }
