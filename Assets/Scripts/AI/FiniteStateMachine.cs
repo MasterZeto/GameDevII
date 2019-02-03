@@ -25,6 +25,7 @@ public class FiniteStateMachine
     {
         current_state.Update(g, dt);
         MachineState s = next_state(current_state);
+        //Debug.Log(s);
         if (s != null) current_state = s;
     }
 }

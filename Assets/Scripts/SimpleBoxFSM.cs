@@ -30,6 +30,22 @@ public class SimpleBoxFSM : MonoBehaviour
 
     MachineState BoxStateTransition(MachineState s)
     {
+        switch (s.GetType().ToString())
+        {
+            case "SimpleBoxFSM+OrbitState": 
+                if (Input.GetKeyDown(KeyCode.Q)) { return new RotateYState(); }
+                if (Input.GetKeyDown(KeyCode.W)) { return new RotateZState(); }
+                break;
+            case "SimpleBoxFSM+RotateYState": 
+                if (Input.GetKeyDown(KeyCode.E)) { return new OrbitState(); }
+                if (Input.GetKeyDown(KeyCode.R)) { return new RotateZState(); }
+                break;
+            case "SimpleBoxFSM+RotateZState": 
+                if (Input.GetKeyDown(KeyCode.T)) { return new OrbitState(); }
+                if (Input.GetKeyDown(KeyCode.Y)) { return new RotateYState(); }
+                break;
+
+        }
         return null;
     }
 
