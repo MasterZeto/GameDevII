@@ -7,6 +7,9 @@ namespace CommandPattern
     public class DummyPauseScript : MonoBehaviour
     {
         // bool pause=false;
+        //possible coms should store the possible list of commands that can currently be executed
+        private List<Command> possibleComs;
+        public int numOfPossComs = 3;
         private Command Pause, Unpause;
         bool pause = false;
         public List<Command> pauseQueue;
@@ -16,9 +19,13 @@ namespace CommandPattern
         void Start()
         {
             UIManager=pauseManager.GetComponent<PauseUIManager>();
+            possibleComs= new List<Command>();
             Pause = new PauseGame();
             Unpause = new UnpauseGame();
             pauseQueue = new List<Command>();
+            possibleComs.Add(new dummyCom());
+            possibleComs.Add(new dummyCom2());
+            possibleComs.Add(new dummyCom3());
         }
 
         // Update is called once per frame
@@ -52,8 +59,8 @@ namespace CommandPattern
                 Time.timeScale=1;
             }*/
         }
-        public void addToQueue(){
-            pauseQueue.Add(new dummyCom());
+        public void addToQueue(int i){
+            pauseQueue.Add(possibleComs[i]);
         }
     }
 }

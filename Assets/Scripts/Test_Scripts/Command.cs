@@ -25,4 +25,14 @@ namespace CommandPattern
             Debug.Log("24234234");
         }
     }
+    public class dummyCom2: Command{
+        public override void Execute(Command command){
+            Debug.Log("this is another fake command, yay");
+        }
+    }
+    public class dummyCom3: Command{
+        public override void Execute(Command command){
+            Debug.Log("third testing command!1!!1!!one!");
+        }
+    }
 }

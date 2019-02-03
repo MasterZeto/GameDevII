@@ -8,6 +8,7 @@ namespace CommandPattern
 
 public class PauseUIManager : MonoBehaviour
 {
+    //change this to change dynamically, ex. with the customizations once they are implemented
     public Button[] bttns;
     //To Do: change this to a dictionary, and have addToQueue in the PauseScript add different commands based on the value
     private Dictionary<Button, int> queueButtons;
@@ -46,7 +47,8 @@ public class PauseUIManager : MonoBehaviour
         rect.transform.position=currentPos;
         currentPos.x+=rect.sizeDelta.x;
         newBttn.onClick.AddListener(() => DeleteButton(newBttn));
-        PauseScript.addToQueue();
+        int index=System.Array.IndexOf(bttns,bttn);
+        PauseScript.addToQueue(index);
     }
     void DeleteButton(Button bttn){
         //To Do: have spawned buttons after the removed one slide down, and update currentPos.x
