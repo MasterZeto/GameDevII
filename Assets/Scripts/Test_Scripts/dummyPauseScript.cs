@@ -9,7 +9,7 @@ namespace CommandPattern
         // bool pause=false;
         private Command Pause, Unpause;
         bool pause = false;
-        private List<Command> pauseQueue;
+        public List<Command> pauseQueue;
         public GameObject pauseManager;
         public PauseUIManager UIManager;
         // Start is called before the first frame update
