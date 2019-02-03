@@ -10,11 +10,12 @@ namespace CommandPattern
         //possible coms should store the possible list of commands that can currently be executed
         private List<Command> possibleComs;
         public int numOfPossComs = 3;
-        private Command Pause, Unpause;
+        private Command Pause, Unpause, camMoveBack, camMoveForward, camMoveLeft, camMoveRight;
         bool pause = false;
         public List<Command> pauseQueue;
         public GameObject pauseManager;
         public PauseUIManager UIManager;
+        private float deltaTime, lastFrozenTime;
         // Start is called before the first frame update
         void Start()
         {
@@ -26,6 +27,11 @@ namespace CommandPattern
             possibleComs.Add(new dummyCom());
             possibleComs.Add(new dummyCom2());
             possibleComs.Add(new dummyCom3());
+            camMoveForward=new MoveForwardUnscaled();
+            camMoveBack=new MoveBackUnscaled();
+            camMoveRight=new MoveRightUnscaled();
+            camMoveLeft=new MoveLeftUnscaled();
+            lastFrozenTime=Time.unscaledTime;
         }
 
         // Update is called once per frame
@@ -50,6 +56,23 @@ namespace CommandPattern
                     pause = false;
                 }
                 
+            }
+            deltaTime=Time.unscaledTime-lastFrozenTime;
+            lastFrozenTime=Time.unscaledTime;
+            if(pause){
+                //have to use axis raw because freezing time stops acceleration, meaning the acceleration of axis too
+                if(Input.GetAxisRaw("Vertical")==1){
+                    camMoveForward.Move(camMoveForward, deltaTime, Camera.main.transform);
+                }
+                if(Input.GetAxisRaw("Vertical")==-1){
+                camMoveBack.Move(camMoveBack, deltaTime, Camera.main.transform);
+                }
+                if(Input.GetAxisRaw("Horizontal")==1){
+                    camMoveRight.Move(camMoveRight, deltaTime, Camera.main.transform);
+                }
+                if(Input.GetAxisRaw("Horizontal")==-1){
+                camMoveLeft.Move(camMoveLeft, deltaTime, Camera.main.transform);
+                }
             }
         }
         public void addToQueue(int i){
