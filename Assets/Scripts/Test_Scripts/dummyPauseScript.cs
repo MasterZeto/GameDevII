@@ -51,11 +51,8 @@ namespace CommandPattern
                 else if(!waiting){
                     Unpause.Execute(Unpause);
                     UIManager.Hide();
+                    //change the startCoroutine so that it depends on the timing of the moves rather than just hard coding the time
                     StartCoroutine(ExecuteComs());
-                    foreach (Command com in pauseQueue)
-                    {
-                        com.Execute(com);
-                    }
                     pause = false;
                 }
                 
