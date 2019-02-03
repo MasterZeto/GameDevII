@@ -52,8 +52,16 @@ public class PauseUIManager : MonoBehaviour
         //To Do: have spawned buttons after the removed one slide down, and update currentPos.x
         //To Do: find the command in the pauseQueue and remove it
         PauseScript.pauseQueue.RemoveAt(queueButtons[bttn]);
+        int index=queueButtons[bttn];
+        currentIndex--;
         queueButtons.Remove(bttn);
         Destroy(bttn.gameObject);
+        List<Button> tempBttns=new List<Button>(queueButtons.Keys);
+        foreach(Button otherBttn in tempBttns){
+            if(queueButtons[otherBttn]>index){
+               queueButtons[otherBttn]--;
+            }
+        }
     }
     public void SetUp(){
         currentIndex=0;
