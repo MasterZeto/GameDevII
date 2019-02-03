@@ -538,7 +538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d05783202c2ce141b9ac87d46f86350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bttn: {fileID: 1079356360}
+  pauseManager: {fileID: 644890481}
+  UIManager: {fileID: 0}
 --- !u!4 &644890483
 Transform:
   m_ObjectHideFlags: 0
@@ -569,6 +570,7 @@ MonoBehaviour:
   - {fileID: 1079356360}
   - {fileID: 1373003834}
   - {fileID: 804115944}
+  pauseManager: {fileID: 644890481}
 --- !u!1 &648480959
 GameObject:
   m_ObjectHideFlags: 0
