@@ -7,7 +7,7 @@ using UnityEngine;
 namespace CommandPattern
 {
     public abstract class Command{
-        protected float speed = 5f;
+        protected float speed = 2f;
         public abstract void Execute(Command command);
         public virtual void Move(Command command, float deltaTime, Transform transform){}
     }

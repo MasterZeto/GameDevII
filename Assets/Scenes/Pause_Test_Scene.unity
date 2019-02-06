@@ -538,16 +538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d05783202c2ce141b9ac87d46f86350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
   numOfPossComs: 3
-  pause: 0
   pauseManager: {fileID: 644890481}
-  UIManager: {fileID: 0}
-  deltaTime: 0
-  lastFrozenTime: 0
+  UIManager: {fileID: 644890484}
 --- !u!4 &644890483
 Transform:
   m_ObjectHideFlags: 0
@@ -574,6 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf337b7fd21429429c7e4764a7fb567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bttnPrefab: {fileID: 0}
   bttns:
   - {fileID: 1079356360}
   - {fileID: 1373003834}

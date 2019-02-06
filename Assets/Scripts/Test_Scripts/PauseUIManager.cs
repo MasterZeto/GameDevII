@@ -8,8 +8,10 @@ namespace CommandPattern
 
 public class PauseUIManager : MonoBehaviour
 {
+    public Button bttnPrefab;
+    public Canvas UIparent;
     //change this to change dynamically, ex. with the customizations once they are implemented, might want it to be a list
-    public Button[] bttns;
+    public List<Button> bttns;
     //To Do: change this to a dictionary, and have addToQueue in the PauseScript add different commands based on the value
     private Dictionary<Button, int> queueButtons;
     private Dictionary<Button, RectTransform> buttonLoc;
@@ -25,6 +27,17 @@ public class PauseUIManager : MonoBehaviour
         queueButtons=new Dictionary<Button, int>();
         buttonLoc=new Dictionary<Button, RectTransform>();
         PauseScript=pauseManager.GetComponent<DummyPauseScript>();
+        for(int i = 0; i<PauseScript.numOfPossComs; i++){
+           Button newBttn=Instantiate(bttnPrefab);
+           RectTransform rect=newBttn.GetComponent<RectTransform>();
+           rect.transform.SetParent(UIparent.transform);
+           startPos.x=Screen.width/2-PauseScript.numOfPossComs/2*rect.sizeDelta.x+i*rect.sizeDelta.x;
+           startPos.y=4*rect.sizeDelta.y;
+           startPos.z=0;
+           rect.transform.position=startPos;
+           newBttn.GetComponentInChildren<Text>().text="Action"+(i+1);
+           bttns.Add(newBttn);
+        }
         foreach (Button bttn in bttns)
         {
             bttn.onClick.AddListener(() => AddToQueue(bttn));
@@ -52,7 +65,7 @@ public class PauseUIManager : MonoBehaviour
         rect.transform.position=currentPos;
         currentPos.x+=rect.sizeDelta.x;
         newBttn.onClick.AddListener(() => DeleteButton(newBttn));
-        int index=System.Array.IndexOf(bttns,bttn);
+        int index=bttns.IndexOf(bttn);
         PauseScript.addToQueue(index);
     }
     void DeleteButton(Button bttn){
