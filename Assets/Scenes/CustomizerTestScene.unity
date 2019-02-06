@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: prev_button
       value: 
       objectReference: {fileID: 670376564}
+    - target: {fileID: 1975227974443234588, guid: fa5d4ccc7c2f09d4797cf5fb7e639821,
+        type: 3}
+      propertyPath: part
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3981402886915759796, guid: fa5d4ccc7c2f09d4797cf5fb7e639821,
         type: 3}
       propertyPath: next_button
@@ -209,6 +214,11 @@ PrefabInstance:
       propertyPath: prev_button
       value: 
       objectReference: {fileID: 2125414845}
+    - target: {fileID: 1633979022262276764, guid: fa5d4ccc7c2f09d4797cf5fb7e639821,
+        type: 3}
+      propertyPath: part
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2882379195584243218, guid: fa5d4ccc7c2f09d4797cf5fb7e639821,
         type: 3}
       propertyPath: prev_button
@@ -219,6 +229,11 @@ PrefabInstance:
       propertyPath: next_button
       value: 
       objectReference: {fileID: 1613194865}
+    - target: {fileID: 2882379195584243218, guid: fa5d4ccc7c2f09d4797cf5fb7e639821,
+        type: 3}
+      propertyPath: part
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa5d4ccc7c2f09d4797cf5fb7e639821, type: 3}
 --- !u!1 &405975623

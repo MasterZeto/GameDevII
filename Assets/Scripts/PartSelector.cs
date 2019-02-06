@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Parts
+{
+    LEFT_ARM,
+    RIGHT_ARM,
+    LEFT_LEG,
+    RIGHT_LEG
+};
+
 /* Do the component locking thing */
 public class PartSelector : MonoBehaviour
 {
+    [SerializeField] Parts part;
     [SerializeField] Button prev_button;
     [SerializeField] Button next_button;
     GameObject[] parts;
@@ -31,6 +40,7 @@ public class PartSelector : MonoBehaviour
         selected++;
         if (selected >= parts.Length) selected -= parts.Length;
         parts[selected].SetActive(true);
+        UpdateCustomizationManager(selected);
     }
 
     [ContextMenu("Prev")]
@@ -40,5 +50,25 @@ public class PartSelector : MonoBehaviour
         selected--;
         if (selected < 0) selected += parts.Length;
         parts[selected].SetActive(true);
+        UpdateCustomizationManager(selected);
+    }
+
+    void UpdateCustomizationManager(int type)
+    {
+        switch (part)
+        {
+            case Parts.LEFT_ARM: 
+                CustomizationManager.left_arm_part = type;
+                break;
+            case Parts.LEFT_LEG: 
+                CustomizationManager.left_leg_part = type;
+                break;
+            case Parts.RIGHT_ARM: 
+                CustomizationManager.right_arm_part = type;
+                break;
+            case Parts.RIGHT_LEG: 
+                CustomizationManager.right_leg_part = type;
+                break;
+        }
     }
 }
