@@ -16,6 +16,8 @@ namespace CommandPattern
         public PauseUIManager UIManager;
         //will change this once timing is added to commands or w/e
         private bool waiting = false;
+        private Vector3 originalCamPos;
+        private Vector3 velocity=Vector3.zero;
         // Start is called before the first frame update
         void Start()
         {
@@ -31,6 +33,7 @@ namespace CommandPattern
             camMoveBack = new MoveBackUnscaled();
             camMoveRight = new MoveRightUnscaled();
             camMoveLeft = new MoveLeftUnscaled();
+            originalCamPos=Camera.main.transform.position;
         }
 
         // Update is called once per frame
@@ -42,16 +45,18 @@ namespace CommandPattern
                     Pause.Execute(Pause);
                     UIManager.SetUp();
                     pause = true;
+                    originalCamPos=Camera.main.transform.position;
                     pauseQueue.Clear();
                 }
                 else if(!waiting){
-                    Unpause.Execute(Unpause);
-                    UIManager.Hide();
                     //change the startCoroutine so that it depends on the timing of the moves rather than just hard coding the time
                     StartCoroutine(ExecuteComs());
                     pause = false;
                 }
                 
+            }
+            if(!pause){
+                //Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, originalCamPos, ref velocity, .5f, Mathf.Infinity,Time.unscaledDeltaTime);
             }
             if(pause){
                 //have to use axis raw because freezing time stops acceleration, meaning the acceleration of axis too
@@ -74,6 +79,12 @@ namespace CommandPattern
         }
         private IEnumerator ExecuteComs(){
             waiting=true;
+            UIManager.Hide();
+            while(Vector3.Distance(Camera.main.transform.position, originalCamPos)>.01f){
+                Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, originalCamPos, ref velocity, .5f, Mathf.Infinity,Time.unscaledDeltaTime);
+                yield return null;
+            }
+            Unpause.Execute(Unpause);
             foreach(Command com in pauseQueue){
                 com.Execute(com);
                 yield return new WaitForSeconds(2);
