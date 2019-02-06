@@ -11,7 +11,7 @@ namespace CommandPattern
         protected float maxSpeed = 3f;
         protected float Acceleration = 6f;
         public abstract void Execute(Command command);
-        public virtual void Move(Command command, float deltaTime, Transform transform){}
+        public virtual void Move(Command command, Transform transform){}
     }
     
     public class PauseGame : Command{
@@ -44,44 +44,44 @@ namespace CommandPattern
         public override void Execute(Command command){
             Debug.Log("Don't use this one yet, oops sorry");
         }
-        public override void Move(Command command, float deltaTime, Transform transform){
+        public override void Move(Command command, Transform transform){
             if(speed<maxSpeed){
-                speed=speed+Acceleration*deltaTime;
+                speed=speed+Acceleration*Time.unscaledDeltaTime;
             }
-            transform.position+=new Vector3(0,0,speed*deltaTime);
+            transform.position+=new Vector3(0,0,speed*Time.unscaledDeltaTime);
         }
     }
     public class MoveBackUnscaled: Command{
         public override void Execute(Command command){
             Debug.Log("Don't use this one yet, oops sorry");
         }
-        public override void Move(Command command, float deltaTime, Transform transform){
+        public override void Move(Command command, Transform transform){
             if(speed>-maxSpeed){
-                speed=speed-Acceleration*deltaTime;
+                speed=speed-Acceleration*Time.unscaledDeltaTime;
             }
-            transform.position+=new Vector3(0,0,speed*deltaTime);
+            transform.position+=new Vector3(0,0,speed*Time.unscaledDeltaTime);
         }
     }
     public class MoveLeftUnscaled: Command{
         public override void Execute(Command command){
             Debug.Log("Don't use this one yet, oops sorry");
         }
-        public override void Move(Command command, float deltaTime, Transform transform){
+        public override void Move(Command command, Transform transform){
             if(speed>-maxSpeed){
-                speed=speed-Acceleration*deltaTime;
+                speed=speed-Acceleration*Time.unscaledDeltaTime;
             }
-            transform.position+=new Vector3(speed*deltaTime,0,0);
+            transform.position+=new Vector3(speed*Time.unscaledDeltaTime,0,0);
         }
     }
     public class MoveRightUnscaled: Command{
         public override void Execute(Command command){
             Debug.Log("Don't use this one yet, oops sorry");
         }
-        public override void Move(Command command, float deltaTime, Transform transform){
+        public override void Move(Command command, Transform transform){
             if(speed<maxSpeed){
-                speed=speed+Acceleration*deltaTime;
+                speed=speed+Acceleration*Time.unscaledDeltaTime;
             }
-            transform.position+=new Vector3(speed*deltaTime,0,0);
+            transform.position+=new Vector3(speed*Time.unscaledDeltaTime,0,0);
         }
     }  
 }

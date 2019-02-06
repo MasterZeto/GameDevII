@@ -14,7 +14,6 @@ namespace CommandPattern
         public List<Command> pauseQueue;
         public GameObject pauseManager;
         public PauseUIManager UIManager;
-        private float deltaTime, lastFrozenTime;
         //will change this once timing is added to commands or w/e
         private bool waiting = false;
         // Start is called before the first frame update
@@ -32,7 +31,6 @@ namespace CommandPattern
             camMoveBack = new MoveBackUnscaled();
             camMoveRight = new MoveRightUnscaled();
             camMoveLeft = new MoveLeftUnscaled();
-            lastFrozenTime = Time.unscaledTime;
         }
 
         // Update is called once per frame
@@ -42,7 +40,6 @@ namespace CommandPattern
                 //Also change the input thing and move it to the InputHandler 
                 if(!pause && !waiting){
                     Pause.Execute(Pause);
-                    lastFrozenTime = Time.unscaledTime;
                     UIManager.SetUp();
                     pause = true;
                     pauseQueue.Clear();
@@ -56,21 +53,19 @@ namespace CommandPattern
                 }
                 
             }
-            deltaTime = Time.unscaledTime - lastFrozenTime;
-            lastFrozenTime = Time.unscaledTime;
             if(pause){
                 //have to use axis raw because freezing time stops acceleration, meaning the acceleration of axis too
                 if(Input.GetAxisRaw("Vertical") == 1){
-                    camMoveForward.Move(camMoveForward, deltaTime, Camera.main.transform);
+                    camMoveForward.Move(camMoveForward, Camera.main.transform);
                 }
                 if(Input.GetAxisRaw("Vertical") == -1){
-                camMoveBack.Move(camMoveBack, deltaTime, Camera.main.transform);
+                camMoveBack.Move(camMoveBack, Camera.main.transform);
                 }
                 if(Input.GetAxisRaw("Horizontal") == 1){
-                    camMoveRight.Move(camMoveRight, deltaTime, Camera.main.transform);
+                    camMoveRight.Move(camMoveRight, Camera.main.transform);
                 }
                 if(Input.GetAxisRaw("Horizontal") == -1){
-                camMoveLeft.Move(camMoveLeft, deltaTime, Camera.main.transform);
+                camMoveLeft.Move(camMoveLeft, Camera.main.transform);
                 }
             }
         }
