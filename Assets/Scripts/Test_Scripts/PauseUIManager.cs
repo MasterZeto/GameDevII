@@ -102,12 +102,12 @@ namespace CommandPattern
             foreach(Button bttn in bttns){
                 bttn.gameObject.SetActive(false);
             }
-            /*foreach(var bttn in queueButtons){
+            foreach(var bttn in queueButtons){
                 //To do: change so that it doesn't destroy itself until the action is done
-                if(bttn.Key.gameObject!=null){
-                    Destroy(bttn.Key.gameObject);
+                if(bttn.Key.gameObject != null){
+                    //Destroy(bttn.Key.interactable = false);
                 }
-            }*/
+            }
         }
         public void updateQueueButtons(){
             if(queueButtons.Count==0){
@@ -117,8 +117,8 @@ namespace CommandPattern
             List<Button> tempBttns;
             tempBttns = new List<Button>(queueButtons.Keys);
             foreach(Button bttn in tempBttns){
-                if(queueButtons[bttn]==0){
-                    usedBttn=bttn;
+                if(queueButtons[bttn] == 0){
+                    usedBttn = bttn;
                 }
             }
             if(usedBttn!=null){
