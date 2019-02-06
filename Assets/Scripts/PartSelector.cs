@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/* Do the component locking thing */
 public class PartSelector : MonoBehaviour
 {
     [SerializeField] Button prev_button;
