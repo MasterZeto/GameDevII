@@ -9,6 +9,7 @@ namespace CommandPattern
 public class PauseUIManager : MonoBehaviour
 {
     public Button bttnPrefab;
+    public int maxQueued = 5;
     public Canvas UIparent;
     //change this to change dynamically, ex. with the customizations once they are implemented, might want it to be a list
     public List<Button> bttns;
@@ -42,7 +43,7 @@ public class PauseUIManager : MonoBehaviour
         {
             bttn.onClick.AddListener(() => AddToQueue(bttn));
         }
-        startPos.x=Screen.width/2-2*bttns[0].GetComponent<RectTransform>().sizeDelta.x;
+        startPos.x=Screen.width/2-maxQueued/2*bttns[0].GetComponent<RectTransform>().sizeDelta.x;
         startPos.y=2*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
         startPos.z=0;
         currentPos=startPos;
@@ -56,17 +57,19 @@ public class PauseUIManager : MonoBehaviour
         
     }
     void AddToQueue(Button bttn){
-        Button newBttn=Instantiate(bttn);
-        RectTransform rect=newBttn.GetComponent<RectTransform>();
-        queueButtons.Add(newBttn,currentIndex);
-        buttonLoc.Add(newBttn,rect);
-        currentIndex++;
-        rect.transform.SetParent(parent);
-        rect.transform.position=currentPos;
-        currentPos.x+=rect.sizeDelta.x;
-        newBttn.onClick.AddListener(() => DeleteButton(newBttn));
-        int index=bttns.IndexOf(bttn);
-        PauseScript.addToQueue(index);
+        if(PauseScript.pauseQueue.Count<maxQueued){
+            Button newBttn=Instantiate(bttn);
+            RectTransform rect=newBttn.GetComponent<RectTransform>();
+            queueButtons.Add(newBttn,currentIndex);
+            buttonLoc.Add(newBttn,rect);
+            currentIndex++;
+            rect.transform.SetParent(parent);
+            rect.transform.position=currentPos;
+            currentPos.x+=rect.sizeDelta.x;
+            newBttn.onClick.AddListener(() => DeleteButton(newBttn));
+            int index=bttns.IndexOf(bttn);
+            PauseScript.addToQueue(index);
+        }
     }
     void DeleteButton(Button bttn){
         //To Do: have spawned buttons after the removed one slide down, and update currentPos.x
