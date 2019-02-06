@@ -1,0 +1,1379 @@
+fileFormatVersion: 2
+guid: 50de0d20a45dc4c5cbb78fe10ad7d53f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: abdomen
+    100002: Belt1
+    100004: Belt2
+    100006: Belt3
+    100008: ChestClockCenter
+    100010: ChestClockSupport
+    100012: ChestGlassBack
+    100014: ChestGlassFront
+    100016: ChestHourHand
+    100018: chestHourHand
+    100020: ChestMinuteHand
+    100022: chestMinuteHand
+    100024: Face
+    100026: Head
+    100028: HeadClockCenter
+    100030: HeadGlass
+    100032: HeadHourHand
+    100034: headHourHand
+    100036: HeadMinuteHand
+    100038: headMinuteHand
+    100040: hip
+    100042: leftAnkle
+    100044: LeftAnkle1
+    100046: LeftAnkle2
+    100048: LeftAnkleExtendor
+    100050: LeftAnklePivot
+    100052: LeftArmExtendor
+    100054: leftArmExtendor
+    100056: LeftBicep
+    100058: leftBicep
+    100060: LeftCalf
+    100062: leftCalf
+    100064: leftElbow
+    100066: LeftElbow1
+    100068: LeftElbow2
+    100070: LeftElbowConnector
+    100072: LeftElbowPivot
+    100074: LeftFoot
+    100076: leftFoot
+    100078: LeftForearm
+    100080: leftForearm
+    100082: LeftHand
+    100084: leftHand
+    100086: leftHip
+    100088: LeftHip1
+    100090: LeftHip2
+    100092: LeftHipExtendor
+    100094: LeftHipPivot
+    100096: leftKnee
+    100098: LeftKnee1
+    100100: LeftKnee2
+    100102: LeftKneeExtendor
+    100104: LeftKneePivot
+    100106: leftPalm
+    100108: leftPelvis
+    100110: LeftPelvisExtendor
+    100112: LeftPipe
+    100114: leftShoulder
+    100116: LeftShoulder1
+    100118: LeftShoulder2
+    100120: LeftShoulderConnector
+    100122: LeftShoulderPivot
+    100124: LeftThigh
+    100126: leftThigh
+    100128: leftWrist
+    100130: LeftWrist1
+    100132: LeftWrist2
+    100134: LeftWristExtendor
+    100136: LeftWristPivot
+    100138: //RootNode
+    100140: neck
+    100142: Neck1
+    100144: NeckPivot
+    100146: Pelvis
+    100148: rightAnkle
+    100150: RightAnkle1
+    100152: RightAnkle2
+    100154: RightAnkleExtendor
+    100156: RightAnklePivot
+    100158: RightArmExtendor
+    100160: rightArmExtendor
+    100162: RightBicep
+    100164: rightBicep
+    100166: RightCalf
+    100168: rightCalf
+    100170: rightElbow
+    100172: RightElbow1
+    100174: RightElbow2
+    100176: RightElbowConnector
+    100178: RightElbowPivot
+    100180: RightFoot
+    100182: rightFoot
+    100184: RightForearm
+    100186: rightForearm
+    100188: RightHand
+    100190: rightHand
+    100192: rightHip
+    100194: RightHip1
+    100196: RightHip2
+    100198: RightHipExtendor
+    100200: RightHipPivot
+    100202: rightKnee
+    100204: RightKnee1
+    100206: RightKnee2
+    100208: RightKneeExtendor
+    100210: RightKneePivot
+    100212: rightPalm
+    100214: rightPelvis
+    100216: RightPelvisExtendor
+    100218: RightPipe
+    100220: rightShoulder
+    100222: RightShoulder1
+    100224: RightShoulder2
+    100226: RightShoulderConnector
+    100228: RightShoulderPivot
+    100230: RightThigh
+    100232: rightThigh
+    100234: rightWrist
+    100236: RightWrist1
+    100238: RightWrist2
+    100240: RightWristExtendor
+    100242: RightWristPivot
+    100244: Torso
+    100246: upperBody
+    400000: abdomen
+    400002: Belt1
+    400004: Belt2
+    400006: Belt3
+    400008: ChestClockCenter
+    400010: ChestClockSupport
+    400012: ChestGlassBack
+    400014: ChestGlassFront
+    400016: ChestHourHand
+    400018: chestHourHand
+    400020: ChestMinuteHand
+    400022: chestMinuteHand
+    400024: Face
+    400026: Head
+    400028: HeadClockCenter
+    400030: HeadGlass
+    400032: HeadHourHand
+    400034: headHourHand
+    400036: HeadMinuteHand
+    400038: headMinuteHand
+    400040: hip
+    400042: leftAnkle
+    400044: LeftAnkle1
+    400046: LeftAnkle2
+    400048: LeftAnkleExtendor
+    400050: LeftAnklePivot
+    400052: LeftArmExtendor
+    400054: leftArmExtendor
+    400056: LeftBicep
+    400058: leftBicep
+    400060: LeftCalf
+    400062: leftCalf
+    400064: leftElbow
+    400066: LeftElbow1
+    400068: LeftElbow2
+    400070: LeftElbowConnector
+    400072: LeftElbowPivot
+    400074: LeftFoot
+    400076: leftFoot
+    400078: LeftForearm
+    400080: leftForearm
+    400082: LeftHand
+    400084: leftHand
+    400086: leftHip
+    400088: LeftHip1
+    400090: LeftHip2
+    400092: LeftHipExtendor
+    400094: LeftHipPivot
+    400096: leftKnee
+    400098: LeftKnee1
+    400100: LeftKnee2
+    400102: LeftKneeExtendor
+    400104: LeftKneePivot
+    400106: leftPalm
+    400108: leftPelvis
+    400110: LeftPelvisExtendor
+    400112: LeftPipe
+    400114: leftShoulder
+    400116: LeftShoulder1
+    400118: LeftShoulder2
+    400120: LeftShoulderConnector
+    400122: LeftShoulderPivot
+    400124: LeftThigh
+    400126: leftThigh
+    400128: leftWrist
+    400130: LeftWrist1
+    400132: LeftWrist2
+    400134: LeftWristExtendor
+    400136: LeftWristPivot
+    400138: //RootNode
+    400140: neck
+    400142: Neck1
+    400144: NeckPivot
+    400146: Pelvis
+    400148: rightAnkle
+    400150: RightAnkle1
+    400152: RightAnkle2
+    400154: RightAnkleExtendor
+    400156: RightAnklePivot
+    400158: RightArmExtendor
+    400160: rightArmExtendor
+    400162: RightBicep
+    400164: rightBicep
+    400166: RightCalf
+    400168: rightCalf
+    400170: rightElbow
+    400172: RightElbow1
+    400174: RightElbow2
+    400176: RightElbowConnector
+    400178: RightElbowPivot
+    400180: RightFoot
+    400182: rightFoot
+    400184: RightForearm
+    400186: rightForearm
+    400188: RightHand
+    400190: rightHand
+    400192: rightHip
+    400194: RightHip1
+    400196: RightHip2
+    400198: RightHipExtendor
+    400200: RightHipPivot
+    400202: rightKnee
+    400204: RightKnee1
+    400206: RightKnee2
+    400208: RightKneeExtendor
+    400210: RightKneePivot
+    400212: rightPalm
+    400214: rightPelvis
+    400216: RightPelvisExtendor
+    400218: RightPipe
+    400220: rightShoulder
+    400222: RightShoulder1
+    400224: RightShoulder2
+    400226: RightShoulderConnector
+    400228: RightShoulderPivot
+    400230: RightThigh
+    400232: rightThigh
+    400234: rightWrist
+    400236: RightWrist1
+    400238: RightWrist2
+    400240: RightWristExtendor
+    400242: RightWristPivot
+    400244: Torso
+    400246: upperBody
+    2100000: lambert1
+    4300000: RightArmExtendor
+    4300002: Pelvis
+    4300004: LeftAnkleExtendor
+    4300006: LeftAnklePivot
+    4300008: LeftFoot
+    4300010: LeftAnkle1
+    4300012: LeftAnkle2
+    4300014: LeftCalf
+    4300016: LeftKneeExtendor
+    4300018: LeftKneePivot
+    4300020: LeftKnee2
+    4300022: LeftKnee1
+    4300024: LeftHipExtendor
+    4300026: LeftHipPivot
+    4300028: LeftThigh
+    4300030: LeftHip2
+    4300032: LeftHip1
+    4300034: LeftPelvisExtendor
+    4300036: Belt2
+    4300038: Belt3
+    4300040: Belt1
+    4300042: ChestGlassBack
+    4300044: ChestGlassFront
+    4300046: ChestClockCenter
+    4300048: ChestClockSupport
+    4300050: Torso
+    4300052: ChestHourHand
+    4300054: ChestMinuteHand
+    4300056: LeftHand
+    4300058: LeftWristPivot
+    4300060: LeftWristExtendor
+    4300062: LeftWrist2
+    4300064: LeftWrist1
+    4300066: LeftForearm
+    4300068: LeftElbowPivot
+    4300070: LeftElbowConnector
+    4300072: LeftElbow1
+    4300074: LeftElbow2
+    4300076: LeftShoulderPivot
+    4300078: LeftShoulderConnector
+    4300080: LeftBicep
+    4300082: LeftShoulder1
+    4300084: LeftShoulder2
+    4300086: LeftArmExtendor
+    4300088: HeadHourHand
+    4300090: HeadMinuteHand
+    4300092: HeadClockCenter
+    4300094: HeadGlass
+    4300096: Head
+    4300098: Face
+    4300100: NeckPivot
+    4300102: Neck1
+    4300104: RightPipe
+    4300106: LeftPipe
+    4300108: RightHand
+    4300110: RightWristPivot
+    4300112: RightWristExtendor
+    4300114: RightWrist1
+    4300116: RightWrist2
+    4300118: RightForearm
+    4300120: RightElbowConnector
+    4300122: RightElbowPivot
+    4300124: RightElbow2
+    4300126: RightElbow1
+    4300128: RightBicep
+    4300130: RightShoulderPivot
+    4300132: RightShoulderConnector
+    4300134: RightShoulder2
+    4300136: RightShoulder1
+    4300138: RightFoot
+    4300140: RightAnkleExtendor
+    4300142: RightAnklePivot
+    4300144: RightAnkle2
+    4300146: RightAnkle1
+    4300148: RightCalf
+    4300150: RightKneeExtendor
+    4300152: RightKneePivot
+    4300154: RightKnee2
+    4300156: RightKnee1
+    4300158: RightThigh
+    4300160: RightHipPivot
+    4300162: RightHipExtendor
+    4300164: RightHip2
+    4300166: RightHip1
+    4300168: RightPelvisExtendor
+    7400000: Idle
+    7400002: Walking(forward)
+    7400004: Punching
+    9500000: //RootNode
+    13700000: Belt1
+    13700002: Belt2
+    13700004: Belt3
+    13700006: ChestClockCenter
+    13700008: ChestClockSupport
+    13700010: ChestGlassBack
+    13700012: ChestGlassFront
+    13700014: ChestHourHand
+    13700016: ChestMinuteHand
+    13700018: Face
+    13700020: Head
+    13700022: HeadClockCenter
+    13700024: HeadGlass
+    13700026: HeadHourHand
+    13700028: HeadMinuteHand
+    13700030: LeftAnkle1
+    13700032: LeftAnkle2
+    13700034: LeftAnkleExtendor
+    13700036: LeftAnklePivot
+    13700038: LeftArmExtendor
+    13700040: LeftBicep
+    13700042: LeftCalf
+    13700044: LeftElbow1
+    13700046: LeftElbow2
+    13700048: LeftElbowConnector
+    13700050: LeftElbowPivot
+    13700052: LeftFoot
+    13700054: LeftForearm
+    13700056: LeftHand
+    13700058: LeftHip1
+    13700060: LeftHip2
+    13700062: LeftHipExtendor
+    13700064: LeftHipPivot
+    13700066: LeftKnee1
+    13700068: LeftKnee2
+    13700070: LeftKneeExtendor
+    13700072: LeftKneePivot
+    13700074: LeftPelvisExtendor
+    13700076: LeftPipe
+    13700078: LeftShoulder1
+    13700080: LeftShoulder2
+    13700082: LeftShoulderConnector
+    13700084: LeftShoulderPivot
+    13700086: LeftThigh
+    13700088: LeftWrist1
+    13700090: LeftWrist2
+    13700092: LeftWristExtendor
+    13700094: LeftWristPivot
+    13700096: Neck1
+    13700098: NeckPivot
+    13700100: Pelvis
+    13700102: RightAnkle1
+    13700104: RightAnkle2
+    13700106: RightAnkleExtendor
+    13700108: RightAnklePivot
+    13700110: RightArmExtendor
+    13700112: RightBicep
+    13700114: RightCalf
+    13700116: RightElbow1
+    13700118: RightElbow2
+    13700120: RightElbowConnector
+    13700122: RightElbowPivot
+    13700124: RightFoot
+    13700126: RightForearm
+    13700128: RightHand
+    13700130: RightHip1
+    13700132: RightHip2
+    13700134: RightHipExtendor
+    13700136: RightHipPivot
+    13700138: RightKnee1
+    13700140: RightKnee2
+    13700142: RightKneeExtendor
+    13700144: RightKneePivot
+    13700146: RightPelvisExtendor
+    13700148: RightPipe
+    13700150: RightShoulder1
+    13700152: RightShoulder2
+    13700154: RightShoulderConnector
+    13700156: RightShoulderPivot
+    13700158: RightThigh
+    13700160: RightWrist1
+    13700162: RightWrist2
+    13700164: RightWristExtendor
+    13700166: RightWristPivot
+    13700168: Torso
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'rightPelvis' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'rightCalf' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'rightArmExtendor'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'rightForearm'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'leftPelvis'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'leftCalf'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walking(forward)
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Punching
+      takeName: Take 001
+      firstFrame: 49
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: hip
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftHip
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightHip
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftKnee
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightKnee
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftAnkle
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightAnkle
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: abdomen
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upperBody
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: headHourHand
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftBicep
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightBicep
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftElbow
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightElbow
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftWrist
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightWrist
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: MurryMech -animated(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightArmExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.45421347, y: 3.5067878, z: -0.110919125}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.0015990492, y: 0.0011405945, z: 0.0015990492}
+    - name: Pelvis
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.108, y: 2.4999747, z: -0.1117}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0021492862, y: 0.002570109, z: 0.0039481926}
+    - name: LeftAnkleExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.321, y: 0.18298201, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.000121026176, y: 0.0011491743, z: 0.0005170161}
+    - name: LeftAnklePivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.32, y: 0.21357219, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.00019396804, y: 0.00035332868, z: 0.00019396804}
+    - name: LeftFoot
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.321, y: 0.015793074, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.002173596, y: 0.0024297242, z: 0.00223609}
+    - name: LeftAnkle1
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.286, y: 0.109643966, z: -0.084}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.001, y: 0.001, z: -0.001}
+    - name: LeftAnkle2
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.355, y: 0.109643966, z: -0.08416132}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.001, y: 0.001, z: 0.001}
+    - name: LeftCalf
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.318, y: 0.73945457, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.009603785, y: 0.002732838, z: 0.002732838}
+    - name: LeftKneeExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.32, y: 1.2523276, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.000121026176, y: 0.0011491743, z: 0.0005170161}
+    - name: LeftKneePivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.32, y: 1.2829177, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.00019396804, y: 0.00035332868, z: 0.00019396804}
+    - name: LeftKnee2
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.355, y: 1.1789895, z: -0.08416132}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.001, y: 0.001, z: 0.001}
+    - name: LeftKnee1
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.286, y: 1.1789895, z: -0.084}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.001, y: 0.001, z: -0.001}
+    - name: LeftHipExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.322, y: 2.4769068, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0011766244, y: 0.0032486103, z: 0.00015948043}
+    - name: LeftHipPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.32227978, y: 2.5599895, z: -0.112}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 0.0004680772, y: 0.0004680772, z: 0.0004680772}
+    - name: LeftThigh
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.318, y: 1.8371823, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.010163763, y: 0.0035, z: 0.0035}
+    - name: LeftHip2
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.54247963, y: 2.6079895, z: -0.034}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 0.00196, y: 0.00196, z: -0.00196}
+    - name: LeftHip1
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.542, y: 2.6084468, z: -0.188}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 0.0019576533, y: 0.0019576533, z: 0.0019576533}
+    - name: LeftPelvisExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.129, y: 2.56, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.00044, y: 0.00119, z: 0.00044}
+    - name: Belt2
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.7388596e-18, y: 2.6943157, z: -0.117}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.00131694, y: 0.0010960734, z: 0.0019088078}
+    - name: Belt3
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.3142537e-18, y: 2.651743, z: -0.117}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.00131694, y: 0.0010960734, z: 0.0019088078}
+    - name: Belt1
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.7388596e-18, y: 2.727428, z: -0.117}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.00131694, y: 0.0010960734, z: 0.0019088078}
+    - name: ChestGlassBack
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.0001196926, y: 3.3859985, z: -0.3047164}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 0.0022242093, y: 0.000027928163, z: 0.0022242093}
+    - name: ChestGlassFront
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.0001196926, y: 3.3859985, z: 0.066974185}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 0.0022242093, y: 0.000027928163, z: 0.0022242093}
+    - name: ChestClockCenter
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.05117447e-19, y: 3.4035134, z: -0.112}
+      rotation: {x: 4.3297806e-17, y: -0.7071068, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 0.00018359642, y: 0.0006773406, z: -0.00018359642}
+    - name: ChestClockSupport
+      parentName: MurryMech -animated(Clone)
+      position: {x: -2.4473638e-19, y: 3.5341628, z: -0.1616724}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.00008155224, y: 0.0023885032, z: 0.000067678084}
+    - name: Torso
+      parentName: MurryMech -animated(Clone)
+      position: {x: 5.158325e-19, y: -345.16144, z: 8.928977}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: ChestHourHand
+      parentName: MurryMech -animated(Clone)
+      position: {x: -7.546047e-18, y: 3.3506234, z: -0.07444122}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 0.0011739443, y: 0.0011739443, z: 0.0011739443}
+    - name: ChestMinuteHand
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.6748755e-17, y: 3.4954689, z: -0.112}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.0011739443, y: 0.0011739443, z: 0.0011739443}
+    - name: LeftHand
+      parentName: MurryMech -animated(Clone)
+      position: {x: -2.660999, y: 3.5041347, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0024483723, y: 0.0024483723, z: 0.0024483723}
+    - name: LeftWristPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: -2.3499992, y: 3.5071347, z: -0.109}
+      rotation: {x: -0.0000000072265047, y: 0.7071068, z: 0.7071068, w: -0.0000000072265047}
+      scale: {x: 0.0001424525, y: 0.0001424525, z: 0.0001424525}
+    - name: LeftWristExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: -2.381999, y: 3.5031345, z: -0.109}
+      rotation: {x: 0, y: 0, z: 1, w: -0.0000000102198205}
+      scale: {x: 0.0010291031, y: 0.000668251, z: 0.000119661636}
+    - name: LeftWrist2
+      parentName: MurryMech -animated(Clone)
+      position: {x: -2.415061, y: 3.4798722, z: -0.08832809}
+      rotation: {x: 0, y: 0, z: 1, w: -0.0000000102198205}
+      scale: {x: 0.0006157717, y: 0.0006157717, z: 0.0006157717}
+    - name: LeftWrist1
+      parentName: MurryMech -animated(Clone)
+      position: {x: -2.4153473, y: 3.4798722, z: -0.13057436}
+      rotation: {x: 0, y: 0, z: 1, w: -0.0000000102198205}
+      scale: {x: 0.0006157717, y: 0.0006157717, z: -0.0006157717}
+    - name: LeftForearm
+      parentName: MurryMech -animated(Clone)
+      position: {x: -2.022999, y: 3.5031865, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.006, y: 0.002042804, z: 0.002042804}
+    - name: LeftElbowPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.6409991, y: 3.5072882, z: -0.109}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 0.00021654571, y: 0.00021654571, z: 0.00021654571}
+    - name: LeftElbowConnector
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.6799991, y: 3.5039237, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0012, y: 0.0007818307, z: 0.00014}
+    - name: LeftElbow1
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.7524532, y: 3.4749177, z: -0.07469335}
+      rotation: {x: 0, y: 0, z: 1, w: -0.0000000102198205}
+      scale: {x: 0.001, y: 0.001, z: 0.001}
+    - name: LeftElbow2
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.7524532, y: 3.4749177, z: -0.14251705}
+      rotation: {x: 0, y: 0, z: 1, w: -0.0000000102198205}
+      scale: {x: 0.001, y: 0.001, z: -0.001}
+    - name: LeftShoulderPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.6839991, y: 3.5072882, z: -0.113217555}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 0.00038581682, y: 0.00038581682, z: 0.00038581682}
+    - name: LeftShoulderConnector
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.7529991, y: 3.5039237, z: -0.1084878}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.002451295, y: 0.0010980099, z: 0.0003115596}
+    - name: LeftBicep
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.2279991, y: 3.5031865, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0075, y: 0.0028921843, z: 0.0028921843}
+    - name: LeftShoulder1
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.94199914, y: 3.5715322, z: -0.20195702}
+      rotation: {x: -0.0000000102198205, y: 1, z: 4.500362e-11, w: -4.599289e-19}
+      scale: {x: 0.00251, y: 0.002505232, z: 0.00251}
+    - name: LeftShoulder2
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.94199914, y: 3.5715322, z: -0.015466649}
+      rotation: {x: -0.0000000102198205, y: 1, z: 4.500362e-11, w: -4.599289e-19}
+      scale: {x: 0.00251, y: 0.002505232, z: -0.002505232}
+    - name: LeftArmExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.4539991, y: 3.5076861, z: -0.110919125}
+      rotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.0015990492, y: 0.0011405945, z: 0.0015990492}
+    - name: HeadHourHand
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.000593676, y: 4.3601766, z: -0.19949673}
+      rotation: {x: 0.49612558, y: -0, z: -0, w: 0.8682508}
+      scale: {x: 0.0011739443, y: 0.0005220522, z: 0.0011739443}
+    - name: HeadMinuteHand
+      parentName: MurryMech -animated(Clone)
+      position: {x: 4.0245583e-18, y: 4.5046988, z: -0.29719254}
+      rotation: {x: 0.8682511, y: 0, z: 0, w: -0.49612504}
+      scale: {x: 0.0011739443, y: 0.00052, z: 0.0011739443}
+    - name: HeadClockCenter
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.00031111142, y: 4.4106755, z: -0.25107583}
+      rotation: {x: 0.51292396, y: -0, z: -0, w: 0.8584341}
+      scale: {x: 0.0003434138, y: 0.0003434138, z: 0.0003434138}
+    - name: HeadGlass
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.05937014e-16, y: 4.448139, z: -0.20307922}
+      rotation: {x: 0.50989956, y: -0, z: -0, w: 0.860234}
+      scale: {x: 0.0030430388, y: 0.000038209753, z: 0.0030430388}
+    - name: Head
+      parentName: MurryMech -animated(Clone)
+      position: {x: -3.779069e-17, y: 4.2104883, z: -0.6289613}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.006, y: 0.006, z: 0.006}
+    - name: Face
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.7893346e-17, y: 3.966142, z: -0.07723047}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.0050565223, z: 0.0037709244}
+    - name: NeckPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: -2.1117934e-17, y: 3.714659, z: -0.08599652}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0007485189, y: 0.0007485189, z: 0.0007485189}
+    - name: Neck1
+      parentName: MurryMech -animated(Clone)
+      position: {x: -1.0050824e-17, y: 3.7149894, z: -0.086}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0008467579, y: 0.0008467579, z: 0.0008467579}
+    - name: RightPipe
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.61469877, y: 3.9756904, z: -0.27605307}
+      rotation: {x: 0.09059519, y: 0.7382772, z: -0.64103043, w: -0.1892598}
+      scale: {x: 0.00040187637, y: 0.0043730247, z: 0.00040187637}
+    - name: LeftPipe
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0.60932714, y: 3.9808075, z: -0.32308108}
+      rotation: {x: 0.66504604, y: 0.4198775, z: -0.034146808, w: 0.6166447}
+      scale: {x: 0.00040187637, y: 0.0043730247, z: 0.00040187637}
+    - name: RightHand
+      parentName: MurryMech -animated(Clone)
+      position: {x: 2.660954, y: 3.506236, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0024483723, y: 0.0024483723, z: 0.0024483723}
+    - name: RightWristPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: 2.3503897, y: 3.5063899, z: -0.109}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 0.0001424525, y: 0.0001424525, z: 0.0001424525}
+    - name: RightWristExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: 2.3818865, y: 3.5022361, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0010291031, y: 0.000668251, z: 0.000119661636}
+    - name: RightWrist1
+      parentName: MurryMech -animated(Clone)
+      position: {x: 2.414956, y: 3.524875, z: -0.13057436}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0006157717, y: 0.0006157717, z: -0.0006157717}
+    - name: RightWrist2
+      parentName: MurryMech -animated(Clone)
+      position: {x: 2.4152427, y: 3.524875, z: -0.08832809}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0006157717, y: 0.0006157717, z: 0.0006157717}
+    - name: RightForearm
+      parentName: MurryMech -animated(Clone)
+      position: {x: 2.0225344, y: 3.502288, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.006, y: 0.002042804, z: 0.002042804}
+    - name: RightElbowConnector
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.6797218, y: 3.5030253, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0012, y: 0.0007818307, z: 0.00014}
+    - name: RightElbowPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.6413921, y: 3.5063899, z: -0.109}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 0.00021654571, y: 0.00021654571, z: 0.00021654571}
+    - name: RightElbow2
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.7519685, y: 3.53551, z: -0.07625482}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.001, y: 0.001, z: 0.001}
+    - name: RightElbow1
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.7516822, y: 3.53551, z: -0.14086647}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.001, y: 0.001, z: -0.001}
+    - name: RightBicep
+      parentName: MurryMech -animated(Clone)
+      position: {x: 1.2275261, y: 3.502288, z: -0.109}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0075, y: 0.0028921843, z: 0.0028921843}
+    - name: RightShoulderPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.68363154, y: 3.5063899, z: -0.113217555}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 0.00038581682, y: 0.00038581682, z: 0.00038581682}
+    - name: RightShoulderConnector
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.75316465, y: 3.5030253, z: -0.1084878}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.002451295, y: 0.0010980099, z: 0.0003115596}
+    - name: RightShoulder2
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.942, y: 3.5706336, z: -0.20195702}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.00251, y: 0.002505232, z: -0.00251}
+    - name: RightShoulder1
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.94228643, y: 3.5706336, z: -0.015466649}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.002505232, y: 0.002505232, z: 0.002505232}
+    - name: RightFoot
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.32100236, y: 0.015793076, z: -0.112}
+      rotation: {x: -9.52227e-14, y: 0.00000010170754, z: 0.0000009362402, w: 1}
+      scale: {x: 0.002173596, y: 0.0024297242, z: 0.00223609}
+    - name: RightAnkleExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.3206988, y: 0.18298201, z: -0.112}
+      rotation: {x: -9.52227e-14, y: 0.00000010170754, z: 0.0000009362402, w: 1}
+      scale: {x: 0.000121026176, y: 0.0011491743, z: 0.0005170161}
+    - name: RightAnklePivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.32048708, y: 0.21357219, z: -0.112}
+      rotation: {x: -0.000000071918166, y: 0.00000007191804, z: -0.7071062, w: 0.7071075}
+      scale: {x: 0.00019396804, y: 0.00035332868, z: 0.00019396804}
+    - name: RightAnkle2
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.2864567, y: 0.1096439, z: -0.08416131}
+      rotation: {x: 0.5000004, y: -0.4999995, z: -0.49999958, w: 0.50000054}
+      scale: {x: 0.001, y: 0.001, z: 0.001}
+    - name: RightAnkle1
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.35504532, y: 0.109644026, z: -0.08400001}
+      rotation: {x: 0.5000004, y: -0.4999995, z: -0.49999958, w: 0.50000054}
+      scale: {x: 0.001, y: 0.001, z: -0.001}
+    - name: RightCalf
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.31824377, y: 0.73945457, z: -0.111999996}
+      rotation: {x: -0.000000071918166, y: 0.00000007191804, z: -0.7071062, w: 0.7071075}
+      scale: {x: 0.009603785, y: 0.002732838, z: 0.002732838}
+    - name: RightKneeExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.32000005, y: 1.2523276, z: -0.112}
+      rotation: {x: -9.52227e-14, y: 0.00000010170754, z: 0.0000009362402, w: 1}
+      scale: {x: 0.000121026176, y: 0.0011491743, z: 0.0005170161}
+    - name: RightKneePivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.3204851, y: 1.2829177, z: -0.112}
+      rotation: {x: -0.000000071918166, y: 0.00000007191804, z: -0.7071062, w: 0.7071075}
+      scale: {x: 0.00019396804, y: 0.00035332868, z: 0.00019396804}
+    - name: RightKnee2
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.2864545, y: 1.1789895, z: -0.08416132}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.001, y: 0.001, z: 0.001}
+    - name: RightKnee1
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.3550431, y: 1.1789895, z: -0.084}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.001, y: 0.001, z: -0.001}
+    - name: RightThigh
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.31824276, y: 1.8371823, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.010163763, y: 0.0035, z: 0.0035}
+    - name: RightHipPivot
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.3182661, y: 2.5599895, z: -0.112}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 0.0004680772, y: 0.0004680772, z: 0.0004680772}
+    - name: RightHipExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.32215083, y: 2.4769068, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0011766244, y: 0.0032486103, z: 0.00015948043}
+    - name: RightHip2
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.542, y: 2.6079895, z: -0.034}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.00196, y: 0.00196, z: 0.00196}
+    - name: RightHip1
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.542, y: 2.6079895, z: -0.188}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.00196, y: 0.00196, z: -0.00196}
+    - name: RightPelvisExtendor
+      parentName: MurryMech -animated(Clone)
+      position: {x: 0.129, y: 2.56, z: -0.112}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 0.00044, y: 0.00119, z: 0.00044}
+    - name: hip
+      parentName: MurryMech -animated(Clone)
+      position: {x: -0, y: 2.4726589, z: -0.111999996}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: abdomen
+      parentName: hip
+      position: {x: -0, y: 13.2523, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: upperBody
+      parentName: abdomen
+      position: {x: -1.2246492e-17, y: 81.47131, z: 0.10000019}
+      rotation: {x: 0, y: 0, z: 0.00049362815, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: chestMinuteHand
+      parentName: upperBody
+      position: {x: -0.0050019035, y: -10.405548, z: -0.025843604}
+      rotation: {x: 0.0004936169, y: 0.9999999, z: -6.120211e-17, w: -6.126256e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: chestHourHand
+      parentName: upperBody
+      position: {x: -0.0050019035, y: -10.405548, z: -2.7598033}
+      rotation: {x: 0.0004936169, y: 0.9999999, z: -6.120211e-17, w: -6.126256e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightArmExtendor
+      parentName: upperBody
+      position: {x: -45.42137, y: 1.5431961e-12, z: -5.09563e-15}
+      rotation: {x: 0.00000064527484, y: 0.0004741428, z: 0.00037367205, w: 0.9999998}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightShoulder
+      parentName: rightArmExtendor
+      position: {x: -22.9, y: 0, z: -1.7763568e-15}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightBicep
+      parentName: rightShoulder
+      position: {x: -0.041847806, y: 4.5474735e-13, z: 2.8599345e-13}
+      rotation: {x: -0.001672326, y: -0.0020889728, z: 0.62427706, w: 0.78119844}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightElbow
+      parentName: rightBicep
+      position: {x: -95.777, y: -3.9790393e-13, z: 1.0835777e-12}
+      rotation: {x: -0.0012169227, y: 0.8333764, z: -0.5527015, w: -0.0018349049}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightForearm
+      parentName: rightElbow
+      position: {x: -2.842171e-14, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0.86950356, w: 0.49392667}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightWrist
+      parentName: rightForearm
+      position: {x: 70.89018, y: -0.0153610995, z: -0.00000038147508}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightPalm
+      parentName: rightWrist
+      position: {x: -0, y: 0, z: 1.7763568e-15}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightHand
+      parentName: rightPalm
+      position: {x: 31.077177, y: 0.0000006352042, z: -2.941647e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neck
+      parentName: upperBody
+      position: {x: 0.020727172, y: 20.994717, z: -2.7515748}
+      rotation: {x: 0.0004936169, y: 0.9999999, z: -6.120211e-17, w: -6.126256e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: headMinuteHand
+      parentName: neck
+      position: {x: -0.067058794, y: 70.12202, z: -16.261066}
+      rotation: {x: 0.8682508, y: 0, z: 0, w: -0.49612558}
+      scale: {x: 1, y: 1, z: 1}
+    - name: headHourHand
+      parentName: neck
+      position: {x: -0.06837557, y: 70.735115, z: -14.890864}
+      rotation: {x: 0.49612558, y: -0, z: -0, w: 0.8682508}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftArmExtendor
+      parentName: upperBody
+      position: {x: 45.421234, y: 0, z: 0}
+      rotation: {x: 0.999999, y: -0.0013609279, z: 0.00047414316, w: -0.00000015367344}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftShoulder
+      parentName: leftArmExtendor
+      position: {x: 22.9, y: -0.039820272, z: 0.02176931}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftBicep
+      parentName: leftShoulder
+      position: {x: 0.041945226, y: 0.040025182, z: -0.021813808}
+      rotation: {x: -0.001672326, y: -0.0020889728, z: 0.62427706, w: 0.78119844}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftElbow
+      parentName: leftBicep
+      position: {x: 95.776726, y: 2.1083224e-10, z: 0.00004539623}
+      rotation: {x: -0.0012169227, y: 0.8333764, z: -0.5527015, w: -0.0018349049}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftForearm
+      parentName: leftElbow
+      position: {x: -0, y: -5.684342e-14, z: 0}
+      rotation: {x: 0, y: 0, z: 0.86950356, w: 0.49392667}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftWrist
+      parentName: leftForearm
+      position: {x: -70.89, y: 0.014998551, z: 6.716405e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftPalm
+      parentName: leftWrist
+      position: {x: 2.842171e-14, y: -5.684342e-14, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftHand
+      parentName: leftPalm
+      position: {x: -31.078, y: -0.0000006352232, z: 3.5775827e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightPelvis
+      parentName: hip
+      position: {x: -12.879949, y: 0, z: -1.7763568e-15}
+      rotation: {x: 0.27543542, y: -0, z: -0, w: 0.96131957}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightHip
+      parentName: rightPelvis
+      position: {x: -19.227943, y: 0, z: 0.00000019073487}
+      rotation: {x: 0.7069424, y: 0.70727116, z: -2.0132956e-20, w: -8.6595606e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightThigh
+      parentName: rightHip
+      position: {x: -0, y: 0, z: 1.7763568e-15}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightKnee
+      parentName: rightThigh
+      position: {x: -127.70824, y: 7.1054274e-15, z: 0.00000019073487}
+      rotation: {x: 0, y: 0, z: 0.00023250122, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightCalf
+      parentName: rightKnee
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.0000003235938, y: -0.24017693, z: 0.00000093326355, w: 0.9707292}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightAnkle
+      parentName: rightCalf
+      position: {x: -106.934555, y: -2.2808422e-12, z: 0}
+      rotation: {x: -1.3590656e-10, y: -1.3590656e-10, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightFoot
+      parentName: rightAnkle
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.04007407, y: -0, z: -0, w: 0.9991967}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftPelvis
+      parentName: hip
+      position: {x: 12.9, y: 0, z: 1.7763568e-15}
+      rotation: {x: -0.05007908, y: 0, z: -0, w: 0.99874526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftHip
+      parentName: leftPelvis
+      position: {x: 19.2079, y: -0.00038549805, z: 0.00000019073487}
+      rotation: {x: 0, y: 0, z: -0.70727116, w: 0.7069424}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftThigh
+      parentName: leftHip
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftKnee
+      parentName: leftThigh
+      position: {x: 127.708015, y: -0.000015465312, z: 1.4210855e-14}
+      rotation: {x: 0, y: 0, z: 0.00023250122, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftCalf
+      parentName: leftKnee
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0.25452748, z: -0, w: 0.9670656}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftAnkle
+      parentName: leftCalf
+      position: {x: 106.9344, y: 2.3021585e-12, z: 1.5987212e-14}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftFoot
+      parentName: leftAnkle
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.29995728, y: 0, z: -0, w: 0.95395267}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
