@@ -87,6 +87,7 @@ namespace CommandPattern
             Unpause.Execute(Unpause);
             foreach(Command com in pauseQueue){
                 com.Execute(com);
+                UIManager.updateQueueButtons();
                 yield return new WaitForSeconds(2);
             }
             waiting=false;
