@@ -2,31 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate MachineState GetNextState(MachineState s);
+/* Okay, so I want to do something more specific instead of just pushing game objects into it.
+    I think that just means genericizing the thing for all machine states, then they can take it
+    as reference in update instead of passed as a constructor var
+ */
 
-public abstract class MachineState
+namespace Giga.AI.FSM
 {
-    public string name { get; protected set; }
-    public abstract void Update(GameObject g, float dt);
-}
+    public abstract class AICharacter { }    
 
-public class FiniteStateMachine
-{
-    GetNextState next_state;
-    MachineState current_state;
-
-    /* ALWAYS STARTS ON STATE 0 */
-    public FiniteStateMachine(MachineState start_state, GetNextState state_transition_function)
+    public abstract class MachineState<T>
     {
-        current_state = start_state;
-        this.next_state = state_transition_function;
+        public string name { get; protected set; }
+        public abstract void Update(T actor, float dt);
     }
 
-    public void Update(GameObject g, float dt)
+    public delegate MachineState<T> GetNextState<T>(T actor, MachineState<T> s);
+
+    public class FiniteStateMachine<T>
     {
-        current_state.Update(g, dt);
-        MachineState s = next_state(current_state);
-        //Debug.Log(s);
-        if (s != null) current_state = s;
+        GetNextState<T> next_state;
+        MachineState<T> current_state;
+
+        /* ALWAYS STARTS ON STATE 0 */
+        public FiniteStateMachine(MachineState<T> start_state, GetNextState<T> state_transition_function)
+        {
+            current_state = start_state;
+            this.next_state = state_transition_function;
+        }
+
+        public void Update(T actor, float dt)
+        {
+            current_state.Update(actor, dt);
+            MachineState<T> s = next_state(actor, current_state);
+            //Debug.Log(s);
+            if (s != null) current_state = s;
+        }
     }
 }
