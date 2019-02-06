@@ -8,10 +8,12 @@ public class Fighter : MonoBehaviour
     private Vector3 moveVector;
     private float verticalVelocity;
     public Collider[] attackHitboxes;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,18 +27,21 @@ public class Fighter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             LaunchAttack(attackHitboxes[1]);
+            anim.SetBool("punch", true);
         }
         //arm2
         if (Input.GetKeyDown(KeyCode.J))
         {
             LaunchAttack(attackHitboxes[2]);
+            anim.SetBool("punch", true);
         }
 
 
         //handle jump 
         if (controller.isGrounded)
         {
-            verticalVelocity = -1;
+            Debug.Log("on the ground");
+            verticalVelocity = 0;
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 verticalVelocity = 10;
