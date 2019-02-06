@@ -44,6 +44,7 @@ namespace CommandPattern
                 //Also change the input thing and move it to the InputHandler 
                 if(!pause&&!waiting){
                     Pause.Execute(Pause);
+                    lastFrozenTime=Time.unscaledTime;
                     UIManager.SetUp();
                     pause = true;
                     pauseQueue.Clear();

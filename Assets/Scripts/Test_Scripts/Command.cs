@@ -7,7 +7,9 @@ using UnityEngine;
 namespace CommandPattern
 {
     public abstract class Command{
-        protected float speed = 2f;
+        protected float speed = 0f;
+        protected float maxSpeed = 3f;
+        protected float Acceleration = 6f;
         public abstract void Execute(Command command);
         public virtual void Move(Command command, float deltaTime, Transform transform){}
     }
@@ -43,6 +45,9 @@ namespace CommandPattern
             Debug.Log("Don't use this one yet, oops sorry");
         }
         public override void Move(Command command, float deltaTime, Transform transform){
+            if(speed<maxSpeed){
+                speed=speed+Acceleration*deltaTime;
+            }
             transform.position+=new Vector3(0,0,speed*deltaTime);
         }
     }
@@ -51,7 +56,10 @@ namespace CommandPattern
             Debug.Log("Don't use this one yet, oops sorry");
         }
         public override void Move(Command command, float deltaTime, Transform transform){
-            transform.position+=new Vector3(0,0,-speed*deltaTime);
+            if(speed>-maxSpeed){
+                speed=speed-Acceleration*deltaTime;
+            }
+            transform.position+=new Vector3(0,0,speed*deltaTime);
         }
     }
     public class MoveLeftUnscaled: Command{
@@ -59,7 +67,10 @@ namespace CommandPattern
             Debug.Log("Don't use this one yet, oops sorry");
         }
         public override void Move(Command command, float deltaTime, Transform transform){
-            transform.position+=new Vector3(-speed*deltaTime,0,0);
+            if(speed>-maxSpeed){
+                speed=speed-Acceleration*deltaTime;
+            }
+            transform.position+=new Vector3(speed*deltaTime,0,0);
         }
     }
     public class MoveRightUnscaled: Command{
@@ -67,7 +78,10 @@ namespace CommandPattern
             Debug.Log("Don't use this one yet, oops sorry");
         }
         public override void Move(Command command, float deltaTime, Transform transform){
+            if(speed<maxSpeed){
+                speed=speed+Acceleration*deltaTime;
+            }
             transform.position+=new Vector3(speed*deltaTime,0,0);
         }
-    }
+    }  
 }
