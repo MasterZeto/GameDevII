@@ -105,7 +105,7 @@ namespace CommandPattern
             foreach(var bttn in queueButtons){
                 //To do: change so that it doesn't destroy itself until the action is done
                 if(bttn.Key.gameObject != null){
-                    //Destroy(bttn.Key.interactable = false);
+                    bttn.Key.interactable = false;
                 }
             }
         }
