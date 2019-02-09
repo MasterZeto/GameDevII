@@ -13,6 +13,7 @@ namespace CommandPatternNew
         Animator anim;
         Command buttonG;
         Command buttonH;
+        int punchHash = Animator.StringToHash("punch");
         // Start is called before the first frame update
         void Start()
         {
@@ -40,8 +41,8 @@ namespace CommandPatternNew
             }
             //right arm
             if (Input.GetKeyDown(KeyCode.H))
-            {
-                anim.SetBool("punch", true);
+            {  
+                anim.SetTrigger(punchHash);
                 buttonH.Execute(attackHitboxes[1],transform);
               
             }
@@ -66,6 +67,26 @@ namespace CommandPatternNew
             }
             moveVector = Vector3.zero;
             moveVector.x = Input.GetAxis("Horizontal") * 5;
+            if(moveVector.x>0.0001f||moveVector.x<-0.0001f)
+            {
+                anim.SetBool("walk", true);
+            
+            }
+            else {
+                anim.SetBool("walk", false);
+          
+            }
+            moveVector.z = Input.GetAxis("Vertical") * 5;
+            if (moveVector.z > 0.0001f || moveVector.z < -0.0001f)
+            {
+                anim.SetBool("walk", true);
+
+            }
+            else
+            {
+                anim.SetBool("walk", false);
+           
+            }
             moveVector.y = verticalVelocity;
             controller.Move(moveVector * Time.deltaTime);
 
