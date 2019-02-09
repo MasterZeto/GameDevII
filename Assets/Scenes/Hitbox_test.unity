@@ -5813,6 +5813,12 @@ Transform:
   m_Father: {fileID: 828349466}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1065743753 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 7207732215952983402, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7207732215802385092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1320178571
 GameObject:
   m_ObjectHideFlags: 0
@@ -6134,8 +6140,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7207732216326661469, guid: 85b4df67584594ecd9e2b11c68f809c5,
         type: 3}
+      propertyPath: attackHitboxes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207732216326661469, guid: 85b4df67584594ecd9e2b11c68f809c5,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7207732216326661469, guid: 85b4df67584594ecd9e2b11c68f809c5,
+        type: 3}
+      propertyPath: attackHitboxes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1065743753}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b4df67584594ecd9e2b11c68f809c5, type: 3}
