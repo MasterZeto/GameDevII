@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Command:MonoBehaviour
 {
     //child classes have to override the function
-    public abstract void Execute();
+    public abstract void Execute(Collider col);
     //child classes have the option to override the function
     public virtual void LaunchAttack(Collider col) {
         // or can use an overlapsphere here which is cheaper but may require multiple spheres
@@ -28,24 +28,25 @@ public abstract class Command:MonoBehaviour
 public class ArmAttack: Command
 {
 
-    public override void Execute()
+    public override void Execute(Collider armcol)
     {
-        
+        LaunchAttack(armcol);
+        //anim.SetBool("punch", true);
     }
 
 }
 
 public class ProjectileAttack:Command
 {
-    public override void Execute()
+    public override void Execute(Collider procol)
     {
-       
+        LaunchAttack(procol);
     }
 }
 
 public class DoNothing:Command
 {
-    public override void Execute()
+    public override void Execute(Collider col)
     {
 
     }

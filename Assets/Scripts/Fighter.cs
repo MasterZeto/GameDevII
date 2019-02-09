@@ -9,40 +9,58 @@ public class Fighter : MonoBehaviour
     private float verticalVelocity;
     public Collider[] attackHitboxes;
     Animator anim;
+    Command buttonG;
+    Command buttonH;
+    Command buttonJ;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        buttonG = new ProjectileAttack();
+        buttonH = new ArmAttack();
+        buttonJ = new ArmAttack();
+
     }
 
     // Update is called once per frame
     void Update()
-    {   //projectile
-        if(Input.GetKeyDown(KeyCode.G))
+    {
+        HandleInput();
+        HandleMovement();
+    }
+    public void HandleInput()
+    {
+
+        //projectile
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            LaunchAttack(attackHitboxes[0]);
+            buttonG.Execute(attackHitboxes[0]);
+     
         }
         //arm1
         if (Input.GetKeyDown(KeyCode.H))
         {
-            LaunchAttack(attackHitboxes[1]);
+            buttonH.Execute(attackHitboxes[1]);
             anim.SetBool("punch", true);
         }
         //arm2
         if (Input.GetKeyDown(KeyCode.J))
         {
-            LaunchAttack(attackHitboxes[2]);
+            buttonJ.Execute(attackHitboxes[2]);
             anim.SetBool("punch", true);
         }
 
+    }
+    public void HandleMovement()
+    {
 
         //handle jump 
         if (controller.isGrounded)
         {
             Debug.Log("on the ground");
             verticalVelocity = 0;
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 verticalVelocity = 10;
             }
@@ -52,22 +70,10 @@ public class Fighter : MonoBehaviour
             verticalVelocity -= 14 * Time.deltaTime;
         }
         moveVector = Vector3.zero;
-        moveVector.x = Input.GetAxis("Horizontal")*5;
+        moveVector.x = Input.GetAxis("Horizontal") * 5;
         moveVector.y = verticalVelocity;
         controller.Move(moveVector * Time.deltaTime);
-    }
-    void LaunchAttack(Collider col)
-    {   // or can use an overlapsphere here which is cheaper but may require multiple spheres
-        //test against colliders only in the Hitbox layer(now only contain the head and the torso)
-        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, transform.rotation, LayerMask.GetMask("Hitbox")) ;
-        foreach(Collider c in cols)
-        {
-            //check if the collider we hit is ourself 
-            if (c.transform.root == transform)
-                continue;
-            //only print the collider from enemy  
-            Debug.Log(c.name);
-        }
+
     }
 
 
