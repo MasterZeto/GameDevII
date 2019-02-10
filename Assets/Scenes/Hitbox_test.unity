@@ -708,7 +708,6 @@ GameObject:
   - component: {fileID: 828349500}
   - component: {fileID: 827850781}
   - component: {fileID: 827850783}
-  - component: {fileID: 827850785}
   m_Layer: 0
   m_Name: MurryMech
   m_TagString: Untagged
@@ -728,6 +727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc55dccdd9cf44a895ade5b56a3226e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationRate: 360
+  moveSpeed: 2
   attackHitboxes:
   - {fileID: 683993834}
   - {fileID: 207659942}
@@ -786,19 +787,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &827850785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 827850780}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dc55dccdd9cf44a895ade5b56a3226e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackHitboxes: []
 --- !u!1 &827850786
 GameObject:
   m_ObjectHideFlags: 0
@@ -5733,7 +5721,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1780058055, guid: c1189932daa3143a585c4680c6ff11ca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c1189932daa3143a585c4680c6ff11ca, type: 3}
 --- !u!1 &1007805254
 GameObject:
@@ -6078,72 +6067,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef6fda2b844e47b9818667887c43237, type: 3}
---- !u!1001 &7207732215802385092
+--- !u!1001 &8056510262011957693
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7207732216284985364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261538290541, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_Name
       value: MurryMech 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.28
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 12.7
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
+    - target: {fileID: 8056510261537859405, guid: 543264a3e0e5b4451b543c3fe294e853,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 85b4df67584594ecd9e2b11c68f809c5, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 543264a3e0e5b4451b543c3fe294e853, type: 3}

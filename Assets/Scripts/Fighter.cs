@@ -2,74 +2,93 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fighter : MonoBehaviour
+namespace CommandPatternNew
 {
-    private CharacterController controller;
-    private Vector3 moveVector;
-    private float verticalVelocity;
-    public Collider[] attackHitboxes;
-    Animator anim;
-    // Start is called before the first frame update
-    void Start()
-    {
-        controller = GetComponent<CharacterController>();
-        anim = GetComponent<Animator>();
-    }
+    public class Fighter : MonoBehaviour
+    {   //movement support
+        private string moveInputAxis = "Vertical";
+        private string turnInputAxis = "Horizontal";
+        public float rotationRate = 360;
+        public float moveSpeed = 2;
 
-    // Update is called once per frame
-    void Update()
-    {   //projectile
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            LaunchAttack(attackHitboxes[0]);
-        }
-        //arm1
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            LaunchAttack(attackHitboxes[1]);
-            anim.SetBool("punch", true);
-        }
-        //arm2
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            LaunchAttack(attackHitboxes[2]);
-            anim.SetBool("punch", true);
-        }
+        //attack support
+        public Collider[] attackHitboxes;
+        Command buttonG;
+        Command buttonH;
+
+        //animation support
+        Animator anim;
+        int punchHash = Animator.StringToHash("punch");
 
 
-        //handle jump 
-        if (controller.isGrounded)
+
+        void Start()
         {
-            Debug.Log("on the ground");
-            verticalVelocity = 0;
-            if(Input.GetKeyDown(KeyCode.Space))
+    
+            anim = GetComponent<Animator>();
+            buttonG = new ProjectileAttack();
+            //right arm
+            buttonH = new ArmAttack();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            HandleInput();
+            HandleMovement();
+        }
+        public void HandleInput()
+        {
+
+
+
+            //projectile
+            if (Input.GetKeyDown(KeyCode.G))
             {
-                verticalVelocity = 10;
+                buttonG.Execute(attackHitboxes[0],transform);
+
             }
+            //right arm
+            if (Input.GetKeyDown(KeyCode.H))
+            {  
+                anim.SetTrigger(punchHash);
+                buttonH.Execute(attackHitboxes[1],transform);
+              
+            }
+
         }
-        else
-        { //the player is in the air, apply gravity
-            verticalVelocity -= 14 * Time.deltaTime;
-        }
-        moveVector = Vector3.zero;
-        moveVector.x = Input.GetAxis("Horizontal")*5;
-        moveVector.y = verticalVelocity;
-        controller.Move(moveVector * Time.deltaTime);
-    }
-    void LaunchAttack(Collider col)
-    {   // or can use an overlapsphere here which is cheaper but may require multiple spheres
-        //test against colliders only in the Hitbox layer(now only contain the head and the torso)
-        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, transform.rotation, LayerMask.GetMask("Hitbox")) ;
-        foreach(Collider c in cols)
+        public void HandleMovement()
         {
-            //check if the collider we hit is ourself 
-            if (c.transform.root == transform)
-                continue;
-            //only print the collider from enemy  
-            Debug.Log(c.name);
+           float moveAxis = Input.GetAxis(moveInputAxis);
+           float turnAxis = Input.GetAxis(turnInputAxis);
+           Move(moveAxis);
+           Turn(turnAxis);
+           
+
+            if (moveAxis > 0.0001f || moveAxis < -0.0001f)
+            {
+                anim.SetBool("walk", true);
+
+            }
+            else
+            {
+                anim.SetBool("walk", false);
+
+            }
+
         }
+
+        void Move(float input)
+        {
+            transform.Translate(Vector3.forward* input* moveSpeed* Time.deltaTime);
+        }
+        void Turn (float input)
+        {
+           //rotate around y axis
+           transform.Rotate(0,input*rotationRate*Time.deltaTime,0);
+        }
+
+
+
     }
-
-
-
 }
