@@ -5,19 +5,26 @@ using UnityEngine;
 namespace CommandPatternNew
 {
     public class Fighter : MonoBehaviour
-    {
-        private CharacterController controller;
-        private Vector3 moveVector;
-        private float verticalVelocity;
+    {   //movement support
+        private string moveInputAxis = "Vertical";
+        private string turnInputAxis = "Horizontal";
+        public float rotationRate = 360;
+        public float moveSpeed = 2;
+
+        //attack support
         public Collider[] attackHitboxes;
-        Animator anim;
         Command buttonG;
         Command buttonH;
+
+        //animation support
+        Animator anim;
         int punchHash = Animator.StringToHash("punch");
-        // Start is called before the first frame update
+
+
+
         void Start()
         {
-            controller = GetComponent<CharacterController>();
+    
             anim = GetComponent<Animator>();
             buttonG = new ProjectileAttack();
             //right arm
@@ -32,6 +39,8 @@ namespace CommandPatternNew
         }
         public void HandleInput()
         {
+
+
 
             //projectile
             if (Input.GetKeyDown(KeyCode.G))
@@ -50,46 +59,33 @@ namespace CommandPatternNew
         }
         public void HandleMovement()
         {
-
-            //handle jump 
-            if (controller.isGrounded)
-            {
-                Debug.Log("on the ground");
-                verticalVelocity = 0;
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    verticalVelocity = 10;
-                }
-            }
-            else
-            { //the player is in the air, apply gravity
-                verticalVelocity -= 14 * Time.deltaTime;
-            }
-            moveVector = Vector3.zero;
-            moveVector.x = Input.GetAxis("Horizontal") * 5;
-            if(moveVector.x>0.0001f||moveVector.x<-0.0001f)
-            {
-                anim.SetBool("walk", true);
-            
-            }
-            else {
-                anim.SetBool("walk", false);
-          
-            }
-            moveVector.z = Input.GetAxis("Vertical") * 5;
-            if (moveVector.z > 0.0001f || moveVector.z < -0.0001f)
-            {
-                anim.SetBool("walk", true);
-
-            }
-            else
-            {
-                anim.SetBool("walk", false);
+           float moveAxis = Input.GetAxis(moveInputAxis);
+           float turnAxis = Input.GetAxis(turnInputAxis);
+           Move(moveAxis);
+           Turn(turnAxis);
            
-            }
-            moveVector.y = verticalVelocity;
-            controller.Move(moveVector * Time.deltaTime);
 
+            if (moveAxis > 0.0001f || moveAxis < -0.0001f)
+            {
+                anim.SetBool("walk", true);
+
+            }
+            else
+            {
+                anim.SetBool("walk", false);
+
+            }
+
+        }
+
+        void Move(float input)
+        {
+            transform.Translate(Vector3.forward* input* moveSpeed* Time.deltaTime);
+        }
+        void Turn (float input)
+        {
+           //rotate around y axis
+           transform.Rotate(0,input*rotationRate*Time.deltaTime,0);
         }
 
 

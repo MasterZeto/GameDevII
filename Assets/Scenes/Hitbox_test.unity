@@ -727,6 +727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc55dccdd9cf44a895ade5b56a3226e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationRate: 360
+  moveSpeed: 2
   attackHitboxes:
   - {fileID: 683993834}
   - {fileID: 207659942}
@@ -6091,7 +6093,7 @@ PrefabInstance:
     - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 7207732216284685364, guid: 85b4df67584594ecd9e2b11c68f809c5,
         type: 3}
@@ -6153,5 +6155,31 @@ PrefabInstance:
       propertyPath: attackHitboxes.Array.data[1]
       value: 
       objectReference: {fileID: 1065743753}
-    m_RemovedComponents: []
+    - target: {fileID: 7207732216326661469, guid: 85b4df67584594ecd9e2b11c68f809c5,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207732216326661469, guid: 85b4df67584594ecd9e2b11c68f809c5,
+        type: 3}
+      propertyPath: rotationRate
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207732216284985367, guid: 85b4df67584594ecd9e2b11c68f809c5,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207732216774409306, guid: 85b4df67584594ecd9e2b11c68f809c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207732216903410142, guid: 85b4df67584594ecd9e2b11c68f809c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7207732216284985365, guid: 85b4df67584594ecd9e2b11c68f809c5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 85b4df67584594ecd9e2b11c68f809c5, type: 3}
