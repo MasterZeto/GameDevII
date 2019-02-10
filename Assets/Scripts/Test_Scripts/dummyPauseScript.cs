@@ -18,9 +18,14 @@ namespace CommandPattern
         private bool waiting = false;
         private Vector3 originalCamPos;
         private Vector3 velocity=Vector3.zero;
+        private Animator anim;
+        private float punchTime = 1;
+        private Fighter fighter;
         // Start is called before the first frame update
         void Start()
         {
+            anim=GameObject.Find("MurryMech 1").GetComponent<Animator>();
+            fighter=GameObject.Find("MurryMech 1").GetComponent<Fighter>();
             UIManager = pauseManager.GetComponent<PauseUIManager>();
             possibleComs = new List<Command>();
             Pause = new PauseGame();
@@ -34,6 +39,16 @@ namespace CommandPattern
             camMoveRight = new MoveRightUnscaled();
             camMoveLeft = new MoveLeftUnscaled();
             originalCamPos=Camera.main.transform.position;
+            RuntimeAnimatorController ac = anim.runtimeAnimatorController;
+            for(int i = 0; i<ac.animationClips.Length; i++)
+            {
+                //Debug.Log(ac.animationClips[i].name);
+                if(ac.animationClips[i].name == "Punching")        
+                    {
+                        punchTime = ac.animationClips[i].length;
+                    }
+            }
+            Debug.Log(punchTime);    
         }
 
         // Update is called once per frame
@@ -47,11 +62,13 @@ namespace CommandPattern
                     pause = true;
                     originalCamPos=Camera.main.transform.position;
                     pauseQueue.Clear();
+                    fighter.Pause();
                 }
                 else if(!waiting){
                     //change the startCoroutine so that it depends on the timing of the moves rather than just hard coding the time
                     StartCoroutine(ExecuteComs());
                     pause = false;
+                    fighter.Unpause();
                 }
                 
             }
@@ -84,11 +101,16 @@ namespace CommandPattern
                 Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, originalCamPos, ref velocity, .5f, Mathf.Infinity,Time.unscaledDeltaTime);
                 yield return null;
             }
+            if(fighter.waiting){
+                while(fighter.waiting){
+                    //wait for punch to finish
+                }
+            }
             Unpause.Execute(Unpause, transform, null);
             foreach(Command com in pauseQueue){
                 com.Execute(com, transform, null);
                 UIManager.updateQueueButtons();
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(punchTime);
             }
             waiting=false;
         }

@@ -28,6 +28,7 @@ namespace CommandPattern
         //queue stuff
         public bool waiting = false;
         public List<Command> comQueue;
+        private bool pause = false;
 
 
 
@@ -51,10 +52,10 @@ namespace CommandPattern
         }
         public void HandleInput()
         {
-            //projectile
-            if(waiting){
+            if(waiting||pause){
                 return;
             }
+            //projectile
             if (Input.GetKeyDown(KeyCode.G))
             {
                 buttonG.Execute(buttonG,transform,attackHitboxes[0]);
@@ -110,7 +111,12 @@ namespace CommandPattern
             }
         }
 
-
+        public void Pause(){
+            pause = true;
+        }
+        public void Unpause(){
+            pause = false;
+        }
 
     }
 }
