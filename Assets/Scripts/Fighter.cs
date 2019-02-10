@@ -12,7 +12,7 @@ namespace CommandPattern
         public float moveSpeed = 2;
 
         //attack support
-        public Collider[] attackHitboxes;
+        public List<Collider> attackHitboxes;
         Command buttonG;
         Command buttonH;
 
@@ -21,14 +21,13 @@ namespace CommandPattern
         int punchHash = Animator.StringToHash("punch");
 
         //queue stuff
-        bool waiting = false;
-        List<Command> comQueue;
+        public bool waiting = false;
+        public List<Command> comQueue;
 
 
 
         void Start()
         {
-    
             anim = GetComponent<Animator>();
             comQueue = new List<Command>();
             buttonG = new ProjectileAttack();
@@ -60,6 +59,7 @@ namespace CommandPattern
             //right arm
             if (Input.GetKeyDown(KeyCode.H))
             {  
+                waiting=true;
                 anim.SetTrigger(punchHash);
                 buttonH.Execute(buttonH,transform,attackHitboxes[1]);
                 comQueue.Add(buttonH);
