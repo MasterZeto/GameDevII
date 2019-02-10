@@ -458,7 +458,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fighter
       value: 
-      objectReference: {fileID: 1018617985}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5addf8c993745400184e5faacb0334d4, type: 3}
 --- !u!1 &683993833
@@ -5971,7 +5971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e53e2526a5f541cdbc84a4c68947858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallMultiplier: 2.5
+  fallMultiplier: 3
   lowJumpMultiplier: 2
 --- !u!1 &1320178571
 GameObject:
