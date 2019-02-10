@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CommandPatternNew
+namespace CommandPattern
 {
     public class Fighter : MonoBehaviour
     {   //movement support
@@ -45,14 +45,14 @@ namespace CommandPatternNew
             //projectile
             if (Input.GetKeyDown(KeyCode.G))
             {
-                buttonG.Execute(attackHitboxes[0],transform);
+                buttonG.Execute(buttonG,transform,attackHitboxes[0]);
 
             }
             //right arm
             if (Input.GetKeyDown(KeyCode.H))
             {  
                 anim.SetTrigger(punchHash);
-                buttonH.Execute(attackHitboxes[1],transform);
+                buttonH.Execute(buttonH,transform,attackHitboxes[1]);
               
             }
 

@@ -42,7 +42,7 @@ namespace CommandPattern
             if(Input.GetKeyDown(KeyCode.P)){
                 //Also change the input thing and move it to the InputHandler 
                 if(!pause && !waiting){
-                    Pause.Execute(Pause);
+                    Pause.Execute(Pause,transform, null);
                     UIManager.SetUp();
                     pause = true;
                     originalCamPos=Camera.main.transform.position;
@@ -84,9 +84,9 @@ namespace CommandPattern
                 Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, originalCamPos, ref velocity, .5f, Mathf.Infinity,Time.unscaledDeltaTime);
                 yield return null;
             }
-            Unpause.Execute(Unpause);
+            Unpause.Execute(Unpause, transform, null);
             foreach(Command com in pauseQueue){
-                com.Execute(com);
+                com.Execute(com, transform, null);
                 UIManager.updateQueueButtons();
                 yield return new WaitForSeconds(2);
             }
