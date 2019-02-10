@@ -68,7 +68,6 @@ namespace CommandPattern
                     //change the startCoroutine so that it depends on the timing of the moves rather than just hard coding the time
                     StartCoroutine(ExecuteComs());
                     pause = false;
-                    fighter.Unpause();
                 }
                 
             }
@@ -112,6 +111,7 @@ namespace CommandPattern
                 UIManager.updateQueueButtons();
                 yield return new WaitForSeconds(punchTime);
             }
+            fighter.Unpause();
             waiting=false;
         }
     }
