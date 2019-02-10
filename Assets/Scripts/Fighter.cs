@@ -10,8 +10,8 @@ namespace CommandPattern
         private string turnInputAxis = "Horizontal";
         public float rotationRate = 360;
         public float moveSpeed = 2;
-        public float jumpSpeed = 1;
-        Collider meshcollider;
+        public float jumpSpeed = 10;
+        Collider boxCollider;
         float distToGround;
         Rigidbody rb;
  
@@ -39,8 +39,8 @@ namespace CommandPattern
             buttonG = new ProjectileAttack();
             //right arm
             buttonH = new ArmAttack();
-            meshcollider = GetComponent<MeshCollider>();
-            distToGround =meshcollider.bounds.extents.y;
+            boxCollider = GetComponent<BoxCollider>();
+            distToGround =boxCollider.bounds.extents.y;
             rb = GetComponent<Rigidbody>();
         }
 
@@ -79,7 +79,7 @@ namespace CommandPattern
            float turnAxis = Input.GetAxis(turnInputAxis);
            Move(moveAxis);
            Turn(turnAxis);
-           bool isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 1f);
+           bool isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 1.2f);
             Debug.Log(isGrounded);
            Jump(isGrounded);
            if (moveAxis > 0.0001f || moveAxis < -0.0001f)
@@ -106,8 +106,9 @@ namespace CommandPattern
          if(Input.GetKeyDown(KeyCode.Space)&&isGrounded)
             {
                 Debug.Log("on the ground");
-                Vector3 jump = new Vector3(0, 10, 0);
-                rb.AddForce(jump * jumpSpeed, ForceMode.Impulse);
+                //  Vector3 jump = new Vector3(0, 10, 0);
+                // rb.AddForce(jump * jumpSpeed, ForceMode.Impulse);
+                rb.velocity = Vector3.up * jumpSpeed;
             }
         }
 

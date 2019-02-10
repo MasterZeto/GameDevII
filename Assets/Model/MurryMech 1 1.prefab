@@ -7226,7 +7226,6 @@ GameObject:
   - component: {fileID: 8056510261537859405}
   - component: {fileID: 8056510261547632935}
   - component: {fileID: 8056510261496079908}
-  - component: {fileID: 8056510261538290542}
   m_Layer: 0
   m_Name: MurryMech 1 1
   m_TagString: Untagged
@@ -7367,23 +7366,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationRate: 180
   moveSpeed: 10
+  jumpSpeed: 1
   attackHitboxes:
   - {fileID: 8056510262254607089}
   - {fileID: 8056510260718533566}
---- !u!64 &8056510261538290542
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8056510261538290541}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &8056510261538290543
 GameObject:
   m_ObjectHideFlags: 0
