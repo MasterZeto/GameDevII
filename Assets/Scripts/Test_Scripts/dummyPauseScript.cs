@@ -26,7 +26,7 @@ namespace CommandPattern
             Pause = new PauseGame();
             Unpause = new UnpauseGame();
             pauseQueue = new List<Command>();
-            possibleComs.Add(new dummyCom());
+            possibleComs.Add(new ArmAttack());
             possibleComs.Add(new dummyCom2());
             possibleComs.Add(new dummyCom3());
             camMoveForward = new MoveForwardUnscaled();
@@ -88,7 +88,7 @@ namespace CommandPattern
             foreach(Command com in pauseQueue){
                 com.Execute(com, transform, null);
                 UIManager.updateQueueButtons();
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
             }
             waiting=false;
         }

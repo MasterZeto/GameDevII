@@ -454,6 +454,11 @@ PrefabInstance:
       propertyPath: pauseManager
       value: 
       objectReference: {fileID: 427005093}
+    - target: {fileID: 1848478544527628529, guid: 5addf8c993745400184e5faacb0334d4,
+        type: 3}
+      propertyPath: fighter
+      value: 
+      objectReference: {fileID: 1018617985}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5addf8c993745400184e5faacb0334d4, type: 3}
 --- !u!1 &683993833
@@ -836,6 +841,7 @@ MonoBehaviour:
   - {fileID: 683993834}
   - {fileID: 207659942}
   - {fileID: 1007805255}
+  waiting: 0
 --- !u!1 &827850782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5938,8 +5944,33 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &1018617985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8056510261496079908, guid: 543264a3e0e5b4451b543c3fe294e853,
+    type: 3}
+  m_PrefabInstance: {fileID: 8056510262011957693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018617982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc55dccdd9cf44a895ade5b56a3226e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1018617988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018617982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec96bf4a6664ceb4faa735b85600091e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighter: {fileID: 1018617985}
 --- !u!1 &1320178571
 GameObject:
   m_ObjectHideFlags: 0

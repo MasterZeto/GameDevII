@@ -11,6 +11,8 @@ namespace CommandPattern
         protected float maxSpeed = 3f;
         protected float Acceleration = 6f;
         public List<Collider> attackHitboxes=GameObject.Find("MurryMech 1").GetComponent<Fighter>().attackHitboxes;
+        public Animator anim=GameObject.Find("MurryMech 1").GetComponent<Animator>();
+        public int punch=Animator.StringToHash("punch");
         public abstract void Execute(Command command, Transform transform,Collider col);
         public virtual void Move(Command command, Transform transform){}
         public virtual void LaunchAttack(Collider col, Transform transform)
@@ -111,6 +113,7 @@ namespace CommandPattern
     {
         public override void Execute(Command command, Transform transform, Collider col)
         {
+            anim.SetTrigger(punch);
             LaunchAttack(attackHitboxes[0],transform);
             //anim.SetBool("punch", true);
 

@@ -21,7 +21,7 @@ public class AnimationEvents : MonoBehaviour
     }
     void ArmDone(){
         fighter.waiting=false;
-        fighter.comQueue.RemoveAt(0);
+        //fighter.comQueue.RemoveAt(0);
     }
 }
 }
