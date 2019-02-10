@@ -20,12 +20,17 @@ namespace CommandPattern
         Animator anim;
         int punchHash = Animator.StringToHash("punch");
 
+        //queue stuff
+        bool waiting = false;
+        List<Command> comQueue;
+
 
 
         void Start()
         {
     
             anim = GetComponent<Animator>();
+            comQueue = new List<Command>();
             buttonG = new ProjectileAttack();
             //right arm
             buttonH = new ArmAttack();
@@ -43,9 +48,13 @@ namespace CommandPattern
 
 
             //projectile
+            if(waiting){
+                return;
+            }
             if (Input.GetKeyDown(KeyCode.G))
             {
                 buttonG.Execute(buttonG,transform,attackHitboxes[0]);
+                comQueue.Add(buttonG);
 
             }
             //right arm
@@ -53,6 +62,7 @@ namespace CommandPattern
             {  
                 anim.SetTrigger(punchHash);
                 buttonH.Execute(buttonH,transform,attackHitboxes[1]);
+                comQueue.Add(buttonH);
               
             }
 
