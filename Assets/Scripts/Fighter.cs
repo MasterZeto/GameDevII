@@ -10,6 +10,11 @@ namespace CommandPattern
         private string turnInputAxis = "Horizontal";
         public float rotationRate = 360;
         public float moveSpeed = 2;
+        public float jumpSpeed = 1;
+        Collider meshcollider;
+        float distToGround;
+        Rigidbody rb;
+ 
 
         //attack support
         public List<Collider> attackHitboxes;
@@ -33,6 +38,9 @@ namespace CommandPattern
             buttonG = new ProjectileAttack();
             //right arm
             buttonH = new ArmAttack();
+            meshcollider = GetComponent<MeshCollider>();
+            distToGround =meshcollider.bounds.extents.y;
+            rb = GetComponent<Rigidbody>();
         }
 
         // Update is called once per frame
@@ -43,9 +51,6 @@ namespace CommandPattern
         }
         public void HandleInput()
         {
-
-
-
             //projectile
             if(waiting){
                 return;
@@ -73,19 +78,17 @@ namespace CommandPattern
            float turnAxis = Input.GetAxis(turnInputAxis);
            Move(moveAxis);
            Turn(turnAxis);
-           
-
-            if (moveAxis > 0.0001f || moveAxis < -0.0001f)
+           bool isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 1f);
+            Debug.Log(isGrounded);
+           Jump(isGrounded);
+           if (moveAxis > 0.0001f || moveAxis < -0.0001f)
             {
                 anim.SetBool("walk", true);
-
             }
             else
             {
                 anim.SetBool("walk", false);
-
             }
-
         }
 
         void Move(float input)
@@ -96,6 +99,15 @@ namespace CommandPattern
         {
            //rotate around y axis
            transform.Rotate(0,input*rotationRate*Time.deltaTime,0);
+        }
+        void Jump(bool isGrounded)
+        { 
+         if(Input.GetKeyDown(KeyCode.Space)&&isGrounded)
+            {
+                Debug.Log("on the ground");
+                Vector3 jump = new Vector3(0, 10, 0);
+                rb.AddForce(jump * jumpSpeed, ForceMode.Impulse);
+            }
         }
 
 
