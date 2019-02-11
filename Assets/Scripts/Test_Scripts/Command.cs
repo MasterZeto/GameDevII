@@ -32,6 +32,24 @@ namespace CommandPattern
                     continue;
                 //only print the collider from enemy  
                 Debug.Log(c.name);
+                float damage = 0;
+                switch(c.name)
+                {
+
+                    case "Head":
+                        damage = 30;
+                        break;
+                    case "Torso":
+                        damage = 10;
+                        break;
+                    default:
+                        Debug.Log("unable to identify body part, make sure the name matches the switch case");
+                        break;
+                
+                
+                }
+
+                c.SendMessageUpwards("TakeDamage",damage);
             }
 
 
@@ -115,7 +133,7 @@ namespace CommandPattern
         {
             anim.SetTrigger(punch);
             LaunchAttack(attackHitboxes[0],transform);
-            //anim.SetBool("punch", true);
+     
 
        
         }
