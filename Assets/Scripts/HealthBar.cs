@@ -33,7 +33,7 @@ public class HealthBar : MonoBehaviour
         if(hitPoint<0)
         {
             hitPoint = 0;
-            Debug.Log("player should die");
+            Debug.Log("Die");
         
         }
         UpdateHealthBar();
