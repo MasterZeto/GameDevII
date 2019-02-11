@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityStandardAssets.Characters.ThirdPerson;
 using Giga.AI.FSM;
 using Giga.AI.Blackboard;
 
 public class FirstBossCharacter : AICharacter
 {
-    public NavMeshAgent agent             { get; private set; }
-    public ThirdPersonCharacter character { get; private set; }
+    public NavMeshAgent agent            { get; private set; }
+    public CharacterController character { get; private set; }
 
-    public FirstBossCharacter(NavMeshAgent agent, ThirdPersonCharacter character)
+    public FirstBossCharacter(NavMeshAgent agent, CharacterController character)
     {
         this.agent = agent;
         this.character = character;
@@ -27,7 +26,8 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
         public override void Update(FirstBossCharacter actor, float dt)
         {
             actor.agent.SetDestination(Blackboard.player_position);
-            actor.character.Move(actor.agent.desiredVelocity, false, false);
+            actor.character.Move(actor.agent.desiredVelocity);
+            
         }
     }
 
@@ -71,7 +71,7 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
 }
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(ThirdPersonCharacter))]
+[RequireComponent(typeof(CharacterController))]
 public class FirstBossController : MonoBehaviour
 {
     FirstBossCharacter ai;
@@ -79,7 +79,7 @@ public class FirstBossController : MonoBehaviour
 
     void Awake()
     {
-        ai = new FirstBossCharacter(GetComponent<NavMeshAgent>(), GetComponent<ThirdPersonCharacter>());
+        ai = new FirstBossCharacter(GetComponent<NavMeshAgent>(), GetComponent<CharacterController>());
         fsm = new FirstBossFSM(ai);
     }
 
