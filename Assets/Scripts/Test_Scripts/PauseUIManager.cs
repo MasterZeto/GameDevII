@@ -35,7 +35,15 @@ namespace CommandPattern
                 startPos.y = 4*rect.sizeDelta.y;
                 startPos.z = 0;
                 rect.transform.position=startPos;
-                newBttn.GetComponentInChildren<Text>().text = "Action" + (i + 1);
+                if(i==0){
+                    newBttn.GetComponentInChildren<Text>().text = "Punch";
+                }
+                else if(i==1){
+                    newBttn.GetComponentInChildren<Text>().text = "Projectile";
+                }
+                else{
+                    newBttn.GetComponentInChildren<Text>().text = "Action" + (i + 1);
+                }
                 bttns.Add(newBttn);
             }
             foreach (Button bttn in bttns)
