@@ -16,7 +16,7 @@ namespace CommandPattern
         public PauseUIManager UIManager;
         //will change this once timing is added to commands or w/e
         private bool waiting = false;
-        private Vector3 originalCamPos;
+        private Vector3 originalCamPos, originalCamRot;
         private Vector3 velocity=Vector3.zero;
         private Animator anim;
         private float punchTime = 1;
@@ -61,6 +61,7 @@ namespace CommandPattern
                     UIManager.SetUp();
                     pause = true;
                     originalCamPos=Camera.main.transform.position;
+                    originalCamRot=Camera.main.transform.eulerAngles;
                     pauseQueue.Clear();
                     fighter.Pause();
                 }
@@ -96,10 +97,16 @@ namespace CommandPattern
         private IEnumerator ExecuteComs(){
             waiting=true;
             UIManager.Hide();
-            while(Vector3.Distance(Camera.main.transform.position, originalCamPos)>.01f){
+            while(Vector3.Distance(Camera.main.transform.eulerAngles, originalCamRot)>.1f){
+                Camera.main.transform.eulerAngles = Vector3.SmoothDamp(Camera.main.transform.eulerAngles, originalCamRot, ref velocity, .5f, Mathf.Infinity,Time.unscaledDeltaTime);
+                yield return null;
+            }
+            while(Vector3.Distance(Camera.main.transform.position, originalCamPos)>.1f){
                 Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, originalCamPos, ref velocity, .5f, Mathf.Infinity,Time.unscaledDeltaTime);
                 yield return null;
             }
+            Camera.main.transform.eulerAngles=originalCamRot;
+            Camera.main.transform.position=originalCamPos;
             if(fighter.waiting){
                 while(fighter.waiting){
                     //wait for punch to finish

@@ -8,7 +8,7 @@ namespace CommandPattern
 {
     public abstract class Command{
         protected float speed = 0f;
-        protected float maxSpeed = 3f;
+        protected float maxSpeed = 5f;
         protected float Acceleration = 6f;
         public List<Collider> attackHitboxes=GameObject.Find("MurryMech 1").GetComponent<Fighter>().attackHitboxes;
         public Animator anim=GameObject.Find("MurryMech 1").GetComponent<Animator>();
@@ -86,7 +86,10 @@ namespace CommandPattern
             if(speed<maxSpeed){
                 speed=speed+Acceleration*Time.unscaledDeltaTime;
             }
-            transform.position+=new Vector3(0,0,speed*Time.unscaledDeltaTime);
+            Vector3 forward=transform.forward;
+            forward.y=0;
+            forward.Normalize();
+            transform.position+=forward*Time.unscaledDeltaTime*speed;
         }
     }
     public class MoveBackUnscaled: Command{
@@ -97,7 +100,10 @@ namespace CommandPattern
             if(speed>-maxSpeed){
                 speed=speed-Acceleration*Time.unscaledDeltaTime;
             }
-            transform.position+=new Vector3(0,0,speed*Time.unscaledDeltaTime);
+            Vector3 forward=transform.forward;
+            forward.y=0;
+            forward.Normalize();
+            transform.position+=forward*Time.unscaledDeltaTime*speed;
         }
     }
     public class MoveLeftUnscaled: Command{
@@ -108,7 +114,7 @@ namespace CommandPattern
             if(speed>-maxSpeed){
                 speed=speed-Acceleration*Time.unscaledDeltaTime;
             }
-            transform.position+=new Vector3(speed*Time.unscaledDeltaTime,0,0);
+            transform.eulerAngles-=new Vector3(0,1,0)*Time.unscaledDeltaTime*speed;
         }
     }
     public class MoveRightUnscaled: Command{
@@ -119,7 +125,10 @@ namespace CommandPattern
             if(speed<maxSpeed){
                 speed=speed+Acceleration*Time.unscaledDeltaTime;
             }
-            transform.position+=new Vector3(speed*Time.unscaledDeltaTime,0,0);
+            Vector3 forward=transform.right;
+            forward.y=0;
+            forward.Normalize();
+            transform.eulerAngles-=new Vector3(0,1,0)*Time.unscaledDeltaTime*speed;
         }
     }
       public class ArmAttack : Command
