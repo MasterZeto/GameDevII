@@ -49,10 +49,10 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
         switch(state.name)
         {
             case "TowardPlayer": 
-                if (actor.agent.remainingDistance < 1.0f) { return new AttackPlayer(); }
+                if (actor.agent.remainingDistance < 10.0f) { Debug.Log("stop"); return new AttackPlayer(); }
                 break;
             case "AttackPlayer": 
-                if (Vector3.Distance(actor.agent.transform.position, Blackboard.player_position) > 2.0)
+                if (Vector3.Distance(actor.agent.transform.position, Blackboard.player_position) > 20.0)
                 {
                     return new TowardPlayer();
                 }
