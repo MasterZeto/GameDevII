@@ -19,8 +19,9 @@ namespace CommandPattern
 
         //attack support
         public List<Collider> attackHitboxes;
-        Command buttonG;
-        Command buttonH;
+        //sorry for making this public, is used in Dummy Pause script
+        public Command buttonG;
+        public Command buttonH;
 
         //animation support
         Animator anim;
@@ -30,6 +31,7 @@ namespace CommandPattern
         public bool waiting = false;
         public List<Command> comQueue;
         private bool pause = false;
+        private DummyPauseScript pauseScript;
 
 
 
@@ -43,6 +45,7 @@ namespace CommandPattern
             boxCollider = GetComponent<BoxCollider>();
             distToGround =boxCollider.bounds.extents.y;
             rb = GetComponent<Rigidbody>();
+            pauseScript=GameObject.Find("PauseManager").GetComponent<DummyPauseScript>();
         }
 
         // Update is called once per frame
@@ -50,26 +53,28 @@ namespace CommandPattern
         {
             HandleInput();
             HandleMovement();
+            DoAction();
         }
         public void HandleInput()
         {
-            if(waiting||pause){
+            if(waiting||pause||comQueue.Count!=0){
                 return;
             }
             //projectile
             if (Input.GetKeyDown(KeyCode.G))
             {
-                buttonG.Execute(buttonG,transform,attackHitboxes[0]);
                 comQueue.Add(buttonG);
+               // buttonG.Execute(buttonG,transform,attackHitboxes[0]);
+                //comQueue.Remove(buttonG);
 
             }
             //right arm
             if (Input.GetKeyDown(KeyCode.H))
             {  
-                waiting=true;
-                anim.SetTrigger(punchHash);
-                buttonH.Execute(buttonH,transform,attackHitboxes[1]);
-                comQueue.Add(buttonH);
+                
+                //anim.SetTrigger(punchHash);
+               // buttonH.Execute(buttonH,transform,attackHitboxes[1]);
+               comQueue.Add(buttonH);
               
             }
 
@@ -94,7 +99,35 @@ namespace CommandPattern
 
             transform.forward = Vector3.ProjectOnPlane(enemy.position - transform.position, Vector3.up).normalized;
         }
-
+        public void DoAction(){
+            if(waiting){
+                return;
+            }
+            if(comQueue.Count==0&&pause&&!pauseScript.pause){
+                Debug.Log("it has offically unpaused");
+                Unpause();
+                pauseScript.waiting = false;
+            }
+            if(comQueue.Count!=0){
+                if(comQueue[0]==buttonG){
+                    buttonG.Execute(buttonG,transform,attackHitboxes[0]);
+                    comQueue.Remove(buttonG);
+                    Debug.Log("Projectile");
+                    UpdateUI();
+                }
+                else if(comQueue[0]==buttonH&&!waiting){
+                    waiting=true;
+                    anim.SetTrigger(punchHash);
+                    buttonH.Execute(buttonH,transform,attackHitboxes[1]);
+                    
+                }
+            }
+        }
+        public void UpdateUI(){
+            if(pause){
+                pauseScript.UpdateUI();
+            }
+        }
         void Move(float input)
         {
             transform.Translate(Vector3.forward* input* moveSpeed* Time.deltaTime);

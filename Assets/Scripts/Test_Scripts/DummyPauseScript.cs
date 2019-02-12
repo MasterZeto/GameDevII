@@ -10,17 +10,18 @@ namespace CommandPattern
         private List<Command> possibleComs;
         public int numOfPossComs = 3;
         private Command Pause, Unpause, camMoveBack, camMoveForward, camMoveLeft, camMoveRight;
-        bool pause = false;
+        public bool pause = false;
         public List<Command> pauseQueue;
         public GameObject pauseManager;
         public PauseUIManager UIManager;
         //will change this once timing is added to commands or w/e
-        private bool waiting = false;
+        public bool waiting = false;
         private Vector3 originalCamPos, originalCamRot;
         private Vector3 velocity=Vector3.zero;
         private Animator anim;
         private float punchTime = 1;
         private Fighter fighter;
+        private int comsBeforePause = 0;
         // Start is called before the first frame update
         void Start()
         {
@@ -31,9 +32,9 @@ namespace CommandPattern
             Pause = new PauseGame();
             Unpause = new UnpauseGame();
             pauseQueue = new List<Command>();
-            possibleComs.Add(new ArmAttack());
-            possibleComs.Add(new ProjectileAttack());
-            possibleComs.Add(new dummyCom3());
+            possibleComs.Add(fighter.buttonH);
+            possibleComs.Add(fighter.buttonG);
+            //possibleComs.Add(new dummyCom3());
             camMoveForward = new MoveForwardUnscaled();
             camMoveBack = new MoveBackUnscaled();
             camMoveRight = new MoveRightUnscaled();
@@ -56,7 +57,9 @@ namespace CommandPattern
         {
             if(Input.GetKeyDown(KeyCode.P)){
                 //Also change the input thing and move it to the InputHandler 
+                Debug.Log("waiting is set to: "+ waiting);
                 if(!pause && !waiting){
+                    Debug.Log("this runs");
                     Pause.Execute(Pause,transform, null);
                     UIManager.SetUp();
                     pause = true;
@@ -64,11 +67,18 @@ namespace CommandPattern
                     originalCamRot=Camera.main.transform.eulerAngles;
                     pauseQueue.Clear();
                     fighter.Pause();
+                    comsBeforePause=fighter.comQueue.Count;
                 }
                 else if(!waiting){
                     //change the startCoroutine so that it depends on the timing of the moves rather than just hard coding the time
-                    StartCoroutine(ExecuteComs());
+                    //StartCoroutine(ExecuteComs());
+                    foreach(Command com in pauseQueue){
+                        fighter.comQueue.Add(com);
+                    }
+                    Unpause.Execute(Unpause, transform, null);
+                    UIManager.Hide();
                     pause = false;
+                    waiting = true;
                 }
                 
             }
@@ -93,6 +103,13 @@ namespace CommandPattern
         }
         public void addToQueue(int i){
             pauseQueue.Add(possibleComs[i]);
+        }
+        public void UpdateUI(){
+            if(comsBeforePause!=0){
+                comsBeforePause--;
+                return;
+            }
+            UIManager.updateQueueButtons();
         }
         private IEnumerator ExecuteComs(){
             waiting=true;
