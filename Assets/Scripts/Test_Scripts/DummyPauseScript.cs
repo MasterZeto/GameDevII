@@ -32,7 +32,7 @@ namespace CommandPattern
             Unpause = new UnpauseGame();
             pauseQueue = new List<Command>();
             possibleComs.Add(new ArmAttack());
-            possibleComs.Add(new dummyCom2());
+            possibleComs.Add(new ProjectileAttack());
             possibleComs.Add(new dummyCom3());
             camMoveForward = new MoveForwardUnscaled();
             camMoveBack = new MoveBackUnscaled();
@@ -107,7 +107,16 @@ namespace CommandPattern
             }
             Unpause.Execute(Unpause, transform, null);
             foreach(Command com in pauseQueue){
-                com.Execute(com, transform, null);
+                if(possibleComs.IndexOf(com)==0){
+                    com.Execute(com, transform, fighter.attackHitboxes[1]);
+                }
+                else if(possibleComs.IndexOf(com)==1){
+                    com.Execute(com, transform, fighter.attackHitboxes[0]);
+                }
+                else{
+                    com.Execute(com, transform, null);
+                }
+                
                 UIManager.updateQueueButtons();
                 yield return new WaitForSeconds(punchTime);
             }
