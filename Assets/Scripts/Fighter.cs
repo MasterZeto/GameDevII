@@ -14,7 +14,8 @@ namespace CommandPattern
         Collider boxCollider;
         float distToGround;
         Rigidbody rb;
- 
+        
+        [SerializeField] Transform enemy;
 
         //attack support
         public List<Collider> attackHitboxes;
@@ -90,6 +91,8 @@ namespace CommandPattern
             {
                 anim.SetBool("walk", false);
             }
+
+            transform.forward = Vector3.ProjectOnPlane(enemy.position - transform.position, Vector3.up).normalized;
         }
 
         void Move(float input)
@@ -98,8 +101,13 @@ namespace CommandPattern
         }
         void Turn (float input)
         {
+            // so I should walwasy when I do the process movement turn to face him
+            // then I should like, move to the left or right, but I want to keep
+            // the same distance on the other side of the turn, over a big timestep
+            // it would spiral out, but maybe that's fine on a small enough step.
+            // have this be an orbit around the thing....
            //rotate around y axis
-           transform.Rotate(0,input*rotationRate*Time.deltaTime,0);
+           transform.Translate(Vector3.right * input * moveSpeed * Time.deltaTime);
         }
         void Jump(bool isGrounded)
         { 
