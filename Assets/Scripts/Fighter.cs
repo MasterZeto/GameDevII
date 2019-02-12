@@ -104,16 +104,14 @@ namespace CommandPattern
                 return;
             }
             if(comQueue.Count==0&&pause&&!pauseScript.pause){
-                Debug.Log("it has offically unpaused");
                 Unpause();
                 pauseScript.waiting = false;
             }
             if(comQueue.Count!=0){
                 if(comQueue[0]==buttonG){
+                    waiting=true;
                     buttonG.Execute(buttonG,transform,attackHitboxes[0]);
-                    comQueue.Remove(buttonG);
-                    Debug.Log("Projectile");
-                    UpdateUI();
+                    StartCoroutine(FakeTiming());
                 }
                 else if(comQueue[0]==buttonH&&!waiting){
                     waiting=true;
@@ -122,9 +120,9 @@ namespace CommandPattern
                     
                 }
                 else{
+                    waiting=true;
                     comQueue[0].Execute(comQueue[0], transform, null);
-                    comQueue.Remove(comQueue[0]);
-                    UpdateUI();
+                    StartCoroutine(FakeTiming());
                 }
             }
         }
@@ -163,6 +161,12 @@ namespace CommandPattern
         }
         public void Unpause(){
             pause = false;
+        }
+        private IEnumerator FakeTiming(){
+            yield return new WaitForSeconds(.5f);
+            comQueue.RemoveAt(0);
+            UpdateUI();
+            waiting=false;
         }
 
     }

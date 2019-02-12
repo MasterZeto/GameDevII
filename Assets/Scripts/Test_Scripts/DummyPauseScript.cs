@@ -57,9 +57,7 @@ namespace CommandPattern
         {
             if(Input.GetKeyDown(KeyCode.P)){
                 //Also change the input thing and move it to the InputHandler 
-                Debug.Log("waiting is set to: "+ waiting);
                 if(!pause && !waiting){
-                    Debug.Log("this runs");
                     Pause.Execute(Pause,transform, null);
                     UIManager.SetUp();
                     pause = true;
