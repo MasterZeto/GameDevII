@@ -34,7 +34,7 @@ namespace CommandPattern
             pauseQueue = new List<Command>();
             possibleComs.Add(fighter.buttonH);
             possibleComs.Add(fighter.buttonG);
-            //possibleComs.Add(new dummyCom3());
+            possibleComs.Add(new dummyCom3());
             camMoveForward = new MoveForwardUnscaled();
             camMoveBack = new MoveBackUnscaled();
             camMoveRight = new MoveRightUnscaled();

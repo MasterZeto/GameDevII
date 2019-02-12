@@ -121,6 +121,11 @@ namespace CommandPattern
                     buttonH.Execute(buttonH,transform,attackHitboxes[1]);
                     
                 }
+                else{
+                    comQueue[0].Execute(comQueue[0], transform, null);
+                    comQueue.Remove(comQueue[0]);
+                    UpdateUI();
+                }
             }
         }
         public void UpdateUI(){
