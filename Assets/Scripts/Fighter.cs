@@ -33,14 +33,19 @@ namespace CommandPattern
         public List<Command> comQueue;
         private bool pause = false;
         private DummyPauseScript pauseScript;
-
+        void Awake()
+        {
+             buttonG = new ProjectileAttack();
+            //right arm
+            //buttonH = new VoidDelegateCommand(Punch);
+            buttonH = new ArmAttack();
+            
+        }
         void Start()
         {
             anim = GetComponent<Animator>();
             comQueue = new List<Command>();
-            buttonG = new ProjectileAttack();
-            //right arm
-            buttonH = new VoidDelegateCommand(Punch);
+           
             boxCollider = GetComponent<BoxCollider>();
             distToGround = boxCollider.bounds.extents.y;
             rb = GetComponent<Rigidbody>();
@@ -72,7 +77,7 @@ namespace CommandPattern
             if (Input.GetKeyDown(KeyCode.H))
             {  
                 waiting=true;
-                // anim.SetTrigger("punch");
+                anim.SetTrigger("punch");
                 // Debug.Log("AAAAA");
                 buttonH.Execute(buttonH,transform,null);
                 comQueue.Add(buttonH);
@@ -100,7 +105,7 @@ namespace CommandPattern
             transform.forward = Vector3.ProjectOnPlane(enemy.position - transform.position, Vector3.up).normalized;
         }
         public void DoAction(){
-            if(!waiting){
+            if(waiting){
                 return;
             }
             if(comQueue.Count==0&&pause&&!pauseScript.pause){
@@ -115,7 +120,7 @@ namespace CommandPattern
                 }
                 else if(comQueue[0]==buttonH&&!waiting){
                     waiting=true;
-                    anim.SetTrigger("punch");
+                    Punch();
                     buttonH.Execute(buttonH,transform,null);
                     
                 }

@@ -538,7 +538,8 @@ ModelImporter:
       - time: 0.14140399
         functionName: ArmDone
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: ec96bf4a6664ceb4faa735b85600091e,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
