@@ -133,6 +133,9 @@ ModelImporter:
     100254: //RootNode
     100256: Stick
     100258: upperBody
+    100260: LeftHand
+    100262: leftHand
+    100264: rightHand
     400000: abdomen
     400002: AbdomenBottom
     400004: AbdomenScrew
@@ -263,6 +266,9 @@ ModelImporter:
     400254: //RootNode
     400256: Stick
     400258: upperBody
+    400260: LeftHand
+    400262: leftHand
+    400264: rightHand
     2100000: lambert1
     2100002: wood
     4300000: Head
@@ -359,6 +365,8 @@ ModelImporter:
     4300182: LeftWrist
     4300184: Stick
     4300186: RightHand
+    4300188: LeftHand
+    7400000: Take 001
     9500000: //RootNode
     13700000: AbdomenBottom
     13700002: AbdomenScrew
@@ -454,6 +462,7 @@ ModelImporter:
     13700182: RightThigh
     13700184: RightWrist
     13700186: Stick
+    13700188: LeftHand
   externalObjects: {}
   materials:
     importMaterials: 1
