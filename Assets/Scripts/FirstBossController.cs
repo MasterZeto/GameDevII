@@ -1,20 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using Giga.AI.FSM;
 using Giga.AI.Blackboard;
 
 public class FirstBossCharacter : AICharacter
 {
-    public NavMeshAgent agent            { get; private set; }
     public CharacterController character { get; private set; }
+    public Animator animator { get; private set; }
+    public Hitbox hitbox { get; private set; }
 
-    public FirstBossCharacter(NavMeshAgent agent, CharacterController character)
+    float t;
+
+    public FirstBossCharacter(CharacterController character, Hitbox h)
     {
-        this.agent = agent;
         this.character = character;
+        animator = character.transform.GetChild(0).GetComponent<Animator>();
+        hitbox = h;
     }
+
+    public void Attack()
+    {
+        if (!hitbox.active)
+        {
+            animator.SetTrigger("punch");
+            hitbox.Fire(0.75f);
+        }
+    }
+
+    
 }
 
 public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
@@ -25,9 +39,7 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
 
         public override void Update(FirstBossCharacter actor, float dt)
         {
-            actor.agent.SetDestination(Blackboard.player_position);
-            actor.character.Move(actor.agent.desiredVelocity);
-            
+            actor.character.SimpleMove(actor.character.transform.forward * 3f);            
         }
     }
 
@@ -37,7 +49,7 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
 
         public override void Update(FirstBossCharacter actor, float dt)
         {
-            // do nothing
+            actor.Attack();
         }
     }
 
@@ -46,14 +58,20 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
         MachineState<FirstBossCharacter> state
     )
     {
+        float dist_to_player = Vector3.Distance(actor.character.transform.position, Blackboard.player_position);
         switch(state.name)
         {
             case "TowardPlayer": 
-                if (actor.agent.remainingDistance < 10.0f) { Debug.Log("stop"); return new AttackPlayer(); }
+                if (dist_to_player < 2f) 
+                { 
+                    actor.animator.SetBool("walk", false);
+                    return new AttackPlayer(); 
+                }
                 break;
             case "AttackPlayer": 
-                if (Vector3.Distance(actor.agent.transform.position, Blackboard.player_position) > 20.0)
+                if (dist_to_player > 3f)
                 {
+                    actor.animator.SetBool("walk", true);
                     return new TowardPlayer();
                 }
                 break;
@@ -70,21 +88,26 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
     }
 }
 
-[RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(CharacterController))]
 public class FirstBossController : MonoBehaviour
 {
+    [SerializeField] Hitbox hitbox;
+    
     FirstBossCharacter ai;
     FirstBossFSM fsm;
 
     void Awake()
     {
-        ai = new FirstBossCharacter(GetComponent<NavMeshAgent>(), GetComponent<CharacterController>());
+        ai = new FirstBossCharacter(GetComponent<CharacterController>(), hitbox);
         fsm = new FirstBossFSM(ai);
     }
 
     void Update()
     {
+        transform.forward = Vector3.ProjectOnPlane(
+            (Blackboard.player_position - transform.position), 
+            Vector3.up
+        ).normalized;
         fsm.Update(ai, Time.deltaTime);
     }
 

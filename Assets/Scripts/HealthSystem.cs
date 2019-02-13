@@ -3,47 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthSystem : MonoBehaviour
 {
     [SerializeField] float maxHitPoints;
+    [SerializeField] Hurtbox[] hurtboxes;
     [SerializeField] Image uiHealthBar;
 
     float hitPoints;
 
-    private void Start()
+    void Start()
     {
         hitPoints = maxHitPoints;
         UpdateHealthBar();
+        for (int i = 0; i < hurtboxes.Length; i++)
+        {
+            hurtboxes[i].Initialize(TakeDamage);
+        }
     }
 
-    private void UpdateHealthBar()
+    void UpdateHealthBar()
     {
         float ratio = hitPoints / maxHitPoints;
         uiHealthBar.rectTransform.localScale = new Vector3(ratio,1,1);
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         hitPoints -= damage;
-        if(hitPoints<0)
+        if (hitPoints < 0)
         {
             hitPoints = 0;
-            Debug.Log("Die");
+            Debug.Log("Die");    
         }
         UpdateHealthBar();
     }
 
-    void HealDamage(float heal)
+    public void HealDamage(float damage)
     {
-        hitPoints += heal;
-        if (hitPoints >maxHitPoints)
+        hitPoints += damage;
+        if (hitPoints > maxHitPoints)
         {
             hitPoints = maxHitPoints;
-
         }
         UpdateHealthBar();
     }
-
-
-
 }

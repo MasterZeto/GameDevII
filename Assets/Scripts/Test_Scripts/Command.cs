@@ -10,45 +10,45 @@ namespace CommandPattern
         protected float speed = 0f;
         protected float maxSpeed = 5f;
         protected float Acceleration = 6f;
-        public List<Collider> attackHitboxes=GameObject.Find("MurryMech 1").GetComponent<Fighter>().attackHitboxes;
-        public Animator anim=GameObject.Find("MurryMech 1").GetComponent<Animator>();
-        public int punch=Animator.StringToHash("punch");
+        // public List<Collider> attackHitboxes=GameObject.Find("MurryMech 1").GetComponent<Fighter>().attackHitboxes;
+        // public Animator anim=GameObject.Find("MurryMech 1").GetComponent<Animator>();
+        // public int punch=Animator.StringToHash("punch");
         public abstract void Execute(Command command, Transform transform,Collider col);
         public virtual void Move(Command command, Transform transform){}
-        public virtual void LaunchAttack(Collider col, Transform transform)
-        {
+        // public virtual void LaunchAttack(Collider col, Transform transform)
+        // {
 
-            if(col==null)
-            {
-                Debug.Log("no col");
-            }
-            // or can use an overlapsphere here which is cheaper but may require multiple spheres
-            //test against colliders only in the Hitbox layer(now only contain the head and the torso)
-            Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, transform.rotation, LayerMask.GetMask("Hitbox"));
-            foreach (Collider c in cols)
-            {
-                //check if the collider we hit is ourself 
-                if (c.transform.root == transform)
-                    continue;
-                //only print the collider from enemy  
-                Debug.Log(c.name);
-                float damage = 0;
-                switch (c.name)
-                {
+        //     if(col==null)
+        //     {
+        //         Debug.Log("no col");
+        //     }
+        //     // or can use an overlapsphere here which is cheaper but may require multiple spheres
+        //     //test against colliders only in the Hitbox layer(now only contain the head and the torso)
+        //     Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, transform.rotation, LayerMask.GetMask("Hitbox"));
+        //     foreach (Collider c in cols)
+        //     {
+        //         //check if the collider we hit is ourself 
+        //         if (c.transform.root == transform)
+        //             continue;
+        //         //only print the collider from enemy  
+        //         Debug.Log(c.name);
+        //         float damage = 0;
+        //         switch (c.name)
+        //         {
 
-                    case "Head":
-                        damage = 30;
-                        break;
-                    case "Torso":
-                        damage = 10;
-                        break;
-                    default:
-                        Debug.Log("unable to identify body part, make sure the name matches the switch case");
-                        break;
-                }
-                c.SendMessageUpwards("TakeDamage",damage);
-            }
-        }
+        //             case "Head":
+        //                 damage = 30;
+        //                 break;
+        //             case "Torso":
+        //                 damage = 10;
+        //                 break;
+        //             default:
+        //                 Debug.Log("unable to identify body part, make sure the name matches the switch case");
+        //                 break;
+        //         }
+        //         c.SendMessageUpwards("TakeDamage",damage);
+        //     }
+        // }
     }
       
     
@@ -135,11 +135,9 @@ namespace CommandPattern
     {
         public override void Execute(Command command, Transform transform, Collider col)
         {
-            anim.SetTrigger(punch);
-            LaunchAttack(col,transform);
-     
-
-       
+            //anim.SetTrigger(punch);
+            //LaunchAttack(col,transform);
+            Debug.Log("AAAAA");
         }
   
     }
@@ -148,7 +146,7 @@ namespace CommandPattern
     {
         public override void Execute(Command command, Transform transform, Collider col)
         {
-            LaunchAttack(col,transform);
+            //LaunchAttack(col,transform);
         }
     }
 
@@ -159,5 +157,22 @@ namespace CommandPattern
 
         }
     }
+
+    public delegate void VoidDelegate();
+
+    public class VoidDelegateCommand : Command
+    {
+        VoidDelegate _delegate;
+
+        public VoidDelegateCommand(VoidDelegate d) : base()
+        {
+            _delegate = d;
+        }
+
+        public override void Execute(Command command, Transform transform, Collider col)
+        {
+            _delegate();
+        }
+    }  
      
 }

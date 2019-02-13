@@ -19,13 +19,14 @@ namespace CommandPattern
 
         //attack support
         public List<Collider> attackHitboxes;
+        public Hitbox punchHitbox;
         //sorry for making this public, is used in Dummy Pause script
         public Command buttonG;
         public Command buttonH;
 
         //animation support
         Animator anim;
-        int punchHash = Animator.StringToHash("punch");
+        //int punchHash = Animator.StringToHash("punch");
 
         //queue stuff
         public bool waiting = false;
@@ -33,17 +34,15 @@ namespace CommandPattern
         private bool pause = false;
         private DummyPauseScript pauseScript;
 
-
-
         void Start()
         {
             anim = GetComponent<Animator>();
             comQueue = new List<Command>();
             buttonG = new ProjectileAttack();
             //right arm
-            buttonH = new ArmAttack();
+            buttonH = new VoidDelegateCommand(Punch);
             boxCollider = GetComponent<BoxCollider>();
-            distToGround =boxCollider.bounds.extents.y;
+            distToGround = boxCollider.bounds.extents.y;
             rb = GetComponent<Rigidbody>();
             pauseScript=GameObject.Find("PauseManager").GetComponent<DummyPauseScript>();
         }
@@ -55,6 +54,7 @@ namespace CommandPattern
             HandleMovement();
             DoAction();
         }
+
         public void HandleInput()
         {
             if(waiting||pause||comQueue.Count!=0){
@@ -71,11 +71,9 @@ namespace CommandPattern
             //right arm
             if (Input.GetKeyDown(KeyCode.H))
             {  
-                
-                //anim.SetTrigger(punchHash);
-               // buttonH.Execute(buttonH,transform,attackHitboxes[1]);
-               comQueue.Add(buttonH);
-              
+                waiting=true;
+                buttonH.Execute(buttonH,transform,null);
+                comQueue.Add(buttonH);
             }
 
         }
@@ -86,7 +84,7 @@ namespace CommandPattern
            Move(moveAxis);
            Turn(turnAxis);
            bool isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 1.2f);
-            Debug.Log(isGrounded);
+            //Debug.Log(isGrounded);
            Jump(isGrounded);
            if (moveAxis > 0.0001f || moveAxis < -0.0001f)
             {
@@ -137,23 +135,24 @@ namespace CommandPattern
         }
         void Turn (float input)
         {
-            // so I should walwasy when I do the process movement turn to face him
-            // then I should like, move to the left or right, but I want to keep
-            // the same distance on the other side of the turn, over a big timestep
-            // it would spiral out, but maybe that's fine on a small enough step.
-            // have this be an orbit around the thing....
-           //rotate around y axis
-           transform.Translate(Vector3.right * input * moveSpeed * Time.deltaTime);
+            //rotate around y axis
+            transform.Translate(Vector3.right * input * moveSpeed * Time.deltaTime);
         }
         void Jump(bool isGrounded)
         { 
-         if(Input.GetKeyDown(KeyCode.Space)&&isGrounded)
+            if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 Debug.Log("on the ground");
                 //  Vector3 jump = new Vector3(0, 10, 0);
                 // rb.AddForce(jump * jumpSpeed, ForceMode.Impulse);
                 rb.velocity = Vector3.up * jumpSpeed;
             }
+        }
+
+        public void Punch()
+        {
+            punchHitbox.Fire(0.5f);
+            anim.SetTrigger("punch");
         }
 
         public void Pause(){
