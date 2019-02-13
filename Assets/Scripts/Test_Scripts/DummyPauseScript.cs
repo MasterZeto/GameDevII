@@ -61,6 +61,7 @@ namespace CommandPattern
                     Pause.Execute(Pause,transform, null);
                     UIManager.SetUp();
                     pause = true;
+                    Camera.main.GetComponent<CameraController>().enabled = false;
                     originalCamPos=Camera.main.transform.position;
                     originalCamRot=Camera.main.transform.eulerAngles;
                     pauseQueue.Clear();
@@ -118,6 +119,7 @@ namespace CommandPattern
             UIManager.Hide();
             pause = false;
             waiting = true;
+            Camera.main.GetComponent<CameraController>().enabled = true;
         }
         private IEnumerator ExecuteComs(){
             waiting=true;
