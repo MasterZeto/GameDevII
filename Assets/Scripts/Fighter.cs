@@ -72,6 +72,8 @@ namespace CommandPattern
             if (Input.GetKeyDown(KeyCode.H))
             {  
                 waiting=true;
+                // anim.SetTrigger("punch");
+                // Debug.Log("AAAAA");
                 buttonH.Execute(buttonH,transform,null);
                 comQueue.Add(buttonH);
             }
