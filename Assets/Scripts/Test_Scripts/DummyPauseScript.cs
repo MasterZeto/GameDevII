@@ -69,14 +69,7 @@ namespace CommandPattern
                 }
                 else if(!waiting){
                     //change the startCoroutine so that it depends on the timing of the moves rather than just hard coding the time
-                    //StartCoroutine(ExecuteComs());
-                    foreach(Command com in pauseQueue){
-                        fighter.comQueue.Add(com);
-                    }
-                    Unpause.Execute(Unpause, transform, null);
-                    UIManager.Hide();
-                    pause = false;
-                    waiting = true;
+                    StartCoroutine(UpdateCamera());
                 }
                 
             }
@@ -108,6 +101,23 @@ namespace CommandPattern
                 return;
             }
             UIManager.updateQueueButtons();
+        }
+        private IEnumerator UpdateCamera(){
+            while(Vector3.Distance(Camera.main.transform.eulerAngles, originalCamRot)>.1f){
+                Camera.main.transform.eulerAngles = Vector3.SmoothDamp(Camera.main.transform.eulerAngles, originalCamRot, ref velocity, .5f, Mathf.Infinity,Time.unscaledDeltaTime);
+                yield return null;
+            }
+            while(Vector3.Distance(Camera.main.transform.position, originalCamPos)>.1f){
+                Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, originalCamPos, ref velocity, .5f, Mathf.Infinity,Time.unscaledDeltaTime);
+                yield return null;
+            }
+            foreach(Command com in pauseQueue){
+                fighter.comQueue.Add(com);
+            }
+            Unpause.Execute(Unpause, transform, null);
+            UIManager.Hide();
+            pause = false;
+            waiting = true;
         }
         private IEnumerator ExecuteComs(){
             waiting=true;
