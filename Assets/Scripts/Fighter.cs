@@ -37,8 +37,8 @@ namespace CommandPattern
         {
              buttonG = new ProjectileAttack();
             //right arm
-            //buttonH = new VoidDelegateCommand(Punch);
-            buttonH = new ArmAttack();
+            buttonH = new VoidDelegateCommand(Punch);
+            //buttonH = new ArmAttack();
             
         }
         void Start()
