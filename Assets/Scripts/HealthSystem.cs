@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
@@ -34,7 +35,8 @@ public class HealthSystem : MonoBehaviour
         {
             hitPoints = 0; 
             Debug.Log("DEAD");
-            GameObject.Destroy(this.gameObject);    
+            SceneManager.LoadScene("EndScene"); 
+            GameObject.Destroy(this.gameObject); 
         }
         UpdateHealthBar();
     }
