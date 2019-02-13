@@ -21,13 +21,13 @@ public class AnimationEvents : MonoBehaviour
         
     }
     void ArmDone(){
-        if(this.gameObject==player){
+       /* if(this.gameObject==player){
             fighter.waiting=false;
             if(fighter.comQueue.Count!=0){
                 fighter.comQueue.RemoveAt(0);
                 fighter.UpdateUI();
             }
-        }
+        }*/
         
     }
 }

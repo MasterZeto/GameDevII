@@ -123,6 +123,7 @@ namespace CommandPattern
                     Debug.Log("slkdfjsldjf");
                     waiting=true;
                     Punch();
+                    StartCoroutine(FakeTiming());
                     buttonH.Execute(buttonH,transform,null);
                     
                 }
@@ -163,7 +164,7 @@ namespace CommandPattern
 
         public void Punch()
         {
-            punchHitbox.Fire(0.5f);
+            punchHitbox.Fire(1.0f);
             anim.SetTrigger("punch");
         }
 
