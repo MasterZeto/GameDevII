@@ -11,18 +11,19 @@ public class Hitbox : MonoBehaviour
     [SerializeField] Collider _collider;
 
     public bool active { get; private set; }
+    public float cooldown = 0f;
 
     void Start() { active = false; }
 
-    void OnTriggerEnter(Collider c)
+    void OnTriggerStay(Collider c)
     {
         if (active)
         {
-            Debug.Log("entered and active");
+            //Debug.Log("entered and active");
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
             if (h != null)
             {
-                Debug.Log("oof");
+                //Debug.Log("oof");
                 active = false;
                 h.TakeDamage(_damage);
             }
@@ -31,16 +32,19 @@ public class Hitbox : MonoBehaviour
 
     public void Fire(float duration)
     {
-        active = true;
-        StartCoroutine(FireRoutine(duration));
+        if (!active && cooldown <= 0f)
+        {
+            active = true;
+            StartCoroutine(FireRoutine(duration));
+        }
     }
 
     IEnumerator FireRoutine(float duration)
     {
-        float t = 0f;
-        while (t < duration && active)
+        cooldown = duration;
+        while (cooldown >= 0f)
         {
-            t += Time.deltaTime;
+            cooldown -= Time.deltaTime;
             yield return null;
         }
         active = false;
