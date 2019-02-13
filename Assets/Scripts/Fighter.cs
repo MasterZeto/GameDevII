@@ -100,7 +100,7 @@ namespace CommandPattern
             transform.forward = Vector3.ProjectOnPlane(enemy.position - transform.position, Vector3.up).normalized;
         }
         public void DoAction(){
-            if(waiting){
+            if(!waiting){
                 return;
             }
             if(comQueue.Count==0&&pause&&!pauseScript.pause){
@@ -110,13 +110,13 @@ namespace CommandPattern
             if(comQueue.Count!=0){
                 if(comQueue[0]==buttonG){
                     waiting=true;
-                    buttonG.Execute(buttonG,transform,attackHitboxes[0]);
+                    buttonG.Execute(buttonG,transform,null);
                     StartCoroutine(FakeTiming());
                 }
                 else if(comQueue[0]==buttonH&&!waiting){
                     waiting=true;
-                    anim.SetTrigger(punchHash);
-                    buttonH.Execute(buttonH,transform,attackHitboxes[1]);
+                    anim.SetTrigger("punch");
+                    buttonH.Execute(buttonH,transform,null);
                     
                 }
                 else{
