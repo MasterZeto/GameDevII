@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -760,6 +760,7 @@ MonoBehaviour:
   - {fileID: 683993834}
   - {fileID: 207659942}
   - {fileID: 1007805255}
+  punchHitbox: {fileID: 0}
   waiting: 0
 --- !u!1 &827850782
 GameObject:
@@ -6613,6 +6614,11 @@ PrefabInstance:
     - target: {fileID: 4301023547340474044, guid: c1189932daa3143a585c4680c6ff11ca,
         type: 3}
       propertyPath: currentHealth
+      value: 
+      objectReference: {fileID: 1743460228}
+    - target: {fileID: 4301023547340474044, guid: c1189932daa3143a585c4680c6ff11ca,
+        type: 3}
+      propertyPath: uiHealthBar
       value: 
       objectReference: {fileID: 1743460228}
     m_RemovedComponents: []
