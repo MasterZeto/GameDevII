@@ -142,11 +142,13 @@ namespace CommandPattern
         void Move(float input)
         {
             transform.Translate(Vector3.forward* input* moveSpeed* Time.deltaTime);
+            transform.position = Vector3.ClampMagnitude(transform.position, 32f);
         }
         void Turn (float input)
         {
             //rotate around y axis
             transform.Translate(Vector3.right * input * moveSpeed * Time.deltaTime);
+            transform.position = Vector3.ClampMagnitude(transform.position, 32f);
         }
         void Jump(bool isGrounded)
         { 
