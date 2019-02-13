@@ -76,11 +76,12 @@ namespace CommandPattern
             //right arm
             if (Input.GetKeyDown(KeyCode.H))
             {  
-                waiting=true;
-                anim.SetTrigger("punch");
+                //waiting=true;
+                //anim.SetTrigger("punch");
                 // Debug.Log("AAAAA");
-                buttonH.Execute(buttonH,transform,null);
+                //buttonH.Execute(buttonH,transform,null);
                 comQueue.Add(buttonH);
+                Debug.Log(comQueue.Count);
             }
 
         }
@@ -119,15 +120,17 @@ namespace CommandPattern
                     StartCoroutine(FakeTiming());
                 }
                 else if(comQueue[0]==buttonH&&!waiting){
+                    Debug.Log("slkdfjsldjf");
                     waiting=true;
                     Punch();
                     buttonH.Execute(buttonH,transform,null);
                     
                 }
-                else{
+                else if(!waiting){
                     waiting=true;
                     comQueue[0].Execute(comQueue[0], transform, null);
                     StartCoroutine(FakeTiming());
+                    Debug.Log("this one");
                 }
             }
         }
