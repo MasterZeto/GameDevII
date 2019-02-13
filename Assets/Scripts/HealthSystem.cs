@@ -30,10 +30,11 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float damage)
     {
         hitPoints -= damage;
-        if (hitPoints < 0)
+        if (hitPoints < 0.001f)
         {
-            hitPoints = 0;
-            Debug.Log("Die");    
+            hitPoints = 0; 
+            Debug.Log("DEAD");
+            GameObject.Destroy(this.gameObject);    
         }
         UpdateHealthBar();
     }
