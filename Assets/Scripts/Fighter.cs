@@ -164,7 +164,7 @@ namespace CommandPattern
 
         public void Punch()
         {
-            punchHitbox.Fire(1.0f);
+            punchHitbox.Fire(.5f);
             anim.SetTrigger("punch");
         }
 
