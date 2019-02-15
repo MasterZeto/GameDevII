@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Action
+public abstract class Action : MonoBehaviour
 {
-    FighterController fighter;
-    public abstract void Start(FighterController fighter);
+    protected FighterController fighter;
+    protected bool running = false;
+
+    public abstract void StartAction(FighterController fighter);
     public abstract void Stop();
     public abstract void Pause();
     public abstract void Resume();
-    public abstract bool IsDone();
+    
+    public bool IsDone() { return running; }
 }
