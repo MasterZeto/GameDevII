@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class FighterController : MonoBehaviour
 {
     /* Inspector Accessible Parameters */
@@ -34,6 +35,7 @@ public class FighterController : MonoBehaviour
     public void Move(Vector3 direction) 
     {
         character.SimpleMove(direction.normalized * move_speed);
+        transform.forward = Vector3.ProjectOnPlane(-transform.position, Vector3.up);
     } 
 
     /* Dash Functions */
