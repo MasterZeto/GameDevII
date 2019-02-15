@@ -11,11 +11,13 @@ public class FighterController : MonoBehaviour
     /* Private Member Components */
     CharacterController character;
 
+    [Space]
+    [Header("Actions")]
     /* Dash Actions */
-    Action dash_left;
-    Action dash_right;
-    Action dash_forward;
-    Action dash_backward;
+    [SerializeField] Action dash_left;
+    [SerializeField] Action dash_right;
+    [SerializeField] Action dash_forward;
+    [SerializeField] Action dash_backward;
 
     /* Punch Actions */
     Action left_punch;
@@ -27,31 +29,63 @@ public class FighterController : MonoBehaviour
     Action right_kick;
     Action left_right_kick;
 
-    public void Awake()
+    Action current_action;
+
+    void Awake()
     {
         character = GetComponent<CharacterController>();
+        current_action = null;
+    }
+
+    void Update()
+    {
+        if (current_action != null && current_action.IsDone())
+        {
+            current_action = null;
+        }
     }
 
     public void Move(Vector3 direction) 
     {
-        character.SimpleMove(direction.normalized * move_speed);
-        transform.forward = Vector3.ProjectOnPlane(-transform.position, Vector3.up);
+        if (current_action == null || current_action.IsDone())
+        {
+            character.SimpleMove(direction.normalized * move_speed);
+            transform.forward = Vector3.ProjectOnPlane(
+                -transform.position, 
+                Vector3.up
+            );
+        }
     } 
 
+    public void UnsafeMove(Vector3 velocity)
+    {
+        character.SimpleMove(velocity);
+        transform.forward = Vector3.ProjectOnPlane(
+            -transform.position, 
+            Vector3.up
+        );
+    }
+
+    void StartAction(Action action)
+    {
+        current_action = action;
+        current_action.StartAction(this);
+    }
+
     /* Dash Functions */
-    public void DashLeft()     { dash_left.Start(this);     }
-    public void DashRight()    { dash_right.Start(this);    }
-    public void DashForward()  { dash_forward.Start(this);  }
-    public void DashBackward() { dash_backward.Start(this); }
+    public void DashLeft()     { StartAction(dash_left);     }
+    public void DashRight()    { StartAction(dash_right);    }
+    public void DashForward()  { StartAction(dash_forward);  }
+    public void DashBackward() { StartAction(dash_backward); }
 
     /* Punch Functions */
-    public void LeftPunch()      { left_punch.Start(this);       }
-    public void RightPunch()     { right_punch.Start(this);      }
-    public void LeftRightPunch() { left_right_punch.Start(this); }
+    public void LeftPunch()      { StartAction(left_punch);       }
+    public void RightPunch()     { StartAction(right_punch);      }
+    public void LeftRightPunch() { StartAction(left_right_punch); }
 
     /* Kick Functions */
-    public void LeftKick()      { left_kick.Start(this);       }
-    public void RightKick()     { right_kick.Start(this);      }
-    public void LeftRightKick() { left_right_kick.Start(this); }
+    public void LeftKick()      { StartAction(left_kick);       }
+    public void RightKick()     { StartAction(right_kick);      }
+    public void LeftRightKick() { StartAction(left_right_kick); }
 
 }
