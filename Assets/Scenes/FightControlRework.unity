@@ -589,7 +589,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec24fc7f46075a74a8e3f04e01b755cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dash_window: 3
+  dash_window: 1
+  dash_deadzone: 0.25
+  dash_cooldown: 1
 --- !u!4 &1483727929
 Transform:
   m_ObjectHideFlags: 0
