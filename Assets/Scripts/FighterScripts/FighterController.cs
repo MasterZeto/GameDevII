@@ -10,6 +10,7 @@ public class FighterController : MonoBehaviour
 
     /* Private Member Components */
     CharacterController character;
+    [SerializeField] Animator animator;
 
     [Space]
     [Header("Actions")]
@@ -49,11 +50,7 @@ public class FighterController : MonoBehaviour
     {
         if (current_action == null || current_action.IsDone())
         {
-            character.SimpleMove(direction.normalized * move_speed);
-            transform.forward = Vector3.ProjectOnPlane(
-                -transform.position, 
-                Vector3.up
-            );
+            UnsafeMove(direction * move_speed);
         }
     } 
 
@@ -64,6 +61,7 @@ public class FighterController : MonoBehaviour
             -transform.position, 
             Vector3.up
         );
+        SetBlend("Speed", character.velocity.magnitude);
     }
 
     void StartAction(Action action)
@@ -88,4 +86,9 @@ public class FighterController : MonoBehaviour
     public void RightKick()     { StartAction(right_kick);      }
     public void LeftRightKick() { StartAction(left_right_kick); }
 
+    public void SetTrigger(string trigger) { animator.SetTrigger(trigger); }
+    public void SetBlend(string name, float blend) 
+    { 
+        animator.SetFloat(name, Mathf.Clamp01(blend)); 
+    }
 }

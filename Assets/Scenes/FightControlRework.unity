@@ -5533,6 +5533,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!95 &1361278020 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1973493371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1483727925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5549,8 +5555,6 @@ GameObject:
   - component: {fileID: 1483727931}
   - component: {fileID: 1483727933}
   - component: {fileID: 1483727932}
-  - component: {fileID: 1483727937}
-  - component: {fileID: 1483727936}
   - component: {fileID: 1483727935}
   - component: {fileID: 1483727934}
   m_Layer: 0
@@ -5591,14 +5595,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 5
+  animator: {fileID: 1361278020}
   dash_left: {fileID: 1483727930}
   dash_right: {fileID: 1483727931}
   dash_forward: {fileID: 1483727933}
   dash_backward: {fileID: 1483727932}
-  left_punch: {fileID: 1483727937}
-  right_punch: {fileID: 1483727936}
-  left_kick: {fileID: 1483727935}
-  right_kick: {fileID: 1483727934}
+  left_punch: {fileID: 1483727935}
+  right_punch: {fileID: 1483727934}
+  left_kick: {fileID: 0}
+  right_kick: {fileID: 0}
 --- !u!114 &1483727928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5696,11 +5701,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483727925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e0b5a5feaaac24e94bf0419ab16193, type: 3}
+  m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitbox: {fileID: 166799941}
+  hitbox: {fileID: 329268863}
   hit_duration: 0.1
+  anim_name: RightPunch
 --- !u!114 &1483727935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5710,39 +5716,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483727925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e0b5a5feaaac24e94bf0419ab16193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitbox: {fileID: 1726599804}
-  hit_duration: 0.1
---- !u!114 &1483727936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483727925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e0b5a5feaaac24e94bf0419ab16193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitbox: {fileID: 329268863}
-  hit_duration: 0.1
---- !u!114 &1483727937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483727925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e0b5a5feaaac24e94bf0419ab16193, type: 3}
+  m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 1021916555}
-  hit_duration: 1
+  hit_duration: 0.1
+  anim_name: LeftPunch
 --- !u!1 &1726599801
 GameObject:
   m_ObjectHideFlags: 0
@@ -6144,6 +6123,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
 --- !u!4 &1973493372 stripped

@@ -11,6 +11,10 @@ public enum JoystickPosition
     DOWN
 };
 
+/* see about expanding this kind of "get down" behavior I'm using for the punches and kicks to
+   the dash behavior, then I can clean up some of this nasty shit...
+ */
+
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] float dash_window;
@@ -19,7 +23,8 @@ public class InputHandler : MonoBehaviour
 
     FighterController fighter;
 
-    float h, v, cool;
+    float h, v, lp, rp, lk, rk, cool;
+    bool lp_ready, rp_ready, lk_ready, rk_ready;
 
     JoystickPosition p0, p1, p2;
     float p1_time, p2_time;
@@ -29,14 +34,14 @@ public class InputHandler : MonoBehaviour
         fighter = GetComponent<FighterController>();
         p0 = p1 = p2 = JoystickPosition.CENTER;
         p1_time = p2_time = 0f;
+        lp_ready = rp_ready = lk_ready = rk_ready = true;
     }
 
     void Update()
     {
-        h = Input.GetAxisRaw("Horizontal");
-        v = Input.GetAxisRaw("Vertical");
+        GetInput();
 
-        TryDash(h, v);
+        TryDash();
         TryPunch();
         TryKick();
 
@@ -47,8 +52,26 @@ public class InputHandler : MonoBehaviour
         if (cool > 0f) { cool -= Time.deltaTime; }
     }
 
-    void TryDash(float h, float v)
+    void GetInput()
     {
+        h = Input.GetAxisRaw("Horizontal");
+        v = Input.GetAxisRaw("Vertical");
+        lp = Input.GetAxisRaw("LeftPunch");
+        rp = Input.GetAxisRaw("RightPunch");
+        lk = Input.GetAxisRaw("LeftKick");
+        rk = Input.GetAxisRaw("RightKick");
+
+        // do the stuff to figure out if the thing is back down again...
+        if (!lp_ready && lp <= 0.001f) lp_ready = true;
+        if (!rp_ready && rp <= 0.001f) rp_ready = true;
+        if (!lk_ready && lk <= 0.001f) lk_ready = true;
+        if (!rk_ready && rk <= 0.001f) rk_ready = true;
+    }
+
+    void TryDash()
+    {
+        /* this is nasty, try to rework this to be like the stuff I'm doing with the buttons...
+           not urgent but worth investigating */
         p0 = GetJoystickPosition(h, v);
 
         if (p0 != p1 &&
@@ -82,24 +105,34 @@ public class InputHandler : MonoBehaviour
 
     void TryPunch()
     {
-        // check both
-        if (Input.GetAxisRaw("LeftPunch") > 0.9f)
+        // TODO check both
+        if (lp >= 0.999f && lp_ready)
         { 
             Debug.Log("LeftPunch"); 
             fighter.LeftPunch();
+            lp_ready = false;
         }
-        if (Input.GetAxisRaw("RightPunch") > 0.9f)
+        if (rp >= 0.999f && rp_ready) 
         {
             Debug.Log("RightPunch");
             fighter.RightPunch();
+            rp_ready = false;
         }
     }
 
     void TryKick()
     {
-        // check both
-        if (Input.GetAxisRaw("LeftKick") > 0.9f)  fighter.LeftKick();
-        if (Input.GetAxisRaw("RightKick") > 0.9f) fighter.RightKick();
+        // TODO check both
+        if (lk >= 0.999f && lk_ready)
+        {
+            fighter.LeftKick();
+            lk_ready = false;
+        }
+        if (rk >= 0.999f && rk_ready)
+        {
+            fighter.RightKick();
+            rk_ready = false;
+        }
     }
 
     JoystickPosition GetJoystickPosition(float h, float v)
@@ -110,4 +143,6 @@ public class InputHandler : MonoBehaviour
         if (v < -dash_deadzone && Mathf.Abs(h) <= dash_deadzone) return JoystickPosition.DOWN;
         return JoystickPosition.CENTER;
     }
+
+
 };

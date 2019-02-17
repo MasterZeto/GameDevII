@@ -39,7 +39,6 @@ public class Hitbox : MonoBehaviour
 
     public void Fire(float duration)
     {
-        Debug.Log("hitbox fired!!");
         if (!active && cooldown <= 0f)
         {
             active = true;
@@ -56,7 +55,6 @@ public class Hitbox : MonoBehaviour
             yield return null;
         }
         active = false;
-        Debug.Log("hitbox deactivated");
     }
 
 }
