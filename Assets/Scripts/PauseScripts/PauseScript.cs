@@ -6,17 +6,31 @@ public class PauseScript : MonoBehaviour
 {
     //main script dealing w/ the pause stuff
     //replace fightercontroller here for w/e is responsible for pausing the enemy
-    [SerializeField] FighterController enemy;
-    private List<voidDelegate> pauseQueue;
+    [SerializeField] 
+    FighterController enemy;
+    [SerializeField]
+    PauseUIManager UIManager;
+    public List<voidDelegate> pauseQueue;
+    private List<voidDelegate> possibleComs;
     FighterController playerActions;
     bool pause = false;
     bool executing = false;
     // Start is called before the first frame update
     void Start()
     {
+        UIManager = GetComponent<PauseUIManager>();
         pauseQueue = new List<voidDelegate>();
-        pauseQueue.Add(() => playerActions.DashLeft());
-        pauseQueue.Add(() => playerActions.LeftPunch());
+        possibleComs = new List<voidDelegate>();
+        possibleComs.Add(() => playerActions.DashLeft());
+        possibleComs.Add(() => playerActions.DashRight());
+        possibleComs.Add(() => playerActions.DashForward());
+        possibleComs.Add(() => playerActions.DashBackward());
+        possibleComs.Add(() => playerActions.LeftPunch());
+        possibleComs.Add(() => playerActions.RightPunch());
+        possibleComs.Add(() => playerActions.LeftRightPunch());
+        possibleComs.Add(() => playerActions.LeftKick());
+        possibleComs.Add(() => playerActions.RightKick());
+        possibleComs.Add(() => playerActions.LeftRightKick());
         playerActions = GameObject.FindWithTag("Player").GetComponent<FighterController>();
     }
 
@@ -28,6 +42,8 @@ public class PauseScript : MonoBehaviour
             if(!pause&&!executing){
             Time.timeScale = 0;
             pause = true;
+            UIManager.SetUp();
+            pauseQueue.Clear();
             if(enemy!=null){
                 //stop enemy's action, somehow.
             }   
@@ -50,6 +66,9 @@ public class PauseScript : MonoBehaviour
             //resume enemy's action, somehow
         }
     }
+    public void addToQueue(int i){
+            pauseQueue.Add(possibleComs[i]);
+        }
     //used for the queue :/
     public delegate void voidDelegate();
 }
