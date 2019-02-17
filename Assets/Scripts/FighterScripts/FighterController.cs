@@ -50,11 +50,7 @@ public class FighterController : MonoBehaviour
     {
         if (current_action == null || current_action.IsDone())
         {
-            character.SimpleMove(direction.normalized * move_speed);
-            transform.forward = Vector3.ProjectOnPlane(
-                -transform.position, 
-                Vector3.up
-            );
+            UnsafeMove(direction * move_speed);
         }
     } 
 
@@ -65,6 +61,7 @@ public class FighterController : MonoBehaviour
             -transform.position, 
             Vector3.up
         );
+        SetBlend("Speed", character.velocity.magnitude);
     }
 
     void StartAction(Action action)
