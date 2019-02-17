@@ -28,11 +28,11 @@ public class Hitbox : MonoBehaviour
                 active = false;
                 h.TakeDamage(_damage);
 
-                CameraShaker cam = GameObject.Find("CameraShaker").GetComponent<CameraShaker>();
-                cam.Shake();
+                GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
 
-                Fighter soundMaker = GameObject.FindWithTag("Player").GetComponent<Fighter>();
-                soundMaker.PunchSFX();
+                GameObject.FindWithTag("Player").GetComponent<Fighter>().PunchSFX();
+
+                GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
             }
         }
     }
