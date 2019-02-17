@@ -54,6 +54,15 @@ public class FighterController : MonoBehaviour
         }
     } 
 
+    // so here do a Vector3.up, right left, etc, and it'll make it relative
+    public void RelativeMove(Vector3 direction)
+    {
+        Move(((transform.right * direction.x) + 
+             (transform.up * direction.y) + 
+             (transform.forward * direction.z)).normalized
+        );
+    }
+
     public void UnsafeMove(Vector3 velocity)
     {
         character.SimpleMove(velocity);
