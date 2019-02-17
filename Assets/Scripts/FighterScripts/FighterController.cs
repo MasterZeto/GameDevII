@@ -20,13 +20,13 @@ public class FighterController : MonoBehaviour
     [SerializeField] Action dash_backward;
 
     /* Punch Actions */
-    Action left_punch;
-    Action right_punch;
+    [SerializeField] Action left_punch;
+    [SerializeField] Action right_punch;
     Action left_right_punch;
 
     /* Kick Actions */
-    Action left_kick;
-    Action right_kick;
+    [SerializeField] Action left_kick;
+    [SerializeField] Action right_kick;
     Action left_right_kick;
 
     Action current_action;

@@ -82,14 +82,24 @@ public class InputHandler : MonoBehaviour
 
     void TryPunch()
     {
-        if (Input.GetAxisRaw("LeftPunch") > 0.9f)  Debug.Log("LeftPunch");
-        if (Input.GetAxisRaw("RightPunch") > 0.9f) Debug.Log("RightPunch");
+        // check both
+        if (Input.GetAxisRaw("LeftPunch") > 0.9f)
+        { 
+            Debug.Log("LeftPunch"); 
+            fighter.LeftPunch();
+        }
+        if (Input.GetAxisRaw("RightPunch") > 0.9f)
+        {
+            Debug.Log("RightPunch");
+            fighter.RightPunch();
+        }
     }
 
     void TryKick()
     {
-        if (Input.GetAxisRaw("LeftKick") > 0.9f)  Debug.Log("LeftKick");
-        if (Input.GetAxisRaw("RightKick") > 0.9f) Debug.Log("RightKick");
+        // check both
+        if (Input.GetAxisRaw("LeftKick") > 0.9f)  fighter.LeftKick();
+        if (Input.GetAxisRaw("RightKick") > 0.9f) fighter.RightKick();
     }
 
     JoystickPosition GetJoystickPosition(float h, float v)
