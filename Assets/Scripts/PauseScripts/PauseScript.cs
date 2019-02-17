@@ -15,6 +15,7 @@ public class PauseScript : MonoBehaviour
     FighterController playerActions;
     bool pause = false;
     bool executing = false;
+    bool up = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,8 @@ public class PauseScript : MonoBehaviour
     void Update()
     {
         //move this to input handler later
-        if(Input.GetAxisRaw("Pause") == 1){
+        if(Input.GetAxisRaw("Pause") == 1 && up){
+            up = false;
             if(!pause&&!executing){
             Time.timeScale = 0;
             pause = true;
@@ -55,11 +57,16 @@ public class PauseScript : MonoBehaviour
                 ExecuteMoves();
             }
         }
+        if(Input.GetAxisRaw("Pause") == 0){
+            up = true;
+        }
     }
     void ExecuteMoves(){
         Debug.Log("sdkfhsdkfh");
+        UIManager.Hide();
         foreach(voidDelegate action in pauseQueue){
             action();
+            UIManager.updateQueueButtons();
         }
         executing = false;
         if(enemy!=null){
