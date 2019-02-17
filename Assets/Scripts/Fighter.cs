@@ -28,6 +28,10 @@ namespace CommandPattern
         Animator anim;
         //int punchHash = Animator.StringToHash("punch");
 
+        //audio support
+        private AudioSource source;
+        public AudioClip punchHitSound;
+
         //queue stuff
         public bool waiting = false;
         public List<Command> comQueue;
@@ -40,6 +44,7 @@ namespace CommandPattern
             buttonH = new VoidDelegateCommand(Punch);
             //buttonH = new ArmAttack();
             
+            source = GetComponent<AudioSource>();
         }
         void Start()
         {
@@ -166,6 +171,12 @@ namespace CommandPattern
         {
             punchHitbox.Fire(.5f);
             anim.SetTrigger("punch");
+            //source.PlayOneShot(punchMissSound, 0.3F);            
+        }
+
+        public void PunchSFX()
+        {
+            source.PlayOneShot(punchHitSound, 0.3F);
         }
 
         public void Pause(){
