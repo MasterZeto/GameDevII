@@ -47,7 +47,7 @@ public class PauseScript : MonoBehaviour
             UIManager.SetUp();
             pauseQueue.Clear();
             if(enemy!=null){
-                //stop enemy's action, somehow.
+                //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
             }   
             }
             else if(pause&&!executing){
