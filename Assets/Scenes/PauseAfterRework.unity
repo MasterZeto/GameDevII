@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 5
+  animator: {fileID: 0}
   dash_left: {fileID: 1483727930}
   dash_right: {fileID: 1483727931}
   dash_forward: {fileID: 1483727933}
@@ -676,6 +677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1526947151}
+  - component: {fileID: 1526947154}
   - component: {fileID: 1526947152}
   m_Layer: 0
   m_Name: PauseManager
@@ -707,9 +709,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1526947150}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf337b7fd21429429c7e4764a7fb567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bttnPrefab: {fileID: 6826948279588645382, guid: 47334dcf9cbd8ba43bf978446221df73,
+    type: 3}
+  maxQueued: 5
+  UIparent: {fileID: 2030526007}
+  bttns: []
+  pauseManager: {fileID: 1526947150}
+--- !u!114 &1526947154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526947150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02e2ed626a9d2564399db4646e41f9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 1483727927}
+  UIManager: {fileID: 1526947152}
 --- !u!1 &1743460226
 GameObject:
   m_ObjectHideFlags: 0
