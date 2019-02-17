@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CommandPattern;
 
 // make sure this is on the same layer as only other hurt boxes.
 // so the players hitboxes are gonna be on the enemy hurtbox layer
@@ -13,7 +14,7 @@ public class Hitbox : MonoBehaviour
     public bool active { get; private set; }
     public float cooldown = 0f;
 
-    void Start() { active = false; }
+    void Start() {  active = false;  }
 
     void OnTriggerStay(Collider c)
     {
@@ -26,6 +27,12 @@ public class Hitbox : MonoBehaviour
                 //Debug.Log("oof");
                 active = false;
                 h.TakeDamage(_damage);
+
+                GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
+
+                GameObject.FindWithTag("Player").GetComponent<Fighter>().PunchSFX();
+
+                GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
             }
         }
     }
