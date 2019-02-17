@@ -54,19 +54,21 @@ public class PauseScript : MonoBehaviour
                 Time.timeScale = 1;
                 executing = true;
                 pause = false;
-                ExecuteMoves();
+                StartCoroutine(ExecuteMoves());
             }
         }
         if(Input.GetAxisRaw("Pause") == 0){
             up = true;
         }
     }
-    void ExecuteMoves(){
+    private IEnumerator ExecuteMoves(){
         Debug.Log("sdkfhsdkfh");
         UIManager.Hide();
         foreach(voidDelegate action in pauseQueue){
             action();
             UIManager.updateQueueButtons();
+            //change this to be based on when something finishes running instead of being hard coded.
+            yield return new WaitForSeconds(.5f);
         }
         executing = false;
         if(enemy!=null){
