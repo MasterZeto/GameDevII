@@ -10,6 +10,7 @@ public class FighterController : MonoBehaviour
 
     /* Private Member Components */
     CharacterController character;
+    [SerializeField] Animator animator;
 
     [Space]
     [Header("Actions")]
@@ -88,4 +89,9 @@ public class FighterController : MonoBehaviour
     public void RightKick()     { StartAction(right_kick);      }
     public void LeftRightKick() { StartAction(left_right_kick); }
 
+    public void SetTrigger(string trigger) { animator.SetTrigger(trigger); }
+    public void SetBlend(string name, float blend) 
+    { 
+        animator.SetFloat(name, Mathf.Clamp01(blend)); 
+    }
 }
