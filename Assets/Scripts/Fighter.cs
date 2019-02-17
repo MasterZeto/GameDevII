@@ -171,6 +171,11 @@ namespace CommandPattern
         {
             punchHitbox.Fire(.5f);
             anim.SetTrigger("punch");
+            //source.PlayOneShot(punchMissSound, 0.3F);            
+        }
+
+        public void PunchSFX()
+        {
             source.PlayOneShot(punchHitSound, 0.3F);
         }
 

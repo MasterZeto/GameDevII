@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CommandPattern;
 
 // make sure this is on the same layer as only other hurt boxes.
 // so the players hitboxes are gonna be on the enemy hurtbox layer
@@ -26,8 +27,12 @@ public class Hitbox : MonoBehaviour
                 //Debug.Log("oof");
                 active = false;
                 h.TakeDamage(_damage);
-                GameObject cam = GameObject.Find("CameraShaker");
-                cam.GetComponent<CameraShaker>().Shake();
+
+                CameraShaker cam = GameObject.Find("CameraShaker").GetComponent<CameraShaker>();
+                cam.Shake();
+
+                Fighter soundMaker = GameObject.FindWithTag("Player").GetComponent<Fighter>();
+                soundMaker.PunchSFX();
             }
         }
     }
