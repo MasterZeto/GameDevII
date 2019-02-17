@@ -12,9 +12,9 @@ public class Hitbox : MonoBehaviour
     [SerializeField] Collider _collider;
 
     public bool active { get; private set; }
-    public float cooldown = 0f;
+    public float cooldown;
 
-    void Start() {  active = false;  }
+    void Start() { active = false; cooldown = -1f; }
 
     void OnTriggerStay(Collider c)
     {
@@ -39,6 +39,7 @@ public class Hitbox : MonoBehaviour
 
     public void Fire(float duration)
     {
+        Debug.Log("hitbox fired!!");
         if (!active && cooldown <= 0f)
         {
             active = true;
@@ -55,5 +56,7 @@ public class Hitbox : MonoBehaviour
             yield return null;
         }
         active = false;
+        Debug.Log("hitbox deactivated");
     }
+
 }
