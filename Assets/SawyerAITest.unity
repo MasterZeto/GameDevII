@@ -783,6 +783,7 @@ GameObject:
   - component: {fileID: 886191137}
   - component: {fileID: 886191136}
   - component: {fileID: 886191138}
+  - component: {fileID: 886191139}
   m_Layer: 0
   m_Name: SawyerAI
   m_TagString: Untagged
@@ -799,7 +800,7 @@ CharacterController:
   m_GameObject: {fileID: 886191135}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
@@ -837,6 +838,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 0}
+--- !u!114 &886191139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886191135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f5d492f71e86041a689ab63df56464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move_speed: 0
+  animator: {fileID: 0}
+  dash_left: {fileID: 0}
+  dash_right: {fileID: 0}
+  dash_forward: {fileID: 0}
+  dash_backward: {fileID: 0}
+  left_punch: {fileID: 0}
+  right_punch: {fileID: 0}
+  left_kick: {fileID: 0}
+  right_kick: {fileID: 0}
 --- !u!1 &902778148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 8557437273450130043}
   lookAtHeight: 5
+  speed: 0
 --- !u!4 &8557437273265878746
 Transform:
   m_ObjectHideFlags: 0
@@ -1764,6 +1788,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   punchHitbox: {fileID: 1350716890}
+  punchHitSound: {fileID: 0}
   waiting: 0
 --- !u!95 &8557437273442370577
 Animator:

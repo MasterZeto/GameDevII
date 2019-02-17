@@ -6,13 +6,15 @@ using Giga.AI.Blackboard;
 
 public class SawyerCharacter : AICharacter
 {
-    public CharacterController character { get; private set; }
+  
+
+    public FighterController character { get; private set; }
     public Animator animator { get; private set; }
     public Hitbox hitbox { get; private set; }
-
+  
     float t;
 
-    public SawyerCharacter(CharacterController character, Hitbox h)
+    public SawyerCharacter(FighterController character, Hitbox h)
     {
         this.character = character;
         animator = character.transform.GetChild(0).GetComponent<Animator>();
@@ -71,7 +73,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
 
         public override void Update(SawyerCharacter actor, float dt)
         {
-            actor.character.SimpleMove(actor.character.transform.forward * 10f);
+            actor.character.Move(actor.character.transform.forward * 10f);
             Debug.Log("DashToPlayer");
         }
     }
@@ -124,7 +126,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
     }
 }
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(FighterController))]
 public class SawyerController : MonoBehaviour
 {
     [SerializeField] Hitbox hitbox;
@@ -133,9 +135,10 @@ public class SawyerController : MonoBehaviour
     SawyerFSM fsm;
 
     void Awake()
-    {
-        ai = new SawyerCharacter(GetComponent<CharacterController>(), hitbox);
+    {  //fightercontroller
+        ai = new SawyerCharacter(GetComponent<FighterController>(), hitbox);
         fsm = new SawyerFSM(ai);
+
     }
 
     void Update()
