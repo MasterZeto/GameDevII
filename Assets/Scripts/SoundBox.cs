@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SoundBox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+	public AudioSource source;
+    public AudioClip punchHitSound;
+    
+    void Awake()
     {
-        
+        source = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void HitSFX()
+	{
+     	source.PlayOneShot(punchHitSound, 0.3F);
     }
+
+  
 }
