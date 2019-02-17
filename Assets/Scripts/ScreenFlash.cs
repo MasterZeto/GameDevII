@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScreenFlash : MonoBehaviour
 {
 
-	public float flashSpeed = 1f;
+	public float flashTime = 0.5f;
 	public Color flashColor = new Color(1f, 1f, 1f, 1f);
 	public bool flashing = false;
 	public Image flashImage;
@@ -17,7 +17,7 @@ public class ScreenFlash : MonoBehaviour
 		{
 			flashImage.color = flashColor;
 		} else {
-			flashImage.color = Color.Lerp (flashImage.color, Color.clear, flashSpeed * Time.deltaTime);
+			flashImage.color = Color.Lerp (flashImage.color, Color.clear, flashTime);
 		}
 		flashing = false;
 	}
