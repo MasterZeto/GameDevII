@@ -13,7 +13,7 @@ public class Hitbox : MonoBehaviour
     public bool active { get; private set; }
     public float cooldown = 0f;
 
-    void Start() { active = false; }
+    void Start() {  active = false;  }
 
     void OnTriggerStay(Collider c)
     {
@@ -26,6 +26,8 @@ public class Hitbox : MonoBehaviour
                 //Debug.Log("oof");
                 active = false;
                 h.TakeDamage(_damage);
+                GameObject cam = GameObject.Find("CameraShaker");
+                cam.GetComponent<CameraShaker>().Shake();
             }
         }
     }
