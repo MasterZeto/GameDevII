@@ -30,7 +30,7 @@ public class Hitbox : MonoBehaviour
 
                 GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
 
-                GameObject.FindWithTag("Player").GetComponent<Fighter>().PunchSFX();
+                //GameObject.FindWithTag("Player").GetComponent<SoundBox>().HitSFX();
 
                 GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
             }
