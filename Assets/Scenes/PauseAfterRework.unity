@@ -1083,7 +1083,7 @@ MonoBehaviour:
   - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
   - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
   - {fileID: 211429622305991184, guid: 602d65544385ac64684a9c7bb07e0581, type: 3}
-  - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
+  - {fileID: 211429622305991184, guid: 9c3bf29a1e9bf0f44bc10dd0fd61e00d, type: 3}
   - {fileID: 211429622305991184, guid: 882654f176e26534ebf2c6d9bd0234d3, type: 3}
   - {fileID: 211429622305991184, guid: 354b8139998ad774bbb8e1cb43d5b925, type: 3}
   - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
@@ -1155,6 +1155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 3
+  max_heat: 0
+  heat_dissipation_rate: 0
   animator: {fileID: 1238192781}
   opponent: {fileID: 1483727929}
   dash_left: {fileID: 0}
@@ -1177,6 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heat: 0
   hitbox: {fileID: 821804571}
   hit_duration: 1
   anim_name: RightPunch
@@ -1281,6 +1284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 5
+  max_heat: 0
+  heat_dissipation_rate: 0
   animator: {fileID: 1361278020}
   opponent: {fileID: 1141262569}
   dash_left: {fileID: 1483727930}
@@ -1335,6 +1340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7523f67bfd9fb354db4f7ebbb1325e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heat: 0
   dash_speed: 40
   dash_duration: 0.3
 --- !u!114 &1483727931
@@ -1349,6 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd12e418dedb37b47b067bad7f0d90a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heat: 0
   dash_speed: 40
   dash_duration: 0.3
 --- !u!114 &1483727932
@@ -1363,6 +1370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3765743bbcf34f04898e4ce94e78e5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heat: 0
   dash_speed: 40
   dash_duration: 0.3
 --- !u!114 &1483727933
@@ -1377,6 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a545672f9509e41b1ae70714b4f4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heat: 0
   dash_speed: 40
   dash_duration: 0.3
 --- !u!114 &1483727934
@@ -1391,6 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heat: 0
   hitbox: {fileID: 1021916555}
   hit_duration: 0.1
   anim_name: RightPunch
@@ -1406,6 +1416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heat: 0
   hitbox: {fileID: 329268863}
   hit_duration: 1
   anim_name: LeftPunch

@@ -78,9 +78,9 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
               
             }
             //move here
-            actor.character.RelativeMove(moveDirection,speed);
+            actor.character.RelativeMove(moveDirection);
 
-            actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection, speed));
+            actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection));
 
 
         }
