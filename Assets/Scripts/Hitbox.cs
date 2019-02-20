@@ -9,7 +9,7 @@ using CommandPattern;
 public class Hitbox : MonoBehaviour
 {
     [SerializeField] float _damage;
-    [SerializeField] Collider _collider;
+    public Collider _collider;
 
     public bool active { get; private set; }
     public float cooldown;

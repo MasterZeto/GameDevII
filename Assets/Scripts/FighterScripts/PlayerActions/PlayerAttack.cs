@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : Action
 {
-    [SerializeField] Hitbox hitbox;
+    public Hitbox hitbox;
     [SerializeField] float hit_duration;
     [SerializeField] string anim_name;
 
