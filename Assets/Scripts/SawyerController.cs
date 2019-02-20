@@ -40,31 +40,35 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
     private class FirstZigZag : MachineState<SawyerCharacter>
     {
         public FirstZigZag() { name = "FirstZigZag"; }
-        float zigZagTime = 2;
+        float zigZagTime = 1.0f;
         float currentTime = 0;
-        float P = 0;
+        float P = 0;// a parameter that is supposed to affect the change of angle for each zigzag
         float speed = 0;
-        Vector3 tmp;
+        float maxSpeed = 1.5f;
+        //Vector3 tmp;
         Vector3 moveDirection;
         bool right = true;
 
         public override void Update(SawyerCharacter actor, float dt)
         {
             currentTime += Time.deltaTime;
-           if(currentTime>zigZagTime)
-            {  //calculate a new direction here
+            speed += 3f*Time.deltaTime;
+            if (currentTime>zigZagTime)
+            {
+                speed = 0;
                 currentTime = 0;
                 P = Random.Range(0, 1);
-                speed = 2.0f;
                 if (right)
-                {
+                {   
                     //tmp = Vector3.Cross(actor.character.transform.up, actor.character.transform.forward).normalized;
-                    moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward, 0.6f);
+                    //calculate a new direction here
+                    moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward, 0.8f);
                     Debug.Log("one direction");
                 }
                 else {
+                    speed = 0;
                    // tmp = Vector3.Cross(actor.character.transform.forward, actor.character.transform.up).normalized;
-                    moveDirection = Vector3.Lerp(-actor.character.transform.right, actor.character.transform.forward, 0.6f);
+                    moveDirection = Vector3.Lerp(-actor.character.transform.right, actor.character.transform.forward, 0.8f);
                     Debug.Log("another direction");
                 }
                 Debug.Log("zig1");
@@ -72,8 +76,10 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
               
             }
             //move here
-            actor.character.RelativeMove(moveDirection * speed);
-            actor.character.transform.rotation = Quaternion.LookRotation(moveDirection);
+            actor.character.RelativeMove(moveDirection,speed);
+            Debug.Log("speed: " + speed);
+            actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection, speed));
+
 
         }
     }
@@ -84,7 +90,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
 
         public override void Update(SawyerCharacter actor, float dt)
         {
-            actor.character.Move(actor.character.transform.forward * 10f);
+            actor.character.Move(actor.character.transform.forward * 2f);
             Debug.Log("DashToPlayer");
         }
     }
@@ -111,10 +117,17 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
         switch(state.name)
         {
             case "FirstZigZag": 
-                if (dist_to_player < 1f) 
+                if (dist_to_player < 3f) 
                 { 
                     actor.animator.SetBool("walk", false);
                     return new DashToPlayer(); 
+                }
+                break;
+            case "DashToPlayer":
+                if (dist_to_player > 3f)
+                {
+                    actor.animator.SetBool("walk", true);
+                    return new FirstZigZag();
                 }
                 break;
         }
@@ -147,10 +160,10 @@ public class SawyerController : MonoBehaviour
 
     void Update()
     {
-       // transform.forward = Vector3.ProjectOnPlane(
-           // (Blackboard.player_position - transform.position), 
-          //  Vector3.up
-       // ).normalized;
+        transform.forward = Vector3.ProjectOnPlane(
+           (Blackboard.player_position - transform.position), 
+            Vector3.up
+        ).normalized;
         fsm.Update(ai, Time.deltaTime);
     }
 
