@@ -6,16 +6,16 @@ public class PauseScript : MonoBehaviour
 {
     //main script dealing w/ the pause stuff
     //replace fightercontroller here for w/e is responsible for pausing the enemy
-    [SerializeField] 
-    FighterController enemy;
-    [SerializeField]
-    PauseUIManager UIManager;
+    [SerializeField] FighterController enemy;
+    [SerializeField] PauseUIManager UIManager;
+    [SerializeField] GameObject predictor;
     public List<voidDelegate> pauseQueue;
     private List<voidDelegate> possibleComs;
     FighterController playerActions;
     bool pause = false;
     bool executing = false;
     bool up = true;
+    Collider col;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +49,11 @@ public class PauseScript : MonoBehaviour
             if(enemy!=null){
                 //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
                 enemy.Pause();
+                col=enemy.GetHitbox();
+                if(col!=null){
+                    Debug.Log("the boy is here");
+                    predictor.transform.position=col.bounds.center;
+                }      
             }   
             }
             else if(pause&&!executing){

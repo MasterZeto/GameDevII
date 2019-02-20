@@ -118,11 +118,10 @@ public class FighterController : MonoBehaviour
 
     /*hitbox stuff */
     public Collider GetHitbox(){
-        if(current_action!=dash_left||current_action!=dash_right||current_action!=dash_forward||current_action!=dash_backward){
-            if(!current_action.IsDone()){
-                PlayerAttack attack = (PlayerAttack)current_action;
-                return attack.hitbox._collider;
-            }
+        if(current_action!=null&&current_action!=dash_left&&current_action!=dash_right&&current_action!=dash_forward&&current_action!=dash_backward){
+            PlayerAttack attack = (PlayerAttack)current_action;
+            return attack.hitbox._collider;
+            
         }
         return null;
     }
