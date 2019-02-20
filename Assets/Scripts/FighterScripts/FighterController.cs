@@ -11,6 +11,7 @@ public class FighterController : MonoBehaviour
     /* Private Member Components */
     CharacterController character;
     [SerializeField] Animator animator;
+    [SerializeField] Transform opponent;
 
     [Space]
     [Header("Actions")]
@@ -69,7 +70,7 @@ public class FighterController : MonoBehaviour
     {
         character.SimpleMove(velocity);
         transform.forward = Vector3.ProjectOnPlane(
-            -transform.position, 
+            opponent.position - transform.position, 
             Vector3.up
         );
         SetBlend("Speed", character.velocity.magnitude);
