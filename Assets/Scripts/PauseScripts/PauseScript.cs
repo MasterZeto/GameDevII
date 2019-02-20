@@ -54,6 +54,7 @@ public class PauseScript : MonoBehaviour
                 if(col!=null){
                     Debug.Log("the boy is here");
                     predictor.SetActive(true);
+                    predictor.transform.localScale=col.bounds.size;
                     predictor.transform.position=col.bounds.center;
                 }      
             }   
