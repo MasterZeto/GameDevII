@@ -33,6 +33,7 @@ public class PauseScript : MonoBehaviour
         possibleComs.Add(() => playerActions.RightKick());
         possibleComs.Add(() => playerActions.LeftRightKick());
         playerActions = GameObject.FindWithTag("Player").GetComponent<FighterController>();
+        predictor.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,6 +53,7 @@ public class PauseScript : MonoBehaviour
                 col=enemy.GetHitbox();
                 if(col!=null){
                     Debug.Log("the boy is here");
+                    predictor.SetActive(true);
                     predictor.transform.position=col.bounds.center;
                 }      
             }   
@@ -80,6 +82,7 @@ public class PauseScript : MonoBehaviour
         if(enemy!=null){
             //resume enemy's action, somehow
             enemy.Resume();
+            predictor.SetActive(false);
         }
     }
     public void addToQueue(int i){
