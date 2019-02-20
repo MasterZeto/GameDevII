@@ -13,6 +13,8 @@ public class Hitbox : MonoBehaviour
 
     public bool active { get; private set; }
     public float cooldown;
+    
+    float timescale = 1f;
 
     void Start() { active = false; cooldown = -1f; }
 
@@ -46,12 +48,24 @@ public class Hitbox : MonoBehaviour
         }
     }
 
+    public void Pause() 
+    { 
+        timescale = 0f; 
+        _collider.enabled = false;
+    }
+    
+    public void Resume() 
+    { 
+        timescale = 1f; 
+        _collider.enabled = true;
+    }
+
     IEnumerator FireRoutine(float duration)
     {
         cooldown = duration;
         while (cooldown >= 0f)
         {
-            cooldown -= Time.deltaTime;
+            cooldown -= Time.deltaTime * timescale;
             yield return null;
         }
         active = false;

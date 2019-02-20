@@ -10,13 +10,22 @@ public class PlayerAttack : Action
 
     public override void StartAction(FighterController fighter)
     {
+        this.fighter = fighter;
         hitbox.Fire(hit_duration);
         fighter.SetTrigger(anim_name);
     }
 
     public override void Stop() {}
-    public override void Pause() {}
-    public override void Resume() {}
+    public override void Pause() 
+    {
+        fighter.Pause();
+        hitbox.Pause();
+    }
+    public override void Resume() 
+    {
+        fighter.Resume();
+        hitbox.Resume();
+    }
     
     public override bool IsDone()
     {

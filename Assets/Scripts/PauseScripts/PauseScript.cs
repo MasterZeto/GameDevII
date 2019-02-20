@@ -48,6 +48,7 @@ public class PauseScript : MonoBehaviour
             pauseQueue.Clear();
             if(enemy!=null){
                 //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
+                enemy.Pause();
             }   
             }
             else if(pause&&!executing){
@@ -73,6 +74,7 @@ public class PauseScript : MonoBehaviour
         executing = false;
         if(enemy!=null){
             //resume enemy's action, somehow
+            enemy.Resume();
         }
     }
     public void addToQueue(int i){
