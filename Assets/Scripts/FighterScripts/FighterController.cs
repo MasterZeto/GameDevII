@@ -62,18 +62,18 @@ public class FighterController : MonoBehaviour
     {
         if (current_action == null || current_action.IsDone())
         {
-            UnsafeMove(direction * move_speed);
+            UnsafeMove(direction);
         }
     } 
 
     // so here do a Vector3.up, right left, etc, and it'll make it relative
-    public Vector3 RelativeMove(Vector3 direction, float speed)
+    public Vector3 RelativeMove(Vector3 direction)
     {
         Vector3 moveDirection = ((transform.right * direction.x) +
            (transform.up * direction.y) +
            (transform.forward * direction.z)).normalized;
 
-           Move(moveDirection*speed);
+           Move(moveDirection);
         return moveDirection;
  
     }
