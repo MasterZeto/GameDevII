@@ -56,13 +56,14 @@ public class FighterController : MonoBehaviour
     } 
 
     // so here do a Vector3.up, right left, etc, and it'll make it relative
-    public void RelativeMove(Vector3 direction)
+    public Vector3 RelativeMove(Vector3 direction, float speed)
     {
         Vector3 moveDirection = ((transform.right * direction.x) +
            (transform.up * direction.y) +
            (transform.forward * direction.z)).normalized;
 
-           Move(moveDirection);
+           Move(moveDirection*speed);
+        return moveDirection;
  
     }
 
