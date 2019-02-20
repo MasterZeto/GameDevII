@@ -5,7 +5,7 @@ using UnityEngine;
 
     public class PauseUIManager : MonoBehaviour
     {
-        public Button bttnPrefab;
+        public List<Button> bttnPrefabList;
         public int maxQueued = 5;
         public Canvas UIparent;
         //change this to change dynamically, ex. with the customizations once they are implemented, might want it to be a list
@@ -26,7 +26,7 @@ using UnityEngine;
             buttonLoc = new Dictionary<Button, RectTransform>();
             PauseScript = pauseManager.GetComponent<PauseScript>();
             for(int i = 0; i < 10; i++){
-                Button newBttn = Instantiate(bttnPrefab);
+                Button newBttn = Instantiate(bttnPrefabList[i]);
                 RectTransform rect = newBttn.GetComponent<RectTransform>();
                 rect.transform.SetParent(UIparent.transform);
                 startPos.x = Screen.width/2-10/2*rect.sizeDelta.x+i*rect.sizeDelta.x;
@@ -34,7 +34,7 @@ using UnityEngine;
                 startPos.z = 0;
                 rect.transform.position=startPos;
                 Text text=newBttn.GetComponentInChildren<Text>();
-                switch(i){
+                /*switch(i){
                     case 0:
                         text.text = "Dash Left";
                         break;
@@ -65,7 +65,7 @@ using UnityEngine;
                     case 9:
                         text.text = "Kick Left Right";
                         break;
-                }
+                }*/
                 bttns.Add(newBttn);
             }
             foreach (Button bttn in bttns)
