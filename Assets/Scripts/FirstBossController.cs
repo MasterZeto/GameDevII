@@ -4,21 +4,23 @@ using UnityEngine;
 using Giga.AI.FSM;
 using Giga.AI.Blackboard;
 
+
 public class FirstBossCharacter : AICharacter
 {
     public CharacterController character { get; private set; }
     public Animator animator { get; private set; }
     public Hitbox hitbox { get; private set; }
+    
 
     float t;
-
+    //constructor
     public FirstBossCharacter(CharacterController character, Hitbox h)
     {
         this.character = character;
         animator = character.transform.GetChild(0).GetComponent<Animator>();
         hitbox = h;
     }
-
+    //sawyer sweep stricks and overhead smash add here
     public void Attack()
     {
         if (!hitbox.active)
