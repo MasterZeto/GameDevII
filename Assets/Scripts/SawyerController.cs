@@ -41,20 +41,20 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
     {
         public FirstZigZag() { name = "FirstZigZag"; }
         float zigZagTime = 1.0f;
-        float currentTime = 0;
+        float currentTime = 1.1f;
         float P = 0;// a parameter that is supposed to affect the change of angle for each zigzag
         float speed = 0;
-        float maxSpeed = 1.5f;
+        // float maxSpeed = 1.5f;
         //Vector3 tmp;
         Vector3 moveDirection;
         bool right = true;
-
         public override void Update(SawyerCharacter actor, float dt)
         {
             currentTime += Time.deltaTime;
-            speed += 3f*Time.deltaTime;
+            speed += 4f*Time.deltaTime;
             if (currentTime>zigZagTime)
             {
+                right = !right;
                 speed = 0;
                 currentTime = 0;
                 P = Random.Range(0, 1);
@@ -62,22 +62,24 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 {   
                     //tmp = Vector3.Cross(actor.character.transform.up, actor.character.transform.forward).normalized;
                     //calculate a new direction here
-                    moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward, 0.8f);
-                    Debug.Log("one direction");
+                   
+                   moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward, 0.5f);
+                    Debug.Log("one direction:right");
+            
                 }
                 else {
-                    speed = 0;
+                 
                    // tmp = Vector3.Cross(actor.character.transform.forward, actor.character.transform.up).normalized;
-                    moveDirection = Vector3.Lerp(-actor.character.transform.right, actor.character.transform.forward, 0.8f);
+                    moveDirection = Vector3.Lerp(-actor.character.transform.right, actor.character.transform.forward, 0.5f);
                     Debug.Log("another direction");
                 }
-                Debug.Log("zig1");
-                right = !right;
+    
+           
               
             }
             //move here
             actor.character.RelativeMove(moveDirection,speed);
-            Debug.Log("speed: " + speed);
+
             actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection, speed));
 
 
@@ -90,7 +92,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
 
         public override void Update(SawyerCharacter actor, float dt)
         {
-            actor.character.Move(actor.character.transform.forward * 2f);
+            actor.character.Move(actor.character.transform.forward * 3f);
             Debug.Log("DashToPlayer");
         }
     }
@@ -117,14 +119,14 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
         switch(state.name)
         {
             case "FirstZigZag": 
-                if (dist_to_player < 3f) 
+                if (dist_to_player < 5f) 
                 { 
                     actor.animator.SetBool("walk", false);
                     return new DashToPlayer(); 
                 }
                 break;
             case "DashToPlayer":
-                if (dist_to_player > 3f)
+                if (dist_to_player > 5f)
                 {
                     actor.animator.SetBool("walk", true);
                     return new FirstZigZag();
