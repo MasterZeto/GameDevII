@@ -31,7 +31,7 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
 
         public override void Update(FirstBossCharacter actor, float dt)
         {
-            actor.fighter.RelativeMove(Vector3.forward * 3f);            
+            actor.fighter.RelativeMove(Vector3.forward * 3f,dt);            
         }
     }
 
