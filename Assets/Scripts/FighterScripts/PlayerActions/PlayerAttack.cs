@@ -18,12 +18,10 @@ public class PlayerAttack : Action
     public override void Stop() {}
     public override void Pause() 
     {
-        fighter.Pause();
         hitbox.Pause();
     }
     public override void Resume() 
     {
-        fighter.Resume();
         hitbox.Resume();
     }
     
