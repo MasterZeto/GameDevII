@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-namespace CommandPattern
-{  
 
     public class PauseUIManager : MonoBehaviour
     {
@@ -19,30 +17,54 @@ namespace CommandPattern
         private Transform parent;
         //change dummyPauseScript to just PauseScript later once it is more fleshed out
         public GameObject pauseManager;
-        private DummyPauseScript PauseScript;
+        private PauseScript PauseScript;
         private int currentIndex=0;
         // Start is called before the first frame update
         void Start()
         {
             queueButtons = new Dictionary<Button, int>();
             buttonLoc = new Dictionary<Button, RectTransform>();
-            PauseScript = pauseManager.GetComponent<DummyPauseScript>();
-            for(int i = 0; i < PauseScript.numOfPossComs; i++){
+            PauseScript = pauseManager.GetComponent<PauseScript>();
+            for(int i = 0; i < 10; i++){
                 Button newBttn = Instantiate(bttnPrefab);
                 RectTransform rect = newBttn.GetComponent<RectTransform>();
                 rect.transform.SetParent(UIparent.transform);
-                startPos.x = Screen.width/2-PauseScript.numOfPossComs/2*rect.sizeDelta.x+i*rect.sizeDelta.x;
+                startPos.x = Screen.width/2-10/2*rect.sizeDelta.x+i*rect.sizeDelta.x;
                 startPos.y = 4*rect.sizeDelta.y;
                 startPos.z = 0;
                 rect.transform.position=startPos;
-                if(i==0){
-                    newBttn.GetComponentInChildren<Text>().text = "Punch";
-                }
-                else if(i==1){
-                    newBttn.GetComponentInChildren<Text>().text = "Projectile";
-                }
-                else{
-                    newBttn.GetComponentInChildren<Text>().text = "Action" + (i + 1);
+                Text text=newBttn.GetComponentInChildren<Text>();
+                switch(i){
+                    case 0:
+                        text.text = "Dash Left";
+                        break;
+                    case 1:
+                        text.text = "Dash Right";
+                        break;
+                    case 2:
+                        text.text = "Dash Forward";
+                        break;
+                    case 3:
+                        text.text = "Dash Backward";
+                        break;
+                    case 4:
+                        text.text = "Punch Left";
+                        break;
+                    case 5:
+                        text.text = "Punch Right";
+                        break;
+                    case 6:
+                        text.text = "Punch Left Right";
+                        break;
+                    case 7:
+                        text.text = "Kick Left";
+                        break;
+                    case 8:
+                        text.text = "Kick Right";
+                        break;
+                    case 9:
+                        text.text = "Kick Left Right";
+                        break;
                 }
                 bttns.Add(newBttn);
             }
@@ -142,4 +164,4 @@ namespace CommandPattern
             Destroy(usedBttn.gameObject);
         }
     }
-}
+
