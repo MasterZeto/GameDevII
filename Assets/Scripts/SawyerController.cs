@@ -58,19 +58,24 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 speed = 2.0f;
                 if (right)
                 {
-                    tmp = Vector3.Cross(actor.character.transform.up, actor.character.transform.forward).normalized;
-                    moveDirection = Vector3.Lerp(tmp, actor.character.transform.forward, P);
+                    //tmp = Vector3.Cross(actor.character.transform.up, actor.character.transform.forward).normalized;
+                    moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward, 0.6f);
+                    Debug.Log("one direction");
                 }
                 else {
-                    tmp = Vector3.Cross(-actor.character.transform.up, actor.character.transform.forward).normalized;
-                    moveDirection = Vector3.Lerp(tmp, actor.character.transform.forward, P);
+                   // tmp = Vector3.Cross(actor.character.transform.forward, actor.character.transform.up).normalized;
+                    moveDirection = Vector3.Lerp(-actor.character.transform.right, actor.character.transform.forward, 0.6f);
+                    Debug.Log("another direction");
                 }
                 Debug.Log("zig1");
                 right = !right;
               
             }
             //move here
-            actor.character.Move(moveDirection * speed);
+   
+            actor.character.RelativeMove(moveDirection * speed);
+            actor.character.transform.rotation = Quaternion.LookRotation(moveDirection);
+
 
 
 
@@ -177,10 +182,10 @@ public class SawyerController : MonoBehaviour
 
     void Update()
     {
-        transform.forward = Vector3.ProjectOnPlane(
-            (Blackboard.player_position - transform.position), 
-            Vector3.up
-        ).normalized;
+       // transform.forward = Vector3.ProjectOnPlane(
+           // (Blackboard.player_position - transform.position), 
+          //  Vector3.up
+       // ).normalized;
         fsm.Update(ai, Time.deltaTime);
     }
 
