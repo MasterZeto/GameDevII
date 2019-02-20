@@ -11,6 +11,7 @@ public class FighterController : MonoBehaviour
     /* Private Member Components */
     CharacterController character;
     [SerializeField] Animator animator;
+    [SerializeField] Transform opponent;
 
     [Space]
     [Header("Actions")]
@@ -69,7 +70,7 @@ public class FighterController : MonoBehaviour
     {
         character.SimpleMove(velocity);
         transform.forward = Vector3.ProjectOnPlane(
-            -transform.position, 
+            opponent.position - transform.position, 
             Vector3.up
         );
         SetBlend("Speed", character.velocity.magnitude);
@@ -101,6 +102,18 @@ public class FighterController : MonoBehaviour
     public void SetBlend(string name, float blend) 
     { 
         animator.SetFloat(name, Mathf.Clamp01(blend)); 
+    }
+
+    public void Pause()
+    {
+        if (current_action != null) current_action.Pause();
+        animator.enabled = false;
+    }
+
+    public void Resume()
+    {
+        if (current_action != null) current_action.Resume();
+        animator.enabled = true;
     }
 
     /*hitbox stuff */
