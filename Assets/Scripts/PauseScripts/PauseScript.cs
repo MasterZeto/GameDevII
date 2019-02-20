@@ -43,21 +43,21 @@ public class PauseScript : MonoBehaviour
         if(Input.GetAxisRaw("Pause") == 1 && up){
             up = false;
             if(!pause&&!executing){
-            Time.timeScale = 0;
-            pause = true;
-            UIManager.SetUp();
-            pauseQueue.Clear();
-            if(enemy!=null){
-                //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
-                enemy.Pause();
-                col=enemy.GetHitbox();
-                if(col!=null){
-                    Debug.Log("the boy is here");
-                    predictor.SetActive(true);
-                    predictor.transform.localScale=col.bounds.size;
-                    predictor.transform.position=col.bounds.center;
-                }      
-            }   
+                Time.timeScale = 0;
+                pause = true;
+                UIManager.SetUp();
+                pauseQueue.Clear();
+                if(enemy!=null){
+                    //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
+                    col=enemy.GetHitbox();
+                    if(col!=null){
+                        Debug.Log("the boy is here");
+                        predictor.SetActive(true);
+                        predictor.transform.localScale=col.bounds.size;
+                        predictor.transform.position=col.bounds.center;
+                    }
+                    enemy.Pause();      
+                }   
             }
             else if(pause&&!executing){
                 Time.timeScale = 1;
