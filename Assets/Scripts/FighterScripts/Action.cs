@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Action : MonoBehaviour
 {
+    [SerializeField] float heat;
+
     protected FighterController fighter;
     protected bool running = false;
 
@@ -13,4 +15,6 @@ public abstract class Action : MonoBehaviour
     public abstract void Resume();
     
     public virtual bool IsDone() { return running; }
+
+    public float GetHeat() { return heat; }
 }

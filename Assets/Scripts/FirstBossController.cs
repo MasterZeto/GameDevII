@@ -31,7 +31,8 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
 
         public override void Update(FirstBossCharacter actor, float dt)
         {
-            actor.fighter.RelativeMove(Vector3.forward * 3f);            
+            Debug.Log("TOWARD PLAYER");
+            actor.fighter.RelativeMove(Vector3.forward);            
         }
     }
 
@@ -41,6 +42,7 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
 
         public override void Update(FirstBossCharacter actor, float dt)
         {
+
             actor.Attack();
         }
     }
@@ -54,13 +56,13 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
         switch(state.name)
         {
             case "TowardPlayer": 
-                if (dist_to_player < 2f) 
+                if (dist_to_player < 5f) 
                 { 
                     return new AttackPlayer(); 
                 }
                 break;
             case "AttackPlayer": 
-                if (dist_to_player > 3f)
+                if (dist_to_player > 6f)
                 {
                     return new TowardPlayer();
                 }
@@ -92,10 +94,6 @@ public class FirstBossController : MonoBehaviour
 
     void Update()
     {
-        transform.forward = Vector3.ProjectOnPlane(
-            (Blackboard.player_position - transform.position), 
-            Vector3.up
-        ).normalized;
         fsm.Update(ai, Time.deltaTime);
     }
 

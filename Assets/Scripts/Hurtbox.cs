@@ -30,6 +30,6 @@ public class Hurtbox : MonoBehaviour
             yield return null;
         }
         Time.timeScale = 1f;
-        //callback(damage);
+        callback(damage);
     }
 }
