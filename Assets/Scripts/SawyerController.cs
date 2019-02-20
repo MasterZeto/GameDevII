@@ -72,40 +72,12 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
               
             }
             //move here
-   
             actor.character.RelativeMove(moveDirection * speed);
             actor.character.transform.rotation = Quaternion.LookRotation(moveDirection);
 
-
-
-
-            /*  //if the direction is relative to AI, can not use update, maybe coroutine?
-              //if the direction is relative to the world, can use update
-              float P = Random.Range(0, 1);
-              float speed = 2.0f;
-              //find the vector that is perpendicular to the transform.forward vector on the xz plane
-              Vector3 tmp = Vector3.Cross(actor.character.transform.up, actor.character.transform.forward).normalized;
-              Vector3 moveDirection =Vector3.Lerp(tmp, actor.character.transform.forward, P);
-              //Vector3 moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward, P);
-              actor.character.Move(moveDirection*speed);
-              Debug.Log("zig1"); */
         }
     }
-    private class SecondZigZag : MachineState<SawyerCharacter>
-    {
-        public SecondZigZag() { name = "SecondZigZag"; }
 
-        public override void Update(SawyerCharacter actor, float dt)
-        {  //if the direction is relative to AI, can not use update, maybe coroutine?
-            //if the direction is relative to the world, can use update
-            float P = Random.Range(0, 1);
-            float speed = 2.0f;
-            Vector3 moveDirection = Vector3.Lerp(new Vector3(0, 0, 1), actor.character.transform.forward, P);
-            //Vector3 moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward, P);
-            actor.character.Move(moveDirection * speed);
-            Debug.Log("zig2");
-        }
-    }
     private class DashToPlayer : MachineState<SawyerCharacter>
     {
         public  DashToPlayer () { name = "DashToPlayer"; }
@@ -139,17 +111,10 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
         switch(state.name)
         {
             case "FirstZigZag": 
-                if (dist_to_player < 2f&& dist_to_player>1f) 
+                if (dist_to_player < 1f) 
                 { 
                     actor.animator.SetBool("walk", false);
-                    return new SecondZigZag(); 
-                }
-                break;
-            case "SecondZigZag": 
-                if (dist_to_player < 1f)
-                {
-                    actor.animator.SetBool("walk", true);
-                    return new DashToPlayer();
+                    return new DashToPlayer(); 
                 }
                 break;
         }
