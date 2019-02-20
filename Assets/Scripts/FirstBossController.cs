@@ -7,27 +7,17 @@ using Giga.AI.Blackboard;
 
 public class FirstBossCharacter : AICharacter
 {
-    public CharacterController character { get; private set; }
-    public Animator animator { get; private set; }
-    public Hitbox hitbox { get; private set; }
-    
+    public FighterController fighter;
 
-    float t;
     //constructor
-    public FirstBossCharacter(CharacterController character, Hitbox h)
+    public FirstBossCharacter(FighterController fighter)
     {
-        this.character = character;
-        animator = character.transform.GetChild(0).GetComponent<Animator>();
-        hitbox = h;
+        this.fighter = fighter;
     }
     //sawyer sweep stricks and overhead smash add here
     public void Attack()
     {
-        if (!hitbox.active)
-        {
-            animator.SetTrigger("punch");
-            hitbox.Fire(0.75f);
-        }
+        fighter.RightPunch();
     }
 
     
@@ -41,7 +31,7 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
 
         public override void Update(FirstBossCharacter actor, float dt)
         {
-            actor.character.SimpleMove(actor.character.transform.forward * 3f);            
+            actor.fighter.RelativeMove(Vector3.forward * 3f);            
         }
     }
 
@@ -60,20 +50,18 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
         MachineState<FirstBossCharacter> state
     )
     {
-        float dist_to_player = Vector3.Distance(actor.character.transform.position, Blackboard.player_position);
+        float dist_to_player = Vector3.Distance(actor.fighter.transform.position, Blackboard.player_position);
         switch(state.name)
         {
             case "TowardPlayer": 
                 if (dist_to_player < 2f) 
                 { 
-                    actor.animator.SetBool("walk", false);
                     return new AttackPlayer(); 
                 }
                 break;
             case "AttackPlayer": 
                 if (dist_to_player > 3f)
                 {
-                    actor.animator.SetBool("walk", true);
                     return new TowardPlayer();
                 }
                 break;
@@ -92,15 +80,13 @@ public class FirstBossFSM : FiniteStateMachine<FirstBossCharacter>
 
 [RequireComponent(typeof(CharacterController))]
 public class FirstBossController : MonoBehaviour
-{
-    [SerializeField] Hitbox hitbox;
-    
+{    
     FirstBossCharacter ai;
     FirstBossFSM fsm;
 
     void Awake()
     {
-        ai = new FirstBossCharacter(GetComponent<CharacterController>(), hitbox);
+        ai = new FirstBossCharacter(GetComponent<FighterController>());
         fsm = new FirstBossFSM(ai);
     }
 

@@ -102,4 +102,16 @@ public class FighterController : MonoBehaviour
     { 
         animator.SetFloat(name, Mathf.Clamp01(blend)); 
     }
+
+    public void Pause()
+    {
+        if (current_action != null) current_action.Pause();
+        animator.enabled = false;
+    }
+
+    public void Resume()
+    {
+        if (current_action != null) current_action.Resume();
+        animator.enabled = true;
+    }
 }
