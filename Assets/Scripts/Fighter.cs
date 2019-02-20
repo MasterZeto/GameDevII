@@ -108,7 +108,7 @@ namespace CommandPattern
                 anim.SetBool("walk", false);
             }
 
-            transform.forward = Vector3.ProjectOnPlane(enemy.position - transform.position, Vector3.up).normalized;
+          //  transform.forward = Vector3.ProjectOnPlane(enemy.position - transform.position, Vector3.up).normalized;
         }
         public void DoAction(){
             if(waiting){

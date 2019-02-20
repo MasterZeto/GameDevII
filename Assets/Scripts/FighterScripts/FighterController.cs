@@ -7,7 +7,10 @@ public class FighterController : MonoBehaviour
 {
     /* Inspector Accessible Parameters */
     [SerializeField] float move_speed;
+    [SerializeField] public float max_heat;
+    [SerializeField] float heat_dissipation_rate;
 
+    [Space]
     /* Private Member Components */
     CharacterController character;
     [SerializeField] Animator animator;
@@ -33,10 +36,13 @@ public class FighterController : MonoBehaviour
 
     Action current_action;
 
+    public float heat { get; private set; }
+
     void Awake()
     {
         character = GetComponent<CharacterController>();
         current_action = null;
+        heat = 0;
     }
 
     void Update()
@@ -45,24 +51,29 @@ public class FighterController : MonoBehaviour
         {
             current_action = null;
         }
+        if (current_action == null)
+        {
+            heat = Mathf.Clamp(heat - (heat_dissipation_rate * Time.deltaTime), 0, max_heat);
+        }
+        SetBlend("Speed", character.velocity.magnitude);
     }
 
     public void Move(Vector3 direction) 
     {
         if ((current_action == null || current_action.IsDone())&&animator.enabled==true)
         {
-            UnsafeMove(direction * move_speed);
+            UnsafeMove(direction);
         }
     } 
 
     // so here do a Vector3.up, right left, etc, and it'll make it relative
-    public Vector3 RelativeMove(Vector3 direction, float speed)
+    public Vector3 RelativeMove(Vector3 direction)
     {
         Vector3 moveDirection = ((transform.right * direction.x) +
            (transform.up * direction.y) +
            (transform.forward * direction.z)).normalized;
 
-           Move(moveDirection*speed);
+           Move(moveDirection);
         return moveDirection;
  
     }
@@ -74,13 +85,16 @@ public class FighterController : MonoBehaviour
             opponent.position - transform.position, 
             Vector3.up
         );
-        SetBlend("Speed", character.velocity.magnitude);
     }
 
     void StartAction(Action action)
     {
-        current_action = action;
-        current_action.StartAction(this);
+        if (max_heat - heat > action.GetHeat() && current_action == null)
+        {
+            current_action = action;
+            current_action.StartAction(this);
+            heat += current_action.GetHeat();
+        }
     }
 
     /* Dash Functions */
@@ -99,7 +113,11 @@ public class FighterController : MonoBehaviour
     public void RightKick()     { StartAction(right_kick);      }
     public void LeftRightKick() { StartAction(left_right_kick); }
 
-    public void SetTrigger(string trigger) { animator.SetTrigger(trigger); }
+    public void SetTrigger(string trigger) 
+    { 
+        animator.SetTrigger(trigger); 
+    }
+
     public void SetBlend(string name, float blend) 
     { 
         animator.SetFloat(name, Mathf.Clamp01(blend)); 
