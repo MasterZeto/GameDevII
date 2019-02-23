@@ -15,6 +15,7 @@ public class FighterController : MonoBehaviour
     CharacterController character;
     [SerializeField] Animator animator;
     [SerializeField] Transform opponent;
+    [SerializeField] GameObject opponent_object;
 
     [Space]
     [Header("Actions")]
@@ -69,13 +70,11 @@ public class FighterController : MonoBehaviour
     // so here do a Vector3.up, right left, etc, and it'll make it relative
     public Vector3 RelativeMove(Vector3 direction)
     {
-        Vector3 moveDirection = ((transform.right * direction.x) +
+        Vector3 moveDirection = (transform.right * direction.x) +
            (transform.up * direction.y) +
-           (transform.forward * direction.z)).normalized;
-
+           (transform.forward * direction.z);
            Move(moveDirection);
-        return moveDirection;
- 
+           return moveDirection;
     }
 
     public void UnsafeMove(Vector3 velocity)
@@ -133,5 +132,9 @@ public class FighterController : MonoBehaviour
     {
         if (current_action != null) current_action.Resume();
         animator.enabled = true;
+    }
+    public GameObject GetOpponent()
+    {
+        return opponent_object;
     }
 }

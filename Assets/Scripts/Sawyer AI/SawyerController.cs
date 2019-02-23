@@ -6,12 +6,11 @@ using Giga.AI.Blackboard;
 
 public class SawyerCharacter : AICharacter
 {
-  
-
     public FighterController character { get; private set; }
     public Animator animator { get; private set; }
     public Hitbox hitbox { get; private set; }
-  
+    public bool isSeen = true;
+
     float t;
 
     //constructor
@@ -20,6 +19,8 @@ public class SawyerCharacter : AICharacter
         this.character = character.GetComponent<FighterController>();
         animator = character.GetComponentInChildren<Animator>();
         hitbox = h;
+        isSeen = character.GetOpponent().GetComponent<PlayerView >().FoundSawyer;
+ 
     }
 
     public void Attack()
@@ -42,16 +43,16 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
         public FirstZigZag() { name = "FirstZigZag"; }
         float zigZagTime = 1.0f;
         float currentTime = 1.1f;
-        float P = 0;// a parameter that is supposed to affect the change of angle for each zigzag
+        float P = 0;// a parameter that is supposed to affect the change of angle for each zigzag move
         float speed = 0;
         // float maxSpeed = 1.5f;
-        //Vector3 tmp;
+
         Vector3 moveDirection;
         bool right = true;
         public override void Update(SawyerCharacter actor, float dt)
         {
             currentTime += Time.deltaTime;
-            speed += 4f*Time.deltaTime;
+            speed += 20f*Time.deltaTime;
             if (currentTime>zigZagTime)
             {
                 right = !right;
@@ -62,15 +63,14 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 {   
                     //tmp = Vector3.Cross(actor.character.transform.up, actor.character.transform.forward).normalized;
                     //calculate a new direction here
-                   
-                   moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward, 0.5f);
+                   moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward,P);
                     Debug.Log("one direction:right");
             
                 }
                 else {
                  
                    // tmp = Vector3.Cross(actor.character.transform.forward, actor.character.transform.up).normalized;
-                    moveDirection = Vector3.Lerp(-actor.character.transform.right, actor.character.transform.forward, 0.5f);
+                    moveDirection = Vector3.Lerp(-actor.character.transform.right, actor.character.transform.forward,P);
                     Debug.Log("another direction");
                 }
     
@@ -78,9 +78,9 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
               
             }
             //move here
-            actor.character.RelativeMove(moveDirection,speed);
+            actor.character.RelativeMove(moveDirection*(speed+1));
 
-            actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection, speed));
+            actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection));
 
 
         }
@@ -118,8 +118,8 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
         float dist_to_player = Vector3.Distance(actor.character.transform.position, Blackboard.player_position);
         switch(state.name)
         {
-            case "FirstZigZag": 
-                if (dist_to_player < 5f) 
+            case "FirstZigZag": //dash to player when get close and stay out of player sight 
+                if (dist_to_player < 5f&&actor.isSeen==false) 
                 { 
                     actor.animator.SetBool("walk", false);
                     return new DashToPlayer(); 
@@ -135,7 +135,6 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
         }
         return null;
     }
-
     SawyerCharacter actor;
 
     public SawyerFSM(SawyerCharacter actor) 
@@ -149,14 +148,17 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
 public class SawyerController : MonoBehaviour
 {
     [SerializeField] Hitbox hitbox;
-    
     SawyerCharacter ai;
     SawyerFSM fsm;
+ 
 
     void Awake()
     {  //fightercontroller
         ai = new SawyerCharacter(GetComponent<FighterController>(), hitbox);
         fsm = new SawyerFSM(ai);
+
+
+
 
     }
 
@@ -167,6 +169,9 @@ public class SawyerController : MonoBehaviour
             Vector3.up
         ).normalized;
         fsm.Update(ai, Time.deltaTime);
+
+
+
     }
 
 
