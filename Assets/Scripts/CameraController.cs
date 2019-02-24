@@ -37,4 +37,10 @@ public class CameraController : MonoBehaviour
             transform.eulerAngles-=new Vector3(0,1,0)*Time.unscaledDeltaTime*moveSpeed*hori;
         }
     }
+    //used to go back to the normal position before doing cinematic type stuff
+    public void GoBack(){
+        transform.position = Vector3.Lerp(transform.position, follow.position + (follow.forward * offset.z)
+                 + (Vector3.up * offset.y), speed);
+            transform.LookAt(follow.position + (lookAtHeight * Vector3.up), Vector3.up);
+    }
 }

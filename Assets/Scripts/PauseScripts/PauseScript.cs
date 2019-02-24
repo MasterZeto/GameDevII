@@ -13,6 +13,7 @@ public class PauseScript : MonoBehaviour
     private List<voidDelegate> possibleComs;
     FighterController playerActions;
     CameraController camCon;
+    Vector3 camOrigPos;
     bool pause = false;
     bool executing = false;
     bool up = true;
@@ -51,6 +52,7 @@ public class PauseScript : MonoBehaviour
                 pauseQueue.Clear();
                 camCon.pause = true;
                 camCon.moveable = true;
+                camOrigPos=Camera.main.transform.position;
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
                     col=enemy.GetHitbox();
@@ -76,9 +78,14 @@ public class PauseScript : MonoBehaviour
     }
     private IEnumerator ExecuteMoves(){
         camCon.moveable = false;
+        while(Vector3.Distance(camOrigPos, Camera.main.transform.position)>.1f){
+            camCon.GoBack();
+            yield return null;
+        }
         Debug.Log("sdkfhsdkfh");
         UIManager.Hide();
         foreach(voidDelegate action in pauseQueue){
+            //do cinematic stuff here?
             action();
             UIManager.updateQueueButtons();
             //change this to be based on when something finishes running instead of being hard coded.
