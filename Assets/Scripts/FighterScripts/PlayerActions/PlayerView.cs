@@ -24,6 +24,8 @@ public class PlayerView : MonoBehaviour
         {
             FoundSawyer = false;
         }
+        else
+        { FoundSawyer = true; }
 
         return FoundSawyer;
     }
