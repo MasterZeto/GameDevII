@@ -92,7 +92,8 @@ public class PauseScript : MonoBehaviour
         UIManager.Hide();
         int i = 0;
         foreach(voidDelegate action in pauseQueue){
-            if(action==possibleComs[0]||action==possibleComs[1]||action==possibleComs[2]||action==possibleComs[3]){
+            //probably shouldn't hard code this...
+            if(playerActions.max_heat-playerActions.heat<30||action==possibleComs[0]||action==possibleComs[1]||action==possibleComs[2]||action==possibleComs[3]){
             }
             else{
                 if(i==0){
