@@ -63,12 +63,12 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                     //tmp = Vector3.Cross(actor.character.transform.up, actor.character.transform.forward).normalized;
                     //calculate a new direction here
                    moveDirection = Vector3.Lerp(actor.character.transform.right, actor.character.transform.forward,P);
-                    Debug.Log("one direction:right");
+                    Debug.Log("toward player");
                 }
                 else {
                    // tmp = Vector3.Cross(actor.character.transform.forward, actor.character.transform.up).normalized;
                     moveDirection = Vector3.Lerp(-actor.character.transform.right, actor.character.transform.forward,P);
-                    Debug.Log("another direction");
+                    Debug.Log("toward player");
                 }
             }
             //move here
