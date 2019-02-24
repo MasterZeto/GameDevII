@@ -90,26 +90,28 @@ public class PauseScript : MonoBehaviour
             yield return null;
         }
         UIManager.Hide();
-        mainCam.enabled = false;
-        actionCams[0].enabled = true;
-        int i = 1;
+        int i = 0;
         foreach(voidDelegate action in pauseQueue){
-            //do cinematic stuff here?
+            if(action==possibleComs[0]||action==possibleComs[1]||action==possibleComs[2]||action==possibleComs[3]){
+            }
+            else{
+                if(i==0){
+                    actionCams[actionCams.Count-1].enabled = false;
+                    mainCam.enabled = false;
+                }
+                else{
+                    actionCams[i-1].enabled = false;
+                }
+                actionCams[i].enabled = true;
+                i++;
+                if(i == actionCams.Count){
+                    i = 0;
+                }
+            }
             action();
             UIManager.updateQueueButtons();
             //change this to be based on when something finishes running instead of being hard coded.
             yield return new WaitForSeconds(.5f);
-            if(i==0){
-                actionCams[actionCams.Count-1].enabled = false;
-            }
-            else{
-                actionCams[i-1].enabled = false;
-            }
-            actionCams[i].enabled = true;
-            i++;
-            if(i == actionCams.Count){
-                i = 0;
-            }
         }
         if(i==0){
             actionCams[actionCams.Count-1].enabled = false;
