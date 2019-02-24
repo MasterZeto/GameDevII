@@ -9,9 +9,11 @@ public class PauseScript : MonoBehaviour
     [SerializeField] FighterController enemy;
     [SerializeField] PauseUIManager UIManager;
     [SerializeField] GameObject predictor;
+    [SerializeField] List<Camera> actionCams;
     public List<voidDelegate> pauseQueue;
     private List<voidDelegate> possibleComs;
     FighterController playerActions;
+    Camera mainCam;
     CameraController camCon;
     Vector3 camOrigPos;
     bool pause = false;
@@ -37,6 +39,10 @@ public class PauseScript : MonoBehaviour
         possibleComs.Add(() => playerActions.LeftRightKick());
         playerActions = GameObject.FindWithTag("Player").GetComponent<FighterController>();
         predictor.SetActive(false);
+        foreach(Camera cam in actionCams){
+            cam.enabled = false;
+        }
+        mainCam = Camera.main;
     }
 
     // Update is called once per frame
@@ -78,18 +84,40 @@ public class PauseScript : MonoBehaviour
     }
     private IEnumerator ExecuteMoves(){
         camCon.moveable = false;
+        camCon.pause = false;
         while(Vector3.Distance(camOrigPos, Camera.main.transform.position)>.1f){
-            camCon.GoBack();
+            //camCon.GoBack();
             yield return null;
         }
         UIManager.Hide();
+        mainCam.enabled = false;
+        actionCams[0].enabled = true;
+        int i = 1;
         foreach(voidDelegate action in pauseQueue){
             //do cinematic stuff here?
             action();
             UIManager.updateQueueButtons();
             //change this to be based on when something finishes running instead of being hard coded.
             yield return new WaitForSeconds(.5f);
+            if(i==0){
+                actionCams[actionCams.Count-1].enabled = false;
+            }
+            else{
+                actionCams[i-1].enabled = false;
+            }
+            actionCams[i].enabled = true;
+            i++;
+            if(i == actionCams.Count){
+                i = 0;
+            }
         }
+        if(i==0){
+            actionCams[actionCams.Count-1].enabled = false;
+        }
+        else{
+            actionCams[i-1].enabled = false;
+        }
+        mainCam.enabled = true;
         executing = false;
         camCon.pause = false;
         if(enemy!=null){
