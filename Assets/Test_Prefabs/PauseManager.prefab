@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bttnPrefabList:
-  - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
-  - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
-  - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
-  - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
+  - {fileID: 211429622305991184, guid: 3b766c7f76e89e442a2a8aea6e264002, type: 3}
+  - {fileID: 211429622305991184, guid: aa17abdc1fdbffe4eaa1f812e7b153cb, type: 3}
+  - {fileID: 211429622305991184, guid: dcfca0d0924db0c4e94dadef5d27e2e4, type: 3}
+  - {fileID: 211429622305991184, guid: bdce00f1b96be9e448945e74628034ff, type: 3}
   - {fileID: 211429622305991184, guid: ecb0b5da2804b6d47ac72aa4ca9cab8f, type: 3}
   - {fileID: 211429622305991184, guid: 602d65544385ac64684a9c7bb07e0581, type: 3}
   - {fileID: 211429622305991184, guid: 9c3bf29a1e9bf0f44bc10dd0fd61e00d, type: 3}
