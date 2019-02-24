@@ -82,7 +82,6 @@ public class PauseScript : MonoBehaviour
             camCon.GoBack();
             yield return null;
         }
-        Debug.Log("sdkfhsdkfh");
         UIManager.Hide();
         foreach(voidDelegate action in pauseQueue){
             //do cinematic stuff here?

@@ -33,8 +33,8 @@ using UnityEngine;
                 startPos.y = 4*rect.sizeDelta.y;
                 startPos.z = 0;
                 rect.transform.position=startPos;
-                Text text=newBttn.GetComponentInChildren<Text>();
-                /*switch(i){
+                /*Text text=newBttn.GetComponentInChildren<Text>();
+                switch(i){
                     case 0:
                         text.text = "Dash Left";
                         break;
@@ -84,6 +84,9 @@ using UnityEngine;
         void Update()
         {
             
+        }
+        public void AddByInput(int i){
+            AddToQueue(bttns[i]);
         }
         void AddToQueue(Button bttn){
             if(PauseScript.pauseQueue.Count<maxQueued){

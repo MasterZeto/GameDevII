@@ -29,7 +29,6 @@ public class CameraController : MonoBehaviour
     }
     public void Move(float vert, float hori){
         if(moveable){
-            Debug.Log(vert);
             Vector3 forward=transform.forward;
             forward.y=0;
             forward.Normalize();

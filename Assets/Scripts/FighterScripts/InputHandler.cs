@@ -30,6 +30,8 @@ public class InputHandler : MonoBehaviour
     JoystickPosition p0, p1, p2;
     float p1_time, p2_time;
 
+    [SerializeField] PauseUIManager pauseUI;
+
     void Awake()
     {
         cam=Camera.main.GetComponent<CameraController>();
@@ -84,12 +86,23 @@ public class InputHandler : MonoBehaviour
             (Time.time - p2_time) < dash_window &&
             cool <= 0f)
         {
-            switch (p0)
-            {
-                case JoystickPosition.LEFT:  fighter.DashLeft();     break;
-                case JoystickPosition.RIGHT: fighter.DashRight();    break;
-                case JoystickPosition.UP:    fighter.DashForward();  break;
-                case JoystickPosition.DOWN:  fighter.DashBackward(); break;
+            if(!cam.pause){
+                switch (p0)
+                {
+                    case JoystickPosition.LEFT:  fighter.DashLeft();     break;
+                    case JoystickPosition.RIGHT: fighter.DashRight();    break;
+                    case JoystickPosition.UP:    fighter.DashForward();  break;
+                    case JoystickPosition.DOWN:  fighter.DashBackward(); break;
+                }
+            }
+            else{
+                switch (p0)
+                {
+                    case JoystickPosition.LEFT:  pauseUI.AddByInput(0); break;
+                    case JoystickPosition.RIGHT: pauseUI.AddByInput(1); break;
+                    case JoystickPosition.UP:    pauseUI.AddByInput(2); break;
+                    case JoystickPosition.DOWN:  pauseUI.AddByInput(3); break;
+                }
             }
             cool = dash_cooldown;
         }
@@ -112,13 +125,23 @@ public class InputHandler : MonoBehaviour
         if (lp >= 0.999f && lp_ready)
         { 
             Debug.Log("LeftPunch"); 
-            fighter.LeftPunch();
+            if(!cam.pause){
+                fighter.LeftPunch();
+            }
+            else{
+                pauseUI.AddByInput(4);
+            }
             lp_ready = false;
         }
         if (rp >= 0.999f && rp_ready) 
         {
             Debug.Log("RightPunch");
-            fighter.RightPunch();
+            if(!cam.pause){
+                fighter.RightPunch();
+            }
+            else{
+                pauseUI.AddByInput(5);
+            }
             rp_ready = false;
         }
     }
@@ -128,12 +151,22 @@ public class InputHandler : MonoBehaviour
         // TODO check both
         if (lk >= 0.999f && lk_ready)
         {
-            fighter.LeftKick();
+            if(!cam.pause){
+                fighter.LeftKick();
+            }
+            else{
+                pauseUI.AddByInput(7);
+            }
             lk_ready = false;
         }
         if (rk >= 0.999f && rk_ready)
         {
-            fighter.RightKick();
+            if(!cam.pause){
+                fighter.RightKick();
+            }
+            else{
+                pauseUI.AddByInput(8);
+            }
             rk_ready = false;
         }
     }
