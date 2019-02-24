@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemyAttack : Action
 {
-    [SerializeField] Hitbox hitbox;
+    public Hitbox hitbox;
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
+    bool delayDone = false;
 
     public override void StartAction(FighterController fighter) 
     {
@@ -31,12 +32,14 @@ public class EnemyAttack : Action
 
     private IEnumerator HitWithDelayRoutine()
     {
+        delayDone = false;
         for (float t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             yield return null;
         }
         hitbox.Fire(hit_duration);
+        delayDone = true;
     }
 
-    public override bool IsDone() { return !hitbox.active; }
+    public override bool IsDone() { return !hitbox.active&&delayDone; }
 }
