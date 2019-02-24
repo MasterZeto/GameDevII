@@ -54,7 +54,7 @@ public class InputHandler : MonoBehaviour
 
         UpdateDashTracking();        
 
-        if (cool > 0f) { cool -= Time.deltaTime; }
+        if (cool > 0f) { cool -= Time.unscaledDeltaTime; }
     }
 
     void GetInput()
@@ -83,7 +83,7 @@ public class InputHandler : MonoBehaviour
             p0 == p2 && 
             p0 != JoystickPosition.CENTER && 
             p1 == JoystickPosition.CENTER &&
-            (Time.time - p2_time) < dash_window &&
+            (Time.unscaledTime - p2_time) < dash_window &&
             cool <= 0f)
         {
             if(!cam.pause){
@@ -113,10 +113,10 @@ public class InputHandler : MonoBehaviour
         if (p0 != p1)
         {
             p2 = p1; p1 = p0; 
-            p2_time = p1_time; p1_time = Time.time;
+            p2_time = p1_time; p1_time = Time.unscaledTime;
         }
         
-        if (cool > 0f) { cool -= Time.deltaTime; }
+        if (cool > 0f) { cool -= Time.unscaledDeltaTime; }
     }
 
     void TryPunch()
