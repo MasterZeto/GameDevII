@@ -1311,6 +1311,7 @@ MonoBehaviour:
   dash_window: 0.2
   dash_deadzone: 0.25
   dash_cooldown: 1
+  pauseUI: {fileID: 1134376067}
 --- !u!4 &1483727929
 Transform:
   m_ObjectHideFlags: 0
@@ -2259,6 +2260,9 @@ MonoBehaviour:
   follow: {fileID: 1483727929}
   lookAtHeight: 5
   speed: 0.33
+  moveSpeed: 10
+  pause: 0
+  moveable: 0
 --- !u!4 &8557437273265878746
 Transform:
   m_ObjectHideFlags: 0
