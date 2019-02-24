@@ -22,6 +22,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] float dash_cooldown;
 
     FighterController fighter;
+    CameraController cam;
 
     float h, v, lp, rp, lk, rk, cool;
     bool lp_ready, rp_ready, lk_ready, rk_ready;
@@ -31,6 +32,7 @@ public class InputHandler : MonoBehaviour
 
     void Awake()
     {
+        cam=Camera.main.GetComponent<CameraController>();
         fighter = GetComponent<FighterController>();
         p0 = p1 = p2 = JoystickPosition.CENTER;
         p1_time = p2_time = 0f;
@@ -46,6 +48,7 @@ public class InputHandler : MonoBehaviour
         TryKick();
 
         fighter.Move((fighter.transform.right * h) + (fighter.transform.forward * v));
+        cam.Move(v, h);
 
         UpdateDashTracking();        
 

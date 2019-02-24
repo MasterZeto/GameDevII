@@ -12,6 +12,7 @@ public class PauseScript : MonoBehaviour
     public List<voidDelegate> pauseQueue;
     private List<voidDelegate> possibleComs;
     FighterController playerActions;
+    CameraController camCon;
     bool pause = false;
     bool executing = false;
     bool up = true;
@@ -20,6 +21,7 @@ public class PauseScript : MonoBehaviour
     void Start()
     {
         UIManager = GetComponent<PauseUIManager>();
+        camCon = Camera.main.GetComponent<CameraController>();
         pauseQueue = new List<voidDelegate>();
         possibleComs = new List<voidDelegate>();
         possibleComs.Add(() => playerActions.DashLeft());
@@ -47,6 +49,8 @@ public class PauseScript : MonoBehaviour
                 pause = true;
                 UIManager.SetUp();
                 pauseQueue.Clear();
+                camCon.pause = true;
+                camCon.moveable = true;
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
                     col=enemy.GetHitbox();
@@ -71,6 +75,7 @@ public class PauseScript : MonoBehaviour
         }
     }
     private IEnumerator ExecuteMoves(){
+        camCon.moveable = false;
         Debug.Log("sdkfhsdkfh");
         UIManager.Hide();
         foreach(voidDelegate action in pauseQueue){
@@ -80,6 +85,7 @@ public class PauseScript : MonoBehaviour
             yield return new WaitForSeconds(.5f);
         }
         executing = false;
+        camCon.pause = false;
         if(enemy!=null){
             //resume enemy's action, somehow
             enemy.Resume();
