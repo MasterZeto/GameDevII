@@ -24,6 +24,9 @@ public class FighterController : MonoBehaviour
     [SerializeField] Action dash_right;
     [SerializeField] Action dash_forward;
     [SerializeField] Action dash_backward;
+    [SerializeField] Action dash_backward_left;
+    [SerializeField] Action dash_backward_right;
+
 
     /* Punch Actions */
     [SerializeField] Action left_punch;
@@ -101,6 +104,9 @@ public class FighterController : MonoBehaviour
     public void DashRight()    { StartAction(dash_right);    }
     public void DashForward()  { StartAction(dash_forward);  }
     public void DashBackward() { StartAction(dash_backward); }
+    public void DashBackLeft() { StartAction(dash_backward_left); }
+    public void DashBackRight(){ StartAction(dash_backward_right); }
+
 
     /* Punch Functions */
     public void LeftPunch()      { StartAction(left_punch);       }

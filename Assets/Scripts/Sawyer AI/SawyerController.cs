@@ -25,8 +25,9 @@ public class SawyerCharacter : AICharacter
 
     //sawyer sweep stricks and overhead smash add here
     public void Attack()
-    {
-       character.RightPunch();
+    {   
+
+      //character.RightPunch();
     }
     public void RightDash()
     {
@@ -35,6 +36,18 @@ public class SawyerCharacter : AICharacter
     public void LeftDash()
     {
         character.DashLeft();
+    }
+    public void BackRightDash()
+    {
+        character.DashBackRight();
+    }
+    public void BackLeftDash()
+    {
+        character.DashBackLeft();
+    }
+    public void DashForward()
+    {
+        character.DashForward();
     }
 
 }
@@ -77,40 +90,34 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
     private class ZigZagAway : MachineState<SawyerCharacter>
     {
         public ZigZagAway() { name = "ZigZagAway"; }
-        float zigZagTime = 0.8f;
+        float zigZagTime = 0.3f;
         float currentTime = 1f;
         float P = 0;// a parameter that is supposed to affect the change of angle for each zigzag move
-        float speed = 0;
-        // float maxSpeed = 1.5f;
-        Vector3 moveDirection;
         bool right = true;
         public override void Update(SawyerCharacter actor, float dt)
         {
             currentTime += Time.deltaTime;
-            speed +=25f * Time.deltaTime;
+
+
             if (currentTime > zigZagTime)
             {
-                right = !right;
-                speed = 0;
+
                 currentTime = 0;
-                P = Random.Range(0.5f, 1);
                 if (right)
                 {
-                    //tmp = Vector3.Cross(actor.character.transform.up, actor.character.transform.forward).normalized;
-                    //calculate a new direction here
-                    moveDirection = Vector3.Lerp(actor.character.transform.right, -actor.character.transform.forward, P);
-                    Debug.Log("running away");
+                    actor.BackRightDash();
+                    right = !right;
+                    Debug.Log("right dash away player");
                 }
                 else
                 {
-                    // tmp = Vector3.Cross(actor.character.transform.forward, actor.character.transform.up).normalized;
-                    moveDirection = Vector3.Lerp(-actor.character.transform.right, -actor.character.transform.forward, P);
-                    Debug.Log("running away");
+                    actor.BackLeftDash();
+                    right = !right;
+                    Debug.Log("right dash away player");
                 }
             }
-            //move here
-            actor.character.RelativeMove(moveDirection * (speed + 1));
-            actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection));
+           
+            //actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection));
         }
     }
 
@@ -120,12 +127,10 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
 
         public override void Update(SawyerCharacter actor, float dt)
         {
-            actor.character.Move(actor.character.transform.forward * 3f);
+            actor.DashForward();
             Debug.Log("DashToPlayer");
         }
     }
-
-
 
     private class AttackPlayer : MachineState<SawyerCharacter>
     {
@@ -145,17 +150,16 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
     )
     {
         float dist_to_player = Vector3.Distance(actor.character.transform.position, Blackboard.player_position);
-        bool isSeen = actor.character.GetOpponent().GetComponent<PlayerView>().FoundSawyer;//is it getting updated here?
-        Debug.Log(isSeen);
+      
         switch (state.name)
         {
-            case "FirstZigZag": //only dash to player when get close and stay out of player sight 
-                if (dist_to_player < 10f&&isSeen==false)
+            case "FirstZigZag": //only dash to player when get close
+                if (dist_to_player < 7f)
                 {
                  //  actor.animator.SetBool("walk", false);
                     return new DashToPlayer();
                 }//if get close to player but is within the sight, zigzag away
-                else if(dist_to_player < 7f && isSeen == true)
+                else if(dist_to_player < 7f )
                 {
                     return new ZigZagAway();
                 }
@@ -179,7 +183,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 }
                 break;
             case "AttackPlayer":
-                if (isSeen== true&&dist_to_player > 5f)
+                if (dist_to_player > 5f)
                 {
                     return new ZigZagAway();
                 }
