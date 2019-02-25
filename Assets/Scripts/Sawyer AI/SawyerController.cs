@@ -27,7 +27,7 @@ public class SawyerCharacter : AICharacter
     public void Attack()
     {   
 
-      //character.RightPunch();
+      character.RightPunch();
     }
     public void RightDash()
     {
@@ -183,7 +183,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 }
                 break;
             case "AttackPlayer":
-                if (dist_to_player > 5f)
+                if (dist_to_player > 3f)
                 {
                     return new ZigZagAway();
                 }

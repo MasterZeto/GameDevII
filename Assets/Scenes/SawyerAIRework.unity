@@ -2620,12 +2620,12 @@ MonoBehaviour:
   opponent_object: {fileID: 1483727925}
   dash_left: {fileID: 5279375867414527916}
   dash_right: {fileID: 5279375867414527915}
-  dash_forward: {fileID: 0}
+  dash_forward: {fileID: 5279375867414527919}
   dash_backward: {fileID: 0}
-  dash_backward_left: {fileID: 0}
-  dash_backward_right: {fileID: 0}
+  dash_backward_left: {fileID: 5279375867414527918}
+  dash_backward_right: {fileID: 5279375867414527917}
   left_punch: {fileID: 0}
-  right_punch: {fileID: 0}
+  right_punch: {fileID: 5279375867414527920}
   left_kick: {fileID: 0}
   right_kick: {fileID: 0}
 --- !u!114 &5279375867414527895
@@ -2657,6 +2657,8 @@ GameObject:
   - component: {fileID: 5279375867414527915}
   - component: {fileID: 5279375867414527918}
   - component: {fileID: 5279375867414527917}
+  - component: {fileID: 5279375867414527919}
+  - component: {fileID: 5279375867414527920}
   m_Layer: 0
   m_Name: SawyerAI
   m_TagString: Untagged
@@ -2724,6 +2726,38 @@ MonoBehaviour:
   heat: 0
   dash_speed: 20
   dash_duration: 0.2
+--- !u!114 &5279375867414527919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279375867414527914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5feb5f0ce0a074c8d9ddecd5085feb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  dash_speed: 30
+  dash_duration: 0.5
+--- !u!114 &5279375867414527920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279375867414527914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce83ed5a2b4d447beb6fccc0ea02d003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  hitbox: {fileID: 490209509}
+  hit_duration: 0.1
+  hit_delay: 0
+  anim_name: 
 --- !u!4 &5279375867817941528
 Transform:
   m_ObjectHideFlags: 0
