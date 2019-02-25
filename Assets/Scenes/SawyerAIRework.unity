@@ -1136,7 +1136,7 @@ MonoBehaviour:
   heat_dissipation_rate: 5
   animator: {fileID: 1238192781}
   opponent: {fileID: 1483727929}
-  opponent_object: {fileID: 5279375867414527914}
+  opponent_object: {fileID: 1483727925}
   dash_left: {fileID: 0}
   dash_right: {fileID: 0}
   dash_forward: {fileID: 0}
@@ -2081,6 +2081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MurryMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     - target: {fileID: 400138, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2125,10 +2129,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
 --- !u!4 &1824223648 stripped
@@ -2179,6 +2179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MurryMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     - target: {fileID: 400138, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2223,10 +2227,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
 --- !u!4 &1973493372 stripped
@@ -2585,7 +2585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5279375867414527914}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -6.4, y: 0.27, z: -0.5}
+  m_LocalPosition: {x: -4.1, y: 0.27, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5279375866678061573}
@@ -2624,7 +2624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f5d492f71e86041a689ab63df56464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 2
+  move_speed: 3
   max_heat: 0
   heat_dissipation_rate: 0
   animator: {fileID: 5279375867024928682}
@@ -2686,7 +2686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   dash_speed: 10
-  dash_duration: 0.2
+  dash_duration: 0.1
 --- !u!114 &5279375867414527916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2701,7 +2701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   dash_speed: 10
-  dash_duration: 0.2
+  dash_duration: 0.1
 --- !u!4 &5279375867817941528
 Transform:
   m_ObjectHideFlags: 0

@@ -6,7 +6,8 @@ using Giga.AI.Blackboard;
 
 public class SawyerCharacter : AICharacter
 {
-    public FighterController character { get; private set; }
+    public FighterController character;
+   
     public Animator animator { get; private set; }
     public Hitbox hitbox { get; private set; }
 
@@ -15,7 +16,7 @@ public class SawyerCharacter : AICharacter
     //constructor
     public SawyerCharacter(FighterController character, Hitbox h)
     {
-        this.character = character.GetComponent<FighterController>();
+        this.character = character;
         animator = character.GetComponentInChildren<Animator>();
         hitbox = h;
 
@@ -27,11 +28,11 @@ public class SawyerCharacter : AICharacter
     {
        character.RightPunch();
     }
-    public void DashRight()
+    public void RightDash()
     {
         character.DashRight();
     }
-    public void DashLeft()
+    public void LeftDash()
     {
         character.DashLeft();
     }
@@ -43,8 +44,8 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
     private class FirstZigZag : MachineState<SawyerCharacter>
     {
         public FirstZigZag() { name = "FirstZigZag"; }
-        float zigZagTime = 1.0f;
-        float currentTime = 1.1f;
+        float zigZagTime = 0.5f;
+        float currentTime = 1f;
         bool right = true;
         public override void Update(SawyerCharacter actor, float dt)
         {
@@ -56,11 +57,11 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 currentTime = 0;
                 if (right)
                 {
-                    actor.DashRight();
+                    actor.RightDash();
                     Debug.Log("toward player");
                 }
                 else {
-                    actor.DashLeft();
+                    actor.LeftDash();
                     Debug.Log("toward player");
                 }
             }
@@ -208,12 +209,12 @@ public class SawyerController : MonoBehaviour
 
     void Update()
     {
-        /* transform.forward = Vector3.ProjectOnPlane(
+         transform.forward = Vector3.ProjectOnPlane(
             (Blackboard.player_position - transform.position), 
              Vector3.up
-         ).normalized;*/
+         ).normalized;
 
-        transform.forward = ai.character.GetOpponent().transform.position - transform.position;
+     //   transform.forward = ai.character.GetOpponent().transform.position - transform.position;
 
         fsm.Update(ai, Time.deltaTime);
 
