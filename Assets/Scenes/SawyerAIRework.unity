@@ -2625,7 +2625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 3
-  max_heat: 0
+  max_heat: 100
   heat_dissipation_rate: 0
   animator: {fileID: 5279375867024928682}
   opponent: {fileID: 1483727929}
@@ -2685,8 +2685,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 10
-  dash_duration: 0.1
+  dash_speed: 25
+  dash_duration: 0.2
 --- !u!114 &5279375867414527916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,8 +2700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 10
-  dash_duration: 0.1
+  dash_speed: 20
+  dash_duration: 0.2
 --- !u!4 &5279375867817941528
 Transform:
   m_ObjectHideFlags: 0

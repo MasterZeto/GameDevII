@@ -17,11 +17,11 @@ public class SawyerDashLeft :DashAction
 
     private IEnumerator DashLeftRoutine()
     {
-        Vector3 moveDirection = Vector3.Lerp(-transform.right, transform.forward, 0.5f);
+        Vector3 moveDirection = Vector3.Lerp(-transform.right, transform.forward, 0.3f);
         Debug.Log("move");
         for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {
-            fighter.RelativeMove(moveDirection * dash_speed);
+            fighter.Move(moveDirection * dash_speed);
             yield return null;
         }
         running = false;

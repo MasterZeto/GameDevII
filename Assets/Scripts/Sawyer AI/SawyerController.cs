@@ -44,25 +44,28 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
     private class FirstZigZag : MachineState<SawyerCharacter>
     {
         public FirstZigZag() { name = "FirstZigZag"; }
-        float zigZagTime = 0.5f;
+        float zigZagTime = 0.3f;
         float currentTime = 1f;
         bool right = true;
         public override void Update(SawyerCharacter actor, float dt)
         {
             currentTime += Time.deltaTime;
-      
-            if (currentTime>zigZagTime)
+
+            if (currentTime > zigZagTime)
             {
-                right = !right;
-                currentTime = 0;
+
+                 currentTime = 0;
                 if (right)
                 {
                     actor.RightDash();
-                    Debug.Log("toward player");
+                    right = !right;
+                    Debug.Log("right dash to player");
                 }
-                else {
+                else
+                {
                     actor.LeftDash();
-                    Debug.Log("toward player");
+                    right = !right;
+                    Debug.Log("left dash to player");
                 }
             }
        
@@ -209,12 +212,12 @@ public class SawyerController : MonoBehaviour
 
     void Update()
     {
-         transform.forward = Vector3.ProjectOnPlane(
+       /*  transform.forward = Vector3.ProjectOnPlane(
             (Blackboard.player_position - transform.position), 
              Vector3.up
-         ).normalized;
+         ).normalized;*/
 
-     //   transform.forward = ai.character.GetOpponent().transform.position - transform.position;
+        transform.forward = (ai.character.GetOpponent().transform.position - transform.position).normalized;
 
         fsm.Update(ai, Time.deltaTime);
 
