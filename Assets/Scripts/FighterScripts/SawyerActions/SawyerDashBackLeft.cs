@@ -10,8 +10,8 @@ public class SawyerDashBackLeft : DashAction
         running = true;
         this.fighter = fighter;
         fighter.SetBoolTrue(anim_name);
-        fighter.SetBoolFalse("ZigRight");
-        fighter.SetBoolFalse("DashForward");
+        fighter.SetBoolFalse("SwingAttack");
+     
         StartCoroutine(DashLeftRoutine());
     }
 

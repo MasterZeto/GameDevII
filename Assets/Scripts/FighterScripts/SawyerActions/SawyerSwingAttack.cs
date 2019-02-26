@@ -12,7 +12,8 @@ public class SawyerSwingAttack : Action
     public override void StartAction(FighterController fighter)
     {
         this.fighter = fighter;
-        fighter.SetTrigger(anim_name);
+        fighter.SetBoolTrue(anim_name);
+        fighter.SetBoolFalse("DashForward");
         StartCoroutine(HitWithDelayRoutine());
     }
 

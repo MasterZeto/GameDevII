@@ -12211,7 +12211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 30
+  dash_speed: 20
   dash_duration: 0.5
   anim_name: DashForward
 --- !u!114 &5279375867414527920
