@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class SawyerDashBackRight : DashAction
 {
+    [SerializeField] string anim_name;
     public override void StartAction(FighterController fighter)
     {
         running = true;
         this.fighter = fighter;
+        fighter.SetBoolTrue(anim_name);
+        fighter.SetBoolFalse("ZigLeft");
+        fighter.SetBoolFalse("DashForward");
         StartCoroutine(DashRightRoutine());
     }
 
