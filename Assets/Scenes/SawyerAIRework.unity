@@ -12181,7 +12181,7 @@ MonoBehaviour:
   heat: 0
   dash_speed: 25
   dash_duration: 0.2
-  anim_name: 
+  anim_name: ZigRight
 --- !u!114 &5279375867414527918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12197,7 +12197,7 @@ MonoBehaviour:
   heat: 0
   dash_speed: 20
   dash_duration: 0.2
-  anim_name: 
+  anim_name: ZigLeft
 --- !u!114 &5279375867414527919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12230,7 +12230,7 @@ MonoBehaviour:
   hitbox: {fileID: 490209509}
   hit_duration: 0.1
   hit_delay: 0
-  anim_name: 
+  anim_name: SwingAttack
 --- !u!114 &5279375867414527921
 MonoBehaviour:
   m_ObjectHideFlags: 0
