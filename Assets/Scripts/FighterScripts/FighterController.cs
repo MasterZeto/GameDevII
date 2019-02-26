@@ -122,7 +122,14 @@ public class FighterController : MonoBehaviour
     { 
         animator.SetTrigger(trigger); 
     }
-
+    public void SetBoolTrue(string bool_name)
+    {
+        animator.SetBool(bool_name,true);
+    }
+    public void SetBoolFalse(string bool_name)
+    {
+        animator.SetBool(bool_name, false);
+    }
     public void SetBlend(string name, float blend) 
     { 
         animator.SetFloat(name, Mathf.Clamp01(blend)); 

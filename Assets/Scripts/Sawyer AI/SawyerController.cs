@@ -6,6 +6,7 @@ using Giga.AI.Blackboard;
 
 public class SawyerCharacter : AICharacter
 {
+
     public FighterController character;
    
     public Animator animator { get; private set; }
