@@ -82,7 +82,7 @@ public class FighterController : MonoBehaviour
 
     public void UnsafeMove(Vector3 velocity)
     {
-        character.SimpleMove(velocity);
+        character.SimpleMove(velocity * move_speed);
         transform.forward = Vector3.ProjectOnPlane(
             opponent.position - transform.position, 
             Vector3.up
