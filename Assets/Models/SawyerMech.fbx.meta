@@ -136,6 +136,9 @@ ModelImporter:
     100260: LeftHand
     100262: leftHand
     100264: rightHand
+    100266: leftEye
+    100268: mouth
+    100270: rightEye
     400000: abdomen
     400002: AbdomenBottom
     400004: AbdomenScrew
@@ -269,8 +272,13 @@ ModelImporter:
     400260: LeftHand
     400262: leftHand
     400264: rightHand
+    400266: leftEye
+    400268: mouth
+    400270: rightEye
     2100000: lambert1
     2100002: wood
+    2100004: lambert2
+    2100006: wood1
     4300000: Head
     4300002: RightEye
     4300004: LeftEye

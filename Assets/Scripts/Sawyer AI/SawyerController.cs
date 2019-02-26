@@ -20,14 +20,11 @@ public class SawyerCharacter : AICharacter
         this.character = character;
         animator = character.GetComponentInChildren<Animator>();
         hitbox = h;
-
- 
     }
 
     //sawyer sweep stricks and overhead smash add here
     public void Attack()
     {   
-
       character.RightPunch();
     }
     public void RightDash()
@@ -57,8 +54,6 @@ public class SawyerCharacter : AICharacter
 
 }
 
-}
-
 public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
 {
     private class FirstZigZag : MachineState<SawyerCharacter>
@@ -74,7 +69,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
             if (currentTime > zigZagTime)
             {
 
-                 currentTime = 0;
+                currentTime = 0;
                 if (right)
                 {
                     actor.RightDash();
@@ -86,10 +81,6 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                     actor.LeftDash();
                     right = !right;
                     Debug.Log("left dash to player");
-                }
-                else {
-                    actor.DashLeft();
-                    Debug.Log("toward player");
                 }
             }
        
