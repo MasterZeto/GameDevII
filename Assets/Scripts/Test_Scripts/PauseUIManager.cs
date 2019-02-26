@@ -71,6 +71,7 @@ using UnityEngine;
             foreach (Button bttn in bttns)
             {
                 bttn.onClick.AddListener(() => AddToQueue(bttn));
+                Debug.Log("click added");
             }
             startPos.x = Screen.width/2-maxQueued/2*bttns[0].GetComponent<RectTransform>().sizeDelta.x;
             startPos.y = 2*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
