@@ -69,7 +69,7 @@ public class FighterController : MonoBehaviour
 
     public void Move(Vector3 direction) 
     {
-        if ((current_action == null || current_action.IsDone())&&animator.enabled==true)
+        if ((current_action == null || current_action.IsDone())&&animator.enabled==true&&!pause)
         {
             UnsafeMove(direction);
         }
