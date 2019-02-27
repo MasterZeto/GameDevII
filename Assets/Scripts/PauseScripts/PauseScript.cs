@@ -48,6 +48,13 @@ public class PauseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(col!=null&&pause){
+            Debug.Log(col.bounds.center);
+            Debug.Log(col);
+            col=enemy.GetHitbox();
+            predictor.transform.position=col.gameObject.transform.position;
+            predictor.SetActive(true);
+        }
         //move this to input handler later
         if(Input.GetAxisRaw("Pause") == 1 && up){
             up = false;
@@ -64,11 +71,12 @@ public class PauseScript : MonoBehaviour
                     col=enemy.GetHitbox();
                     if(col!=null){
                         Debug.Log("the boy is here");
-                        predictor.SetActive(true);
                         predictor.transform.localScale=col.bounds.size;
-                        predictor.transform.position=col.bounds.center;
+                        predictor.transform.eulerAngles=enemy.transform.eulerAngles;
                     }
-                    enemy.Pause();      
+                    enemy.Pause();
+                    if(col!=null){
+                    }      
                 }   
             }
             else if(pause&&!executing){
