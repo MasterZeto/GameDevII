@@ -11,11 +11,11 @@ public class SoundBox : MonoBehaviour
     public AudioClip missSound;
     public AudioClip slowSound;
 
-    
     void Awake()
     {
         source = GetComponent<AudioSource>();
     }
+
 
     public void HitSFX()
 	{
@@ -30,12 +30,17 @@ public class SoundBox : MonoBehaviour
     public void TimeSlowSFX()
     {
         source.PlayOneShot(slowSound, 0.3F);
-        muffle.enabled = true;
-    }
+        StartCoroutine(MuffleWait());    }
 
     public void TimeSlowStop()
     {
         muffle.enabled = false;
+    }
+
+    IEnumerator MuffleWait()
+    { 
+        yield return new WaitForSecondsRealtime(2.5f);
+        muffle.enabled = true;
     }
 
   

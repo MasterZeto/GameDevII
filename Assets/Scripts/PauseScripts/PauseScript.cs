@@ -86,6 +86,7 @@ public class PauseScript : MonoBehaviour
                 executing = true;
                 pause = false;
                 Debug.Log("unpause time");
+                GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowStop();                
                 StartCoroutine(ExecuteMoves());
             }
         }
