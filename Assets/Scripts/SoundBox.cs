@@ -30,17 +30,12 @@ public class SoundBox : MonoBehaviour
     public void TimeSlowSFX()
     {
         source.PlayOneShot(slowSound, 0.3F);
-        StartCoroutine(MuffleWait());    }
+        GameObject.Find("Center Light").GetComponent<AudioLowPassFilter>().enabled = true;    
+    }
 
     public void TimeSlowStop()
     {
-        muffle.enabled = false;
-    }
-
-    IEnumerator MuffleWait()
-    { 
-        yield return new WaitForSecondsRealtime(2.5f);
-        muffle.enabled = true;
+        GameObject.Find("Center Light").GetComponent<AudioLowPassFilter>().enabled = false;    
     }
 
   
