@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -671,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 3936434544778517498, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
       propertyPath: dash_speed
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3936434544778517498, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
@@ -681,7 +681,17 @@ PrefabInstance:
     - target: {fileID: 2799605989723886070, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
       propertyPath: dash_speed
-      value: 20
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799605989723886070, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: dash_duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 222635425434145305, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: dash_speed
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3159154738220580051, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
@@ -2787,6 +2797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MurryMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     - target: {fileID: 400138, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2831,10 +2845,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
 --- !u!4 &1824223648 stripped
@@ -2866,6 +2876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MurryMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     - target: {fileID: 400138, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2910,10 +2924,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
 --- !u!4 &1973493372 stripped

@@ -181,7 +181,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 }
                 break;
             case "AttackPlayer":
-                if (dist_to_player < 5f)
+                if (dist_to_player < 3f)
                 {
                     return new ZigZagAway();
                 }
