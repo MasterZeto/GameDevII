@@ -58,7 +58,7 @@
         half4 LightingToon(SurfaceOutput s, half3 lightDir, half3 viewDir, half atten)
         {
             float NdotL = dot(s.Normal, lightDir);
-            float diffuse = step(_Threshold, NdotL) * atten;
+            float diffuse = step(_Threshold, NdotL) * step(0.5, saturate(atten));
 
             float3 diffuse_color = diffuse * s.Albedo * _LightColor0;
 
