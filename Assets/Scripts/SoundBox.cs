@@ -12,6 +12,8 @@ public class SoundBox : MonoBehaviour
     public AudioClip slowSound;
     public AudioLowPassFilter low_pass;
 
+    GameObject speaker;
+
     void Awake()
     {
         source = GetComponent<AudioSource>();
