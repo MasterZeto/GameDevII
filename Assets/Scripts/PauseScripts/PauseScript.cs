@@ -54,6 +54,10 @@ public class PauseScript : MonoBehaviour
             col=enemy.GetHitbox();
             predictor.transform.position=col.gameObject.transform.position;
             predictor.SetActive(true);
+            if(col.enabled){
+                Debug.Log("unenabled");
+                col.enabled = false;
+            }
         }
         //move this to input handler later
         if(Input.GetAxisRaw("Pause") == 1 && up){
@@ -143,6 +147,9 @@ public class PauseScript : MonoBehaviour
             //resume enemy's action, somehow
             enemy.Resume();
             predictor.SetActive(false);
+            if(col!=null){
+                col.enabled = true;
+            }
         }
         playerActions.pause = false;
         UIManager.HidePauseHeat();
