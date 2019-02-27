@@ -1883,10 +1883,10 @@ MonoBehaviour:
   - 10
   - 30
   - 30
+  - 40
   - 30
   - 30
-  - 30
-  - 30
+  - 40
   pause_heat: {fileID: 1332448334}
 --- !u!4 &1134376068
 Transform:
