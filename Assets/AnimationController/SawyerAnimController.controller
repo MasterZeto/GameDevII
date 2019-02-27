@@ -57,6 +57,18 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: SwingToLeft
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: SwingToRight
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -106,9 +118,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: SwingAttack
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: DashForward
     m_EventTreshold: 0
@@ -166,7 +175,7 @@ AnimatorStateTransition:
     m_ConditionEvent: DashForward
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: SwingAttack
+    m_ConditionEvent: SwingToLeft
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102411607231584430}
@@ -190,9 +199,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: SwingAttack
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: ZigRight
     m_EventTreshold: 0
@@ -311,9 +317,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: SwingAttack
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: ZigRight
     m_EventTreshold: 0
@@ -1032,10 +1035,10 @@ AnimatorStateMachine:
     m_Position: {x: 151.99808, y: 418.88037, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102835347885035040}
-    m_Position: {x: 648, y: -264, z: 0}
+    m_Position: {x: 660, y: -384, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102411607231584430}
-    m_Position: {x: 144, y: -276, z: 0}
+    m_Position: {x: 216, y: -396, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102152638948644214}
     m_Position: {x: 684, y: 96, z: 0}
