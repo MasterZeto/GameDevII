@@ -5,6 +5,7 @@ using UnityEngine;
 public class SawyerDashBackLeft : DashAction
 {
     [SerializeField] string anim_name;
+    bool paused = false;
     public override void StartAction(FighterController fighter)
     {
         running = true;
@@ -16,8 +17,8 @@ public class SawyerDashBackLeft : DashAction
     }
 
     public override void Stop() { running = false; }
-    public override void Pause() { }
-    public override void Resume() { }
+    public override void Pause() { paused = true; }
+    public override void Resume() { paused = false; }
 
     private IEnumerator DashLeftRoutine()
     {
@@ -25,6 +26,9 @@ public class SawyerDashBackLeft : DashAction
         Debug.Log("move");
         for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {
+            while(paused){
+                yield return null;
+            }
             fighter.Move(moveDirection * dash_speed);
             yield return null;
         }
