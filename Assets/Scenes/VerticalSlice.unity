@@ -546,6 +546,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 188279678784456682, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: opponent
+      value: 
+      objectReference: {fileID: 1483727929}
+    - target: {fileID: 188279678784456682, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: opponent_object
+      value: 
+      objectReference: {fileID: 1483727925}
+    - target: {fileID: 3363794433554136481, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: uiHealthBar
+      value: 
+      objectReference: {fileID: 1743460228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfafdd8b8d1142a1b54c2792f50368a, type: 3}
 --- !u!1 &329268860
