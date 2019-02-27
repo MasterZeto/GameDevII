@@ -712,7 +712,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SwingToLeft
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101891761608103632}
@@ -950,7 +950,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SwingToRight
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101128030196710002}
@@ -1053,7 +1053,7 @@ AnimatorStateMachine:
     m_Position: {x: 72, y: 72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102002326202200360}
-    m_Position: {x: 372, y: -108, z: 0}
+    m_Position: {x: 396, y: -204, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102703251319143242}
     m_Position: {x: 876, y: 396, z: 0}

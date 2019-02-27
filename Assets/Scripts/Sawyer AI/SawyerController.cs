@@ -155,7 +155,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
         switch (state.name)
         {
             case "FirstZigZag": //only dash to player when get close
-                if (dist_to_player < 7f)
+                if (dist_to_player < 10f)
                 {
                     //  actor.animator.SetBool("walk", false);
                     return new DashToPlayer();
@@ -181,7 +181,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 }
                 break;
             case "AttackPlayer":
-                if (dist_to_player > 5f)
+                if (dist_to_player < 5f)
                 {
                     return new ZigZagAway();
                 }
