@@ -559,13 +559,33 @@ PrefabInstance:
     - target: {fileID: 3936434544778517498, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
       propertyPath: dash_speed
-      value: 18
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3936434544778517498, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: dash_duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799605989723886070, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: dash_speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3159154738220580051, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: hit_duration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3363794433554136481, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
       propertyPath: uiHealthBar
       value: 
       objectReference: {fileID: 1743460228}
+    - target: {fileID: 603542743806314475, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfafdd8b8d1142a1b54c2792f50368a, type: 3}
 --- !u!1 &329268860
