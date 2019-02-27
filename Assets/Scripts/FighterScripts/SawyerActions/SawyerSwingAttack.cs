@@ -14,6 +14,7 @@ public class SawyerSwingAttack : Action
     {
         this.fighter = fighter;
         fighter.SetTrigger(anim_name);
+
         fighter.SetBoolFalse("DashForward");
         StartCoroutine(HitWithDelayRoutine());
     }

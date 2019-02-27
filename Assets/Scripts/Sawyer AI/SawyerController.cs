@@ -160,10 +160,6 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                     //  actor.animator.SetBool("walk", false);
                     return new DashToPlayer();
                 }//if get close to player but is within the sight, zigzag away
-                else if (dist_to_player < 7f)
-                {
-                    return new ZigZagAway();
-                }
                 break;
             case "ZigZagAway":
                 if (dist_to_player > 20f)
@@ -172,19 +168,20 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 }
                 break;
             case "DashToPlayer":
-                if (dist_to_player > 7f)
+                if (dist_to_player > 10f)
                 {
                     //actor.animator.SetBool("walk", true);
                     return new FirstZigZag();
                 }
-                else if (dist_to_player < 3f)
+
+                else if (dist_to_player <10f)
                 {
 
                     return new AttackPlayer();
                 }
                 break;
             case "AttackPlayer":
-                if (dist_to_player > 3f)
+                if (dist_to_player > 5f)
                 {
                     return new ZigZagAway();
                 }
