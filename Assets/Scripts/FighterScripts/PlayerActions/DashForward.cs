@@ -8,6 +8,7 @@ public class DashForward : DashAction
     {
         running = true;
         this.fighter = fighter;
+        fighter.SetTrigger("DashForward");
         StartCoroutine(DashForwardRoutine());        
     }
 
