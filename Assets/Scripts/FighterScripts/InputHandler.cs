@@ -122,9 +122,19 @@ public class InputHandler : MonoBehaviour
     void TryPunch()
     {
         // TODO check both
+        if (lp >= 0.999f && lp_ready && rp >= 0.999 && rp_ready)
+        {
+            if(!cam.pause){
+                fighter.LeftRightPunch();
+            }
+            else{
+                pauseUI.AddByInput(6);
+            }
+            lp_ready = false;
+            rp_ready = false;
+        }
         if (lp >= 0.999f && lp_ready)
         { 
-            Debug.Log("LeftPunch"); 
             if(!cam.pause){
                 fighter.LeftPunch();
             }
@@ -149,6 +159,17 @@ public class InputHandler : MonoBehaviour
     void TryKick()
     {
         // TODO check both
+        if (lk >= 0.999f && lk_ready && rk >= 0.999 && rk_ready)
+        {
+            if(!cam.pause){
+                fighter.LeftRightKick();
+            }
+            else{
+                pauseUI.AddByInput(9);
+            }
+            lp_ready = false;
+            rp_ready = false;
+        }
         if (lk >= 0.999f && lk_ready)
         {
             if(!cam.pause){

@@ -14,6 +14,10 @@ public class CameraController : MonoBehaviour
 
     Vector3 offset;
 
+    ApplyImageEffect pause_effect;
+
+    void Awake() { pause_effect = GetComponent<ApplyImageEffect>(); }
+
     void Start()
     {
         offset = transform.position - follow.position;
@@ -25,6 +29,15 @@ public class CameraController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, follow.position + (follow.forward * offset.z)
                  + (Vector3.up * offset.y), speed);
             transform.LookAt(follow.position + (lookAtHeight * Vector3.up), Vector3.up);
+        }
+
+        if (pause && moveable && !pause_effect.enabled)
+        {
+            pause_effect.enabled = true;
+        }
+        if ((!pause || !moveable) && pause_effect.enabled)
+        {
+            pause_effect.enabled = false;
         }
     }
     public void Move(float vert, float hori){

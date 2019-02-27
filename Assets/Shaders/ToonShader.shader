@@ -3,6 +3,9 @@
     Properties
     {
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _Metallic ("Metallic Map", 2D) = "black" {}
+        _Normal ("Normal Map", 2D) = "black" {}
+        _Emission ("Emission Map", 2D) = "black" {}
         _Color ("Color", Color) = (1,1,1,1)
         _Threshold ("Threshold", Range(0, 1)) = 0.0
     }
@@ -24,14 +27,20 @@
         };
 
         sampler2D _MainTex;
+        sampler2D _Metallic;
+        sampler2D _Normal;
+        sampler2D _Emission;
         fixed4 _Color;
         float _Threshold;
 
-        void surf (Input IN, inout SurfaceOutput o)
+        void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb;
+            o.Metallic = tex2D (_Metallic, IN.uv_MainTex);
+            o.Normal = IN.Normal + tex2D (_Normal, IN.uv_MainTex);
+            o.Emission = tex2D (_Emission, IN.uv_MainTex);
             o.Alpha = c.a;
         }
 
