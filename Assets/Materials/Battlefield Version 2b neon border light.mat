@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Battlefield Version 2b Part 1_lambert2
+  m_Name: Battlefield Version 2b neon border light
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: d646df3ec54c5e64b87774e67b339f32, type: 3}
+        m_Texture: {fileID: 2800000, guid: acbb3b85faf41244e82f60e40fb34130, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,15 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: ee70d81cf7dd04e4e8a28814ed379906, type: 3}
+        m_Texture: {fileID: 2800000, guid: 24239d18d2377dc41ae72be7b6c622ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3b0b482b3e545524eba96d90d8205d20, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4d053a27db6d0a245aa80ee7e53485c7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: c0dc16a2bcfd624488bd78e719e6aae5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 342f770384b643e42baec97683bd1bb3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
