@@ -8,6 +8,7 @@ public class DashRight : DashAction
     {
         running = true;
         this.fighter = fighter;
+        fighter.SetTrigger("DashRight");
         StartCoroutine(DashRightRoutine());        
     }
 

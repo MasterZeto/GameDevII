@@ -61,7 +61,10 @@ public class FighterController : MonoBehaviour
         {
             heat = Mathf.Clamp(heat - (heat_dissipation_rate * Time.deltaTime), 0, max_heat);
         }
-        SetBlend("Speed", character.velocity.magnitude);
+        SetBlend("SpeedVertical", Vector3.Dot(character.velocity.normalized, transform.forward));
+        SetBlend("SpeedHorizontal", Vector3.Dot(character.velocity.normalized, transform.right));
+
+        Debug.Log(Vector3.Dot(character.velocity.normalized, transform.forward));
     }
 
     public void Move(Vector3 direction) 
@@ -134,7 +137,7 @@ public class FighterController : MonoBehaviour
     }
     public void SetBlend(string name, float blend) 
     { 
-        animator.SetFloat(name, Mathf.Clamp01(blend)); 
+        animator.SetFloat(name, blend); 
     }
 
     public void Pause()
