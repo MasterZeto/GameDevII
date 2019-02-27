@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 1faf09d8771bd6546abb3e1c5838939d
-=======
-guid: 9d37ddd5d189f7e4199da69c6e8c4277
->>>>>>> VerticalSlice
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -70,6 +66,7 @@ ModelImporter:
     4300018: Neon_Light_10
     4300020: Neon_Light_11
     4300022: Neon_Light_12
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -123,7 +120,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -150,7 +147,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
