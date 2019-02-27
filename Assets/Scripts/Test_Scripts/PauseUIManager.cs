@@ -73,8 +73,8 @@ using UnityEngine;
                 bttn.onClick.AddListener(() => AddToQueue(bttn));
                 Debug.Log("click added");
             }
-            startPos.x = Screen.width/2-maxQueued/2*bttns[0].GetComponent<RectTransform>().sizeDelta.x;
-            startPos.y = 2*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
+            startPos.x = Screen.width/2-maxQueued/2*bttns[0].GetComponent<RectTransform>().sizeDelta.x+70;
+            startPos.y = .5f*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
             startPos.z = 0;
             currentPos = startPos;
             parent = bttns[0].GetComponent<RectTransform>().transform.parent;
