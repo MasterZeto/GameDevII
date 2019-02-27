@@ -24,6 +24,7 @@ public class Hitbox : MonoBehaviour
         {
             //Debug.Log("entered and active");
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
+
             if (h != null)
             {
                 //Debug.Log("oof");
@@ -32,9 +33,11 @@ public class Hitbox : MonoBehaviour
 
                 GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
 
-                GameObject.FindWithTag("Player").GetComponent<SoundBox>().HitSFX();
+                c.gameObject.GetComponent<SoundBox>().HitSFX();
 
                 GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
+            } else {
+                c.gameObject.GetComponent<SoundBox>().MissSFX();
             }
         }
     }
