@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: cf7c22ce3dd4e4b06aca604f7c05c3e6
+=======
+guid: 246139c43214fd24e857a4ba7afb40d0
+>>>>>>> VerticalSlice
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
