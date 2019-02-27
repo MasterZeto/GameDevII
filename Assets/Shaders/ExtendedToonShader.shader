@@ -9,6 +9,8 @@
         _Normal ("Normal Map", 2D) = "black" {}
         _Emission ("Emission Map", 2D) = "black" {}
         _Threshold ("Threshold", Range(-1, 1)) = 0.0
+        _MinLight ("Minimum Light", Range(0, 1)) = 0
+        _MaxLight ("Maximum Light", Range(0, 1)) = 1
     }
     SubShader
     {
@@ -34,6 +36,8 @@
         float _Specular;
         float _Specular_Power;
         float _Threshold;
+        float _MinLight;
+        float _MaxLight;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -60,7 +64,7 @@
             float NdotL = dot(s.Normal, lightDir);
             float diffuse = step(_Threshold, NdotL) * step(0.5, saturate(atten));
 
-            float3 diffuse_color = diffuse * s.Albedo * _LightColor0;
+            float3 diffuse_color = clamp(diffuse, _MinLight, _MaxLight) * s.Albedo * _LightColor0;
 
             float NdotH = dot(s.Normal, (normalize(lightDir + viewDir)));
 
