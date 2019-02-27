@@ -11,6 +11,8 @@ public class SoundBox : MonoBehaviour
     public AudioClip missSound;
     public AudioClip slowSound;
 
+    GameObject speaker = GameObject.Find("Center Light");
+
     void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -30,12 +32,16 @@ public class SoundBox : MonoBehaviour
     public void TimeSlowSFX()
     {
         source.PlayOneShot(slowSound, 0.3F);
-        GameObject.Find("Center Light").GetComponent<AudioLowPassFilter>().enabled = true;    
+        if(speaker!=null){
+            speaker.GetComponent<AudioLowPassFilter>().enabled = true;  
+        }  
     }
 
     public void TimeSlowStop()
     {
-        GameObject.Find("Center Light").GetComponent<AudioLowPassFilter>().enabled = false;    
+        if(speaker!=null){
+            speaker.GetComponent<AudioLowPassFilter>().enabled = false;  
+        }  
     }
 
   
