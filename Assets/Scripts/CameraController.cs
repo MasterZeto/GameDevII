@@ -42,4 +42,8 @@ public class CameraController : MonoBehaviour
                  + (Vector3.up * offset.y), speed);
             transform.LookAt(follow.position + (lookAtHeight * Vector3.up), Vector3.up);
     }
+    public Vector3 NewPos(){
+        return follow.position + (follow.forward * offset.z)
+                 + (Vector3.up * offset.y);
+    }
 }

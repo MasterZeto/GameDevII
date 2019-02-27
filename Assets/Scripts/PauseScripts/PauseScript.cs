@@ -75,6 +75,7 @@ public class PauseScript : MonoBehaviour
                 Time.timeScale = 1;
                 executing = true;
                 pause = false;
+                Debug.Log("unpause time");
                 StartCoroutine(ExecuteMoves());
             }
         }
@@ -85,7 +86,8 @@ public class PauseScript : MonoBehaviour
     private IEnumerator ExecuteMoves(){
         camCon.moveable = false;
         camCon.pause = false;
-        while(Vector3.Distance(camOrigPos, Camera.main.transform.position)>.1f){
+        camOrigPos=camCon.NewPos();
+        while(Vector3.Distance(camOrigPos, Camera.main.transform.position)>.25f){
             //camCon.GoBack();
             yield return null;
         }
@@ -109,6 +111,7 @@ public class PauseScript : MonoBehaviour
                     i = 0;
                 }
             }
+            Debug.Log("does this run?");
             action();
             UIManager.updateQueueButtons();
             //change this to be based on when something finishes running instead of being hard coded.

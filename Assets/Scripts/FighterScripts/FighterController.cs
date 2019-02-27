@@ -154,8 +154,15 @@ public class FighterController : MonoBehaviour
     /*hitbox stuff */
     public Collider GetHitbox(){
         if(current_action!=null&&current_action!=dash_left&&current_action!=dash_right&&current_action!=dash_forward&&current_action!=dash_backward){
-            EnemyAttack attack = (EnemyAttack)current_action;
-            return attack.hitbox._collider;
+            EnemyAttack attack = current_action as EnemyAttack;
+            if(attack==null){
+                SawyerSwingAttack swingAttack = current_action as SawyerSwingAttack;
+                return swingAttack.hitbox._collider;
+            }
+            else{
+                return attack.hitbox._collider;
+            }
+            return null;
             
         }
         return null;
