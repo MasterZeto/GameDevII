@@ -157,7 +157,7 @@ public class FighterController : MonoBehaviour
             EnemyAttack attack = current_action as EnemyAttack;
             if(attack==null){
                 SawyerSwingAttack swingAttack = current_action as SawyerSwingAttack;
-                return swingAttack.hitbox._collider;
+                if(swingAttack!=null) return swingAttack.hitbox._collider;
             }
             else{
                 return attack.hitbox._collider;

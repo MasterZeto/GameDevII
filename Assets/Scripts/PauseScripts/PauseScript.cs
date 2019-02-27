@@ -48,6 +48,10 @@ public class PauseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(col!=null){
+            Debug.Log(col.bounds.center);
+            predictor.transform.position=col.bounds.center;
+        }
         //move this to input handler later
         if(Input.GetAxisRaw("Pause") == 1 && up){
             up = false;
@@ -66,9 +70,10 @@ public class PauseScript : MonoBehaviour
                         Debug.Log("the boy is here");
                         predictor.SetActive(true);
                         predictor.transform.localScale=col.bounds.size;
-                        predictor.transform.position=col.bounds.center;
                     }
-                    enemy.Pause();      
+                    enemy.Pause();
+                    if(col!=null){
+                    }      
                 }   
             }
             else if(pause&&!executing){
