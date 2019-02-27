@@ -2827,7 +2827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move_speed: 10
   max_heat: 100
-  heat_dissipation_rate: 5
+  heat_dissipation_rate: 10
   animator: {fileID: 1361278020}
   opponent: {fileID: 951583516}
   opponent_object: {fileID: 951583505}
