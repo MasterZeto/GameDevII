@@ -2920,7 +2920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 10
-  dash_speed: 3
+  dash_speed: 5
   dash_duration: 0.3
 --- !u!114 &1483727933
 MonoBehaviour:
@@ -2935,7 +2935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 10
-  dash_speed: 3
+  dash_speed: 5
   dash_duration: 0.3
 --- !u!114 &1483727934
 MonoBehaviour:
