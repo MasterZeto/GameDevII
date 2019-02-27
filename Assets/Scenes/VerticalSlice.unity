@@ -2949,7 +2949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heat: 20
+  heat: 30
   hitbox: {fileID: 1021916555}
   hit_duration: 0.1
   anim_name: PunchRight
@@ -2965,7 +2965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heat: 20
+  heat: 30
   hitbox: {fileID: 329268863}
   hit_duration: 0.1
   anim_name: PunchLeft
@@ -3136,7 +3136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heat: 20
+  heat: 30
   hitbox: {fileID: 166799941}
   hit_duration: 0.1
   anim_name: KickRight
@@ -3152,7 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93428efa1455d2041a7888415aa39f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heat: 20
+  heat: 30
   hitbox: {fileID: 1726599804}
   hit_duration: 0.1
   anim_name: KickLeft
