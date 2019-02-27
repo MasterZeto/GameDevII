@@ -19,6 +19,6 @@ public class EndScript : MonoBehaviour
         
     }
     void PlayAgain(){
-        SceneManager.LoadScene("FirstPlayable");
+        SceneManager.LoadScene("VerticalSlice");
     }
 }
