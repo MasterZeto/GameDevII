@@ -67,6 +67,7 @@ public class PauseScript : MonoBehaviour
                 camCon.pause = true;
                 camCon.moveable = true;
                 camOrigPos=Camera.main.transform.position;
+                GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowSFX();
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
                     col=enemy.GetHitbox();

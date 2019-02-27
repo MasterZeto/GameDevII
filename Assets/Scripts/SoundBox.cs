@@ -6,8 +6,10 @@ public class SoundBox : MonoBehaviour
 {
 
 	public AudioSource source;
+    public AudioLowPassFilter muffle;
     public AudioClip hitSound;
     public AudioClip missSound;
+    public AudioClip slowSound;
 
     
     void Awake()
@@ -23,6 +25,17 @@ public class SoundBox : MonoBehaviour
     public void MissSFX()
     {
         source.PlayOneShot(missSound, 0.3F);
+    }
+
+    public void TimeSlowSFX()
+    {
+        source.PlayOneShot(slowSound, 0.3F);
+        muffle.enabled = true;
+    }
+
+    public void TimeSlowStop()
+    {
+        muffle.enabled = false;
     }
 
   
