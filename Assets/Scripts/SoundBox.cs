@@ -6,7 +6,7 @@ public class SoundBox : MonoBehaviour
 {
 
 	public AudioSource source;
-    public AudioClip punchHitSound;
+    public AudioClip hitSound;
     
     void Awake()
     {
@@ -15,7 +15,7 @@ public class SoundBox : MonoBehaviour
 
     public void HitSFX()
 	{
-     	source.PlayOneShot(punchHitSound, 0.3F);
+     	source.PlayOneShot(hitSound, 0.3F);
     }
 
   
