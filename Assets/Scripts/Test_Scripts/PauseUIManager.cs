@@ -99,7 +99,7 @@ using UnityEngine;
         }
         void AddToQueue(Button bttn){
             int index=bttns.IndexOf(bttn);
-            if(PauseScript.pauseQueue.Count<maxQueued&&currentHeat+heatVal[index]<=fc.max_heat){
+            if(PauseScript.pauseQueue.Count<maxQueued&&currentHeat+heatVal[index]<fc.max_heat){
                 Button newBttn = Instantiate(bttn);
                 RectTransform rect = newBttn.GetComponent<RectTransform>();
                 queueButtons.Add(newBttn,currentIndex);
@@ -144,6 +144,9 @@ using UnityEngine;
         public void SetUp(){
             currentIndex = 0;
             currentHeat = fc.heat;
+            pause_heat.rectTransform.localScale = new Vector3(
+            (fc.max_heat - currentHeat) / fc.max_heat, 1f, 1f
+        );
             pause_heat.gameObject.SetActive(true);
             queueButtons.Clear();
             currentPos = startPos;
