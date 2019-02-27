@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 81aa22bc96f764b17bc13a6288fd4ada
+=======
+guid: f251ad919078d2e479b580c3b01a42c0
+>>>>>>> VerticalSlice
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
