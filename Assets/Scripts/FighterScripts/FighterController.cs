@@ -42,6 +42,8 @@ public class FighterController : MonoBehaviour
 
     public float heat { get; private set; }
 
+    public bool pause = false;
+
     void Awake()
     {
         character = GetComponent<CharacterController>();
@@ -55,7 +57,7 @@ public class FighterController : MonoBehaviour
         {
             current_action = null;
         }
-        if (current_action == null)
+        if (current_action == null&&!pause&&animator.enabled)
         {
             heat = Mathf.Clamp(heat - (heat_dissipation_rate * Time.deltaTime), 0, max_heat);
         }
@@ -139,12 +141,14 @@ public class FighterController : MonoBehaviour
     {
         if (current_action != null) current_action.Pause();
         animator.enabled = false;
+        pause = true;
     }
 
     public void Resume()
     {
         if (current_action != null) current_action.Resume();
         animator.enabled = true;
+        pause = false;
     }
     public GameObject GetOpponent()
     {

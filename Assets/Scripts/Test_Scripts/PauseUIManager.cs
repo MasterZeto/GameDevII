@@ -19,9 +19,17 @@ using UnityEngine;
         public GameObject pauseManager;
         private PauseScript PauseScript;
         private int currentIndex=0;
+        [SerializeField] FighterController fc;
+        [Space]
+        [Header("Heat List")]
+        //probably will change it so it isn't hard coded lmao, but that's for l8r
+        [SerializeField] List<float> heatVal;
+        [SerializeField] Image pause_heat;
+        float currentHeat = 0;
         // Start is called before the first frame update
         void Start()
         {
+            pause_heat.gameObject.SetActive(false);
             queueButtons = new Dictionary<Button, int>();
             buttonLoc = new Dictionary<Button, RectTransform>();
             PauseScript = pauseManager.GetComponent<PauseScript>();
@@ -90,7 +98,8 @@ using UnityEngine;
             AddToQueue(bttns[i]);
         }
         void AddToQueue(Button bttn){
-            if(PauseScript.pauseQueue.Count<maxQueued){
+            int index=bttns.IndexOf(bttn);
+            if(PauseScript.pauseQueue.Count<maxQueued&&currentHeat+heatVal[index]<=fc.max_heat){
                 Button newBttn = Instantiate(bttn);
                 RectTransform rect = newBttn.GetComponent<RectTransform>();
                 queueButtons.Add(newBttn,currentIndex);
@@ -100,15 +109,23 @@ using UnityEngine;
                 rect.transform.position = currentPos;
                 currentPos.x += rect.sizeDelta.x;
                 newBttn.onClick.AddListener(() => DeleteButton(newBttn));
-                int index=bttns.IndexOf(bttn);
                 PauseScript.addToQueue(index);
+                currentHeat+=heatVal[index];
+                pause_heat.rectTransform.localScale = new Vector3(
+            (fc.max_heat - currentHeat) / fc.max_heat, 1f, 1f
+        );
             }
         }
         void DeleteButton(Button bttn){
             //To Do: have spawned buttons after the removed one slide down, and update currentPos.x
             //To Do: find the command in the pauseQueue and remove it
+            int index = PauseScript.GetPosComIndex(queueButtons[bttn]);
+            currentHeat -= heatVal[index];
+            pause_heat.rectTransform.localScale = new Vector3(
+            (fc.max_heat - currentHeat) / fc.max_heat, 1f, 1f
+        );
             PauseScript.pauseQueue.RemoveAt(queueButtons[bttn]);
-            int index = queueButtons[bttn];
+            index = queueButtons[bttn];
             currentIndex--;
             queueButtons.Remove(bttn);
         
@@ -126,6 +143,8 @@ using UnityEngine;
         }
         public void SetUp(){
             currentIndex = 0;
+            currentHeat = fc.heat;
+            pause_heat.gameObject.SetActive(true);
             queueButtons.Clear();
             currentPos = startPos;
             foreach(Button bttn in bttns){
@@ -166,6 +185,9 @@ using UnityEngine;
                 buttonLoc[otherBttn].transform.position=newLoc;
             }
             Destroy(usedBttn.gameObject);
+        }
+        public void HidePauseHeat(){
+            pause_heat.gameObject.SetActive(false);
         }
     }
 

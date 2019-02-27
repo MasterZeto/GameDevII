@@ -59,6 +59,7 @@ public class PauseScript : MonoBehaviour
         if(Input.GetAxisRaw("Pause") == 1 && up){
             up = false;
             if(!pause&&!executing){
+                playerActions.pause = true;
                 Time.timeScale = 0;
                 pause = true;
                 UIManager.SetUp();
@@ -141,10 +142,15 @@ public class PauseScript : MonoBehaviour
             enemy.Resume();
             predictor.SetActive(false);
         }
+        playerActions.pause = false;
+        UIManager.HidePauseHeat();
     }
     public void addToQueue(int i){
             pauseQueue.Add(possibleComs[i]);
         }
+    public int GetPosComIndex(int x){
+        return possibleComs.IndexOf(pauseQueue[x]);
+    }
     //used for the queue :/
     public delegate void voidDelegate();
 }
