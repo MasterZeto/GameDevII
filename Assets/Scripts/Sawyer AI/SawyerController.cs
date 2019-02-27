@@ -168,13 +168,13 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 }
                 break;
             case "DashToPlayer":
-                if (dist_to_player > 10f)
-                {
+              //  if (dist_to_player > 10f)
+              //  {
                     //actor.animator.SetBool("walk", true);
-                    return new FirstZigZag();
-                }
+                   // return new FirstZigZag();
+              //  }
 
-                else if (dist_to_player <10f)
+                if (dist_to_player <10f)
                 {
 
                     return new AttackPlayer();
