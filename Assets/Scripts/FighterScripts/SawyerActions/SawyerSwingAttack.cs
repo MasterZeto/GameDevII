@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SawyerSwingAttack : Action
 {
-    [SerializeField] Hitbox hitbox;
+    public Hitbox hitbox;
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
