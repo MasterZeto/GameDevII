@@ -11,11 +11,12 @@ public class SoundBox : MonoBehaviour
     public AudioClip missSound;
     public AudioClip slowSound;
 
-    GameObject speaker = GameObject.Find("Center Light");
+    GameObject speaker;
 
     void Awake()
     {
         source = GetComponent<AudioSource>();
+        speaker = GameObject.Find("Center Light");
     }
 
 
