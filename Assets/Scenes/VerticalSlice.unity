@@ -1414,7 +1414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 951583506}
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
+  missSound: {fileID: 8300000, guid: 975063f79e366514fa15743a2299e3a4, type: 3}
 --- !u!114 &951583513 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 188279678784456682, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
@@ -2158,6 +2159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1483727939}
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
+  missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
 --- !u!82 &1483727939
 AudioSource:
   m_ObjectHideFlags: 0
