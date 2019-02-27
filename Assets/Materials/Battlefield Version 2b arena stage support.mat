@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Battlefield Version 2b arena stand
+  m_Name: Battlefield Version 2b arena stage support
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 1a7b39e91d7fe4358ae895b67abdf826, type: 3}
+        m_Texture: {fileID: 2800000, guid: a7d662be65740468799e2f14cf0b4529, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,15 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 5b23c2e109dd1403687c8268d85f5264, type: 3}
+        m_Texture: {fileID: 2800000, guid: 426590e5c5c1249a4b3f8505d744acc5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cf7c22ce3dd4e4b06aca604f7c05c3e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: d469fc249bfd24d6b845d44580ba080d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: a2bf28db2b3bb4265ae0fb61a1b1c1cf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9821efe2e64dc42d3a2f2fad0651f9f5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
