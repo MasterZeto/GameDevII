@@ -86,9 +86,10 @@ public class PauseScript : MonoBehaviour
     private IEnumerator ExecuteMoves(){
         camCon.moveable = false;
         camCon.pause = false;
-        camOrigPos=camCon.NewPos();
-        while(Vector3.Distance(camOrigPos, Camera.main.transform.position)>.25f){
+        //camOrigPos=camCon.NewPos();
+        while(Vector3.Distance(camOrigPos, camCon.NewPos())>.25f){
             //camCon.GoBack();
+            Debug.Log("Stuck here?");
             yield return null;
         }
         UIManager.Hide();
