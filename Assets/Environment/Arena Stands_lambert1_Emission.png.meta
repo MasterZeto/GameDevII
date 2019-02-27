@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: acbb3b85faf41244e82f60e40fb34130
+<<<<<<< HEAD
+guid: 5b23c2e109dd1403687c8268d85f5264
+=======
+guid: a7d5201c9647d7b4092616390659c303
+>>>>>>> VerticalSlice
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -7,7 +11,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -51,7 +55,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 1
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0

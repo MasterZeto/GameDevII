@@ -1,72 +1,35 @@
 fileFormatVersion: 2
-guid: 81aa22bc96f764b17bc13a6288fd4ada
+<<<<<<< HEAD
+guid: fdee2f8955e8842ba98aff89d9ea1ec8
+=======
+guid: 5b6c951a8684ea2418e046e3161ad6ef
+>>>>>>> VerticalSlice
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Large_Pillar_A
-    100002: Large_Pillar_B
-    100004: Large_Pillar_C
-    100006: Large_Pillar_D
-    100008: Pillar4
-    100010: Pillar_A
-    100012: Pillar_B
-    100014: Pillar_C
-    100016: Pillar_D
-    100018: PillarLowerSupport4
-    100020: PIllarLowerSupport5
-    100022: //RootNode
-    100024: PillarUpperSupport4
-    100026: PIllarUpperSupport5
-    100028: transform16
-    100030: transform17
-    100032: transform18
-    100034: transform19
-    100036: transform20
-    400000: Large_Pillar_A
-    400002: Large_Pillar_B
-    400004: Large_Pillar_C
-    400006: Large_Pillar_D
-    400008: Pillar4
-    400010: Pillar_A
-    400012: Pillar_B
-    400014: Pillar_C
-    400016: Pillar_D
-    400018: PillarLowerSupport4
-    400020: PIllarLowerSupport5
-    400022: //RootNode
-    400024: PillarUpperSupport4
-    400026: PIllarUpperSupport5
-    400028: transform16
-    400030: transform17
-    400032: transform18
-    400034: transform19
-    400036: transform20
+    100000: //RootNode
+    100002: Arena_Roof
+    100004: Arena_Stands
+    100006: Center_Video_Screen_and_Light
+    100008: Center_Video_Screen_Bottom_Sphere
+    400000: //RootNode
+    400002: Arena_Roof
+    400004: Arena_Stands
+    400006: Center_Video_Screen_and_Light
+    400008: Center_Video_Screen_Bottom_Sphere
     2100000: lambert1
-    2300000: Large_Pillar_A
-    2300002: Large_Pillar_B
-    2300004: Large_Pillar_C
-    2300006: Large_Pillar_D
-    2300008: Pillar_A
-    2300010: Pillar_B
-    2300012: Pillar_C
-    2300014: Pillar_D
-    3300000: Large_Pillar_A
-    3300002: Large_Pillar_B
-    3300004: Large_Pillar_C
-    3300006: Large_Pillar_D
-    3300008: Pillar_A
-    3300010: Pillar_B
-    3300012: Pillar_C
-    3300014: Pillar_D
-    4300000: Pillar_A
-    4300002: Pillar_B
-    4300004: Pillar_C
-    4300006: Pillar_D
-    4300008: Large_Pillar_B
-    4300010: Large_Pillar_C
-    4300012: Large_Pillar_D
-    4300014: Large_Pillar_A
-    9500000: //RootNode
+    2300000: Arena_Roof
+    2300002: Arena_Stands
+    2300004: Center_Video_Screen_and_Light
+    2300006: Center_Video_Screen_Bottom_Sphere
+    3300000: Arena_Roof
+    3300002: Arena_Stands
+    3300004: Center_Video_Screen_and_Light
+    3300006: Center_Video_Screen_Bottom_Sphere
+    4300000: Arena_Roof
+    4300002: Arena_Stands
+    4300004: Center_Video_Screen_and_Light
+    4300006: Center_Video_Screen_Bottom_Sphere
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -120,7 +83,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -147,7 +110,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
