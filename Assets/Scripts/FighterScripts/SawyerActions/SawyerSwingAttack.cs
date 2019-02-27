@@ -8,6 +8,7 @@ public class SawyerSwingAttack : Action
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
+    //bool delay_done = false;
 
     public override void StartAction(FighterController fighter)
     {
@@ -32,10 +33,12 @@ public class SawyerSwingAttack : Action
 
     private IEnumerator HitWithDelayRoutine()
     {
+       // delay_done = false;
         for (float t = 0f; t < hit_delay; t += Time.deltaTime)
         {
             yield return null;
         }
+       // delay_done = true;
         hitbox.Fire(hit_duration);
     }
 
