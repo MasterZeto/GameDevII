@@ -13,7 +13,7 @@ public class FighterController : MonoBehaviour
     [Space]
     /* Private Member Components */
     CharacterController character;
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
     [SerializeField] Transform opponent;
     [SerializeField] GameObject opponent_object;
 

@@ -219,7 +219,7 @@ public class SawyerController : MonoBehaviour
               Vector3.up
           ).normalized;*/
 
-        transform.forward = (ai.character.GetOpponent().transform.position - transform.position).normalized;
+        if(ai.character.animator.enabled) transform.forward = (ai.character.GetOpponent().transform.position - transform.position).normalized;
 
         fsm.Update(ai, Time.deltaTime);
 
