@@ -114,7 +114,7 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 {
                     actor.BackLeftDash();
                     right = !right;
-                    Debug.Log("right dash away player");
+                    Debug.Log("left dash away player");
                 }
             }
 
@@ -154,29 +154,21 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
 
         switch (state.name)
         {
-            case "FirstZigZag": //only dash to player when get close
-                if (dist_to_player < 10f)
-                {
-                    //  actor.animator.SetBool("walk", false);
+            case "FirstZigZag": 
+                if (dist_to_player < 15f)
+                {   //only dash to player when get close
                     return new DashToPlayer();
-                }//if get close to player but is within the sight, zigzag away
+                }
                 break;
             case "ZigZagAway":
-                if (dist_to_player > 20f)
+                if (dist_to_player > 25f)
                 {
                     return new FirstZigZag();
                 }
                 break;
             case "DashToPlayer":
-              //  if (dist_to_player > 10f)
-              //  {
-                    //actor.animator.SetBool("walk", true);
-                   // return new FirstZigZag();
-              //  }
-
-                if (dist_to_player <10f)
+                 if (dist_to_player <10f)
                 {
-
                     return new AttackPlayer();
                 }
                 break;

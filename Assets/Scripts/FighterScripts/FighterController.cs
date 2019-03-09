@@ -64,7 +64,7 @@ public class FighterController : MonoBehaviour
         SetBlend("SpeedVertical", Vector3.Dot(character.velocity.normalized, transform.forward));
         SetBlend("SpeedHorizontal", Vector3.Dot(character.velocity.normalized, transform.right));
 
-        Debug.Log(Vector3.Dot(character.velocity.normalized, transform.forward));
+     //   Debug.Log(Vector3.Dot(character.velocity.normalized, transform.forward));
     }
 
     public void Move(Vector3 direction) 
