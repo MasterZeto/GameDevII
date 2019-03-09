@@ -25,10 +25,13 @@ public class SawyerCharacter : AICharacter
     }
 
     //sawyer sweep stricks and overhead smash add here
-    public void Attack()
+    public void SwingAttack()
     {
-
         character.RightPunch();
+    }
+    public void DeathStrike()
+    {
+        character.LeftPunch();
     }
     public void RightDash()
     {
@@ -139,9 +142,20 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
 
         public override void Update(SawyerCharacter actor, float dt)
         {
-            actor.Attack();
+            actor.SwingAttack();
 
-            Debug.Log("should attack now");
+            Debug.Log("swing attack");
+        }
+    }
+    private class DeathStrike : MachineState<SawyerCharacter>
+    {
+        public DeathStrike() { name = "DeathStrike"; }
+
+        public override void Update(SawyerCharacter actor, float dt)
+        {
+            actor.DeathStrike();
+
+            Debug.Log("death strike");
         }
     }
 
@@ -169,10 +183,24 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
             case "DashToPlayer":
                  if (dist_to_player <10f)
                 {
-                    return new AttackPlayer();
+                    int rand = Random.Range(1, 3);
+                    if (rand == 1)
+                    {
+                        return new AttackPlayer();
+                    }
+                    else
+                    {
+                        return new DeathStrike();
+                    }
                 }
                 break;
             case "AttackPlayer":
+                if (dist_to_player < 3f)
+                {
+                    return new ZigZagAway();
+                }
+                break;
+            case "DeathStrike":
                 if (dist_to_player < 3f)
                 {
                     return new ZigZagAway();
