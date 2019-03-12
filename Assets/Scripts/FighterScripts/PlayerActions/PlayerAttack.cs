@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : Action
 {
-    [SerializeField] Hitbox hitbox;
+    public Hitbox hitbox;
     [SerializeField] float hit_duration;
     [SerializeField] string anim_name;
 
@@ -13,6 +13,7 @@ public class PlayerAttack : Action
         this.fighter = fighter;
         hitbox.Fire(hit_duration);
         fighter.SetTrigger(anim_name);
+        transform.gameObject.GetComponent<SoundBox>().MissSFX();
     }
 
     public override void Stop() {}

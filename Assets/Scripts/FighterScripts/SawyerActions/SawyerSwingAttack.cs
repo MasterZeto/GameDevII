@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SawyerSwingAttack : Action
 {
-    [SerializeField] Hitbox hitbox;
+    public Hitbox hitbox;
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
+    bool delay_done = false;
 
     public override void StartAction(FighterController fighter)
     {
         this.fighter = fighter;
-        fighter.SetBoolTrue(anim_name);
+        fighter.SetTrigger(anim_name);
+
+        transform.gameObject.GetComponent<SoundBox>().MissSFX();
+
         fighter.SetBoolFalse("DashForward");
         StartCoroutine(HitWithDelayRoutine());
     }
@@ -32,12 +36,14 @@ public class SawyerSwingAttack : Action
 
     private IEnumerator HitWithDelayRoutine()
     {
+       delay_done = false;
         for (float t = 0f; t < hit_delay; t += Time.deltaTime)
         {
             yield return null;
         }
+       delay_done = true;
         hitbox.Fire(hit_duration);
     }
 
-    public override bool IsDone() { return !hitbox.active; }
+    public override bool IsDone() { return !hitbox.active&&delay_done; }
 }

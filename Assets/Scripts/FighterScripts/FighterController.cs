@@ -13,7 +13,7 @@ public class FighterController : MonoBehaviour
     [Space]
     /* Private Member Components */
     CharacterController character;
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
     [SerializeField] Transform opponent;
     [SerializeField] GameObject opponent_object;
 
@@ -31,16 +31,18 @@ public class FighterController : MonoBehaviour
     /* Punch Actions */
     [SerializeField] Action left_punch;
     [SerializeField] Action right_punch;
-    Action left_right_punch;
+    [SerializeField] Action left_right_punch;
 
     /* Kick Actions */
     [SerializeField] Action left_kick;
     [SerializeField] Action right_kick;
-    Action left_right_kick;
+    [SerializeField] Action left_right_kick;
 
     Action current_action;
 
     public float heat { get; private set; }
+
+    public bool pause = false;
 
     void Awake()
     {
@@ -55,16 +57,19 @@ public class FighterController : MonoBehaviour
         {
             current_action = null;
         }
-        if (current_action == null)
+        if (current_action == null&&!pause&&animator.enabled)
         {
             heat = Mathf.Clamp(heat - (heat_dissipation_rate * Time.deltaTime), 0, max_heat);
         }
-        SetBlend("Speed", character.velocity.magnitude);
+        SetBlend("SpeedVertical", Vector3.Dot(character.velocity.normalized, transform.forward));
+        SetBlend("SpeedHorizontal", Vector3.Dot(character.velocity.normalized, transform.right));
+
+        Debug.Log(Vector3.Dot(character.velocity.normalized, transform.forward));
     }
 
     public void Move(Vector3 direction) 
     {
-        if (current_action == null || current_action.IsDone())
+        if ((current_action == null || current_action.IsDone())&&animator.enabled==true&&!pause)
         {
             UnsafeMove(direction);
         }
@@ -82,7 +87,7 @@ public class FighterController : MonoBehaviour
 
     public void UnsafeMove(Vector3 velocity)
     {
-        character.SimpleMove(velocity);
+        character.SimpleMove(velocity * move_speed);
         transform.forward = Vector3.ProjectOnPlane(
             opponent.position - transform.position, 
             Vector3.up
@@ -132,22 +137,42 @@ public class FighterController : MonoBehaviour
     }
     public void SetBlend(string name, float blend) 
     { 
-        animator.SetFloat(name, Mathf.Clamp01(blend)); 
+        animator.SetFloat(name, blend); 
     }
 
     public void Pause()
     {
         if (current_action != null) current_action.Pause();
         animator.enabled = false;
+        pause = true;
     }
 
     public void Resume()
     {
         if (current_action != null) current_action.Resume();
         animator.enabled = true;
+        pause = false;
     }
     public GameObject GetOpponent()
     {
         return opponent_object;
     }
+
+    /*hitbox stuff */
+    public Collider GetHitbox(){
+        if(current_action!=null&&current_action!=dash_left&&current_action!=dash_right&&current_action!=dash_forward&&current_action!=dash_backward){
+            EnemyAttack attack = current_action as EnemyAttack;
+            if(attack==null){
+                SawyerSwingAttack swingAttack = current_action as SawyerSwingAttack;
+                if(swingAttack!=null) return swingAttack.hitbox._collider;
+            }
+            else{
+                return attack.hitbox._collider;
+            }
+            return null;
+            
+        }
+        return null;
+    }
+
 }

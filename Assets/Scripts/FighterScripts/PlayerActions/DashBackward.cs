@@ -8,6 +8,7 @@ public class DashBackward : DashAction
     {
         running = true;
         this.fighter = fighter;
+        fighter.SetTrigger("DashBackward");
         StartCoroutine(DashBackwardRoutine());        
     }
 
