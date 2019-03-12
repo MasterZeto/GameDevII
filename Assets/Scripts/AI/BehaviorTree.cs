@@ -9,84 +9,116 @@ using UnityEngine;
  */
 namespace Giga.AI.BehaviorTree
 {
-    public delegate Node SelectDelegate();
+    public delegate int SelectDelegate();
+
+    public class ActionQueue
+    {
+        public static void ConcatenateQueue(Queue<Action> q1, Queue<Action> q2)
+        {
+            while (q2.Count > 0) { q1.Enqueue(q2.Dequeue()); }
+        }
+    }
 
     public abstract class Node 
     {
-        protected Node parent;
         protected List<Node> children;
 
-        public Node() {}
-
-        public abstract Node next();
-    }
-
-    public abstract class SelectorNode : Node 
-    {
-        // wish I had a way of passing a function in here... then I don't have
-        // to make it abstract
-
-        SelectDelegate select;
-
-        public SelectorNode(SelectDelegate d) : base()
+        public Node(List<Node> children) 
         {
-            select = d;
+            this.children = children;
         }
 
+        public abstract Queue<Action> Evaluate();
+    }
+
+    public class SelectorNode : Node 
+    {
+        SelectDelegate select;
+
+        public SelectorNode(SelectDelegate selection_function, List<Node> children)
+         : base(children) 
+        {
+            select = selection_function;
+        }
+
+        public override Queue<Action> Evaluate()
+        {
+            int selection = select();
+            
+            return children[selection].Evaluate();
+        }
     }
 
     public class SequencerNode : Node 
     {
-        int current_node = -1;
+        public SequencerNode(List<Node> children) : base(children) {}
 
-        public SequencerNode() : base()
+        public override Queue<Action> Evaluate()
         {
-        }
+            Queue<Action> sequence = new Queue<Action>();
 
-        // something to traverse into, cause otherwise things will blow up
-        // i want to do it so that the next can be independant, so that I don't
-        // have to store state because it'll just make things messier, so I'm 
-        // concerned about traversal, basically, when I'm navigating into this, how
-        // do I handle
+            for (int i = 0; i < children.Count; i++)
+            {
+                ActionQueue.ConcatenateQueue(sequence, children[i].Evaluate());
+            }
 
-        public override Node next()
-        {
-            current_node++;
-            if (children.Count == current_node)
-            {
-                return parent.next();
-            }
-            else
-            {
-                return children[current_node];
-            }
+            return sequence;
         }
     }
 
+    // Node wrapper around the Action class
     public class ActionNode : Node 
     {
-        // Action action;  // command pattern action
-        public ActionNode(/* take in action object */) : base()
-        {
+        Action action;
 
-        }  
-
-        public bool finished
-        {
-            get
-            {
-                return false; // should look into the action to see if it's done
-            }
+        public ActionNode(Action action) : base(null) 
+        { 
+            this.action = action; 
         }
 
-        // should return an action pointer eventually, so it can get updated per tick
-        public void perform() { /* tell action to begin performing behavior */ }
-
-        public override Node next() { return parent.next(); }
+        public override Queue<Action> Evaluate() 
+        { 
+            Queue<Action> action_queue = new Queue<Action>();
+            action_queue.Enqueue(action);
+            return action_queue;
+        }  
     }
 
     public class BehaviorTree
     {
-        public BehaviorTree(/* some thing to define the tree */) {}
+        // store the actual treeeeeeeeeeeeee
+        Node root;
+
+        public BehaviorTree(Node root) 
+        {
+            this.root = root;
+        }
+
+        public Queue<Action> Evaluate()
+        {
+            return root.Evaluate();
+        }
     }
+
+    /* should probably return a queue of actions or something, that way it can
+        have some way of returning some more complex stuff. So like say I have
+        something like this:
+
+        root
+         |
+         Sequencer
+         |   | 
+         A1  Sequencer
+             |   |   |
+             A2  A3  A4
+    
+
+        If I was to evaluate this behavior tree, I should actually return the
+        following queue: [A1, A2, A3, A4] and iterate through it. Do A1 then when
+        done do A2, and so on. 
+
+        So I should have a function which evaluates the tree, then returns a
+        queue of all the actions to take
+    
+     */
 }
