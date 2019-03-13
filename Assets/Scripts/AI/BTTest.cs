@@ -5,139 +5,6 @@ using Giga.AI.BehaviorTree;
 
 public class BTTest : MonoBehaviour
 {
-    public class A1 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A2 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A3 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A4 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A5 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A6 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-
     BehaviorTree behaviorTree;
 
     int Random01()
@@ -184,6 +51,13 @@ public class BTTest : MonoBehaviour
         of the behaviors for the purpose of development
      */
 
+    void A1() { Debug.Log("Action A1"); }
+    void A2() { Debug.Log("Action A2"); }
+    void A3() { Debug.Log("Action A3"); }
+    void A4() { Debug.Log("Action A4"); }
+    void A5() { Debug.Log("Action A5"); }
+    void A6() { Debug.Log("Action A6"); }
+
     void Start()
     {
         behaviorTree = new BehaviorTree(
@@ -191,33 +65,33 @@ public class BTTest : MonoBehaviour
                 Random01,
                 new List<Node>() 
                 {
-                    new ActionNode(new A1()),
+                    new ActionNode(A1),
                     new SequencerNode(
                         new List<Node>()
                         {
-                            new ActionNode(new A2()),
-                            new ActionNode(new A3()),
+                            new ActionNode(A2),
+                            new ActionNode(A3),
                             new SelectorNode(
                                 Random01,
                                 new List<Node>()
                                 {
-                                    new ActionNode(new A4()),
-                                    new ActionNode(new A5())
+                                    new ActionNode(A4),
+                                    new ActionNode(A5)
                                 }
                             ),
-                            new ActionNode(new A6())                            
+                            new ActionNode(A6)                            
                         }
                     )
                 }
             )
         );
 
-        Queue<Action> actions = behaviorTree.Evaluate();
+        Queue<ActionDelegate> actions = behaviorTree.Evaluate();
 
         while (actions.Count > 0)
         {
-            Action a = actions.Dequeue();
-            Debug.Log(a.GetType().Name);
+            ActionDelegate a = actions.Dequeue();
+            a();
         }
     }
 }

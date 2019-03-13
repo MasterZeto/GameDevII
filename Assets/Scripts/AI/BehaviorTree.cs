@@ -9,11 +9,12 @@ using UnityEngine;
  */
 namespace Giga.AI.BehaviorTree
 {
+    public delegate void ActionDelegate();
     public delegate int SelectDelegate();
 
     public class ActionQueue
     {
-        public static void ConcatenateQueue(Queue<Action> q1, Queue<Action> q2)
+        public static void ConcatenateQueue(Queue<ActionDelegate> q1, Queue<ActionDelegate> q2)
         {
             while (q2.Count > 0) { q1.Enqueue(q2.Dequeue()); }
         }
@@ -28,7 +29,7 @@ namespace Giga.AI.BehaviorTree
             this.children = children;
         }
 
-        public abstract Queue<Action> Evaluate();
+        public abstract Queue<ActionDelegate> Evaluate();
     }
 
     public class SelectorNode : Node 
@@ -41,7 +42,7 @@ namespace Giga.AI.BehaviorTree
             select = selection_function;
         }
 
-        public override Queue<Action> Evaluate()
+        public override Queue<ActionDelegate> Evaluate()
         {
             int selection = select();
             
@@ -53,9 +54,9 @@ namespace Giga.AI.BehaviorTree
     {
         public SequencerNode(List<Node> children) : base(children) {}
 
-        public override Queue<Action> Evaluate()
+        public override Queue<ActionDelegate> Evaluate()
         {
-            Queue<Action> sequence = new Queue<Action>();
+            Queue<ActionDelegate> sequence = new Queue<ActionDelegate>();
 
             for (int i = 0; i < children.Count; i++)
             {
@@ -69,16 +70,16 @@ namespace Giga.AI.BehaviorTree
     // Node wrapper around the Action class
     public class ActionNode : Node 
     {
-        Action action;
+        ActionDelegate action;
 
-        public ActionNode(Action action) : base(null) 
+        public ActionNode(ActionDelegate action) : base(null) 
         { 
             this.action = action; 
         }
 
-        public override Queue<Action> Evaluate() 
+        public override Queue<ActionDelegate> Evaluate() 
         { 
-            Queue<Action> action_queue = new Queue<Action>();
+            Queue<ActionDelegate> action_queue = new Queue<ActionDelegate>();
             action_queue.Enqueue(action);
             return action_queue;
         }  
@@ -94,7 +95,7 @@ namespace Giga.AI.BehaviorTree
             this.root = root;
         }
 
-        public Queue<Action> Evaluate()
+        public Queue<ActionDelegate> Evaluate()
         {
             return root.Evaluate();
         }
