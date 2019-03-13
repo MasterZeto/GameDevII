@@ -20,8 +20,7 @@ using UnityEngine;
         private PauseScript PauseScript;
         private int currentIndex=0;
         [SerializeField] FighterController fc;
-        [Space]
-        [Header("Heat List")]
+        [SerializeField] RectTransform startPosition;
         //probably will change it so it isn't hard coded lmao, but that's for l8r
         List<float> heatVal = new List<float>();
         [SerializeField] Image pause_heat;
@@ -82,9 +81,14 @@ using UnityEngine;
                 bttn.onClick.AddListener(() => AddToQueue(bttn));
 //                Debug.Log("click added");
             }
-            startPos.x = Screen.width/2-maxQueued/2*bttns[0].GetComponent<RectTransform>().sizeDelta.x+70;
-            startPos.y = .5f*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
-            startPos.z = 0;
+            if(startPosition!=null){
+                startPos = startPosition.position;
+            }
+            else{
+                startPos.x = Screen.width/2-maxQueued/2*bttns[0].GetComponent<RectTransform>().sizeDelta.x+70;
+                startPos.y = .5f*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
+                startPos.z = 0;
+            }
             currentPos = startPos;
             parent = bttns[0].GetComponent<RectTransform>().transform.parent;
             Hide();
