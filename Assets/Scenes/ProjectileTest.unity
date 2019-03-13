@@ -2050,6 +2050,7 @@ MonoBehaviour:
   - {fileID: 633055431}
   pauseManager: {fileID: 1134376065}
   fc: {fileID: 1483727927}
+  startPosition: {fileID: 0}
   pause_heat: {fileID: 1332448334}
 --- !u!4 &1134376068
 Transform:

@@ -155,6 +155,10 @@ public class PauseScript : MonoBehaviour
             if(col!=null){
                 col.enabled = true;
             }
+            if(isProjectile){
+                lr.positionCount = 0;
+            }
+            isProjectile = false;
         }
         playerActions.pause = false;
         UIManager.HidePauseHeat();
@@ -169,6 +173,7 @@ public class PauseScript : MonoBehaviour
     public delegate void voidDelegate();
     private IEnumerator DrawPath(){
         int i = 0;
+        lr.positionCount = 2;
         lr.transform.position = col.gameObject.transform.position;
         CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
         lr.SetPosition(i, lr.gameObject.transform.position);
