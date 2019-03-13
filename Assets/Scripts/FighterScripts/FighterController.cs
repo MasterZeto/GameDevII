@@ -182,6 +182,22 @@ public class FighterController : MonoBehaviour
         }
         return null;
     }
+    /* projectile predicting stuff */
+    public float GetRemainingTime(){
+        ProjectileAttack project = current_action as ProjectileAttack;
+        if(project!=null) return project.GetRemainingDuration();
+        return -1;
+    }
+    public float GetHitDuration(){
+        ProjectileAttack project = current_action as ProjectileAttack;
+        if(project!=null) return project.GetDuration();
+        return -1;
+    }
+    public float GetProjectileSpeed(){
+        ProjectileAttack project = current_action as ProjectileAttack;
+        if(project!=null) return project.GetSpeed();
+        return -1;
+    }
     //used to get heat for pause menu heat bar
     public void GetHeatValues(ref List<float> heatVal){
         heatVal.Add(dash_left.GetHeat());

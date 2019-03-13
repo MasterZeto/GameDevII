@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class ProjectileAttack : Action
 {
+    //maybe make an abstract class for Projectiles overall l8r
     public Hitbox hitbox;
     [SerializeField] float hit_duration;
-    //will there be a delay?
+    //will there be a delay for animation or w/e?
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform projectileLoc;
     [SerializeField] float speed = 5f;
+    float t;
+    //possibily used for different movement bullet patterns, used for predictor line.
+    string path = "Straight";
     CharacterController char_cont;
     bool delayDone = false;
 
@@ -38,7 +42,7 @@ public class ProjectileAttack : Action
     private IEnumerator HitWithDelayRoutine()
     {
         delayDone = false;
-        for (float t = 0f; t < hit_delay; t += Time.deltaTime) 
+        for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             yield return null;
         }
@@ -49,12 +53,22 @@ public class ProjectileAttack : Action
         hitbox.Fire(hit_duration);
         Debug.Log(speed*firedProjectile.transform.forward);
         delayDone = true;
-        for(float t = 0f; t < hit_duration; t +=Time.deltaTime){
+        for(t = 0f; t < hit_duration; t +=Time.deltaTime){
             char_cont.Move(speed*transform.forward*Time.deltaTime);
             yield return null;
         }
         Destroy(firedProjectile);
     }
+
+    public string GetPathType(){return path;}
+    public float GetRemainingDuration(){
+        if(delayDone){
+            return hit_duration-t;
+        }
+        return 0; 
+    }
+    public float GetDuration() {return hit_duration;}
+    public float GetSpeed() {return speed;}
 
     public override bool IsDone() { return !hitbox.active&&delayDone; }
 }

@@ -7,6 +7,7 @@ public class PauseScript : MonoBehaviour
     //main script dealing w/ the pause stuff
     //replace fightercontroller here for w/e is responsible for pausing the enemy
     [SerializeField] FighterController enemy;
+    [SerializeField] GameObject enemyGameObject;
     [SerializeField] PauseUIManager UIManager;
     [SerializeField] GameObject predictor;
     [SerializeField] List<Camera> actionCams;
@@ -21,6 +22,7 @@ public class PauseScript : MonoBehaviour
     bool up = true;
     bool isProjectile = false;
     Collider col;
+    [SerializeField] LineRenderer lr;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,9 +83,11 @@ public class PauseScript : MonoBehaviour
                         predictor.transform.localScale=col.bounds.size;
                         predictor.transform.eulerAngles=enemy.transform.eulerAngles;
                     }
-                    enemy.Pause();
-                    if(col!=null){
-                    }      
+                    else if(col!=null){
+                        //check type of path somewhere to adjust line renderer?
+                        StartCoroutine(DrawPath());
+                    }
+                    enemy.Pause();  
                 }   
             }
             else if(pause&&!executing){
@@ -163,4 +167,28 @@ public class PauseScript : MonoBehaviour
     }
     //used for the queue :/
     public delegate void voidDelegate();
+    private IEnumerator DrawPath(){
+        int i = 0;
+        lr.transform.position = col.gameObject.transform.position;
+        CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
+        lr.SetPosition(i, lr.gameObject.transform.position);
+        /*for(float t = enemy.GetRemainingTime(); t < enemy.GetHitDuration(); t+=Time.unscaledDeltaTime){
+            Vector3 direction = col.gameObject.transform.forward;
+            cc.Move(direction*Time.unscaledDeltaTime*enemy.GetProjectileSpeed());
+            i++;
+            lr.positionCount = i + 1;
+            Debug.Log(i);
+            lr.SetPosition(i, lr.gameObject.transform.position);
+            yield return null;
+        }*/
+        Vector3 direction = lr.gameObject.transform.position;
+        float y = direction.y;
+        direction.y = 0;
+        direction.Normalize();
+        direction.x*=-5;
+        direction.z*=-5;
+        direction.y = y;
+        lr.SetPosition(1, direction);
+        yield return null;
+    }
 }
