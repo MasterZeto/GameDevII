@@ -23,7 +23,7 @@ using UnityEngine;
         [Space]
         [Header("Heat List")]
         //probably will change it so it isn't hard coded lmao, but that's for l8r
-        [SerializeField] List<float> heatVal;
+        List<float> heatVal = new List<float>();
         [SerializeField] Image pause_heat;
         float currentHeat = 0;
         // Start is called before the first frame update
@@ -33,6 +33,7 @@ using UnityEngine;
             queueButtons = new Dictionary<Button, int>();
             buttonLoc = new Dictionary<Button, RectTransform>();
             PauseScript = pauseManager.GetComponent<PauseScript>();
+            fc.GetHeatValues(ref heatVal);
             //foreach(Button bttn in bttns){
                 //Button newBttn = Instantiate(bttnPrefabList[i]);
                 //RectTransform rect = newBttn.GetComponent<RectTransform>();

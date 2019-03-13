@@ -19,6 +19,7 @@ public class PauseScript : MonoBehaviour
     bool pause = false;
     bool executing = false;
     bool up = true;
+    bool isProjectile = false;
     Collider col;
     // Start is called before the first frame update
     void Start()
@@ -48,10 +49,10 @@ public class PauseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(col!=null&&pause){
+        if(col!=null&&pause&&!isProjectile){
             Debug.Log(col.bounds.center);
             Debug.Log(col);
-            col=enemy.GetHitbox();
+            col=enemy.GetHitbox(ref isProjectile);
             predictor.transform.position=col.gameObject.transform.position;
             predictor.SetActive(true);
             if(col.enabled){
@@ -74,8 +75,8 @@ public class PauseScript : MonoBehaviour
                 GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowSFX();
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
-                    col=enemy.GetHitbox();
-                    if(col!=null){
+                    col=enemy.GetHitbox(ref isProjectile);
+                    if(col!=null&&!isProjectile){
                         Debug.Log("the boy is here");
                         predictor.transform.localScale=col.bounds.size;
                         predictor.transform.eulerAngles=enemy.transform.eulerAngles;
