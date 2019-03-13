@@ -172,28 +172,38 @@ public class PauseScript : MonoBehaviour
     //used for the queue :/
     public delegate void voidDelegate();
     private IEnumerator DrawPath(){
+        int counter = 0;
+        while(counter!=1){
+            yield return null;
+            counter++;
+        }
         int i = 0;
         lr.positionCount = 2;
         lr.transform.position = col.gameObject.transform.position;
+        Debug.Log(col.gameObject.transform.position);
+        Debug.Log(col.gameObject);
         CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
         lr.SetPosition(i, lr.gameObject.transform.position);
-        /*for(float t = enemy.GetRemainingTime(); t < enemy.GetHitDuration(); t+=Time.unscaledDeltaTime){
-            Vector3 direction = col.gameObject.transform.forward;
+        for(float t = enemy.GetRemainingTime(); t < enemy.GetHitDuration(); t+=Time.unscaledDeltaTime){
+            Debug.Log(col.gameObject.transform.position);
+            Vector3 direction = enemyGameObject.transform.forward;
+            direction.y = 0;
+            direction.Normalize();
             cc.Move(direction*Time.unscaledDeltaTime*enemy.GetProjectileSpeed());
             i++;
             lr.positionCount = i + 1;
-            Debug.Log(i);
+            //Debug.Log(i);
             lr.SetPosition(i, lr.gameObject.transform.position);
             yield return null;
-        }*/
-        Vector3 direction = lr.gameObject.transform.position;
+        }
+        /*Vector3 direction = lr.gameObject.transform.position;
         float y = direction.y;
         direction.y = 0;
         direction.Normalize();
         direction.x*=-5;
         direction.z*=-5;
         direction.y = y;
-        lr.SetPosition(1, direction);
+        lr.SetPosition(1, direction);*/
         yield return null;
     }
 }
