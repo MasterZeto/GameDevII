@@ -73,13 +73,13 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
                 {
                     actor.RightDash();
                     right = !right;
-                    Debug.Log("right dash to player");
+//                    Debug.Log("right dash to player");
                 }
                 else
                 {
                     actor.LeftDash();
                     right = !right;
-                    Debug.Log("left dash to player");
+                  //  Debug.Log("left dash to player");
                 }
             }
 
