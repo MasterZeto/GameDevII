@@ -1,0 +1,225 @@
+fileFormatVersion: 2
+guid: 5e385db533eb0724494af3f927537fef
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Belt1
+    100002: Belt2
+    100004: Fan
+    100006: fan
+    100008: FanSupport
+    100010: Hair
+    100012: Head
+    100014: head
+    100016: hip
+    100018: hipTilt
+    100020: leftArm
+    100022: LeftArmExtendor
+    100024: leftArmExtendor
+    100026: LeftCannon
+    100028: LeftCannonExtendor
+    100030: LeftCannonPivot
+    100032: leftCannonSpawnPoint
+    100034: LeftEye
+    100036: leftShoulder
+    100038: LeftShoulder1
+    100040: LeftShoulder2
+    100042: neck
+    100044: Neck1
+    100046: Neck2
+    100048: rightArm
+    100050: RightArmExtendor
+    100052: rightArmExtendor
+    100054: RightCannon
+    100056: RightCannonExtendor
+    100058: RightCannonPivot
+    100060: rightCannonSpawnPoint
+    100062: RightEye
+    100064: rightShoulder
+    100066: RightShoulder1
+    100068: RightShoulder2
+    100070: //RootNode
+    100072: Skirt
+    100074: Torso
+    100076: upperBody
+    100078: wig
+    400000: Belt1
+    400002: Belt2
+    400004: Fan
+    400006: fan
+    400008: FanSupport
+    400010: Hair
+    400012: Head
+    400014: head
+    400016: hip
+    400018: hipTilt
+    400020: leftArm
+    400022: LeftArmExtendor
+    400024: leftArmExtendor
+    400026: LeftCannon
+    400028: LeftCannonExtendor
+    400030: LeftCannonPivot
+    400032: leftCannonSpawnPoint
+    400034: LeftEye
+    400036: leftShoulder
+    400038: LeftShoulder1
+    400040: LeftShoulder2
+    400042: neck
+    400044: Neck1
+    400046: Neck2
+    400048: rightArm
+    400050: RightArmExtendor
+    400052: rightArmExtendor
+    400054: RightCannon
+    400056: RightCannonExtendor
+    400058: RightCannonPivot
+    400060: rightCannonSpawnPoint
+    400062: RightEye
+    400064: rightShoulder
+    400066: RightShoulder1
+    400068: RightShoulder2
+    400070: //RootNode
+    400072: Skirt
+    400074: Torso
+    400076: upperBody
+    400078: wig
+    2100000: lambert1
+    2100002: lambert2
+    2100004: SkirtM__TartanI
+    4300000: Belt1
+    4300002: Belt2
+    4300004: FanSupport
+    4300006: Fan
+    4300008: RightArmExtendor
+    4300010: LeftArmExtendor
+    4300012: RightShoulder1
+    4300014: RightShoulder2
+    4300016: LeftShoulder1
+    4300018: LeftShoulder2
+    4300020: RightCannonPivot
+    4300022: LeftCannonPivot
+    4300024: RightCannonExtendor
+    4300026: LeftCannonExtendor
+    4300028: Neck2
+    4300030: Neck1
+    4300032: RightCannon
+    4300034: LeftCannon
+    4300036: Head
+    4300038: Skirt
+    4300040: LeftEye
+    4300042: RightEye
+    4300044: Torso
+    4300046: Hair
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Belt1
+    13700002: Belt2
+    13700004: Fan
+    13700006: FanSupport
+    13700008: Hair
+    13700010: Head
+    13700012: LeftArmExtendor
+    13700014: LeftCannon
+    13700016: LeftCannonExtendor
+    13700018: LeftCannonPivot
+    13700020: LeftEye
+    13700022: LeftShoulder1
+    13700024: LeftShoulder2
+    13700026: Neck1
+    13700028: Neck2
+    13700030: RightArmExtendor
+    13700032: RightCannon
+    13700034: RightCannonExtendor
+    13700036: RightCannonPivot
+    13700038: RightEye
+    13700040: RightShoulder1
+    13700042: RightShoulder2
+    13700044: Skirt
+    13700046: Torso
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
