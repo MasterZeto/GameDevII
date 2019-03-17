@@ -48,13 +48,16 @@ public class ProjectileAttack : Action
         }
         GameObject firedProjectile = Instantiate(projectile, projectileLoc.position, Quaternion.identity);
         //Debug.Log(firedProjectile);
+        Hitbox firedHitbox = firedProjectile.GetComponent<Hitbox>();
         hitbox._collider = firedProjectile.GetComponent<BoxCollider>();
-        char_cont = firedProjectile.GetComponent<CharacterController>();
+        firedHitbox._collider = firedProjectile.GetComponent<BoxCollider>();
+        //char_cont = firedProjectile.GetComponent<CharacterController>();
         hitbox.Fire(hit_duration);
-        Debug.Log(hitbox._collider);
+        firedHitbox.Fire(hit_duration);
         delayDone = true;
         for(t = 0f; t < hit_duration; t +=Time.deltaTime){
-            char_cont.Move(speed*transform.forward*Time.deltaTime);
+          //  char_cont.Move(speed*transform.forward*Time.deltaTime);
+            hitbox._collider.gameObject.transform.position+=speed*transform.forward*Time.deltaTime;
             yield return null;
         }
         while(hitbox.active){

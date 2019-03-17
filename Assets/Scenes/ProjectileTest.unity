@@ -1041,6 +1041,7 @@ GameObject:
   - component: {fileID: 575549304}
   - component: {fileID: 575549303}
   - component: {fileID: 575549302}
+  - component: {fileID: 575549307}
   m_Layer: 10
   m_Name: DummyProjectile
   m_TagString: Untagged
@@ -1132,12 +1133,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575549301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.3720646, y: 5.683991, z: -26.325836}
+  m_LocalPosition: {x: -0.8, y: 3.3, z: 11.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575549307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575549301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c13aa4b4bbb674b9d0b0c025ce13cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 20
+  _collider: {fileID: 575549303}
+  cooldown: 0
 --- !u!1 &582185091
 GameObject:
   m_ObjectHideFlags: 0
@@ -8293,21 +8309,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2590270127341035304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4034162586166953314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c13aa4b4bbb674b9d0b0c025ce13cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 10
-  _collider: {fileID: 5547056873084410045}
-  cooldown: 0
 --- !u!1 &2595608874994998623
 GameObject:
   m_ObjectHideFlags: 0
@@ -8652,7 +8653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  hitbox: {fileID: 2590270127341035304}
+  hitbox: {fileID: 0}
   hit_duration: 0.1
   hit_delay: 0.3
   anim_name: SwingToLeft
@@ -9691,7 +9692,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3662765259970681877}
   - component: {fileID: 5547056873084410045}
-  - component: {fileID: 2590270127341035304}
   m_Layer: 10
   m_Name: WeaponHitbox
   m_TagString: Untagged
@@ -10402,7 +10402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca317c034859e1f40a7cb334b6b46d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitbox: {fileID: 2590270127341035304}
+  hitbox: {fileID: 0}
 --- !u!1 &4693972246940245503
 GameObject:
   m_ObjectHideFlags: 0

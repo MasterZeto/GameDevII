@@ -184,7 +184,6 @@ public class PauseScript : MonoBehaviour
         //CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
         lr.SetPosition(i, lr.gameObject.transform.position);
         for(float t = enemy.GetRemainingTime(); t < enemy.GetHitDuration(); t+=Time.unscaledDeltaTime){
-            Debug.Log(col.gameObject.transform.position);
             Vector3 direction = enemyGameObject.transform.forward;
             direction.y = 0;
             direction.Normalize();
