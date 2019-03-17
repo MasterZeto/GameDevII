@@ -182,14 +182,14 @@ public class PauseScript : MonoBehaviour
         lr.transform.position = col.gameObject.transform.position;
         Debug.Log(col.gameObject.transform.position);
         Debug.Log(col.gameObject);
-        CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
+        //CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
         lr.SetPosition(i, lr.gameObject.transform.position);
         for(float t = enemy.GetRemainingTime(); t < enemy.GetHitDuration(); t+=Time.unscaledDeltaTime){
             Debug.Log(col.gameObject.transform.position);
             Vector3 direction = enemyGameObject.transform.forward;
             direction.y = 0;
             direction.Normalize();
-            cc.Move(direction*Time.unscaledDeltaTime*enemy.GetProjectileSpeed());
+            lr.transform.position+=(direction*Time.unscaledDeltaTime*enemy.GetProjectileSpeed()*2);
             i++;
             lr.positionCount = i + 1;
             //Debug.Log(i);
