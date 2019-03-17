@@ -46,6 +46,7 @@ public class PauseScript : MonoBehaviour
             cam.enabled = false;
         }
         mainCam = Camera.main;
+        lr.positionCount = 0;
     }
 
     // Update is called once per frame
