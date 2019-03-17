@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Giga.AI.Blackboard;
 
 public enum JoystickPosition
 {
@@ -55,6 +56,8 @@ public class InputHandler : MonoBehaviour
         UpdateDashTracking();        
 
         if (cool > 0f) { cool -= Time.unscaledDeltaTime; }
+
+        Blackboard.player_position = transform.position;
     }
 
     void GetInput()

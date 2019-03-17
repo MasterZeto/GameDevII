@@ -6,6 +6,7 @@ public class SawyerDashBackLeft : DashAction
 {
     [SerializeField] string anim_name;
     bool paused = false;
+    
     public override void StartAction(FighterController fighter)
     {
         running = true;
