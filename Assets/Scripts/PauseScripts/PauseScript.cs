@@ -181,8 +181,6 @@ public class PauseScript : MonoBehaviour
         int i = 0;
         lr.positionCount = 2;
         lr.transform.position = col.gameObject.transform.position;
-        Debug.Log(col.gameObject.transform.position);
-        Debug.Log(col.gameObject);
         //CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
         lr.SetPosition(i, lr.gameObject.transform.position);
         for(float t = enemy.GetRemainingTime(); t < enemy.GetHitDuration(); t+=Time.unscaledDeltaTime){
@@ -190,7 +188,7 @@ public class PauseScript : MonoBehaviour
             Vector3 direction = enemyGameObject.transform.forward;
             direction.y = 0;
             direction.Normalize();
-            lr.transform.position+=(direction*Time.unscaledDeltaTime*enemy.GetProjectileSpeed()*2);
+            lr.transform.position+=(direction*Time.unscaledDeltaTime*enemy.GetProjectileSpeed());
             i++;
             lr.positionCount = i + 1;
             //Debug.Log(i);

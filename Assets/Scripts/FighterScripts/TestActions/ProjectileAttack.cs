@@ -51,6 +51,7 @@ public class ProjectileAttack : Action
         hitbox._collider = firedProjectile.GetComponent<BoxCollider>();
         char_cont = firedProjectile.GetComponent<CharacterController>();
         hitbox.Fire(hit_duration);
+        Debug.Log(hitbox._collider);
         delayDone = true;
         for(t = 0f; t < hit_duration; t +=Time.deltaTime){
             char_cont.Move(speed*transform.forward*Time.deltaTime);
@@ -65,7 +66,7 @@ public class ProjectileAttack : Action
     public string GetPathType(){return path;}
     public float GetRemainingDuration(){
         if(delayDone){
-            return hit_duration-t;
+            return t;
         }
         return 0; 
     }
