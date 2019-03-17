@@ -50,10 +50,13 @@ public class ProjectileAttack : Action
         //Debug.Log(firedProjectile);
         Hitbox firedHitbox = firedProjectile.GetComponent<Hitbox>();
         hitbox._collider = firedProjectile.GetComponent<BoxCollider>();
-        firedHitbox._collider = firedProjectile.GetComponent<BoxCollider>();
+        firedHitbox._collider = hitbox._collider;
         //char_cont = firedProjectile.GetComponent<CharacterController>();
         hitbox.Fire(hit_duration);
+        //for some reason the hit box on the fired projectile isn't actually the same as fired hitbox, so damage does not currently work w/ it
         firedHitbox.Fire(hit_duration);
+        Debug.Log(firedHitbox.cooldown);
+        Debug.Log(firedHitbox.active);
         delayDone = true;
         for(t = 0f; t < hit_duration; t +=Time.deltaTime){
           //  char_cont.Move(speed*transform.forward*Time.deltaTime);

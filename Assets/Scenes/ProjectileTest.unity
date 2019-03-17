@@ -1058,7 +1058,7 @@ CharacterController:
   m_GameObject: {fileID: 575549301}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 1
   m_Radius: 0.5
@@ -10950,7 +10950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 5
-  hitbox: {fileID: 270756196}
+  hitbox: {fileID: 575549307}
   hit_duration: 1
   hit_delay: 0
   anim_name: SwingToLeft
