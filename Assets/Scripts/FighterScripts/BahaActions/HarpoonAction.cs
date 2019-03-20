@@ -12,6 +12,7 @@ public class HarpoonAction : Action
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
     bool delayDone = false;
+    bool playerHit = false;
 
     public void Start(){
         //anchor.IsActive(false);
@@ -44,7 +45,7 @@ public class HarpoonAction : Action
         {
             yield return null;
         }
-        harpoon.transform.position = harpoonStart.transform.position;
+        harpoon.transform.position = harpoonStart.position;
         harpoon.SetActive(true);
         hitbox.Fire(hit_duration);
         Vector3 direction = transform.forward;
@@ -52,11 +53,21 @@ public class HarpoonAction : Action
         direction.Normalize();
         for( float t = 0f; t < hit_duration; t+= Time.deltaTime){
             harpoon.transform.position += direction*speed;
+            if(playerHit) break;
+            yield return null;
+        }
+        StartCoroutine(ReturnHarpoon());
+    }
+    private IEnumerator ReturnHarpoon(){
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>2f){
+            Vector3 direction = harpoonStart.forward;
+            direction.y = 0;
+            direction.Normalize();
+            harpoon.transform.position -= direction*speed;
             yield return null;
         }
         harpoon.SetActive(false);
         delayDone = true;
     }
-
     public override bool IsDone() { return !hitbox.active&&delayDone; }
 }
