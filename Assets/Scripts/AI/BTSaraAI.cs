@@ -82,7 +82,8 @@ public class BTSaraAI: MonoBehaviour
         Sara.RightPunch(); }
     void A3() { Debug.Log("dash away");
         Sara.DashBackward();}
-    void A4() { Debug.Log("jump highly"); }
+    void A4() { Debug.Log("jump highly");
+        Sara.LeftRightKick(); }
     void A5() { Debug.Log("a timer should be added"); }
     void A6() { Debug.Log("air push"); }
 
