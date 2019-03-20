@@ -47,7 +47,7 @@ namespace Giga.AI.Blackboard
             );
         }
 
-        public float GetPlayerHealthPercent()
+       /* public float GetPlayerHealthPercent()
         {
             return player.healthSystem.GetHealthPercent();
         }
@@ -55,7 +55,7 @@ namespace Giga.AI.Blackboard
         public float GetOpponentHealth()
         {
             return opponent.healthSystem.GetHealthPercent();
-        }
+        }*/
 
     }
 }   

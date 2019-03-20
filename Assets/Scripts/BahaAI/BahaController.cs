@@ -8,140 +8,9 @@ public class BahaController : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] float shortDistance = 2f;
     FighterController fc;
-    public class A1 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A2 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A3 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A4 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A5 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-    public class A6 : Action
-    {
-        public override void Pause()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Resume()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void StartAction(FighterController fighter)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Stop()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-
-    BehaviorTree behaviorTree;
+    float t = 0;
+    
+    BehaviorTree tree;
 
     int Random01()
     {
@@ -156,80 +25,52 @@ public class BahaController : MonoBehaviour
             return 1;
         }
     }
+    int gloat(){
+        if(t>10){
+            t = 0;
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
+    Queue<ActionDelegate> actions;
 
-    /*
-        Essentially, I can define, as much as I'd like, various subtrees of this
-        tree, and then build the behavior tree incrementally. So say I have two
-        different "Behaviors" or "Strategies": an offensive mode, and defensive
-        mode. 
-
-        So, I can have a selector node at the top of the tree, that takes into
-        account various bits of data about the game state, and concludes which
-        of these modes I should use.
-
-        Now, I can define subtrees (though they're not exactly subtrees, so yeah)
-
-        but I can define nodes. So my Defensive node might be a selector node,
-        and say my Offensive node is a sequencer node (cycles through a bunch of
-        attacks). I can define it like this:
-
-        SelectorNode Defensive = new SelectorNode(...);   // all the stuff for the
-                                                          // defensive subtree
-        SequencerNode Offensive = new SequencerNode(...); // same for here
-
-        BehaviorTree tree = new BehaviorTree(
-            SelectorNode(
-                select_offense_or_defense,
-                List<Node>()
-                {
-                    Defensive,
-                    Offensive
-                }
-            )
-        );
-
-        So here, we need not necessarily define these all in one big nasty tree,
-        but instead can define instances of these classes which the tree can then
-        traverse during evaluation. This makes the designing of these trees less
-        of a nightmare, because then we can define these kinds of "subroutines"
-        which helps with organization but also with compartmentalizing the design
-        of the behaviors for the purpose of development
-     */
+    void Awake()
+    {  
+        fc = GetComponent<FighterController>();
+        actions = new Queue<ActionDelegate>();
+    }
 
     void Start()
     {
-        behaviorTree = new BehaviorTree(
+        tree = new BehaviorTree(
             new SelectorNode(
                 distPlayer,
-                new List<Node>() 
+                new List<Node>()
                 {
-                    new ActionNode(new A1()),
-                    new SequencerNode(
+                    new SelectorNode(
+                        gloat,
                         new List<Node>()
                         {
-                            new ActionNode(new A2()),
-                            new ActionNode(new A3()),
-                            new SelectorNode(
-                                distPlayer,
-                                new List<Node>()
-                                {
-                                    new ActionNode(new A4()),
-                                    new ActionNode(new A5()),
-                                }
-                            ),
-                            new ActionNode(new A6())                            
+                            new ActionNode(fc.RightKick),
+                            new ActionNode(fc.LeftPunch)
                         }
-                    )
+                    ),
+                    new ActionNode(fc.RightPunch) 
                 }
             )
         );
+    }
 
-        Queue<Action> actions = behaviorTree.Evaluate();
+    void Update()
+    {
+        //note: rightkick is gloat, leftpunch is harpoon, rightpunch is anchor
+        Debug.Log(fc.IsActing());
+        if (actions.Count == 0) actions = tree.Evaluate();
 
-        while (actions.Count > 0)
-        {
-            Action a = actions.Dequeue();
-            Debug.Log(a.GetType().Name);
-        }
+        if (!fc.IsActing()) (actions.Dequeue())();
+        
+        t+=Time.deltaTime;
     }
 }
