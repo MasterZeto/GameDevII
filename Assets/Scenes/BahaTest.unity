@@ -5152,6 +5152,7 @@ GameObject:
   - component: {fileID: 7406572142231170057}
   - component: {fileID: 82167919077961221}
   - component: {fileID: 82167919077961220}
+  - component: {fileID: 82167919077961224}
   - component: {fileID: 82167919077961219}
   m_Layer: 0
   m_Name: DummyBaha
@@ -5301,7 +5302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  gloat_time: 2
+  gloat_time: 1
   anim_name: 
 --- !u!114 &82167919077961223
 MonoBehaviour:
@@ -5323,6 +5324,20 @@ MonoBehaviour:
   hit_duration: 1
   hit_delay: 0
   anim_name: 
+--- !u!114 &82167919077961224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82167919077961218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6b0bf90afb6f64f9ac3e9b973c76b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  turnSpeed: 2
 --- !u!4 &82167919077961276
 Transform:
   m_ObjectHideFlags: 0
@@ -10957,7 +10972,7 @@ MonoBehaviour:
   opponent: {fileID: 1483727929}
   opponent_object: {fileID: 1483727925}
   dash_left: {fileID: 9135254378755230290}
-  dash_right: {fileID: 7979751786415931486}
+  dash_right: {fileID: 82167919077961224}
   dash_forward: {fileID: 5436129065645605809}
   dash_backward: {fileID: 0}
   dash_backward_left: {fileID: 7369790550917562240}
