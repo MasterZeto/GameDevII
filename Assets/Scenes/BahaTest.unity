@@ -1553,6 +1553,7 @@ GameObject:
   - component: {fileID: 1060885027}
   - component: {fileID: 1060885026}
   - component: {fileID: 1060885030}
+  - component: {fileID: 1060885031}
   m_Layer: 10
   m_Name: DummyHarpoon
   m_TagString: Anchor
@@ -1647,6 +1648,19 @@ MonoBehaviour:
   _damage: 10
   _collider: {fileID: 1060885026}
   cooldown: 0
+--- !u!114 &1060885031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060885025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2dc121ae3135f4d9d6b0b8dd03ab44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAttached: 0
 --- !u!114 &1066978156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7244392185395256270, guid: 1d6e3ddef44afc04d8cbe4a3ff60f7d9,
@@ -5287,7 +5301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  gloat_time: 1
+  gloat_time: 2
   anim_name: 
 --- !u!114 &82167919077961223
 MonoBehaviour:
@@ -5306,7 +5320,7 @@ MonoBehaviour:
   speed: 2
   harpoon: {fileID: 1060885025}
   harpoonStart: {fileID: 400691580}
-  hit_duration: 2
+  hit_duration: 1
   hit_delay: 0
   anim_name: 
 --- !u!4 &82167919077961276
@@ -5685,8 +5699,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6.1984253, y: 1, z: 8.51208}
+  m_Center: {x: -2.5992122, y: 0, z: -1.0834903}
 --- !u!4 &397009243213801698
 Transform:
   m_ObjectHideFlags: 0
@@ -10968,7 +10982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 25
+  dash_speed: 2
   dash_duration: 0.5
   anim_name: DashForward
 --- !u!1 &5441622264436009588
@@ -14854,7 +14868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9195169940101687284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.75, z: 1.5799999}
+  m_LocalPosition: {x: 0, y: 5.75, z: 2.52}
   m_LocalScale: {x: 0.29231474, y: 2.76428, z: 0.30882332}
   m_Children: []
   m_Father: {fileID: 8369149539105636126}

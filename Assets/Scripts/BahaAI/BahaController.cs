@@ -26,7 +26,7 @@ public class BahaController : MonoBehaviour
         }
     }
     int gloat(){
-        if(t>10){
+        if(t>5){
             t = 0;
             return 0;
         }
@@ -53,7 +53,13 @@ public class BahaController : MonoBehaviour
                         gloat,
                         new List<Node>()
                         {
-                            new ActionNode(fc.RightKick),
+                            new SequencerNode(
+                                new List<Node>{
+                                    new ActionNode(fc.DashForward),
+                                    new ActionNode(fc.LeftPunch),
+                                    new ActionNode(fc.RightKick)
+                                }
+                            ),
                             new ActionNode(fc.LeftPunch)
                         }
                     ),
