@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _MaxLight: 1
-    - _MinLight: 0.06
+    - _MinLight: 0.02
     - _Specular: 0
     - _Specular_Power: 0
     - _Threshold: 0
