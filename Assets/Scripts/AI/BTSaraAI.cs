@@ -28,9 +28,9 @@ public class BTSaraAI: MonoBehaviour
     }
     int Distance()
     {
-        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 10f)
+        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 15f)
         { return 0; }
-        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 3f)
+        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 8f)
         { return 2; }
         else { return 1; }
 
@@ -76,11 +76,12 @@ public class BTSaraAI: MonoBehaviour
         of the behaviors for the purpose of development
      */
 
-    void A1() { Debug.Log("left arm projection"); }
-    void A2() { Debug.Log("right arm projection"); }
+    void A1() { Debug.Log("left arm projection");
+        Sara.LeftPunch(); }
+    void A2() { Debug.Log("right arm projection");
+        Sara.RightPunch(); }
     void A3() { Debug.Log("dash away");
-        Sara.DashBackward();
-    }
+        Sara.DashBackward();}
     void A4() { Debug.Log("jump highly"); }
     void A5() { Debug.Log("a timer should be added"); }
     void A6() { Debug.Log("air push"); }

@@ -13,7 +13,7 @@ public class SaraRightAttack : Action
         this.fighter = fighter;
         hitbox.Fire(hit_duration);
         fighter.SetTrigger(anim_name);
-        transform.gameObject.GetComponent<SoundBox>().MissSFX();
+//        transform.gameObject.GetComponent<SoundBox>().MissSFX();
     }
 
     public override void Stop() {}

@@ -11,8 +11,8 @@ public class SaraDashBack : DashAction
         running = true;
         this.fighter = fighter;
         fighter.SetBoolTrue(anim_name);
-      //  fighter.SetBoolFalse("ZigLeft");
-      //  fighter.SetBoolFalse("ZigRight");
+        //  fighter.SetBoolFalse("ZigLeft");
+        //  fighter.SetBoolFalse("ZigRight");
 
         StartCoroutine(DashBackwardRoutine());
     }
@@ -25,7 +25,8 @@ public class SaraDashBack : DashAction
     {
         for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {
-            while(paused){
+            while (paused)
+            {
                 yield return null;
             }
             fighter.UnsafeMove(-fighter.transform.forward * dash_speed);
@@ -34,3 +35,4 @@ public class SaraDashBack : DashAction
         running = false;
     }
 }
+
