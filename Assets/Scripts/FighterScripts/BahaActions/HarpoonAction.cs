@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnchorAction : Action
+public class HarpoonAction : Action
 {
     public Hitbox hitbox;
     [SerializeField] float max_length;
-    [SerializeField] GameObject anchor;
+    [SerializeField] GameObject harpoon;
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
