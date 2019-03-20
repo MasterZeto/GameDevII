@@ -5,8 +5,9 @@ using UnityEngine;
 public class HarpoonAction : Action
 {
     public Hitbox hitbox;
-    [SerializeField] float max_length;
+    [SerializeField] float speed = 5f;
     [SerializeField] GameObject harpoon;
+    [SerializeField] Transform harpoonStart;
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
@@ -19,6 +20,7 @@ public class HarpoonAction : Action
     {
         this.fighter = fighter;
         fighter.SetTrigger(anim_name);
+        harpoon.SetActive(false);
         StartCoroutine(HitWithDelayRoutine());
     }
 
@@ -42,7 +44,17 @@ public class HarpoonAction : Action
         {
             yield return null;
         }
+        harpoon.transform.position = harpoonStart.transform.position;
+        harpoon.SetActive(true);
         hitbox.Fire(hit_duration);
+        Vector3 direction = transform.forward;
+        direction.y = 0;
+        direction.Normalize();
+        for( float t = 0f; t < hit_duration; t+= Time.deltaTime){
+            harpoon.transform.position += direction*speed;
+            yield return null;
+        }
+        harpoon.SetActive(false);
         delayDone = true;
     }
 
