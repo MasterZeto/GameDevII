@@ -4,10 +4,23 @@ using UnityEngine;
 using Giga.AI.BehaviorTree;
 using Giga.AI.Blackboard;
 
+[RequireComponent(typeof(FighterController))]
 public class BTSaraAI: MonoBehaviour
 {
+    [SerializeField] Hitbox hitbox;
     BehaviorTree behaviorTree;
-    public FighterController character;
+    FighterController Sara;
+
+    //time variable?
+    float t = 0;
+    //?
+    Queue<ActionDelegate> actions;
+
+    void Awake()
+    {
+        Sara = GetComponent<FighterController>();
+        actions = new Queue<ActionDelegate>();
+    }
 
     int Random01()
     {
@@ -15,9 +28,9 @@ public class BTSaraAI: MonoBehaviour
     }
     int Distance()
     {
-        if (Vector3.Distance(character.transform.position, Blackboard.player_position) > 10f)
+        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 10f)
         { return 0; }
-        else if (Vector3.Distance(character.transform.position, Blackboard.player_position) < 3f)
+        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 3f)
         { return 2; }
         else { return 1; }
 
@@ -63,12 +76,14 @@ public class BTSaraAI: MonoBehaviour
         of the behaviors for the purpose of development
      */
 
-    void A1() { Debug.Log("Action A1"); }
-    void A2() { Debug.Log("Action A2"); }
-    void A3() { Debug.Log("Action A3"); }
-    void A4() { Debug.Log("Action A4"); }
-    void A5() { Debug.Log("Action A5"); }
-    void A6() { Debug.Log("Action A6"); }
+    void A1() { Debug.Log("left arm projection"); }
+    void A2() { Debug.Log("right arm projection"); }
+    void A3() { Debug.Log("dash away");
+        Sara.DashBackward();
+    }
+    void A4() { Debug.Log("jump highly"); }
+    void A5() { Debug.Log("a timer should be added"); }
+    void A6() { Debug.Log("air push"); }
 
     void Start()
     {
@@ -96,14 +111,24 @@ public class BTSaraAI: MonoBehaviour
                         }
                 )
         );
-        
-
-        Queue<ActionDelegate> actions = behaviorTree.Evaluate();
-
-        while (actions.Count > 0)
-        {
-            ActionDelegate a = actions.Dequeue();
-            a();
-        }
     }
+
+     //   Queue<ActionDelegate> actions = behaviorTree.Evaluate();
+
+        void Update()
+        {
+            Debug.Log(Sara.IsActing());
+            if (actions.Count == 0) actions =behaviorTree.Evaluate();
+
+            if (!Sara.IsActing()) (actions.Dequeue())();
+            //do I need to update distance here?
+            t += Time.deltaTime;
+        }
+
+      //  while (actions.Count > 0)
+      //  {
+            //ActionDelegate a = actions.Dequeue();
+           // a();
+        //}
+    
 }

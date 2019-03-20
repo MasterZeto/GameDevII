@@ -1809,9 +1809,9 @@ Transform:
   m_LocalPosition: {x: -0.52, y: -0.5, z: 15.122407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1331372387}
   - {fileID: 886121890}
   - {fileID: 1000406981}
+  - {fileID: 1331372387}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1827,12 +1827,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f5d492f71e86041a689ab63df56464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 0
-  max_heat: 0
+  move_speed: 3
+  max_heat: 100
   heat_dissipation_rate: 0
   animator: {fileID: 0}
-  opponent: {fileID: 0}
-  opponent_object: {fileID: 0}
+  opponent: {fileID: 1483727929}
+  opponent_object: {fileID: 1483727925}
   dash_left: {fileID: 0}
   dash_right: {fileID: 0}
   dash_forward: {fileID: 0}
@@ -1892,7 +1892,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 846331267}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &902778148
 GameObject:
@@ -2172,7 +2172,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 846331267}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1021916552
 GameObject:
@@ -3011,7 +3011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: 5e385db533eb0724494af3f927537fef, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: 5e385db533eb0724494af3f927537fef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
