@@ -69,7 +69,7 @@ public class FighterController : MonoBehaviour
 
     public void Move(Vector3 direction) 
     {
-        if ((current_action == null || current_action.IsDone())&&animator.enabled==true&&!pause)
+        if (animator.enabled==true && !pause)
         {
             UnsafeMove(direction);
         }
@@ -94,7 +94,7 @@ public class FighterController : MonoBehaviour
         );
     }
 
-    void StartAction(Action action)
+    public void StartAction(Action action)
     {
         if (max_heat - heat > action.GetHeat() && current_action == null)
         {
@@ -102,6 +102,11 @@ public class FighterController : MonoBehaviour
             current_action.StartAction(this);
             heat += current_action.GetHeat();
         }
+    }
+
+    public bool IsActing()
+    {
+        return (current_action != null);
     }
 
     /* Dash Functions */

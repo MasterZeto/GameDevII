@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Giga.AI.FSM;
 using Giga.AI.Blackboard;
+using Giga.AI.BehaviorTree;
 
-public class SawyerCharacter : AICharacter
+/* public class SawyerCharacter : AICharacter
 {
 
     public FighterController character;
@@ -196,37 +197,77 @@ public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
     {
         this.actor = actor;
     }
-}
+} */
 
 [RequireComponent(typeof(FighterController))]
 public class SawyerController : MonoBehaviour
 {
     [SerializeField] Hitbox hitbox;
-    SawyerCharacter ai;
-    SawyerFSM fsm;
+    //SawyerCharacter ai;
+    //SawyerFSM fsm;
+    FighterController sawyer;
+    BehaviorTree tree;
 
+    float t = 0;
+
+    Queue<ActionDelegate> actions;
 
     void Awake()
-    {  //fightercontroller
-        ai = new SawyerCharacter(GetComponent<FighterController>(), hitbox);
-        fsm = new SawyerFSM(ai);
+    {  
+        sawyer = GetComponent<FighterController>();
+        actions = new Queue<ActionDelegate>();
+    }
+
+    void Start()
+    {
+        tree = new BehaviorTree(
+            new SelectorNode(
+                ShouldAttack,
+                new List<Node>()
+                {
+                    new SequencerNode(
+                        new List<Node>()
+                        {
+                            new ActionNode(sawyer.DashRight),
+                            new ActionNode(sawyer.DashBackLeft)
+                        }
+                    ),
+                    new SequencerNode(
+                        new List<Node>()
+                        {
+                            new ActionNode(sawyer.DashLeft),
+                            new ActionNode(sawyer.DashRight),
+                            new ActionNode(sawyer.DashLeft),
+                            new ActionNode(sawyer.RightPunch),
+                            new ActionNode(sawyer.DashBackRight)
+                        }
+                    )  
+                }
+            )
+        );
     }
 
     void Update()
     {
-        /*  transform.forward = Vector3.ProjectOnPlane(
-             (Blackboard.player_position - transform.position), 
-              Vector3.up
-          ).normalized;*/
+        Debug.Log(sawyer.IsActing());
+        if (actions.Count == 0) actions = tree.Evaluate();
 
-        if(ai.character.animator.enabled) transform.forward = (ai.character.GetOpponent().transform.position - transform.position).normalized;
+        if (!sawyer.IsActing()) (actions.Dequeue())();
 
-        fsm.Update(ai, Time.deltaTime);
-
-
-
-
+        t += Time.deltaTime;
     }
 
+    int ShouldAttack()
+    {
+        int should = ((t >= 10f) ? 1 : 0);
+        if (should == 1) t = 0;
+        return should;
+    } 
 
 }
+
+/*
+    I'm thinking it would be better to instead of use actions in the tree, but
+    use a function call since everything gets routed through the fighter controller
+    so we can just have function calls with "is done"... maybe do that...
+ */
