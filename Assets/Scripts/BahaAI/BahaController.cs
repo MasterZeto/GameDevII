@@ -6,7 +6,7 @@ using Giga.AI.BehaviorTree;
 public class BahaController : MonoBehaviour
 {
     [SerializeField] Transform player;
-    [SerializeField] float shortDistance = 2f;
+    [SerializeField] float shortDistance;
     FighterController fc;
     float t = 0;
     
@@ -70,7 +70,7 @@ public class BahaController : MonoBehaviour
         if (actions.Count == 0) actions = tree.Evaluate();
 
         if (!fc.IsActing()) (actions.Dequeue())();
-        
+        Debug.Log(distPlayer());
         t+=Time.deltaTime;
     }
 }
