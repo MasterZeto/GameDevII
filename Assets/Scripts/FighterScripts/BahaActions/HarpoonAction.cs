@@ -34,11 +34,13 @@ public class HarpoonAction : Action
     }
     public override void Pause() 
     {
-        if (hitbox.active) { hitbox.Pause(); paused = true; }
+        if (hitbox.active) { hitbox.Pause(); }
+         paused = true;
     }
     public override void Resume() 
     {
-        if (hitbox.active) { hitbox.Resume(); paused = false; }
+        if (hitbox.active) { hitbox.Resume(); }
+        paused = false;
     }
 
     private IEnumerator HitWithDelayRoutine()
