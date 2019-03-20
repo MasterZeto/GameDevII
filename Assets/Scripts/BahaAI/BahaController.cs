@@ -57,7 +57,12 @@ public class BahaController : MonoBehaviour
                             new ActionNode(fc.LeftPunch)
                         }
                     ),
-                    new ActionNode(fc.RightPunch) 
+                    new SequencerNode(
+                        new List<Node>{
+                            new ActionNode(fc.RightPunch),
+                            new ActionNode(fc.RightKick)
+                        }
+                    )
                 }
             )
         );
@@ -67,10 +72,13 @@ public class BahaController : MonoBehaviour
     {
         //note: rightkick is gloat, leftpunch is harpoon, rightpunch is anchor
         Debug.Log(fc.IsActing());
-        if (actions.Count == 0) actions = tree.Evaluate();
+        if (actions.Count == 0){
+            actions = tree.Evaluate();
+        } 
 
-        if (!fc.IsActing()) (actions.Dequeue())();
-        Debug.Log(distPlayer());
+        if (!fc.IsActing()){
+            (actions.Dequeue())();
+        }
         t+=Time.deltaTime;
     }
 }
