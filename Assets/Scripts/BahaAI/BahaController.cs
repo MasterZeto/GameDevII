@@ -55,12 +55,18 @@ public class BahaController : MonoBehaviour
                         {
                             new SequencerNode(
                                 new List<Node>{
+                                    new ActionNode(fc.DashRight),
                                     new ActionNode(fc.DashForward),
                                     new ActionNode(fc.LeftPunch),
                                     new ActionNode(fc.RightKick)
                                 }
                             ),
-                            new ActionNode(fc.LeftPunch)
+                            new SequencerNode(
+                                new List<Node>{
+                                    new ActionNode(fc.DashRight),
+                                    new ActionNode(fc.LeftPunch)
+                                }
+                            )
                         }
                     ),
                     new SequencerNode(
@@ -76,7 +82,7 @@ public class BahaController : MonoBehaviour
 
     void Update()
     {
-        //note: rightkick is gloat, leftpunch is harpoon, rightpunch is anchor
+        //note: rightkick is gloat, leftpunch is harpoon, rightpunch is anchor, dash right is turn to player, dash forward is a very slow dash forward
         Debug.Log(fc.IsActing());
         if (actions.Count == 0){
             actions = tree.Evaluate();
