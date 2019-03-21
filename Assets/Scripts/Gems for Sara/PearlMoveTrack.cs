@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PearlMoveTrack : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    GameObject player;
+    GameObject opponent;
+
+    float speed = 17f;
+
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        opponent = GameObject.FindGameObjectWithTag("Opponent");
+       
+        transform.LookAt(player.transform);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.RotateAround(opponent.transform.position, player.transform.position - opponent.transform.position, 500 * Time.deltaTime);
+
     }
 }
