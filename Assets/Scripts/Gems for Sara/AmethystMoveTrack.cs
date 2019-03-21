@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class AmethystMoveTrack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject player;
+
+    float speed = 17f;
+
+ 
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+      //Vector3 playerPos= new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        transform.LookAt(player.transform);
+        // Aim gem in player's direction.
+     // transform.rotation = Quaternion.LookRotation(playerPos);
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
-        
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 }
