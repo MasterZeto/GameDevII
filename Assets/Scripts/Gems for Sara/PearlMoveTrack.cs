@@ -22,6 +22,8 @@ public class PearlMoveTrack : MonoBehaviour
     void Update()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
+        //Rotates the transform about axis passing through point in world coordinates by angle degrees.
+        //This modifies both the position and the rotation of the transform.
         transform.RotateAround(opponent.transform.position, player.transform.position - opponent.transform.position, 500 * Time.deltaTime);
 
     }
