@@ -10,7 +10,7 @@ public class SaraMoveLeft :DashAction
     {
         running = true;
         this.fighter = fighter;
-        fighter.SetBoolTrue(anim_name);
+   
         StartCoroutine(DashLeftRoutine());
     }
 

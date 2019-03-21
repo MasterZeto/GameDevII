@@ -10,7 +10,7 @@ public class SaraMoveRight : DashAction
     {
         running = true;
         this.fighter = fighter;
-        fighter.SetBoolTrue(anim_name);
+
         StartCoroutine(DashRightRoutine());
     }
 
