@@ -701,6 +701,21 @@ PrefabInstance:
       propertyPath: opponent_object
       value: 
       objectReference: {fileID: 1483727925}
+    - target: {fileID: 3363794433554136481, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: uiHealthBar
+      value: 
+      objectReference: {fileID: 1743460228}
+    - target: {fileID: 603542743806314475, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962046803682641482, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3936434544778517498, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
       propertyPath: dash_speed
@@ -736,20 +751,15 @@ PrefabInstance:
       propertyPath: hit_delay
       value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 3363794433554136481, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
+    - target: {fileID: 197332760185627193, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
-      propertyPath: uiHealthBar
-      value: 
-      objectReference: {fileID: 1743460228}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2590270127104371734, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
       propertyPath: _damage
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 603542743806314475, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 4034162586400093788, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
         type: 3}
@@ -760,16 +770,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8962046803682641482, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 197332760185627193, guid: 8bfafdd8b8d1142a1b54c2792f50368a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfafdd8b8d1142a1b54c2792f50368a, type: 3}
@@ -2073,6 +2073,8 @@ GameObject:
   - component: {fileID: 147508556430982885}
   - component: {fileID: 846331270}
   - component: {fileID: 846331271}
+  - component: {fileID: 846331273}
+  - component: {fileID: 846331272}
   m_Layer: 0
   m_Name: SaraOHara
   m_TagString: Untagged
@@ -2116,8 +2118,8 @@ MonoBehaviour:
   animator: {fileID: 2089247405}
   opponent: {fileID: 1483727929}
   opponent_object: {fileID: 1483727925}
-  dash_left: {fileID: 0}
-  dash_right: {fileID: 0}
+  dash_left: {fileID: 846331273}
+  dash_right: {fileID: 846331272}
   dash_forward: {fileID: 0}
   dash_backward: {fileID: 147508556430982887}
   dash_backward_left: {fileID: 0}
@@ -2176,6 +2178,38 @@ MonoBehaviour:
   hitbox: {fileID: 842313222}
   hit_duration: 0
   anim_name: BigWind
+--- !u!114 &846331272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846331266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdc5d4c8ea6c2448aff25a00fb094c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  dash_speed: 7
+  dash_duration: 2
+  anim_name: 
+--- !u!114 &846331273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846331266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42fd85a64d5be8d42ac77a3e07b5387f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  dash_speed: 7
+  dash_duration: 2
+  anim_name: 
 --- !u!1 &886121889
 GameObject:
   m_ObjectHideFlags: 0

@@ -86,6 +86,10 @@ public class BTSaraAI: MonoBehaviour
         Sara.LeftRightKick(); }
     void A5() { Debug.Log("a timer should be added"); }
     void A6() { Debug.Log("air push"); }
+    void A7() { Debug.Log("tilt right");
+        Sara.DashLeft(); }
+    void A8() { Debug.Log("tilt left");
+        Sara.DashRight();}
 
     void Start()
     {
@@ -97,7 +101,9 @@ public class BTSaraAI: MonoBehaviour
                     new SequencerNode(
                         new List<Node>(){
                         new ActionNode(A1),
-                        new ActionNode(A2)
+                        new ActionNode(A7),
+                        new ActionNode(A2),
+                        new ActionNode(A8)
                         }
                         ),
 
