@@ -12,13 +12,21 @@ public class TurnToPlayerAction : Action
     }
     public override void StartAction(FighterController fighter){
         running = true;
+        Debug.Log("turning");
         StartCoroutine(Turn());
     }
     public override void Stop(){}
     public override void Pause(){ paused = true; }
     public override void Resume(){ paused = false; }
     private IEnumerator Turn(){
-        while(Vector3.Distance(transform.forward, player.transform.forward)<1.999f){
+        float turnUntil = 0f;
+        if(Vector3.Distance(player.transform.position, transform.position) > 20f){
+            turnUntil = 1.999f;
+        }
+        else{
+            turnUntil = 1.99f;
+        }
+        while(Vector3.Distance(transform.forward, player.transform.forward)<turnUntil){
             Debug.Log(Vector3.Distance(transform.forward, player.transform.forward));
             while(paused){
                 yield return null;
@@ -26,6 +34,7 @@ public class TurnToPlayerAction : Action
             Vector3 targetDir = player.transform.position - transform.position;
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, turnSpeed*Time.deltaTime, 0.0f);
             transform.rotation = Quaternion.LookRotation(newDir);
+            transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,transform.eulerAngles.z);
             yield return null;
         }
         running = false;
