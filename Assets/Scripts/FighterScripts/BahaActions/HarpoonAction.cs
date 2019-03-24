@@ -73,6 +73,7 @@ public class HarpoonAction : Action
             harpoon.transform.position += direction*speed;
             rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached) break;
+            if(hitCheck.isStunned) break;
             yield return null;
         }
         StartCoroutine(ReturnHarpoon());
@@ -91,6 +92,9 @@ public class HarpoonAction : Action
         }
         if(hitCheck.playerAttached){
             hitCheck.UnparentPlayer();
+        }
+        if(hitCheck.isStunned){
+            hitCheck.isStunned = false;
         }
         harpoon.SetActive(false);
         rope.positionCount = 0;

@@ -151,6 +151,10 @@ public class FighterController : MonoBehaviour
         animator.enabled = false;
         pause = true;
     }
+    public void Stun(){
+        Pause();
+        //set stunned animation here?
+    }
 
     public void Resume()
     {
