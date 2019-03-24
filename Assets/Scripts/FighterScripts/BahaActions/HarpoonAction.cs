@@ -11,6 +11,7 @@ public class HarpoonAction : Action
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
+    Rigidbody rb;
     LineRenderer rope;
     Harpooned hitCheck;
     bool paused = false;
@@ -19,6 +20,7 @@ public class HarpoonAction : Action
 
     public void Start(){
         //anchor.IsActive(false);
+        rb = harpoon.GetComponent<Rigidbody>();
         hitCheck = harpoon.GetComponent<Harpooned>();
         rope = harpoon.GetComponent<LineRenderer>();
         rope.positionCount = 0;
@@ -70,7 +72,7 @@ public class HarpoonAction : Action
                 yield return null;
             }
             Debug.Log(hitbox.active);
-            harpoon.transform.position += direction*speed;
+            rb.position += direction*speed;
             rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached) break;
             if(hitCheck.isStunned) break;
@@ -86,7 +88,7 @@ public class HarpoonAction : Action
             Vector3 direction = harpoonStart.forward;
             direction.y = 0;
             direction.Normalize();
-            harpoon.transform.position -= direction*speed/2;
+            rb.position -= direction*speed/2;
             rope.SetPosition(1, harpoon.transform.position);
             yield return null;
         }
