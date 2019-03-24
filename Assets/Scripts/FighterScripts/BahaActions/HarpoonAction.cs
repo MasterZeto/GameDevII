@@ -60,16 +60,16 @@ public class HarpoonAction : Action
         rope.SetPosition(0, harpoonStart.position);
         harpoon.transform.position = harpoonStart.position;
         harpoon.SetActive(true);
-        hitbox.Fire(hit_duration);
         Vector3 direction = transform.forward;
         direction.y = 0;
         direction.Normalize();
+        hitbox.Fire(hit_duration);
         for( float t = 0f; t < hit_duration; t+= Time.deltaTime){
             while(paused){
                 Debug.Log("AHHH");
                 yield return null;
             }
-            Debug.Log(paused);
+            Debug.Log(hitbox.active);
             harpoon.transform.position += direction*speed;
             rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached) break;
@@ -82,11 +82,11 @@ public class HarpoonAction : Action
             while(paused){
                 yield return null;
             }
-            rope.SetPosition(1, harpoon.transform.position);
             Vector3 direction = harpoonStart.forward;
             direction.y = 0;
             direction.Normalize();
             harpoon.transform.position -= direction*speed/2;
+            rope.SetPosition(1, harpoon.transform.position);
             yield return null;
         }
         if(hitCheck.playerAttached){

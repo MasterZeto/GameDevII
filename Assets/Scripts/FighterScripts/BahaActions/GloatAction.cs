@@ -21,14 +21,12 @@ public class GloatAction : Action
     public override void Pause(){ paused = true; }
     public override void Resume(){ paused = false; }
     private IEnumerator Gloat(){
-        Debug.Log("Bahahaha, because his name is Baha.");
         for(float t = 0f; t < gloat_time; t+=Time.deltaTime){
             while(paused){
                 yield return null;
             }
             yield return null;
         }
-        Debug.Log(IsDone());
         running = false;
     }
 }
