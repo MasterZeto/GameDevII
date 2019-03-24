@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7287420757947823697}
   - component: {fileID: 7287420757950015638}
   - component: {fileID: 3130202355341299687}
+  - component: {fileID: 7340691402145284756}
   m_Layer: 0
   m_Name: Pearl
   m_TagString: Untagged
@@ -104,3 +105,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 100.00003
   m_Center: {x: 0.000011444092, y: 0, z: -0.000015258789}
+--- !u!114 &7340691402145284756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287420757950015633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c13aa4b4bbb674b9d0b0c025ce13cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
+  _collider: {fileID: 3130202355341299687}
+  cooldown: 0

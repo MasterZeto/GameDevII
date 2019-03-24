@@ -7,7 +7,7 @@ using Giga.AI.Blackboard;
 [RequireComponent(typeof(FighterController))]
 public class BTSaraAI: MonoBehaviour
 {
-    [SerializeField] Hitbox hitbox;
+   // [SerializeField] Hitbox hitbox;
     BehaviorTree behaviorTree;
     FighterController Sara;
 
