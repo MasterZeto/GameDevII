@@ -11,6 +11,7 @@ public class HarpoonAction : Action
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
+    LineRenderer rope;
     Harpooned hitCheck;
     bool paused = false;
     bool delayDone = false;
@@ -19,6 +20,8 @@ public class HarpoonAction : Action
     public void Start(){
         //anchor.IsActive(false);
         hitCheck = harpoon.GetComponent<Harpooned>();
+        rope = harpoon.GetComponent<LineRenderer>();
+        rope.positionCount = 0;
     }
     public override void StartAction(FighterController fighter) 
     {
@@ -53,6 +56,8 @@ public class HarpoonAction : Action
             }
             yield return null;
         }
+        rope.positionCount = 2;
+        rope.SetPosition(0, harpoonStart.position);
         harpoon.transform.position = harpoonStart.position;
         harpoon.SetActive(true);
         hitbox.Fire(hit_duration);
@@ -66,6 +71,7 @@ public class HarpoonAction : Action
             }
             Debug.Log(paused);
             harpoon.transform.position += direction*speed;
+            rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached) break;
             yield return null;
         }
@@ -76,6 +82,7 @@ public class HarpoonAction : Action
             while(paused){
                 yield return null;
             }
+            rope.SetPosition(1, harpoon.transform.position);
             Vector3 direction = harpoonStart.forward;
             direction.y = 0;
             direction.Normalize();
@@ -86,6 +93,7 @@ public class HarpoonAction : Action
             hitCheck.UnparentPlayer();
         }
         harpoon.SetActive(false);
+        rope.positionCount = 0;
         delayDone = true;
     }
     public override bool IsDone() { return !hitbox.active&&delayDone; }
