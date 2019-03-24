@@ -27,7 +27,6 @@ public class TurnToPlayerAction : Action
             turnUntil = 1.99f;
         }
         while(Vector3.Distance(transform.forward, player.transform.forward)<turnUntil){
-            Debug.Log(Vector3.Distance(transform.forward, player.transform.forward));
             while(paused){
                 yield return null;
             }

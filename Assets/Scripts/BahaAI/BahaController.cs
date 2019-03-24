@@ -69,11 +69,22 @@ public class BahaController : MonoBehaviour
                             )
                         }
                     ),
-                    new SequencerNode(
-                        new List<Node>{
-                            new ActionNode(fc.DashRight),
-                            new ActionNode(fc.RightPunch),
-                            new ActionNode(fc.RightKick)
+                    new SelectorNode(
+                        gloat,
+                        new List<Node>(){
+                            new SequencerNode(
+                                new List<Node>{
+                                    new ActionNode(fc.DashRight),
+                                    new ActionNode(fc.RightPunch),
+                                    new ActionNode(fc.RightKick)
+                                }
+                            ),
+                            new SequencerNode(
+                                new List<Node>{
+                                    new ActionNode(fc.DashRight),
+                                    new ActionNode(fc.RightPunch),
+                                }
+                            )
                         }
                     )
                 }
@@ -93,5 +104,6 @@ public class BahaController : MonoBehaviour
             (actions.Dequeue())();
         }
         t+=Time.deltaTime;
+        Debug.Log(distPlayer());
     }
 }
