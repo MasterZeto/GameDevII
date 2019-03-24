@@ -6,24 +6,23 @@ using CommandPattern;
 // make sure this is on the same layer as only other hurt boxes.
 // so the players hitboxes are gonna be on the enemy hurtbox layer
 // and the enemy hitboxes are gonna be on the player hurtbox layer
-public class Hitbox : MonoBehaviour
+public class HitboxForGems : MonoBehaviour
 {
     [SerializeField] float _damage;
     public Collider _collider;
 
     public bool active { get; private set; }
     public float cooldown;
-    
+
     float timescale = 1f;
-    //why start with false here??
-    void Start() { active = false; cooldown = -1f; }
+
+    void Start() { active = true; cooldown = -1f; }
 
     void OnTriggerStay(Collider c)
     {
         if (active)
         {
             Debug.Log("entered and active");
-         //   Hurtbox h = GameObject.FindGameObjectWithTag("Opponent").GetComponent<Hurtbox>();
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
 
             if (h != null)
@@ -34,37 +33,39 @@ public class Hitbox : MonoBehaviour
 
                 GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
 
-            //  transform.root.gameObject.GetComponent<SoundBox>().HitSFX();
+              //  transform.root.gameObject.GetComponent<SoundBox>().HitSFX();
 
                 GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
-            } else {
-           //    transform.root.gameObject.GetComponent<SoundBox>().MissSFX();
+            }
+            else
+            {
+               // transform.root.gameObject.GetComponent<SoundBox>().MissSFX();
             }
         }
     }
 
     public void Fire(float duration)
     {
-        if (!active && cooldown <= 0f)
+      /*  if (!active && cooldown <= 0f)
         {
             active = true;
             StartCoroutine(FireRoutine(duration));
-        }
+        }*/
     }
 
-    public void Pause() 
-    { 
-        timescale = 0f; 
+    public void Pause()
+    {
+        timescale = 0f;
         _collider.enabled = false;
     }
-    
-    public void Resume() 
-    { 
-        timescale = 1f; 
+
+    public void Resume()
+    {
+        timescale = 1f;
         _collider.enabled = true;
     }
 
-    IEnumerator FireRoutine(float duration)
+ /*   IEnumerator FireRoutine(float duration)
     {
         cooldown = duration;
         while (cooldown >= 0f)
@@ -73,6 +74,6 @@ public class Hitbox : MonoBehaviour
             yield return null;
         }
         active = false;
-    }
+    }*/
 
 }

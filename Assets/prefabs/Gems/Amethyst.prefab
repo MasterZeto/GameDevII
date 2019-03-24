@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2284354151116499596}
   - component: {fileID: 2284354151114503243}
   - component: {fileID: 8344153781679391685}
-  - component: {fileID: 4088777246101989344}
+  - component: {fileID: 114795384077646196}
   m_Layer: 0
   m_Name: Amethyst
   m_TagString: Untagged
@@ -105,7 +105,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 70.12675
   m_Center: {x: -0.5861353, y: -5.495141, z: 0}
---- !u!114 &4088777246101989344
+--- !u!114 &114795384077646196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2284354151114503244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c13aa4b4bbb674b9d0b0c025ce13cb, type: 3}
+  m_Script: {fileID: 11500000, guid: faf4d4aedcf12ea49b87f10ebae33998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
