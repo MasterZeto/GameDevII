@@ -67,12 +67,13 @@ public class HarpoonAction : Action
         direction.y = 0;
         direction.Normalize();
         hitbox.Fire(hit_duration);
-        rb.velocity=direction*speed;
         for( float t = 0f; t < hit_duration; t+= Time.deltaTime){
             while(paused){
+                rb.velocity = Vector3.zero;
                 Debug.Log("AHHH");
                 yield return null;
             }
+            rb.velocity=direction*speed;
             Debug.Log(hitbox.active);
             rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached) break;
@@ -84,12 +85,13 @@ public class HarpoonAction : Action
     }
     private IEnumerator ReturnHarpoon(){
         Vector3 direction = harpoonStart.forward;
-        rb.velocity=-direction*speed/2;
         float t = 0;
         while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>1f && t < timeTohit*2){
             while(paused){
+                rb.velocity = Vector3.zero;
                 yield return null;
             }
+            rb.velocity=-direction*speed/2;
             t+=Time.deltaTime;
             direction.y = 0;
             direction.Normalize();
