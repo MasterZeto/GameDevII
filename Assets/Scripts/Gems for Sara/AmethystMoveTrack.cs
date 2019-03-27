@@ -17,10 +17,13 @@ public class AmethystMoveTrack : MonoBehaviour
         // Aim gem in player's direction.
      // transform.rotation = Quaternion.LookRotation(playerPos);
     }
-
-  
     void Update()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+            Destroy(gameObject);
     }
 }

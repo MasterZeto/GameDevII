@@ -27,4 +27,10 @@ public class PearlMoveTrack : MonoBehaviour
         transform.RotateAround(opponent.transform.position, player.transform.position - opponent.transform.position, 500 * Time.deltaTime);
 
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+            Destroy(gameObject);
+    }
 }
