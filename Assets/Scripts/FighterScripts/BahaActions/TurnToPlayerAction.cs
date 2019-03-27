@@ -30,6 +30,7 @@ public class TurnToPlayerAction : Action
             while(paused){
                 yield return null;
             }
+            Debug.Log("Is it stuck here?");
             Vector3 targetDir = player.transform.position - transform.position;
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, turnSpeed*Time.deltaTime, 0.0f);
             transform.rotation = Quaternion.LookRotation(newDir);

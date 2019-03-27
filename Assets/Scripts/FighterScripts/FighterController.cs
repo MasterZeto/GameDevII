@@ -106,7 +106,7 @@ public class FighterController : MonoBehaviour
 
     public bool IsActing()
     {
-        return (current_action != null);
+        return (current_action != null || pause);
     }
 
     /* Dash Functions */
