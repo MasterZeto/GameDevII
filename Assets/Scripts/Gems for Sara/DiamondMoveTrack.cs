@@ -30,7 +30,7 @@ public class DiamondMoveTrack : MonoBehaviour
         //Debug.Log(distance);
         distance = Vector3.Distance(player.transform.position, transform.position);
         transform.position += transform.forward * speed * Time.deltaTime;
-        if (distance < 15f && canReborn)
+        if (distance < 10f && canReborn)
         {
             Debug.Log("should reborn now");
             canReborn = false;
@@ -45,6 +45,7 @@ public class DiamondMoveTrack : MonoBehaviour
         //face the same direction toward player
       
         child1= Instantiate(child, transform.position, Quaternion.identity);
+        child1.transform.LookAt(player.transform);
         //face to the left of player
         child2 = Instantiate(child, transform.position, Quaternion.identity);
         //should adjust the forward direction
@@ -60,7 +61,7 @@ public class DiamondMoveTrack : MonoBehaviour
         //face to the right of player
         child3 = Instantiate(child, transform.position, Quaternion.identity);
         Vector3 forward3 = child3.transform.forward;
-        forward3.x -=70;
+        forward3.x -=10;
         child3.transform.forward = forward3;
 
 
