@@ -181,7 +181,7 @@ public class FighterController : MonoBehaviour
                 SawyerSwingAttack swingAttack = current_action as SawyerSwingAttack;
                 if(swingAttack!=null) return swingAttack.hitbox._collider;
                 else{
-                    ProjectileAttack project = current_action as ProjectileAttack;
+                    HarpoonAction project = current_action as HarpoonAction;
                     if(project!=null){
                         isProjectile = true;
                         return project.hitbox._collider;
@@ -197,19 +197,17 @@ public class FighterController : MonoBehaviour
         return null;
     }
     /* projectile predicting stuff */
-    public float GetRemainingTime(){
-        ProjectileAttack project = current_action as ProjectileAttack;
-        if(project!=null) return project.GetRemainingDuration();
-        return -1;
+    public HarpoonAction GetHarpoonAction(){
+        return current_action as HarpoonAction;
     }
     public float GetHitDuration(){
-        ProjectileAttack project = current_action as ProjectileAttack;
-        if(project!=null) return project.GetDuration();
+        HarpoonAction project = current_action as HarpoonAction;
+        //if(project!=null) return project.GetDuration();
         return -1;
     }
     public float GetProjectileSpeed(){
-        ProjectileAttack project = current_action as ProjectileAttack;
-        if(project!=null) return project.GetSpeed();
+        HarpoonAction project = current_action as HarpoonAction;
+        //if(project!=null) return project.GetSpeed();
         return -1;
     }
     //used to get heat for pause menu heat bar

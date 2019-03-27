@@ -178,20 +178,20 @@ public class PauseScript : MonoBehaviour
             yield return null;
             counter++;
         }
-        int i = 0;
         lr.positionCount = 2;
-        lr.transform.position = col.gameObject.transform.position;
+        HarpoonAction harp = enemy.GetHarpoonAction();
+        //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+        lr.transform.position = harp.hitbox.gameObject.transform.position;
         //CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
-        lr.SetPosition(i, lr.gameObject.transform.position);
-        for(float t = enemy.GetRemainingTime(); t < enemy.GetHitDuration(); t+=Time.unscaledDeltaTime){
-            Vector3 direction = enemyGameObject.transform.forward;
-            direction.y = 0;
-            direction.Normalize();
-            lr.transform.position+=(direction*Time.unscaledDeltaTime*enemy.GetProjectileSpeed());
-            i++;
-            lr.positionCount = i + 1;
-            //Debug.Log(i);
-            lr.SetPosition(i, lr.gameObject.transform.position);
+        lr.SetPosition(0, lr.gameObject.transform.position);
+        if(harp.GetRemainingTime()>=harp.GetHitDuration()){
+            lr.positionCount = 0;
+        }
+        for(float t = harp.GetRemainingTime(); t < harp.GetHitDuration(); t+=Time.unscaledDeltaTime){
+            //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+            lr.gameObject.transform.position+=(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+            Debug.Log(lr.gameObject.transform.position);
+            lr.SetPosition(1, lr.gameObject.transform.position);
             yield return null;
         }
         /*Vector3 direction = lr.gameObject.transform.position;

@@ -21,6 +21,8 @@ public class HarpoonAction : Action
     GameObject opponent;
     Transform opponentLoc;
     Vector3 direction;
+    float t;
+    bool returning = false;
 
     public void Start(){
         //anchor.IsActive(false);
@@ -35,7 +37,9 @@ public class HarpoonAction : Action
         opponent = fighter.GetOpponent();
         opponentLoc = opponent.transform;
         direction = opponentLoc.position - transform.position;
+        direction.Normalize();
         playerHit = false;
+        returning = false;
         fighter.SetTrigger(anim_name);
         harpoon.SetActive(false);
         StartCoroutine(HitWithDelayRoutine());
@@ -59,7 +63,7 @@ public class HarpoonAction : Action
     private IEnumerator HitWithDelayRoutine()
     {
         delayDone = false;
-        for (float t = 0f; t < hit_delay; t += Time.deltaTime) 
+        for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             while(paused){
                 yield return null;
@@ -70,10 +74,10 @@ public class HarpoonAction : Action
         rope.SetPosition(0, harpoonStart.position);
         harpoon.transform.position = harpoonStart.position;
         harpoon.SetActive(true);
-        direction.y = 0;
-        direction.Normalize();
+        //direction.y = 0;
+        //direction.Normalize();
         hitbox.Fire(hit_duration);
-        for( float t = 0f; t < hit_duration; t+= Time.deltaTime){
+        for( t = 0f; t < hit_duration; t+= Time.deltaTime){
             while(paused){
                 rb.velocity = Vector3.zero;
                 Debug.Log("AHHH");
@@ -90,10 +94,11 @@ public class HarpoonAction : Action
             timeTohit = t;
             yield return null;
         }
+        returning = true;
         StartCoroutine(ReturnHarpoon());
     }
     private IEnumerator ReturnHarpoon(){
-        float t = 0;
+        t = 0;
         while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>1f && t < timeTohit*2){
             while(paused){
                 rb.velocity = Vector3.zero;
@@ -117,4 +122,19 @@ public class HarpoonAction : Action
         delayDone = true;
     }
     public override bool IsDone() { return delayDone; }
+    public float GetRemainingTime(){
+        if(!returning){
+            return t;
+        }
+        return hit_duration;
+    }
+    public float GetSpeed(){
+        return speed;
+    }
+    public float GetHitDuration(){
+        return hit_duration;
+    }
+    public Vector3 GetDirection(){
+        return direction;
+    }
 }
