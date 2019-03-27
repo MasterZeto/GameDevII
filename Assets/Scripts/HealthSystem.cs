@@ -50,4 +50,6 @@ public class HealthSystem : MonoBehaviour
         }
         UpdateHealthBar();
     }
+
+    public float GetHealthPercent() { return (hitPoints / maxHitPoints); }
 }
