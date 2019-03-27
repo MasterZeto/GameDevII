@@ -10,7 +10,7 @@ public class DiamondChild : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        transform.LookAt(player.transform);
+      //  transform.LookAt(player.transform);
     }
 
  
