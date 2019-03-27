@@ -7,6 +7,5 @@ public class SetBlackboardPlayerPos : MonoBehaviour
 {
     void Update()
     {
-        Blackboard.player_position = transform.position;
     }
 }

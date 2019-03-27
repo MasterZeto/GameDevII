@@ -47,15 +47,15 @@ namespace Giga.AI.Blackboard
             );
         }
 
-       /* public float GetPlayerHealthPercent()
-        {
-            return player.healthSystem.GetHealthPercent();
-        }
+     //   public float GetPlayerHealthPercent()
+      //  {
+          // return player.healthSystem.GetHealthPercent();
+     //  }
 
-        public float GetOpponentHealth()
-        {
-            return opponent.healthSystem.GetHealthPercent();
-        }*/
+     //  public float GetOpponentHealth()
+       // {
+           // return opponent.healthSystem.GetHealthPercent();
+     //   }
 
     }
 }   
