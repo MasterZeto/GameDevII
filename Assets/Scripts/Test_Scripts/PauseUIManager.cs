@@ -103,6 +103,7 @@ using UnityEngine;
             AddToQueue(bttns[i]);
         }
         void AddToQueue(Button bttn){
+            if(fc.stunned) return;
             int index=bttns.IndexOf(bttn);
             if(PauseScript.pauseQueue.Count<maxQueued&&currentHeat+heatVal[index]<fc.max_heat){
                 Button newBttn = Instantiate(bttn);

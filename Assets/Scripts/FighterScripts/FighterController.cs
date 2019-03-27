@@ -44,11 +44,14 @@ public class FighterController : MonoBehaviour
 
     public bool pause = false;
 
+    public bool stunned { get; private set; }
+
     void Awake()
     {
         character = GetComponent<CharacterController>();
         current_action = null;
         heat = 0;
+        stunned = false;
     }
 
     void Update()
@@ -152,6 +155,7 @@ public class FighterController : MonoBehaviour
         pause = true;
     }
     public void Stun(){
+        stunned = true;
         Pause();
         //set stunned animation here?
     }
@@ -161,6 +165,7 @@ public class FighterController : MonoBehaviour
         if (current_action != null) current_action.Resume();
         animator.enabled = true;
         pause = false;
+        stunned = false;
     }
     public GameObject GetOpponent()
     {
