@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ab8c4e1a4595494bb1050cb917b4762
+guid: 1ba589433abe6004dac801cff476ada1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Pearl
+    4300000: Harpoon
   externalObjects: {}
   materials:
     importMaterials: 1
