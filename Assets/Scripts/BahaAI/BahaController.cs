@@ -7,6 +7,7 @@ public class BahaController : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] float shortDistance;
+    HarpoonAction harpoonCheck;
     FighterController fc;
     float t = 0;
     
@@ -34,10 +35,17 @@ public class BahaController : MonoBehaviour
             return 1;
         }
     }
+    int playerAttached () {
+        if(harpoonCheck.playerHit){
+            return 0;
+        }
+        return 1;
+    }
     Queue<ActionDelegate> actions;
 
     void Awake()
-    {  
+    {
+        harpoonCheck = GetComponent<HarpoonAction>();  
         fc = GetComponent<FighterController>();
         actions = new Queue<ActionDelegate>();
     }
@@ -58,13 +66,27 @@ public class BahaController : MonoBehaviour
                                     new ActionNode(fc.DashRight),
                                     new ActionNode(fc.DashForward),
                                     new ActionNode(fc.LeftPunch),
-                                    new ActionNode(fc.RightKick)
+                                    new ActionNode(fc.RightKick),
+                                    new SelectorNode(
+                                        playerAttached,
+                                        new List<Node>{
+                                            new ActionNode(fc.RightPunch),
+                                            new ActionNode(fc.DashRight)
+                                        }
+                                    )
                                 }
                             ),
                             new SequencerNode(
                                 new List<Node>{
                                     new ActionNode(fc.DashRight),
-                                    new ActionNode(fc.LeftPunch)
+                                    new ActionNode(fc.LeftPunch),
+                                    new SelectorNode(
+                                        playerAttached,
+                                        new List<Node>{
+                                            new ActionNode(fc.RightPunch),
+                                            new ActionNode(fc.DashRight)
+                                        }
+                                    )
                                 }
                             )
                         }

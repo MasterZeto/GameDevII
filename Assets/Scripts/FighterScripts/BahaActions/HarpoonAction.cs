@@ -16,7 +16,7 @@ public class HarpoonAction : Action
     Harpooned hitCheck;
     bool paused = false;
     bool delayDone = false;
-    bool playerHit = false;
+    public bool playerHit { get; private set; }
     float timeTohit;
 
     public void Start(){
@@ -29,6 +29,7 @@ public class HarpoonAction : Action
     public override void StartAction(FighterController fighter) 
     {
         this.fighter = fighter;
+        playerHit = false;
         fighter.SetTrigger(anim_name);
         harpoon.SetActive(false);
         StartCoroutine(HitWithDelayRoutine());
@@ -76,7 +77,10 @@ public class HarpoonAction : Action
             rb.velocity=direction*speed;
             Debug.Log(hitbox.active);
             rope.SetPosition(1, harpoon.transform.position);
-            if(hitCheck.playerAttached) break;
+            if(hitCheck.playerAttached){
+                playerHit = true;
+                break;
+            } 
             if(hitCheck.isStunned) break;
             timeTohit = t;
             yield return null;
