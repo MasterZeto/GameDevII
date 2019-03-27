@@ -5898,7 +5898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   hitbox: {fileID: 329427334}
-  speed: 100
+  speed: 200
   harpoon: {fileID: 329427331}
   harpoonStart: {fileID: 400691580}
   hit_duration: 0.7
