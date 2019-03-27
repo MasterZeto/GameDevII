@@ -1646,6 +1646,7 @@ GameObject:
   - component: {fileID: 1060885027}
   - component: {fileID: 1060885026}
   - component: {fileID: 1060885030}
+  - component: {fileID: 1060885034}
   - component: {fileID: 1060885031}
   - component: {fileID: 1060885032}
   - component: {fileID: 1060885033}
@@ -1735,7 +1736,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060885025}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c13aa4b4bbb674b9d0b0c025ce13cb, type: 3}
   m_Name: 
@@ -1870,6 +1871,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1060885034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060885025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf4d4aedcf12ea49b87f10ebae33998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
+  _collider: {fileID: 1060885026}
+  cooldown: 0
 --- !u!114 &1066978156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7244392185395256270, guid: 1d6e3ddef44afc04d8cbe4a3ff60f7d9,
@@ -5648,7 +5664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  hitbox: {fileID: 1060885030}
+  hitbox: {fileID: 1060885034}
   speed: 5
   harpoon: {fileID: 1060885025}
   harpoonStart: {fileID: 400691580}

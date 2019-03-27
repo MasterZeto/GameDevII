@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HarpoonAction : Action
 {
-    public Hitbox hitbox;
+    public HitboxForGems hitbox;
     [SerializeField] float speed = 5f;
     [SerializeField] GameObject harpoon;
     [SerializeField] Transform harpoonStart;
@@ -17,6 +17,7 @@ public class HarpoonAction : Action
     bool paused = false;
     bool delayDone = false;
     bool playerHit = false;
+    float timeTohit;
 
     public void Start(){
         //anchor.IsActive(false);
@@ -51,6 +52,7 @@ public class HarpoonAction : Action
     private IEnumerator HitWithDelayRoutine()
     {
         delayDone = false;
+        Vector3 direction = transform.forward;
         for (float t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             while(paused){
@@ -62,33 +64,35 @@ public class HarpoonAction : Action
         rope.SetPosition(0, harpoonStart.position);
         harpoon.transform.position = harpoonStart.position;
         harpoon.SetActive(true);
-        Vector3 direction = transform.forward;
         direction.y = 0;
         direction.Normalize();
         hitbox.Fire(hit_duration);
+        rb.velocity=direction*speed;
         for( float t = 0f; t < hit_duration; t+= Time.deltaTime){
             while(paused){
                 Debug.Log("AHHH");
                 yield return null;
             }
             Debug.Log(hitbox.active);
-            rb.position += direction*speed;
             rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached) break;
             if(hitCheck.isStunned) break;
+            timeTohit = t;
             yield return null;
         }
         StartCoroutine(ReturnHarpoon());
     }
     private IEnumerator ReturnHarpoon(){
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>1f){
+        Vector3 direction = harpoonStart.forward;
+        rb.velocity=-direction*speed/2;
+        float t = 0;
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>1f && t < timeTohit*2){
             while(paused){
                 yield return null;
             }
-            Vector3 direction = harpoonStart.forward;
+            t+=Time.deltaTime;
             direction.y = 0;
             direction.Normalize();
-            rb.position -= direction*speed/2;
             rope.SetPosition(1, harpoon.transform.position);
             yield return null;
         }
@@ -102,5 +106,5 @@ public class HarpoonAction : Action
         rope.positionCount = 0;
         delayDone = true;
     }
-    public override bool IsDone() { return !hitbox.active&&delayDone; }
+    public override bool IsDone() { return delayDone; }
 }
