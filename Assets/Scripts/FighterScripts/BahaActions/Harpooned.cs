@@ -38,7 +38,7 @@ public class Harpooned : MonoBehaviour
             playerCon.Stun();
             playerAttached = true;
         }
-        else if(other.gameObject.tag == "Border"&&!isStunned){
+        else if(other.gameObject.tag == "Border"&&!isStunned&&!playerAttached){
             Debug.Log("Is now stunned");
             isStunned = true;
             if(bahaCon!=null){

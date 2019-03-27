@@ -18,6 +18,8 @@ public class HarpoonAction : Action
     bool delayDone = false;
     public bool playerHit { get; private set; }
     float timeTohit;
+    GameObject opponent;
+    Transform opponentLoc;
 
     public void Start(){
         //anchor.IsActive(false);
@@ -29,6 +31,8 @@ public class HarpoonAction : Action
     public override void StartAction(FighterController fighter) 
     {
         this.fighter = fighter;
+        opponent = fighter.GetOpponent();
+        opponentLoc = opponent.transform;
         playerHit = false;
         fighter.SetTrigger(anim_name);
         harpoon.SetActive(false);
@@ -53,7 +57,7 @@ public class HarpoonAction : Action
     private IEnumerator HitWithDelayRoutine()
     {
         delayDone = false;
-        Vector3 direction = transform.forward;
+        Vector3 direction = opponentLoc.position - transform.position;
         for (float t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             while(paused){
@@ -88,7 +92,7 @@ public class HarpoonAction : Action
         StartCoroutine(ReturnHarpoon());
     }
     private IEnumerator ReturnHarpoon(){
-        Vector3 direction = harpoonStart.forward;
+        Vector3 direction = opponentLoc.position - transform.position;
         float t = 0;
         while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>1f && t < timeTohit*2){
             while(paused){
