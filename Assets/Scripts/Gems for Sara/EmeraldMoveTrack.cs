@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class EmeraldMoveTrack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject child;
+    float RotationSpeed = 100;
+
     void Start()
     {
-        
+        child = Resources.Load("LaserBullet") as GameObject;
     }
 
-    // Update is called once per frame
+   //inject a laser buttle , rotate a bit and repeate this process
+   //rotate 30 degree, inject a buttle 
     void Update()
     {
-        
+        transform.Rotate(Vector3.up * (RotationSpeed * Time.deltaTime));
+      //  Instantiate(child, transform.position, Quaternion.identity);
     }
 }
