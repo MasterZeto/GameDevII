@@ -7,12 +7,16 @@ public class SaraBigWind : Action
     public Hitbox hitbox;
     [SerializeField] float hit_duration;
     [SerializeField] string anim_name;
+    ParticleSystem particle;
 
     public override void StartAction(FighterController fighter)
-    {
+    {   
         this.fighter = fighter;
+        particle = gameObject.GetComponentInChildren<ParticleSystem>();
         hitbox.Fire(hit_duration);
         fighter.SetTrigger(anim_name);
+        particle.Play();
+
   //      transform.gameObject.GetComponent<SoundBox>().MissSFX();
     }
 
