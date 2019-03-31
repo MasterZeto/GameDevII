@@ -111,7 +111,7 @@ public class HarpoonAction : Action
             rb.velocity = direction*speed/2;
             t+=Time.deltaTime;
             rope.SetPosition(1, harpoon.transform.position);
-            if(Vector3.Distance(opponentLoc.position,transform.position)<.5f&&hitCheck.playerAttached){
+            if(Vector3.Distance(opponentLoc.position,transform.position)<5f&&hitCheck.playerAttached){
                 break;
             }
             yield return null;
