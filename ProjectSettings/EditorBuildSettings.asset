@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BracketScenes/BajaBracketScene.unity
     guid: 01c98183bbc15f643b9451de11690292
+  - enabled: 1
+    path: Assets/Scenes/SaraOHara.unity
+    guid: 114188f0b81d3d64fb725775462b653c
+  - enabled: 1
+    path: Assets/Scenes/SawyerFight.unity
+    guid: c99ba5b234a01ca43b73eb18e38ab45d
   m_configObjects: {}

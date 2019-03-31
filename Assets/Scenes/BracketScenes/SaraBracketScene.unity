@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4760088e1cdef94d895ba531e0db2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target_scene: BajaBracketScene
+  target_scene: SaraOHara
   transition_time: 1
   fade: {fileID: 229027332}
 --- !u!1 &675568062
