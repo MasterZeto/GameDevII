@@ -20,7 +20,7 @@ public class HitboxForGems : MonoBehaviour
     //c is valid for collider on player
     void OnTriggerStay(Collider c)
     {
-        if (active&&c.gameObject.tag=="Player")
+        if (active&&c.gameObject.tag== "PlayerHurtbox")
         {
             Debug.Log("entered and active");
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
