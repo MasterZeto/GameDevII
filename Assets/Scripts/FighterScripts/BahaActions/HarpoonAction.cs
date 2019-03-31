@@ -91,10 +91,11 @@ public class HarpoonAction : Action
                 playerHit = true;
                 break;
             } 
-            if(hitCheck.isStunned) break;
             timeTohit = t;
+            if(hitCheck.isStunned) break;
             yield return null;
         }
+        rope.SetPosition(1, harpoon.transform.position);
         returning = true;
         StartCoroutine(ReturnHarpoon());
     }
@@ -102,7 +103,7 @@ public class HarpoonAction : Action
         t = 0;
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>.15f&&t<timeTohit*3){
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>.3f&&t<timeTohit*3){
             while(paused){
                 rb.velocity = Vector3.zero;
                 yield return null;
@@ -110,8 +111,12 @@ public class HarpoonAction : Action
             rb.velocity = direction*speed/2;
             t+=Time.deltaTime;
             rope.SetPosition(1, harpoon.transform.position);
+            if(Vector3.Distance(opponentLoc.position,transform.position)<.5f&&hitCheck.playerAttached){
+                break;
+            }
             yield return null;
         }
+        rb.velocity = Vector3.zero;
         if(hitCheck.playerAttached){
             hitCheck.UnparentPlayer();
         }
