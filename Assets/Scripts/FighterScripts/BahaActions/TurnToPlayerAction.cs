@@ -6,6 +6,7 @@ public class TurnToPlayerAction : Action
 {
     GameObject player;
     [SerializeField] float turnSpeed;
+    float actualTurnSpeed;
     bool paused = false;
     public void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
@@ -21,9 +22,11 @@ public class TurnToPlayerAction : Action
     private IEnumerator Turn(){
         float turnUntil = 0f;
         if(Vector3.Distance(player.transform.position, transform.position) > 20f){
+            actualTurnSpeed = turnSpeed;
             turnUntil = 1.999f;
         }
         else{
+            actualTurnSpeed = turnSpeed*2;
             turnUntil = 1.99f;
         }
         while(Vector3.Distance(transform.forward, player.transform.forward)<turnUntil){
@@ -32,7 +35,7 @@ public class TurnToPlayerAction : Action
             }
             Debug.Log("Is it stuck here?");
             Vector3 targetDir = player.transform.position - transform.position;
-            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, turnSpeed*Time.deltaTime, 0.0f);
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, actualTurnSpeed*Time.deltaTime, 0.0f);
             transform.rotation = Quaternion.LookRotation(newDir);
             transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,transform.eulerAngles.z);
             yield return null;
