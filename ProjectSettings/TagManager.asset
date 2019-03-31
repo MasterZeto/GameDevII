@@ -8,6 +8,7 @@ TagManager:
   - LeftCannon
   - RightCannon
   - DiamondChild
+  - Blackboard
   layers:
   - Default
   - TransparentFX

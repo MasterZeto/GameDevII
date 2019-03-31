@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VerticalSlice.unity
     guid: 9b7a4b3c8614f3c4dbd9151038f76d76
+  - enabled: 1
+    path: Assets/Scenes/BracketScenes/SawyerBracketScene.unity
+    guid: d2b34122c37353648a6b474639637525
+  - enabled: 1
+    path: Assets/Scenes/BracketScenes/SaraBracketScene.unity
+    guid: 829ce16f3eb186f45aa3a0a6185c0bfe
+  - enabled: 1
+    path: Assets/Scenes/BracketScenes/BajaBracketScene.unity
+    guid: 01c98183bbc15f643b9451de11690292
   m_configObjects: {}
