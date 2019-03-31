@@ -18,4 +18,14 @@ public class EmeraldChild : MonoBehaviour
     {
         transform.position += transform.forward * speed * Time.deltaTime;
     }
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+            Destroy(gameObject);
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag != "Player")
+            Destroy(gameObject);
+    }
 }

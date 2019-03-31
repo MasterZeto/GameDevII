@@ -28,9 +28,14 @@ public class PearlMoveTrack : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.tag == "Player")
+            Destroy(gameObject);
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag != "Player")
             Destroy(gameObject);
     }
 }
