@@ -242,6 +242,63 @@ MonoBehaviour:
   _damage: 10
   _collider: {fileID: 166799940}
   cooldown: 1
+--- !u!1001 &198522968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 82167919077961276}
+    m_Modifications:
+    - target: {fileID: 100002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_Name
+      value: BahaMech
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
 --- !u!114 &203280720 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7244392183656221329, guid: 1d6e3ddef44afc04d8cbe4a3ff60f7d9,
@@ -677,6 +734,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
+--- !u!4 &346861638 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 0eff87b5a7498b24a86be3b59580fb34,
+    type: 3}
+  m_PrefabInstance: {fileID: 198522968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &395778888 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4808665631547945176, guid: 98ec5dcf600b9394d8d93b138083961b,
@@ -707,7 +770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400691579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.99, z: 3.1}
+  m_LocalPosition: {x: 0.88, y: 6.7, z: 3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 329427332}
@@ -5754,7 +5817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1483727929}
-  shortDistance: 10
+  shortDistance: 15
 --- !u!114 &82167919077961220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5898,7 +5961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   hitbox: {fileID: 329427334}
-  speed: 200
+  speed: 100
   harpoon: {fileID: 329427331}
   harpoonStart: {fileID: 400691580}
   hit_duration: 0.7
@@ -5931,6 +5994,7 @@ Transform:
   m_Children:
   - {fileID: 230740394711943252}
   - {fileID: 8369149539105636126}
+  - {fileID: 346861638}
   - {fileID: 4613869398116472387}
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -10703,7 +10767,7 @@ Transform:
   - {fileID: 2903984418712293816}
   - {fileID: 1797354607136273728}
   m_Father: {fileID: 82167919077961276}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4615140247977469557
 Transform:

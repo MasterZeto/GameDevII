@@ -36,7 +36,8 @@ public class HarpoonAction : Action
         this.fighter = fighter;
         opponent = fighter.GetOpponent();
         opponentLoc = opponent.transform;
-        direction = opponentLoc.position - transform.position;
+        direction = opponentLoc.position - harpoonStart.transform.position;
+        direction.y/=3;
         direction.Normalize();
         playerHit = false;
         returning = false;
@@ -99,15 +100,15 @@ public class HarpoonAction : Action
     }
     private IEnumerator ReturnHarpoon(){
         t = 0;
+        direction = harpoonStart.transform.position - harpoon.transform.position;
+        direction.Normalize();
         while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>1f && t < timeTohit*2){
             while(paused){
                 rb.velocity = Vector3.zero;
                 yield return null;
             }
-            rb.velocity=-direction*speed/2;
+            rb.velocity = direction*speed/2;
             t+=Time.deltaTime;
-            direction.y = 0;
-            direction.Normalize();
             rope.SetPosition(1, harpoon.transform.position);
             yield return null;
         }
