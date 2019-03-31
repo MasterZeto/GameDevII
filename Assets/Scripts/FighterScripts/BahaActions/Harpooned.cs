@@ -10,7 +10,7 @@ public class Harpooned : MonoBehaviour
     GameObject player = null;
     float playerY;
     Vector3 playerLoc;
-    FighterController playerCon;
+    [SerializeField] FighterController playerCon;
     public bool isStunned = false;
     // Start is called before the first frame update
     void Start()
@@ -27,18 +27,20 @@ public class Harpooned : MonoBehaviour
         }
         
     }
-    void OnTriggerStay(Collider other)
+    public void ParentPlayer(Collider other)
     {
-        if(other.gameObject.tag == "Player"&&!playerAttached&&!isStunned){
+        if(!playerAttached&&!isStunned){
             Debug.Log("Player should now be attached");
-            playerY = other.gameObject.transform.position.y;
-            other.gameObject.transform.parent = this.gameObject.transform;
-            player = other.gameObject;
+            playerY = playerCon.gameObject.transform.position.y;
+            playerCon.gameObject.transform.parent = this.gameObject.transform;
+            player = playerCon.gameObject;
             playerCon = player.GetComponent<FighterController>();
             playerCon.Stun();
             playerAttached = true;
         }
-        else if(other.gameObject.tag == "Border"&&!isStunned&&!playerAttached){
+    }
+    public void StunBaha(Collider other)  {
+        if(!isStunned&&!playerAttached){
             Debug.Log("Is now stunned");
             isStunned = true;
             if(bahaCon!=null){

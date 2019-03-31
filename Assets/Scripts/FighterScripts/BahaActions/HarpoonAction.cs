@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HarpoonAction : Action
 {
-    public HitboxForGems hitbox;
+    public HitboxForHarpoon hitbox;
     [SerializeField] float speed = 5f;
     [SerializeField] GameObject harpoon;
     [SerializeField] Transform harpoonStart;
