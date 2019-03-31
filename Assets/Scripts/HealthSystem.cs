@@ -35,6 +35,10 @@ public class HealthSystem : MonoBehaviour
         {
             hitPoints = 0; 
             Debug.Log("DEAD");
+            /* TODO: fix this, we want to do specific things per character
+                when they die (player, should have a restart option, for the
+                opponent, should proceed to the next scene)
+             */
             SceneManager.LoadScene("EndScene"); 
             GameObject.Destroy(this.gameObject); 
         }
