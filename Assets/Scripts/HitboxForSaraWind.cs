@@ -16,14 +16,16 @@ public class HitboxForSaraWind : MonoBehaviour
     void Start() { active = false; cooldown = -1f; }
     //should not cause any damage, but should knock back player 
     //c should be the collider for the hurtbox
-    void OnTriggerEnter(Collider c)
+    void OnTriggerStay(Collider c)
     {
-        if (active)
-        { Debug.Log("hey I am active"); }
+      
 
-        if (active && c.gameObject.layer == LayerMask.NameToLayer("Hurtbox"))
-        {
-            Debug.Log("layer correct!");
+
+            // if (active && c.gameObject.layer == LayerMask.NameToLayer("Hurtbox"))
+
+            if (active)
+            {
+            Debug.Log("hey I am active");
             //c should be player hurtbox here 
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
             playerFighter = c.gameObject.GetComponentInParent<FighterController>();
@@ -32,22 +34,13 @@ public class HitboxForSaraWind : MonoBehaviour
                 playerFighter.SetTrigger("Stunned");
                 Debug.Log("should play stunned anim here");
             }
+            //need to add knock back here
             if (h != null)
             {
-                
-                //Debug.Log("oof");
-              //  active = false;
-              //  h.TakeDamage(_damage);
-
-             //   GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
-
-                //  transform.root.gameObject.GetComponent<SoundBox>().HitSFX();
-
-              //  GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
+      
             }
             else
             {
-                //    transform.root.gameObject.GetComponent<SoundBox>().MissSFX();
             }
         }
     }
