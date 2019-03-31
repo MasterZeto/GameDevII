@@ -10,9 +10,7 @@ public class SaraDashBack : DashAction
     {
         running = true;
         this.fighter = fighter;
-      //  fighter.SetBoolTrue(anim_name);
-        //  fighter.SetBoolFalse("ZigLeft");
-        //  fighter.SetBoolFalse("ZigRight");
+    
 
         StartCoroutine(DashBackwardRoutine());
     }
