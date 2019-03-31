@@ -28,9 +28,9 @@ public class BTSaraAI: MonoBehaviour
     }
     int Distance()
     {
-        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 15f)
+        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 17f)
         { return 0; }
-        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 8f)
+        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 10f)
         { return 2; }
         else { return 1; }
 

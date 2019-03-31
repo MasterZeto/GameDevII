@@ -19,7 +19,7 @@ public class SaraCoolDown:DashAction
     public override void Stop() { running = false; }
     public override void Pause() { paused = true; }
     public override void Resume() { paused = false; }
-
+    //cool down and at the same time move toward player
     private IEnumerator CoolDown()
     {
 
@@ -29,7 +29,8 @@ public class SaraCoolDown:DashAction
             {
                 yield return null;
             }
-  
+            fighter.UnsafeMove(fighter.transform.forward * 0.2f*dash_speed);
+
             yield return null;
         }
         running = false;
