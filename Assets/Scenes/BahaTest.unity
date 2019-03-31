@@ -6025,7 +6025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  turnSpeed: 2
+  turnSpeed: 2.5
 --- !u!4 &82167919077961276
 Transform:
   m_ObjectHideFlags: 0

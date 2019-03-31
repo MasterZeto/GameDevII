@@ -26,7 +26,7 @@ public class TurnToPlayerAction : Action
             turnUntil = 1.999f;
         }
         else{
-            actualTurnSpeed = turnSpeed*2;
+            actualTurnSpeed = turnSpeed*1.5f;
             turnUntil = 1.99f;
         }
         while(Vector3.Distance(transform.forward, player.transform.forward)<turnUntil){
