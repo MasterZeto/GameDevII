@@ -27,10 +27,10 @@ public class Harpooned : MonoBehaviour
         }
         
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         Debug.Log(other.gameObject.tag);
-        if(other.gameObject.tag == "Player"){
+        if(other.gameObject.tag == "Player"&&!playerAttached&&!isStunned){
             playerY = other.gameObject.transform.position.y;
             other.gameObject.transform.parent = this.gameObject.transform;
             player = other.gameObject;
