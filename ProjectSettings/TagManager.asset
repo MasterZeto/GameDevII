@@ -9,6 +9,7 @@ TagManager:
   - RightCannon
   - DiamondChild
   - Blackboard
+  - PlayerHurtbox
   layers:
   - Default
   - TransparentFX

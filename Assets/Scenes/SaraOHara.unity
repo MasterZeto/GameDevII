@@ -911,7 +911,7 @@ GameObject:
   - component: {fileID: 460360420}
   m_Layer: 10
   m_Name: Hurtbox
-  m_TagString: Untagged
+  m_TagString: PlayerHurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 0
   _collider: {fileID: 842313223}
-  cooldown: 0.5
+  cooldown: 0
 --- !u!65 &842313223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1779,13 +1779,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
+  m_Height: 5
   m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &846331270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   hitbox: {fileID: 842313222}
-  hit_duration: 2
+  hit_duration: 0
   anim_name: BigWind
 --- !u!114 &846331272
 MonoBehaviour:
@@ -2894,6 +2894,26 @@ PrefabInstance:
         type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c37ba46be8a40a458cc1b60532ed1e2, type: 3}

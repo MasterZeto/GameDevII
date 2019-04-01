@@ -13,16 +13,15 @@ public class SaraBigWind : Action
     public override void StartAction(FighterController fighter)
     {   
         this.fighter = fighter;
-        particle = gameObject.GetComponentInChildren<ParticleSystem>();
- 
-        
         fighter.SetTrigger(anim_name);
+        particle = gameObject.GetComponentInChildren<ParticleSystem>();
+        particle.Play();
+
+
         //should fire once here 
         hitbox.Fire(hit_duration);
-
-
-        particle.Play();
-      //  hitbox.gameObject.SetActive(true);
+     
+     
      
      
 
