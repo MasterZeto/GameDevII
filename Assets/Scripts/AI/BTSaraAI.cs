@@ -128,8 +128,8 @@ public class BTSaraAI: MonoBehaviour
         void Update()
         {
             Debug.Log(Sara.IsActing());
-            if (actions.Count == 0) actions =behaviorTree.Evaluate();
-
+        if (actions.Count == 0) actions = behaviorTree.Evaluate();
+        else if (Distance() == 2) actions = behaviorTree.Evaluate();
             if (!Sara.IsActing()) (actions.Dequeue())();
         //do I need to update distance here?
        

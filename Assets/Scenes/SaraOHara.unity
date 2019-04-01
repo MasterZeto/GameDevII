@@ -1690,8 +1690,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.127946, y: 1, z: 9.78908}
-  m_Center: {x: -0.054413263, y: -1, z: 0.44547367}
+  m_Size: {x: 2.127946, y: 1, z: 8.051678}
+  m_Center: {x: -0.054413263, y: -1, z: -0.4232273}
 --- !u!1 &846331266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 886121891}
   - component: {fileID: 886121892}
   - component: {fileID: 886121893}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: HurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
