@@ -28,7 +28,7 @@ public class BTSaraAI: MonoBehaviour
     }
     int Distance()
     {
-        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 17f)
+        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 15f)
         { return 0; }
         else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 10f)
         { return 2; }
@@ -99,7 +99,7 @@ public class BTSaraAI: MonoBehaviour
             new SelectorNode(
                 Distance,
                 new List<Node>()
-                {
+                {  //left right projectile here and tilt left and right
                     new SequencerNode(
                         new List<Node>(){
                         new ActionNode(A1),
@@ -108,9 +108,9 @@ public class BTSaraAI: MonoBehaviour
                         new ActionNode(A8)
                         }
                         ),
-
+                    //dash away from player
                      new ActionNode(A3),
-
+                     //air push with a cool down 
                       new SequencerNode(
                         new List<Node>(){
                         new ActionNode(A4),
@@ -131,8 +131,8 @@ public class BTSaraAI: MonoBehaviour
             if (actions.Count == 0) actions =behaviorTree.Evaluate();
 
             if (!Sara.IsActing()) (actions.Dequeue())();
-            //do I need to update distance here?
-            t += Time.deltaTime;
+        //do I need to update distance here?
+       
         }
 
       //  while (actions.Count > 0)

@@ -18,7 +18,8 @@ public class SaraBigWind : Action
         particle.Play();
 
 
-        //should fire once here 
+        //should fire once here
+        //hit_duration is set to be 0 over inspector
         hitbox.Fire(hit_duration);
      
      

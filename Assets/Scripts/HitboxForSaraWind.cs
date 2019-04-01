@@ -28,7 +28,7 @@ public class HitboxForSaraWind : MonoBehaviour
             if (playerFighter != null&&playerFighter.gameObject.tag=="Player")
             {
                 playerFighter.SetTrigger("Stunned");
-                playerFighter.Move(-playerFighter.gameObject.transform.forward*40f);
+                playerFighter.Move(-playerFighter.gameObject.transform.forward*60f);
                 Debug.Log("should play stunned anim here");
             }
             //need to add knock back here
@@ -46,6 +46,7 @@ public class HitboxForSaraWind : MonoBehaviour
     {
         if (!active && cooldown <= 0f)
         {
+            Debug.Log("fire fire!!");
             active = true;
             StartCoroutine(FireRoutine(duration));
         }
@@ -69,14 +70,15 @@ public class HitboxForSaraWind : MonoBehaviour
         cooldown = duration;
 
        
-        while (cooldown >= 0f)
-        {
-            cooldown -= Time.deltaTime * timescale;
-            yield return null;
-        }
-
-        active = false;
-       // gameObject.SetActive(false);
+      
+           while (cooldown >= 0f)
+           {
+               cooldown -= Time.deltaTime * timescale;
+               yield return null;
+           }
+           
+         active = false;
+        // gameObject.SetActive(false);
     }
 
 }

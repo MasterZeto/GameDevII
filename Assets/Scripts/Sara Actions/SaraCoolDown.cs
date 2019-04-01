@@ -6,7 +6,7 @@ public class SaraCoolDown:DashAction
 {
     [SerializeField] string anim_name;
     bool paused;
-    float cdTime = 3f;
+    float cdTime = 2f;
     public override void StartAction(FighterController fighter)
     {
         running = true;
