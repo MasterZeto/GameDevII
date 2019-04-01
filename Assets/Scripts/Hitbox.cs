@@ -22,13 +22,14 @@ public class Hitbox : MonoBehaviour
     {
         if (active)
         {
-            Debug.Log("entered and active");
-        
+            Debug.Log("entered and active for player hitbox");
+            Debug.Log(c.gameObject.layer);
+
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
 
             if (h != null)
             {
-                //Debug.Log("oof");
+                Debug.Log("opponent hurtbox get");
                 active = false;
                 h.TakeDamage(_damage);
 

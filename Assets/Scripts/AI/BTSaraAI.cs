@@ -30,7 +30,7 @@ public class BTSaraAI: MonoBehaviour
     {
         if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 15f)
         { return 0; }
-        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 10f)
+        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 8f)
         { return 2; }
         else { return 1; }
 

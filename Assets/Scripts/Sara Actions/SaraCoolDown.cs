@@ -29,7 +29,7 @@ public class SaraCoolDown:DashAction
             {
                 yield return null;
             }
-            fighter.UnsafeMove(fighter.transform.forward * 0.2f*dash_speed);
+            fighter.UnsafeMove(fighter.transform.forward * 0.4f*dash_speed);
 
             yield return null;
         }
