@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 0eff87b5a7498b24a86be3b59580fb34
+=======
+guid: 0126d9a9784bf45d78cb913148f095cc
+>>>>>>> alpha_art
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -255,6 +259,7 @@ ModelImporter:
     4300124: LeftFoot
     4300126: RightEye
     4300128: LeftEye
+<<<<<<< HEAD
     7400000: Idle
     7400002: Walk Forward
     7400004: Walk Backward
@@ -270,6 +275,9 @@ ModelImporter:
     7400024: Gloat
     7400026: Stunned
     7400028: Misc
+=======
+    7400000: Take 001
+>>>>>>> alpha_art
     9500000: //RootNode
     13700000: Anchor1
     13700002: Head
@@ -363,6 +371,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
+<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: Idle
@@ -784,6 +793,9 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+=======
+    clipAnimations: []
+>>>>>>> alpha_art
     isReadable: 1
   meshes:
     lODScreenPercentages: []

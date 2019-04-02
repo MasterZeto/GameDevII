@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f475dfda06fc29a47a7de4758cfe9f6b
+=======
+guid: 99bacf3a8992844b99f23082db5920c1
+>>>>>>> alpha_art
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}

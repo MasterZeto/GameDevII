@@ -1,18 +1,91 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 1ba589433abe6004dac801cff476ada1
-=======
-guid: 908818986f802407597415c02b9eca2f
->>>>>>> alpha_art
+guid: dff60a7a1d7824dfeace327569b3a1ec
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Antenna1
+    100002: Antenna2
+    100004: Antenna3
+    100006: Arms
+    100008: Base
+    100010: Claw1
+    100012: Claw2
+    100014: Claw3
+    100016: Claw4
+    100018: //RootNode
+    100020: Head
+    100022: LeftEye
+    100024: Mouth
+    100026: RightEye
+    100028: Ring1
+    100030: Ring2
+    100032: Torso
+    400000: Antenna1
+    400002: Antenna2
+    400004: Antenna3
+    400006: Arms
+    400008: Base
+    400010: Claw1
+    400012: Claw2
+    400014: Claw3
+    400016: Claw4
+    400018: //RootNode
+    400020: Head
+    400022: LeftEye
+    400024: Mouth
+    400026: RightEye
+    400028: Ring1
+    400030: Ring2
+    400032: Torso
     2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Harpoon
+    2300000: Antenna1
+    2300002: Antenna2
+    2300004: Antenna3
+    2300006: Arms
+    2300008: Base
+    2300010: Claw1
+    2300012: Claw2
+    2300014: Claw3
+    2300016: Claw4
+    2300018: Head
+    2300020: LeftEye
+    2300022: Mouth
+    2300024: RightEye
+    2300026: Ring1
+    2300028: Ring2
+    2300030: Torso
+    3300000: Antenna1
+    3300002: Antenna2
+    3300004: Antenna3
+    3300006: Arms
+    3300008: Base
+    3300010: Claw1
+    3300012: Claw2
+    3300014: Claw3
+    3300016: Claw4
+    3300018: Head
+    3300020: LeftEye
+    3300022: Mouth
+    3300024: RightEye
+    3300026: Ring1
+    3300028: Ring2
+    3300030: Torso
+    4300000: Base
+    4300002: Torso
+    4300004: Head
+    4300006: RightEye
+    4300008: LeftEye
+    4300010: Mouth
+    4300012: Antenna1
+    4300014: Antenna2
+    4300016: Antenna3
+    4300018: Ring1
+    4300020: Claw1
+    4300022: Claw2
+    4300024: Claw3
+    4300026: Claw4
+    4300028: Arms
+    4300030: Ring2
   externalObjects: {}
   materials:
     importMaterials: 1
