@@ -148,7 +148,7 @@ public class InputHandler : MonoBehaviour
         }
         if (rp >= 0.999f && rp_ready) 
         {
-            Debug.Log("RightPunch");
+ //           Debug.Log("RightPunch");
             if(!cam.pause){
                 fighter.RightPunch();
             }

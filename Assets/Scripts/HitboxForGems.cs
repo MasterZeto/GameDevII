@@ -51,6 +51,9 @@ public class HitboxForGems : MonoBehaviour
             active = true;
             StartCoroutine(FireRoutine(duration));
         }*/
+        if(!active){
+            active = true;
+        }
     }
 
     public void Pause()

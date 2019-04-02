@@ -7,6 +7,7 @@ public class PauseScript : MonoBehaviour
     //main script dealing w/ the pause stuff
     //replace fightercontroller here for w/e is responsible for pausing the enemy
     [SerializeField] FighterController enemy;
+    [SerializeField] GameObject enemyGameObject;
     [SerializeField] PauseUIManager UIManager;
     [SerializeField] GameObject predictor;
     [SerializeField] List<Camera> actionCams;
@@ -19,7 +20,9 @@ public class PauseScript : MonoBehaviour
     bool pause = false;
     bool executing = false;
     bool up = true;
+    bool isProjectile = false;
     Collider col;
+    [SerializeField] LineRenderer lr;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,15 +46,16 @@ public class PauseScript : MonoBehaviour
             cam.enabled = false;
         }
         mainCam = Camera.main;
+        lr.positionCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(col!=null&&pause){
+        if(col!=null&&pause&&!isProjectile){
             Debug.Log(col.bounds.center);
             Debug.Log(col);
-            col=enemy.GetHitbox();
+            col=enemy.GetHitbox(ref isProjectile);
             predictor.transform.position=col.gameObject.transform.position;
             predictor.SetActive(true);
             if(col.enabled){
@@ -74,15 +78,17 @@ public class PauseScript : MonoBehaviour
                 GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowSFX();
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
-                    col=enemy.GetHitbox();
-                    if(col!=null){
+                    col=enemy.GetHitbox(ref isProjectile);
+                    if(col!=null&&!isProjectile){
                         Debug.Log("the boy is here");
                         predictor.transform.localScale=col.bounds.size;
                         predictor.transform.eulerAngles=enemy.transform.eulerAngles;
                     }
-                    enemy.Pause();
-                    if(col!=null){
-                    }      
+                    else if(col!=null){
+                        //check type of path somewhere to adjust line renderer?
+                        StartCoroutine(DrawPath());
+                    }
+                    enemy.Pause();  
                 }   
             }
             else if(pause&&!executing){
@@ -150,6 +156,10 @@ public class PauseScript : MonoBehaviour
             if(col!=null){
                 col.enabled = true;
             }
+            if(isProjectile){
+                lr.positionCount = 0;
+            }
+            isProjectile = false;
         }
         playerActions.pause = false;
         UIManager.HidePauseHeat();
@@ -162,4 +172,36 @@ public class PauseScript : MonoBehaviour
     }
     //used for the queue :/
     public delegate void voidDelegate();
+    private IEnumerator DrawPath(){
+        int counter = 0;
+        while(counter!=1){
+            yield return null;
+            counter++;
+        }
+        lr.positionCount = 2;
+        HarpoonAction harp = enemy.GetHarpoonAction();
+        //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+        lr.transform.position = harp.hitbox.gameObject.transform.position;
+        //CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
+        lr.SetPosition(0, lr.gameObject.transform.position);
+        if(harp.GetRemainingTime()>=harp.GetHitDuration()){
+            lr.positionCount = 0;
+        }
+        for(float t = harp.GetRemainingTime(); t < harp.GetHitDuration(); t+=Time.unscaledDeltaTime){
+            //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+            lr.gameObject.transform.position+=(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+            Debug.Log(lr.gameObject.transform.position);
+            lr.SetPosition(1, lr.gameObject.transform.position);
+            yield return null;
+        }
+        /*Vector3 direction = lr.gameObject.transform.position;
+        float y = direction.y;
+        direction.y = 0;
+        direction.Normalize();
+        direction.x*=-5;
+        direction.z*=-5;
+        direction.y = y;
+        lr.SetPosition(1, direction);*/
+        yield return null;
+    }
 }
