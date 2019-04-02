@@ -32,7 +32,7 @@ public class HitboxForSaraWind : MonoBehaviour
            playerFighter = c.gameObject.GetComponentInParent<FighterController>();
             if (playerFighter != null&&playerFighter.gameObject.tag=="Player")
             {
-                playerFighter.SetTrigger("Stunned");
+               // playerFighter.SetTrigger("Stunned");
                 knock_back = true;
        /*         impact = -playerFighter.gameObject.transform.forward * 100f;
                 if (impact.magnitude > 0.2f)

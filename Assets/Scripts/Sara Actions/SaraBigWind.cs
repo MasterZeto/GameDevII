@@ -10,11 +10,15 @@ public class SaraBigWind : Action
     [SerializeField] string anim_name;
     ParticleSystem particle;
     float chaseTime = 1f;
+    FighterController player;
 
     public override void StartAction(FighterController fighter)
     {   
         this.fighter = fighter;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<FighterController>();
         fighter.SetTrigger(anim_name);
+        player.SetTrigger("Stunned");
+
         particle = gameObject.GetComponentInChildren<ParticleSystem>();
         particle.Play();
 
