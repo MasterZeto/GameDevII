@@ -7,13 +7,18 @@ public class HitboxForSaraWind : MonoBehaviour
     [SerializeField] float _damage;
     public Collider _collider;
     FighterController playerFighter;
+    FighterController player;
+    bool knock_back = false;
 
     public bool active { get; private set; }
     public float cooldown;
+    Vector3 impact = Vector3.zero;
 
     float timescale = 1f;
 
-    void Start() { active = false; cooldown = -1f; }
+    void Start() { active = false; cooldown = -1f;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<FighterController>();
+    }
     //should not cause any damage, but should knock back player 
     //c should be the collider for the hurtbox
     void OnTriggerStay(Collider c)
@@ -24,11 +29,16 @@ public class HitboxForSaraWind : MonoBehaviour
             Debug.Log("hey I am active");
             //c should be player hurtbox here 
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
-            playerFighter = c.gameObject.GetComponentInParent<FighterController>();
+           playerFighter = c.gameObject.GetComponentInParent<FighterController>();
             if (playerFighter != null&&playerFighter.gameObject.tag=="Player")
             {
                 playerFighter.SetTrigger("Stunned");
-                playerFighter.Move(-playerFighter.gameObject.transform.forward * 200f*Time.deltaTime );
+                knock_back = true;
+       /*         impact = -playerFighter.gameObject.transform.forward * 100f;
+                if (impact.magnitude > 0.2f)
+                { playerFighter.Move(impact * Time.deltaTime); }
+                impact = Vector3.Lerp(impact, Vector3.zero, 1* Time.deltaTime);*/
+                // playerFighter.Move(-playerFighter.gameObject.transform.forward * 20f );
                 Debug.Log("should play stunned anim here");
             }
             //need to add knock back here
@@ -41,7 +51,30 @@ public class HitboxForSaraWind : MonoBehaviour
             }
         }
     }
+    void OnTriggerExit(Collider c)
+    {
+       
+        
+            playerFighter = c.gameObject.GetComponentInParent<FighterController>();
+            if (playerFighter != null && playerFighter.gameObject.tag == "Player")
+            {
+                //playerFighter.SetTrigger("Stunned");
+                knock_back = false;
 
+            }
+        
+    }
+    void FixedUpdate()
+    {
+
+        if (knock_back)
+        {
+            impact = -player.gameObject.transform.forward * 100f;
+            if (impact.magnitude > 0.2f)
+            { player.Move(impact * Time.deltaTime); }
+            impact = Vector3.Lerp(impact, Vector3.zero, 1 * Time.deltaTime);
+        }
+    }
     public void Fire(float duration)
     {
         if (!active && cooldown <= 0f)
