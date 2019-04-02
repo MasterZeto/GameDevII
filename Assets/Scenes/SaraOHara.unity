@@ -1690,8 +1690,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.127946, y: 1, z: 8.051678}
-  m_Center: {x: -0.054413263, y: -1, z: -0.4232273}
+  m_Size: {x: 1.9255714, y: 1, z: 10.864225}
+  m_Center: {x: -0.041802865, y: -1, z: 0.98304653}
 --- !u!1 &846331266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,6 +1712,7 @@ GameObject:
   - component: {fileID: 846331272}
   - component: {fileID: 846331274}
   - component: {fileID: 846331275}
+  - component: {fileID: 846331276}
   m_Layer: 0
   m_Name: SaraOHara
   m_TagString: Opponent
@@ -1757,7 +1758,7 @@ MonoBehaviour:
   opponent_object: {fileID: 1483727925}
   dash_left: {fileID: 846331273}
   dash_right: {fileID: 846331272}
-  dash_forward: {fileID: 0}
+  dash_forward: {fileID: 846331276}
   dash_backward: {fileID: 147508556430982887}
   dash_backward_left: {fileID: 0}
   dash_backward_right: {fileID: 0}
@@ -1877,6 +1878,22 @@ MonoBehaviour:
   heat: 0
   dash_speed: 7
   dash_duration: 2
+  anim_name: 
+--- !u!114 &846331276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846331266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d12a5443e0b984f850f0462716af3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  dash_speed: 9
+  dash_duration: 0.3
   anim_name: 
 --- !u!1 &886121889
 GameObject:

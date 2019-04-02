@@ -9,6 +9,7 @@ public class SaraBigWind : Action
     [SerializeField] float hit_duration;
     [SerializeField] string anim_name;
     ParticleSystem particle;
+    float chaseTime = 1f;
 
     public override void StartAction(FighterController fighter)
     {   
@@ -21,10 +22,11 @@ public class SaraBigWind : Action
         //should fire once here
         //hit_duration is set to be 0 over inspector
         hitbox.Fire(hit_duration);
-     
-     
-     
-     
+ 
+
+
+
+
 
         //      transform.gameObject.GetComponent<SoundBox>().MissSFX();
     }
@@ -43,4 +45,5 @@ public class SaraBigWind : Action
     {
         return !hitbox.active;
     }
+
 }

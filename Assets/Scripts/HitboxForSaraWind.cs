@@ -28,7 +28,7 @@ public class HitboxForSaraWind : MonoBehaviour
             if (playerFighter != null&&playerFighter.gameObject.tag=="Player")
             {
                 playerFighter.SetTrigger("Stunned");
-                playerFighter.Move(-playerFighter.gameObject.transform.forward * 90f );
+                playerFighter.Move(-playerFighter.gameObject.transform.forward * 200f*Time.deltaTime );
                 Debug.Log("should play stunned anim here");
             }
             //need to add knock back here

@@ -34,7 +34,7 @@ public class BTSaraAI: MonoBehaviour
     {
         if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 20f)
         { return 0; }
-        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 8f)
+        else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 10f)
         {  return 2; }
         else { return 1; }
 
@@ -126,6 +126,14 @@ public class BTSaraAI: MonoBehaviour
         third = false;
         Debug.Log("tilt left");
         Sara.DashRight();}
+    void A9() {
+        first = false;
+        second = false;
+        third = true;
+        Sara.DashForward();
+
+
+    }
 
     void Start()
     {
@@ -148,6 +156,7 @@ public class BTSaraAI: MonoBehaviour
                      //air push with a cool down 
                       new SequencerNode(
                         new List<Node>(){
+                        new ActionNode(A9),
                         new ActionNode(A4),
                         new ActionNode(A5)
                      //   new ActionNode(A6)
