@@ -32,7 +32,7 @@ public class BTSaraAI: MonoBehaviour
     }
     int Distance()
     {
-        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 20f)
+        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 15f)
         { return 0; }
         else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 10f)
         {  return 2; }
@@ -156,9 +156,9 @@ public class BTSaraAI: MonoBehaviour
                      //air push with a cool down 
                       new SequencerNode(
                         new List<Node>(){
-                        new ActionNode(A9),
-                        new ActionNode(A4),
-                        new ActionNode(A5)
+                        new ActionNode(A9),//dash toward player a bit (angry
+                        new ActionNode(A4),//air push 
+                        new ActionNode(A5)//cool down and dash away
                      //   new ActionNode(A6)
                         }
                         )

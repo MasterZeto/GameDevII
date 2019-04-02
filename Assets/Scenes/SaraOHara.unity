@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 7
+  dash_speed: 10
   dash_duration: 2
   anim_name: 
 --- !u!114 &846331276
@@ -9452,8 +9452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 5
-  dash_duration: 0.3
+  dash_speed: 10
+  dash_duration: 0.2
   anim_name: 
 --- !u!81 &8557437273265878724
 AudioListener:
