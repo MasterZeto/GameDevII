@@ -22,7 +22,7 @@ public class PauseScript : MonoBehaviour
     bool up = true;
     bool isProjectile = false;
     Collider col;
-    [SerializeField] LineRenderer lr;
+    [SerializeField] LineRenderer lr = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +46,7 @@ public class PauseScript : MonoBehaviour
             cam.enabled = false;
         }
         mainCam = Camera.main;
-        lr.positionCount = 0;
+        if(lr!=null) lr.positionCount = 0;
     }
 
     // Update is called once per frame
