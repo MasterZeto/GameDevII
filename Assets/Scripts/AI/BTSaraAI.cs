@@ -13,25 +13,29 @@ public class BTSaraAI: MonoBehaviour
 
     //time variable?
     float t = 0;
+    bool first = true;
+    bool second = false;
+    bool third = false;
     //?
     Queue<ActionDelegate> actions;
+  
 
     void Awake()
     {
         Sara = GetComponent<FighterController>();
         actions = new Queue<ActionDelegate>();
     }
-
-    int Random01()
+    //return 0,1,2,3
+    int Random03()
     {
-        return Random.Range(0, 2);
+        return Random.Range(0, 4);
     }
     int Distance()
     {
-        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 15f)
+        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 20f)
         { return 0; }
         else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 8f)
-        { return 2; }
+        {  return 2; }
         else { return 1; }
 
     }
@@ -76,21 +80,51 @@ public class BTSaraAI: MonoBehaviour
         of the behaviors for the purpose of development
      */
 
-    void A1() { Debug.Log("left arm projection");
+    void A1() {
+        first = true;
+        second = false;
+        third = false;
+        Debug.Log("left arm projection");
         Sara.LeftPunch(); }
-    void A2() { Debug.Log("right arm projection");
+    void A2() {
+        first = true;
+        second = false;
+        third = false;
+        Debug.Log("right arm projection");
         Sara.RightPunch(); }
-    void A3() { Debug.Log("dash away");
-        Sara.DashBackward();}
-    void A4() { Debug.Log("jump highly and generate wind");
+    void A3() {
+        first = false;
+        second = true;
+        third = false;
+        Debug.Log("dash away");
+        Sara.DashBackward();
+    
+    }
+    void A4() {
+        first = false;
+        second = false;
+        third = true;
+        Debug.Log("jump highly and generate wind");
         Sara.LeftRightKick(); }
-    void A5() { Debug.Log("cool down");
+    void A5() {
+        first =false;
+        second = false;
+        third = true;
+        Debug.Log("cool down");
         Sara.LeftKick();
     }
    // void A6() { Debug.Log("empty here"); }
-    void A7() { Debug.Log("tilt right");
+    void A7() {
+        first = true;
+        second = false;
+        third = false;
+        Debug.Log("tilt right");
         Sara.DashLeft(); }
-    void A8() { Debug.Log("tilt left");
+    void A8() {
+        first = true;
+        second = false;
+        third = false;
+        Debug.Log("tilt left");
         Sara.DashRight();}
 
     void Start()
@@ -100,6 +134,7 @@ public class BTSaraAI: MonoBehaviour
                 Distance,
                 new List<Node>()
                 {  //left right projectile here and tilt left and right
+                   
                     new SequencerNode(
                         new List<Node>(){
                         new ActionNode(A1),
@@ -129,7 +164,15 @@ public class BTSaraAI: MonoBehaviour
         {
             Debug.Log(Sara.IsActing());
         if (actions.Count == 0) actions = behaviorTree.Evaluate();
-        else if (Distance() == 2) actions = behaviorTree.Evaluate();
+        else {
+            if (Distance() != 0 && first)
+            { actions = behaviorTree.Evaluate(); }
+            if (Distance() != 2 && third)
+            {actions = behaviorTree.Evaluate(); }
+
+        }
+    //  else if (Distance() == 2&&middle) actions = behaviorTree.Evaluate();
+        
             if (!Sara.IsActing()) (actions.Dequeue())();
         //do I need to update distance here?
        

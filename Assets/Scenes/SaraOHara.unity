@@ -2898,22 +2898,57 @@ PrefabInstance:
     - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
         type: 3}
       propertyPath: lengthInSec
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
         type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: ClampVelocityModule.magnitude.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: ClampVelocityModule.separateAxis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: ClampVelocityModule.z.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: ClampVelocityModule.x.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: ClampVelocityModule.y.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: ClampVelocityModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047821289620413502, guid: 7c37ba46be8a40a458cc1b60532ed1e2,
+        type: 3}
+      propertyPath: ClampVelocityModule.dampen
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c37ba46be8a40a458cc1b60532ed1e2, type: 3}

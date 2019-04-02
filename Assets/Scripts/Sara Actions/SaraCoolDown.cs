@@ -6,7 +6,7 @@ public class SaraCoolDown:DashAction
 {
     [SerializeField] string anim_name;
     bool paused;
-    float cdTime = 2f;
+    float cdTime = 3f;
     public override void StartAction(FighterController fighter)
     {
         running = true;
@@ -29,7 +29,7 @@ public class SaraCoolDown:DashAction
             {
                 yield return null;
             }
-            fighter.UnsafeMove(fighter.transform.forward * 0.4f*dash_speed);
+            fighter.UnsafeMove(-fighter.transform.forward *dash_speed*0.4f);
 
             yield return null;
         }
