@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 0eff87b5a7498b24a86be3b59580fb34
-=======
-guid: 0126d9a9784bf45d78cb913148f095cc
->>>>>>> alpha_art
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -259,25 +255,22 @@ ModelImporter:
     4300124: LeftFoot
     4300126: RightEye
     4300128: LeftEye
-<<<<<<< HEAD
     7400000: Idle
-    7400002: Walk Forward
-    7400004: Walk Backward
-    7400006: Walk Right
-    7400008: Walk Left
-    7400010: Blank 1
-    7400012: Blank 2
-    7400014: Blank 3
-    7400016: Blank 4
-    7400018: Anchor Swing Right Left
-    7400020: Anchor Swing Overhead
-    7400022: Shoot Harpoon
-    7400024: Gloat
-    7400026: Stunned
-    7400028: Misc
-=======
-    7400000: Take 001
->>>>>>> alpha_art
+    7400002: Idle
+    7400004: WalkForward
+    7400006: WalkBackward
+    7400008: WalkRight
+    7400010: WalkLeft
+    7400012: Blank 1
+    7400014: Blank 2
+    7400016: Blank 3
+    7400018: Blank 4
+    7400020: AnchorSwingRightToLeft
+    7400022: AnchorSwingOverhead
+    7400024: ShootHarpoon
+    7400026: Gloat
+    7400028: Stunned
+    7400030: Misc
     9500000: //RootNode
     13700000: Anchor1
     13700002: Head
@@ -371,7 +364,6 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: Idle
@@ -402,7 +394,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk Forward
+      name: WalkForward
       takeName: Take 001
       firstFrame: 25
       lastFrame: 48
@@ -430,9 +422,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk Backward
+      name: WalkBackward
       takeName: Take 001
-      firstFrame: 48
+      firstFrame: 49
       lastFrame: 72
       wrapMode: 0
       orientationOffsetY: 0
@@ -458,7 +450,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk Right
+      name: WalkRight
       takeName: Take 001
       firstFrame: 73
       lastFrame: 96
@@ -486,7 +478,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk Left
+      name: WalkLeft
       takeName: Take 001
       firstFrame: 97
       lastFrame: 120
@@ -626,7 +618,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Anchor Swing Right Left
+      name: AnchorSwingRightToLeft
       takeName: Take 001
       firstFrame: 169
       lastFrame: 180
@@ -654,7 +646,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Anchor Swing Overhead
+      name: AnchorSwingOverhead
       takeName: Take 001
       firstFrame: 181
       lastFrame: 192
@@ -682,7 +674,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shoot Harpoon
+      name: ShootHarpoon
       takeName: Take 001
       firstFrame: 193
       lastFrame: 204
@@ -793,9 +785,6 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-=======
-    clipAnimations: []
->>>>>>> alpha_art
     isReadable: 1
   meshes:
     lODScreenPercentages: []

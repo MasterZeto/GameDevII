@@ -297,6 +297,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9fba5937bdee0194e99d48c0d1aeb6a3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eff87b5a7498b24a86be3b59580fb34, type: 3}
 --- !u!114 &203280720 stripped
@@ -792,7 +796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400691579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.88, y: 6.7, z: 3.1}
+  m_LocalPosition: {x: -1.43, y: 6.7, z: 3.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 307184336}
@@ -2515,6 +2519,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7378697535211982063, guid: 1d6e3ddef44afc04d8cbe4a3ff60f7d9,
     type: 3}
   m_PrefabInstance: {fileID: 1726572148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1207180585 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 0eff87b5a7498b24a86be3b59580fb34,
+    type: 3}
+  m_PrefabInstance: {fileID: 198522968}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1212865312
 PrefabInstance:
@@ -4522,6 +4532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MurryMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     - target: {fileID: 400138, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4566,10 +4580,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
 --- !u!4 &1824223648 stripped
@@ -4705,6 +4715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MurryMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     - target: {fileID: 400138, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4749,10 +4763,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6b1b4ba8c26435e4bb86747a3ba17a4b, type: 2}
     - target: {fileID: 13700000, guid: 33fee1ce569385144a255c14077e94eb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6075,7 +6085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   gloat_time: 1
-  anim_name: 
+  anim_name: Gloat
 --- !u!114 &82167919077961223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6094,8 +6104,8 @@ MonoBehaviour:
   harpoon: {fileID: 306765552}
   harpoonStart: {fileID: 400691580}
   hit_duration: 0.7
-  hit_delay: 0
-  anim_name: 
+  hit_delay: 0.25
+  anim_name: Harpoon
   playerHit: 0
 --- !u!114 &82167919077961224
 MonoBehaviour:
@@ -6126,8 +6136,8 @@ MonoBehaviour:
   heat: 0
   hitbox: {fileID: 1528827765}
   hit_duration: 0.1
-  hit_delay: 0.3
-  anim_name: SwingToLeft
+  hit_delay: 0.7
+  anim_name: SwingOverhead
 --- !u!4 &82167919077961276
 Transform:
   m_ObjectHideFlags: 0
@@ -11759,7 +11769,7 @@ MonoBehaviour:
   move_speed: 3
   max_heat: 100
   heat_dissipation_rate: 0
-  animator: {fileID: 1743753107806941553}
+  animator: {fileID: 1207180585}
   opponent: {fileID: 1483727929}
   opponent_object: {fileID: 1483727925}
   dash_left: {fileID: 9135254378755230290}
@@ -13495,8 +13505,8 @@ MonoBehaviour:
   heat: 0
   hitbox: {fileID: 7752256114351979966}
   hit_duration: 0.1
-  hit_delay: 0.3
-  anim_name: SwingToLeft
+  hit_delay: 0.7
+  anim_name: SwingRightLeft
 --- !u!137 &7186341969295084721
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
