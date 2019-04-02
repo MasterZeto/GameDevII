@@ -16,7 +16,7 @@ public class HarpoonAction : Action
     Harpooned hitCheck;
     bool paused = false;
     bool delayDone = false;
-    public bool playerHit { get; private set; }
+    public bool playerHit = false;
     float timeTohit;
     GameObject opponent;
     Transform opponentLoc;
@@ -40,6 +40,7 @@ public class HarpoonAction : Action
         direction.y/=3;
         direction.Normalize();
         playerHit = false;
+        hitCheck.playerAttached = false;
         returning = false;
         fighter.SetTrigger(anim_name);
         harpoon.SetActive(false);

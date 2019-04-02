@@ -20,6 +20,7 @@ public class BahaController : MonoBehaviour
 
     int distPlayer(){
         if(Vector3.Distance(player.position, transform.position)>shortDistance){
+            harpoonCheck.playerHit = false;
             return 0;
         }
         else{
@@ -37,8 +38,11 @@ public class BahaController : MonoBehaviour
     }
     int playerAttached () {
         if(harpoonCheck.playerHit){
+            harpoonCheck.playerHit = false;
+            Debug.Log("player is attached");
             return 0;
         }
+        Debug.Log("player is NOT attached");
         return 1;
     }
     Queue<ActionDelegate> actions;
@@ -67,31 +71,27 @@ public class BahaController : MonoBehaviour
                                     new ActionNode(fc.DashForward),
                                     new ActionNode(fc.LeftPunch),
                                     new ActionNode(fc.RightKick),
-                                    new SelectorNode(
-                                        playerAttached,
-                                        new List<Node>{
-                                            new ActionNode(fc.RightPunch),
-                                            new ActionNode(fc.DashRight)
-                                        }
-                                    )
                                 }
                             ),
                             new SequencerNode(
                                 new List<Node>{
                                     new ActionNode(fc.DashRight),
                                     new ActionNode(fc.LeftPunch),
-                                    new SelectorNode(
-                                        playerAttached,
-                                        new List<Node>{
-                                            new ActionNode(fc.RightPunch),
-                                            new ActionNode(fc.DashRight)
-                                        }
-                                    )
+                                    new ActionNode(fc.DashRight)
                                 }
                             )
                         }
                     ),
                     new SelectorNode(
+                        playerAttached,
+                        new List<Node>(){
+                            new SequencerNode(
+                                new List<Node>(){
+                                    new ActionNode(fc.LeftRightPunch),
+                                    new ActionNode(fc.DashRight)
+                                }
+                            ),
+                        new SelectorNode(
                         gloat,
                         new List<Node>(){
                             new SequencerNode(
@@ -109,6 +109,8 @@ public class BahaController : MonoBehaviour
                             )
                         }
                     )
+                        }
+                    )
                 }
             )
         );
@@ -117,6 +119,7 @@ public class BahaController : MonoBehaviour
     void Update()
     {
         //note: rightkick is gloat, leftpunch is harpoon, rightpunch is anchor, dash right is turn to player, dash forward is a very slow dash forward
+        //LeftRightPunch is swing overhead
         Debug.Log(fc.IsActing());
         if (actions.Count == 0){
             actions = tree.Evaluate();
@@ -126,6 +129,5 @@ public class BahaController : MonoBehaviour
             (actions.Dequeue())();
         }
         t+=Time.deltaTime;
-        Debug.Log(distPlayer());
     }
 }

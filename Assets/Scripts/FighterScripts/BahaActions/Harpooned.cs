@@ -52,7 +52,6 @@ public class Harpooned : MonoBehaviour
     public void UnparentPlayer(){
         playerCon.Resume();
         player.transform.parent = null;
-        playerAttached = false;
         player = null;
     }
     private IEnumerator Resume(float stunned){
