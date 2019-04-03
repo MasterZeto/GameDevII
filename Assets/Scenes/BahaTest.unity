@@ -6119,6 +6119,8 @@ GameObject:
   - component: {fileID: 82167919077961225}
   - component: {fileID: 82167919077961219}
   - component: {fileID: 82167919077961226}
+  - component: {fileID: 82167919077961228}
+  - component: {fileID: 82167919077961227}
   m_Layer: 0
   m_Name: DummyBaha
   m_TagString: Untagged
@@ -6336,6 +6338,42 @@ MonoBehaviour:
   heat: 0
   gloat_time: 0
   anim_name: 
+--- !u!114 &82167919077961227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82167919077961218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a30fea077dff34a9a0fc1cb1c5f70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  hitbox: {fileID: 1528827765}
+  hit_duration: 0.1
+  hit_delay: 0.3
+  anim_name: SwingOverhead
+  after_hit_delay: 0.6
+--- !u!114 &82167919077961228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82167919077961218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a30fea077dff34a9a0fc1cb1c5f70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  hitbox: {fileID: 7752256114351979966}
+  hit_duration: 0.1
+  hit_delay: 0.3
+  anim_name: SwingRightLeft
+  after_hit_delay: 0.6
 --- !u!4 &82167919077961276
 Transform:
   m_ObjectHideFlags: 0
@@ -6500,8 +6538,8 @@ MonoBehaviour:
   dash_backward_left: {fileID: 0}
   dash_backward_right: {fileID: 0}
   left_punch: {fileID: 82167919077961223}
-  right_punch: {fileID: 7183352830725533051}
-  left_right_punch: {fileID: 82167919077961225}
+  right_punch: {fileID: 82167919077961228}
+  left_right_punch: {fileID: 82167919077961227}
   left_kick: {fileID: 82167919077961226}
   right_kick: {fileID: 82167919077961222}
   left_right_kick: {fileID: 0}
