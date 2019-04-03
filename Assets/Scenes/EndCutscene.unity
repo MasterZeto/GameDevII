@@ -2148,10 +2148,96 @@ MonoBehaviour:
   text:
   - index: 1
     dialogue:
-    - You won!
+    - Murry! The Champion of GIGA. That's quite an impressive display you put out
+      there today. Beyond impressive, really. You're a record setter.
   - index: 0
     dialogue:
-    - Oh shit I did!
+    - Yeah, hehe, I guess I am. It still doesn't feel totally realy yet. Did I give
+      you the sort of show you said you were hoping for when we chatted in training?
+  - index: 1
+    dialogue:
+    - Oh, beyond my wildest imaginations. You have a great mind, Murry, you will do
+      great things.
+  - index: 0
+    dialogue:
+    - Thanks, thats.. that's really nice to hear. Especially from you, I'm sure you
+      see all sorts of amazing people come through here.
+  - index: 1
+    dialogue:
+    - Yes, more than I can dare to try to remember, genuinely. I've watched countless
+      heroes rise in the glory of the arena, but I've also seen them fall into nothing,
+      consumed with greed. It's a give and take job, just like any other.
+  - index: 0
+    dialogue:
+    - Yeah... now that you mention it, what exactly is your job? You sound like you
+      know a little more about this place than a mech tester would.
+  - index: 1
+    dialogue:
+    - Well, I suppose there's no point in hiding it anymore. Really thought I had
+      you going there for a while. I knew you would not know me by face or even name,
+      had I given that to you, but I can never keep by enthusiasm for the mechanical
+      down.
+    - 'I am the Emporer of the Great Human Empire. The very same that led us out into
+      the stars an back again, conquered the Sun, and established civilizations on
+      a hundred planets. '
+  - index: 0
+    dialogue:
+    - The...the EMPEROR??? * she quickly falls to her knees in supplication* Your
+      Brilliance, he power of your mind is fabled across the stars, it is an honor
+      too great to-
+  - index: 1
+    dialogue:
+    - Oh, shut up, will you? Stand up, had I wanted ceremonies and honors, I'd be
+      talking to "perfect Ms. O'Hara" over there. No, we have something far more important
+      to discuss.
+  - index: 0
+    dialogue:
+    - I... well, of course, what is it?
+  - index: 1
+    dialogue:
+    - Your prize, child! You won the tournament!
+  - index: 0
+    dialogue:
+    - Oh.........
+    - Yes, wonderful, we'll be discussing the details of my...how did you put it?
+      "Comfortable sum?"
+  - index: 1
+    dialogue:
+    - Sure, if that's what you'd like. I keep getting the impression from you that
+      you have no realy interest in the money, so I've come with a different offer.
+    - One that I think might be of a greater appeal to you, and I'm certainly excited
+      at the prospect myself!
+    - But genuinely, it's your choice. The money is yours if you want it.
+  - index: 0
+    dialogue:
+    - Well..I won't say I'm not curious about this other option. What do you have
+      in mind?
+  - index: 1
+    dialogue:
+    - Oooooohhh, I HOPED you would say that! *rubbing his hands together* I would
+      like to use your prize money to open a study center. More specifically, a training
+      facility for younger children to develop skills in robotics and engineering
+      that will help benefit our future. And......
+    - 'I want you to be the headmistress. Or lead engineer, or Executive Officer or
+      Grand Poobah of Robots, whatever you want to call yourself. '
+    - 'The ideas in your head are too unique to not be spread onto the next generation
+      of brilliant minds leading our future, and many generations after that to come. '
+    - How does that sound?
+  - index: 0
+    dialogue:
+    - It sounds... it sounds AMAZING. Like the best dream I've ever had, I can't possbly
+      explain how much that would mean to me.
+  - index: 1
+    dialogue:
+    - Then don't. You work better with your hands than with your mouth, same as me.
+      I understand. And it is, after all, your prize. I would hope you'd enjoy it.
+  - index: 0
+    dialogue:
+    - I do. I really, truly do. Thank you, Emperor. I hope I can make you proud.
+  - index: 1
+    dialogue:
+    - '*smiling warmly*'
+    - You already have.
   typewriters:
   - {fileID: 1526001018}
   - {fileID: 5869623623491419306}
@@ -3174,14 +3260,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1074022867723603856, guid: 1d98e9b6d7caed14386e0bd0dca00715,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d67018b723abc7843a327967ecfd6a1a,
+        type: 3}
+    - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Type
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3198,6 +3295,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Typewriters
       objectReference: {fileID: 0}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanel
+      value: 
+      objectReference: {fileID: 2126379847}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanelText
+      value: 
+      objectReference: {fileID: 1062653205}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_AudioSource
+      value: 
+      objectReference: {fileID: 2102076547}
     - target: {fileID: 5869623624087871778, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3253,21 +3365,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanel
-      value: 
-      objectReference: {fileID: 2126379847}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanelText
-      value: 
-      objectReference: {fileID: 1062653205}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_AudioSource
-      value: 
-      objectReference: {fileID: 2102076547}
     - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_TextPanel
@@ -3323,6 +3420,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.990005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7642983361274025607, guid: 44c11afd1b8146744ac0c45e6c6c5007,
         type: 3}
@@ -3429,57 +3571,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7642983361435109273, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1b26f15481c9c470e87c5ee10364adf1,
-        type: 3}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.990005
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_FontData.m_LineSpacing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 7642983360202973400, guid: 44c11afd1b8146744ac0c45e6c6c5007,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3506,6 +3597,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7642983361435109273, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3acc9c7f433b702458272bce20b7bd44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c11afd1b8146744ac0c45e6c6c5007, type: 3}
 --- !u!81 &8557437273265878724
