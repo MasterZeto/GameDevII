@@ -1,23 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//big wind attack together with the particle effect for air push
+//need to make player stunned 
 public class SaraBigWind : Action
 {
-    public Hitbox hitbox;
+    public HitboxForSaraWind hitbox;
     [SerializeField] float hit_duration;
     [SerializeField] string anim_name;
     ParticleSystem particle;
+    float chaseTime = 1f;
+    FighterController player;
 
     public override void StartAction(FighterController fighter)
     {   
         this.fighter = fighter;
-        particle = gameObject.GetComponentInChildren<ParticleSystem>();
-        hitbox.Fire(hit_duration);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<FighterController>();
         fighter.SetTrigger(anim_name);
+        player.SetTrigger("Stunned");
+
+        particle = gameObject.GetComponentInChildren<ParticleSystem>();
         particle.Play();
 
-  //      transform.gameObject.GetComponent<SoundBox>().MissSFX();
+
+        //should fire once here
+        //hit_duration is set to be 0 over inspector
+        hitbox.Fire(hit_duration);
+ 
+
+
+
+
+
+        //      transform.gameObject.GetComponent<SoundBox>().MissSFX();
     }
 
     public override void Stop() {}
@@ -34,4 +49,5 @@ public class SaraBigWind : Action
     {
         return !hitbox.active;
     }
+
 }

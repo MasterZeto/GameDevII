@@ -17,10 +17,10 @@ public class HitboxForGems : MonoBehaviour
     float timescale = 1f;
 
     void Start() { active = true; cooldown = -1f; }
-
+    //c is valid for collider on player
     void OnTriggerStay(Collider c)
     {
-        if (active)
+        if (active&&c.gameObject.tag== "PlayerHurtbox")
         {
             Debug.Log("entered and active");
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
@@ -51,6 +51,9 @@ public class HitboxForGems : MonoBehaviour
             active = true;
             StartCoroutine(FireRoutine(duration));
         }*/
+        if(!active){
+            active = true;
+        }
     }
 
     public void Pause()

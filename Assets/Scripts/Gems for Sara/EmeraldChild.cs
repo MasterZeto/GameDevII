@@ -10,7 +10,7 @@ public class EmeraldChild : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        transform.LookAt(player.transform);
+        transform.LookAt(player.transform.position+ new Vector3(0, 4.0f, 0));
     }
 
 

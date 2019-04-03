@@ -15,7 +15,7 @@ public class Hitbox : MonoBehaviour
     public float cooldown;
     
     float timescale = 1f;
-    //why start with false here??
+  
     void Start() { active = false; cooldown = -1f; }
 
     void OnTriggerStay(Collider c)
@@ -28,7 +28,7 @@ public class Hitbox : MonoBehaviour
 
             if (h != null)
             {
-                //Debug.Log("oof");
+                Debug.Log("opponent hurtbox get");
                 active = false;
                 h.TakeDamage(_damage);
 

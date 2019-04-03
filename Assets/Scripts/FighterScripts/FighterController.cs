@@ -44,11 +44,14 @@ public class FighterController : MonoBehaviour
 
     public bool pause = false;
 
+    public bool stunned { get; private set; }
+
     void Awake()
     {
         character = GetComponent<CharacterController>();
         current_action = null;
         heat = 0;
+        stunned = false;
     }
 
     void Update()
@@ -106,7 +109,7 @@ public class FighterController : MonoBehaviour
 
     public bool IsActing()
     {
-        return (current_action != null);
+        return (current_action != null || pause);
     }
 
     /* Dash Functions */
@@ -151,12 +154,18 @@ public class FighterController : MonoBehaviour
         animator.enabled = false;
         pause = true;
     }
+    public void Stun(){
+        stunned = true;
+        Pause();
+        //set stunned animation here?
+    }
 
     public void Resume()
     {
         if (current_action != null) current_action.Resume();
         animator.enabled = true;
         pause = false;
+        stunned = false;
     }
     public GameObject GetOpponent()
     {
@@ -164,12 +173,20 @@ public class FighterController : MonoBehaviour
     }
 
     /*hitbox stuff */
-    public Collider GetHitbox(){
+    public Collider GetHitbox(ref bool isProjectile){
+        isProjectile = false;
         if(current_action!=null&&current_action!=dash_left&&current_action!=dash_right&&current_action!=dash_forward&&current_action!=dash_backward){
             EnemyAttack attack = current_action as EnemyAttack;
             if(attack==null){
                 SawyerSwingAttack swingAttack = current_action as SawyerSwingAttack;
                 if(swingAttack!=null) return swingAttack.hitbox._collider;
+                else{
+                    HarpoonAction project = current_action as HarpoonAction;
+                    if(project!=null){
+                        isProjectile = true;
+                        return project.hitbox._collider;
+                    }
+                }
             }
             else{
                 return attack.hitbox._collider;
@@ -178,6 +195,33 @@ public class FighterController : MonoBehaviour
             
         }
         return null;
+    }
+    /* projectile predicting stuff */
+    public HarpoonAction GetHarpoonAction(){
+        return current_action as HarpoonAction;
+    }
+    public float GetHitDuration(){
+        HarpoonAction project = current_action as HarpoonAction;
+        //if(project!=null) return project.GetDuration();
+        return -1;
+    }
+    public float GetProjectileSpeed(){
+        HarpoonAction project = current_action as HarpoonAction;
+        //if(project!=null) return project.GetSpeed();
+        return -1;
+    }
+    //used to get heat for pause menu heat bar
+    public void GetHeatValues(ref List<float> heatVal){
+        heatVal.Add(dash_left.GetHeat());
+        heatVal.Add(dash_right.GetHeat());
+        heatVal.Add(dash_forward.GetHeat());
+        heatVal.Add(dash_backward.GetHeat());
+        heatVal.Add(left_punch.GetHeat());
+        heatVal.Add(right_punch.GetHeat());
+        heatVal.Add(left_right_punch.GetHeat());
+        heatVal.Add(left_kick.GetHeat());
+        heatVal.Add(right_kick.GetHeat());
+        heatVal.Add(left_right_kick.GetHeat());
     }
 
 }
