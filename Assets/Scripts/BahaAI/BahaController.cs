@@ -10,6 +10,7 @@ public class BahaController : MonoBehaviour
     HarpoonAction harpoonCheck;
     FighterController fc;
     float t = 0;
+    bool freezed;
     
     BehaviorTree tree;
 
@@ -117,12 +118,17 @@ public class BahaController : MonoBehaviour
             )
         );
     }
+    public void SetFreezed(bool f)
+    {
+        freezed = f;
+    }
 
     void Update()
     {
         //note: rightkick is gloat, leftpunch is harpoon, rightpunch is anchor, dash right is turn to player, dash forward is a very slow dash forward
         //LeftRightPunch is swing overhead, //leftkick is a gloat action for wasting time for animation
-        Debug.Log(fc.IsActing());
+        if(!freezed){
+            Debug.Log(fc.IsActing());
         if (actions.Count == 0){
             actions = tree.Evaluate();
         } 
@@ -131,5 +137,6 @@ public class BahaController : MonoBehaviour
             (actions.Dequeue())();
         }
         t+=Time.deltaTime;
+        }
     }
 }
