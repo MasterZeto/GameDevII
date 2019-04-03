@@ -67,6 +67,12 @@ public class HarpoonAction : Action
         delayDone = false;
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
+            if(Vector3.Distance(transform.forward, opponent.transform.forward)<1.999f){
+                Vector3 targetDir = opponent.transform.position - transform.position;
+                Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 5*Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDir);
+                transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,transform.eulerAngles.z);
+            }
             while(paused){
                 yield return null;
             }
