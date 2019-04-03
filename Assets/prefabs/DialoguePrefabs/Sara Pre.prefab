@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4759420942499719621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4759420942499719619}
+  - component: {fileID: 4759420942499719618}
+  m_Layer: 0
+  m_Name: Sara Pre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4759420942499719619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759420942499719621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4759420942499719618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759420942499719621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text:
+  - index: 1
+    dialogue:
+    - Oh! I don't believe we've met. I am Ms. Sara O'Hara. Though I'm sure you already
+      knew that.
+    - Have you come for an autograph, or simply to see what you might like to become
+      when you grow up?
+  - index: 0
+    dialogue:
+    - Well, funny you should mention it, I'm actually your next competitor. So, guess
+      you could say I AM what I want to be when I grow up!
+  - index: 1
+    dialogue:
+    - YOU made it into GIGA? At only 11? That's completely preposturous!
+  - index: 1
+    dialogue:
+    - '....I''m 16.'
+  - index: 1
+    dialogue:
+    - Well, a lady of your age has much more reachable dreams to be striving for.
+      Thinking so big of yourself is quite unattractive to young men, you know.
+    - In any case, I hope this helps you learn your lesson.
+  typewriters:
+  - {fileID: 0}
+  - {fileID: 0}

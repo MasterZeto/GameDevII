@@ -112,66 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &82863874
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 82863876}
-  - component: {fileID: 82863875}
-  m_Layer: 0
-  m_Name: Baha Post Lose
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &82863875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82863874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 1
-    dialogue:
-    - How..how is this possible? That little one?
-    - "This should\u2019ve been so easy! What went wrong...hmm..."
-  - index: 0
-    dialogue:
-    - Do you want me to list alphabetically or chronologcally?
-  - index: 1
-    dialogue:
-    - '...I want you to grow up.'
-  - index: 0
-    dialogue:
-    - Nah, I think I'm good to beat you at any age.
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &82863876
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82863874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &110383772
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,63 +212,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &148498539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 148498541}
-  - component: {fileID: 148498540}
-  m_Layer: 0
-  m_Name: Sara Pre
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &148498540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148498539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 0
-    dialogue:
-    - Hey, what's up
-    - You good?
-  - index: 1
-    dialogue:
-    - Yeah I'm good
-  - index: 0
-    dialogue:
-    - Oh lit
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &148498541
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148498539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196503147
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,63 +338,6 @@ MonoBehaviour:
   typewriters:
   - {fileID: 786303860}
   - {fileID: 2092978605}
---- !u!1 &393563865
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 393563867}
-  - component: {fileID: 393563866}
-  m_Layer: 0
-  m_Name: Sawyer Post Win
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &393563866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393563865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 1
-    dialogue:
-    - "Hey, now, pally, don\u2019t fret! There\u2019s always next year, so long as
-      nothing else happens\u2026  "
-    - '*snickers*'
-  - index: 0
-    dialogue:
-    - That there is... I have a lot to learn before then.
-    - I hope your streak keeps up, either way. (If pulling wires could be considered
-      a streak.)
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &393563867
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393563865}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &402207452
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,63 +465,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &435823812
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 435823814}
-  - component: {fileID: 435823813}
-  m_Layer: 0
-  m_Name: Sara Post Lose
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &435823813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435823812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 0
-    dialogue:
-    - Hey, what's up
-    - You good?
-  - index: 1
-    dialogue:
-    - Yeah I'm good
-  - index: 0
-    dialogue:
-    - Oh lit
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &435823814
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435823812}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &506114091
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,129 +539,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506114091}
   m_CullTransparentMesh: 0
---- !u!1 &528892507
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 528892509}
-  - component: {fileID: 528892508}
-  m_Layer: 0
-  m_Name: Sawyer Pre
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &528892508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528892507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 1
-    dialogue:
-    - 'Hey there, pally! '
-    - Perfect day for some trouble, don't you say?
-  - index: 0
-    dialogue:
-    - Yeah, it is a nice one, but let's save the pleasantries for after the fight
-  - index: 1
-    dialogue:
-    - No arguments here!
-    - Say... you wouldn't happen to have lost a few bolts and wires last night, would
-      you?
-  - index: 0
-    dialogue:
-    - No...why do you ask?
-  - index: 1
-    dialogue:
-    - Oh, no reason!
-    - '*snickers*'
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &528892509
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528892507}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &632153088
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 632153090}
-  - component: {fileID: 632153089}
-  m_Layer: 0
-  m_Name: Baha Pre
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &632153089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632153088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 0
-    dialogue:
-    - "Men aren\u2019t really my speed, but a robot arm! Now, that I could get behind."
-  - index: 1
-    dialogue:
-    - "Oh, now who\u2019s this? Are your parents here?"
-    - Go get them, so the adults can continue their competition.
-  - index: 0
-    dialogue:
-    - '......I was just saying it''s a nice arm, geez...'
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &632153090
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632153088}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786303858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,63 +966,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1670793115
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1670793117}
-  - component: {fileID: 1670793116}
-  m_Layer: 0
-  m_Name: Sara Post Win
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1670793116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670793115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 0
-    dialogue:
-    - Hey, what's up
-    - You good?
-  - index: 1
-    dialogue:
-    - Yeah I'm good
-  - index: 0
-    dialogue:
-    - Oh lit
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &1670793117
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670793115}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831358560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,120 +1151,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: -40, y: 500}
   m_Pivot: {x: 0.5, y: 0}
---- !u!1 &2001414079
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2001414081}
-  - component: {fileID: 2001414080}
-  m_Layer: 0
-  m_Name: Baha Post Win
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2001414080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001414079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 1
-    dialogue:
-    - Yes, grand. Hoorah, hoorah. Can we get back to the real fights, now?
-  - index: 0
-    dialogue:
-    - '............'
-    - '.......'
-    - '...'
-    - ..fuck you.
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &2001414081
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001414079}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2039071164
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2039071166}
-  - component: {fileID: 2039071165}
-  m_Layer: 0
-  m_Name: Sawyer Post Lose
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2039071165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039071164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - index: 1
-    dialogue:
-    - Aw, shucks, how'd you manage that?
-    - Didn't see that one comin' at all... and that's sayin' somethin'!
-  - index: 0
-    dialogue:
-    - Nice match! You certainly kept me on my toes!
-  - index: 1
-    dialogue:
-    - '*beaming* '
-    - That's might nice of you to say, pally! You're not half bad yourself.
-  typewriters:
-  - {fileID: 786303860}
-  - {fileID: 2092978605}
---- !u!4 &2039071166
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039071164}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060729168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,3 +1277,714 @@ MonoBehaviour:
   m_TextPanel: {fileID: 1917220180}
   m_TextPanelText: {fileID: 1491298980}
   m_AudioSource: {fileID: 402207453}
+--- !u!1001 &319132857402158966
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 319132857466095732, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_Name
+      value: Baha Post Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095730, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 319132857466095733, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 319132857466095733, guid: 72d15d2805987fa489fae4f3df91658d,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72d15d2805987fa489fae4f3df91658d, type: 3}
+--- !u!1001 &862927472195551459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 862927471814600540, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_Name
+      value: Baha Post Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600482, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600483, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 862927471814600483, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43eb667879dbcad48bc5be2f18957803, type: 3}
+--- !u!1001 &2818504563104168078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2818504563045333717, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_Name
+      value: Sawyer Pre
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333715, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818504563045333714, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 2818504563045333714, guid: 3136e7483cc82454fa5536853e9328a4,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3136e7483cc82454fa5536853e9328a4, type: 3}
+--- !u!1001 &3403289381295584019
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3403289381940933295, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_Name
+      value: Sawyer Post Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933293, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403289381940933294, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 3403289381940933294, guid: 436bf5c1b843b814a995e6ebcb4a4f86,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 436bf5c1b843b814a995e6ebcb4a4f86, type: 3}
+--- !u!1001 &4759420942639808942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4759420942499719621, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_Name
+      value: Sara Pre
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719618, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 4759420942499719618, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56dc9693938516a42890a2492bf8699b, type: 3}
+--- !u!1001 &5289337861482754547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5289337860919555688, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_Name
+      value: Sara Post Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555694, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289337860919555695, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 5289337860919555695, guid: 0f1dc46292ec5d7439d39135c09340da,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f1dc46292ec5d7439d39135c09340da, type: 3}
+--- !u!1001 &6473879818858630567
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6473879819214308222, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_Name
+      value: Sawyer Post Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308220, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473879819214308221, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 6473879819214308221, guid: f83a5620719a4804d83e0805a8792bbb,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f83a5620719a4804d83e0805a8792bbb, type: 3}
+--- !u!1001 &8378953712332054990
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8378953711733687758, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_Name
+      value: Baha Pre
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687756, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746, type: 3}
+--- !u!1001 &9118908160626666883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9118908160473172295, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_Name
+      value: Sara Post Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172293, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118908160473172294, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: typewriters.Array.data[0]
+      value: 
+      objectReference: {fileID: 786303860}
+    - target: {fileID: 9118908160473172294, guid: 5fc938938e4621a469e6ddf03a959eb4,
+        type: 3}
+      propertyPath: typewriters.Array.data[1]
+      value: 
+      objectReference: {fileID: 2092978605}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5fc938938e4621a469e6ddf03a959eb4, type: 3}
