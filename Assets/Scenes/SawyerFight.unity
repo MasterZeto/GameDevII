@@ -2910,12 +2910,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 188279679087817940}
+  enemyGameObject: {fileID: 0}
   UIManager: {fileID: 1134376067}
   predictor: {fileID: 1373951690}
   actionCams:
   - {fileID: 395778888}
   - {fileID: 1036066488}
   - {fileID: 1274797457}
+  lr: {fileID: 0}
 --- !u!114 &1134376067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2943,17 +2945,7 @@ MonoBehaviour:
   - {fileID: 633055431}
   pauseManager: {fileID: 1134376065}
   fc: {fileID: 1483727927}
-  heatVal:
-  - 10
-  - 10
-  - 10
-  - 10
-  - 30
-  - 30
-  - 40
-  - 30
-  - 30
-  - 40
+  startPosition: {fileID: 0}
   pause_heat: {fileID: 1332448334}
 --- !u!4 &1134376068
 Transform:

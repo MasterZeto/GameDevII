@@ -190,7 +190,6 @@ public class PauseScript : MonoBehaviour
         for(float t = harp.GetRemainingTime(); t < harp.GetHitDuration(); t+=Time.unscaledDeltaTime){
             //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
             lr.gameObject.transform.position+=(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
-            Debug.Log(lr.gameObject.transform.position);
             lr.SetPosition(1, lr.gameObject.transform.position);
             yield return null;
         }

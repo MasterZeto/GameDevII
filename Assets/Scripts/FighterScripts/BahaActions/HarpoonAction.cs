@@ -67,9 +67,20 @@ public class HarpoonAction : Action
         delayDone = false;
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
+            if(Vector3.Distance(transform.forward, opponent.transform.forward)<2f){
+                Debug.Log("jkahsdkjashdkjshad");
+                Vector3 targetDir = opponent.transform.position - transform.position;
+                Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 10*Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDir);
+                transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,transform.eulerAngles.z);
+            }
             while(paused){
                 yield return null;
             }
+            opponentLoc = opponent.transform;
+            direction = opponentLoc.position - harpoonStart.transform.position;
+            direction.y/=3;
+            direction.Normalize();
             yield return null;
         }
         rope.positionCount = 2;
@@ -104,7 +115,7 @@ public class HarpoonAction : Action
         t = 0;
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>1f&&t<timeTohit*3){
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>2f&&t<timeTohit*3){
             while(paused){
                 rb.velocity = Vector3.zero;
                 yield return null;
