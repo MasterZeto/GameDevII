@@ -4760,8 +4760,9 @@ GameObject:
   - component: {fileID: 1574085601}
   - component: {fileID: 1574085600}
   - component: {fileID: 1574085599}
-  - component: {fileID: 1574085604}
   - component: {fileID: 1574085603}
+  - component: {fileID: 1574085604}
+  - component: {fileID: 1574085605}
   m_Layer: 0
   m_Name: FightManager
   m_TagString: Untagged
@@ -4811,9 +4812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0f727a63794004d8901a4d669b83bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intro_dialogue: {fileID: 1574085604}
+  intro_dialogue: {fileID: 1574085603}
   lose_dialogue: {fileID: 1574085604}
-  final_dialogue: {fileID: 1574085603}
+  final_dialogue: {fileID: 1574085605}
   fade: {fileID: 1574085600}
   transition: {fileID: 1574085599}
   player_health_system: {fileID: 1483727937}
@@ -4850,9 +4851,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
+  - index: 1
+    dialogue:
+    - 'Hey there, pally! '
+    - Perfect day for some trouble, don't you say?
   - index: 0
     dialogue:
-    - YOU WIN!!!
+    - Yeah, it is a nice one, but let's save the pleasantries for after the fight
+  - index: 1
+    dialogue:
+    - No arguments here!
+    - Say... you wouldn't happen to have lost a few bolts and wires last night, would
+      you?
+  - index: 0
+    dialogue:
+    - No...why do you ask?
+  - index: 1
+    dialogue:
+    - Oh, no reason!
+    - '*snickers*'
   typewriters:
   - {fileID: 93172088}
   - {fileID: 93172087}
@@ -4869,9 +4886,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
+  - index: 1
+    dialogue:
+    - "Hey, now, pally, don\u2019t fret! There\u2019s always next year, so long as
+      nothing else happens\u2026  "
+    - '*snickers*'
   - index: 0
     dialogue:
-    - You ready babey?
+    - That there is... I have a lot to learn before then.
+    - I hope your streak keeps up, either way. (If pulling wires could be considered
+      a streak.)
+  typewriters:
+  - {fileID: 93172088}
+  - {fileID: 93172087}
+--- !u!114 &1574085605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574085598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b50edac2759ea43a619f11b6c75dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text:
+  - index: 1
+    dialogue:
+    - Aw, shucks, how'd you manage that?
+    - Didn't see that one comin' at all... and that's sayin' somethin'!
+  - index: 0
+    dialogue:
+    - Nice match! You certainly kept me on my toes!
+  - index: 1
+    dialogue:
+    - '*beaming* '
+    - That's might nice of you to say, pally! You're not half bad yourself.
   typewriters:
   - {fileID: 93172088}
   - {fileID: 93172087}
