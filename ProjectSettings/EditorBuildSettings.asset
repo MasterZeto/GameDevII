@@ -12,14 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 927154c618c1678479bf38137ff047ae
   - enabled: 1
-    path: Assets/Scenes/EndScene.unity
-    guid: 4dfbe10977e2d4948a3fe4718c8798bb
-  - enabled: 1
-    path: Assets/Scenes/FirstPlayable.unity
-    guid: 61e079d85bf6fa944949ae858c4bb5f2
-  - enabled: 1
-    path: Assets/Scenes/VerticalSlice.unity
-    guid: 9b7a4b3c8614f3c4dbd9151038f76d76
+    path: Assets/Scenes/Tutorial.unity
+    guid: ec94e4ba17f3bdd4aafea41ae37d2055
   - enabled: 1
     path: Assets/Scenes/BracketScenes/SawyerBracketScene.unity
     guid: d2b34122c37353648a6b474639637525
@@ -30,15 +24,15 @@ EditorBuildSettings:
     path: Assets/Scenes/BracketScenes/BajaBracketScene.unity
     guid: 01c98183bbc15f643b9451de11690292
   - enabled: 1
-    path: Assets/Scenes/SaraOHara.unity
-    guid: 114188f0b81d3d64fb725775462b653c
-  - enabled: 1
     path: Assets/Scenes/SawyerFight.unity
     guid: c99ba5b234a01ca43b73eb18e38ab45d
+  - enabled: 1
+    path: Assets/Scenes/SaraOHara.unity
+    guid: 114188f0b81d3d64fb725775462b653c
   - enabled: 1
     path: Assets/Scenes/BahaTest.unity
     guid: b2190fcff12667a4c9ce0f6229dfa5f4
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: ec94e4ba17f3bdd4aafea41ae37d2055
+    path: Assets/Scenes/EndCutscene.unity
+    guid: e22c318b7f1281445af8cef91c906028
   m_configObjects: {}
