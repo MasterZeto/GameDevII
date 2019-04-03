@@ -157,7 +157,6 @@ public class FighterController : MonoBehaviour
     public void Stun(){
         stunned = true;
         Pause();
-        //set stunned animation here?
     }
 
     public void Resume()
