@@ -9184,9 +9184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: -20
-  dash_duration: 2
-  anim_name: DashBackward
+  dash_speed: 10
+  dash_duration: 0.2
+  anim_name: DashForward
 --- !u!4 &254387335267568816
 Transform:
   m_ObjectHideFlags: 0
