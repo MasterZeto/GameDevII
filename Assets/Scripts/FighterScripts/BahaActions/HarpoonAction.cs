@@ -65,6 +65,8 @@ public class HarpoonAction : Action
     private IEnumerator HitWithDelayRoutine()
     {
         delayDone = false;
+        harpoon.transform.position = harpoonStart.position;
+        harpoon.SetActive(true);
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             if(Vector3.Distance(transform.forward, opponent.transform.forward)<2f){
@@ -85,8 +87,6 @@ public class HarpoonAction : Action
         }
         rope.positionCount = 2;
         rope.SetPosition(0, harpoonStart.position);
-        harpoon.transform.position = harpoonStart.position;
-        harpoon.SetActive(true);
         //direction.y = 0;
         //direction.Normalize();
         hitbox.Fire(hit_duration);
