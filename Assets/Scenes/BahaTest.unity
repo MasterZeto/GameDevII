@@ -3530,7 +3530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intro_dialogue: {fileID: 1148713071}
-  lose_dialogue: {fileID: 0}
+  lose_dialogue: {fileID: 1148713071}
   final_dialogue: {fileID: 1148713070}
   fade: {fileID: 1148713073}
   transition: {fileID: 1148713072}
