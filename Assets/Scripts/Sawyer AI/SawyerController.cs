@@ -23,6 +23,8 @@ public class SawyerController : MonoBehaviour
     float t = 0;
     float switched_time = 0f;
 
+    bool freezed = false;
+
     Queue<ActionDelegate> actions;
 
     void Awake()
@@ -131,15 +133,17 @@ public class SawyerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(sawyer.IsActing());
-        if (actions.Count == 0) actions = tree.Evaluate();
+        if (!freezed) 
+        {
+            if (actions.Count == 0) actions = tree.Evaluate();
 
-        if (!sawyer.IsActing()) (actions.Dequeue())();
+            if (!sawyer.IsActing()) (actions.Dequeue())();
 
-        sawyer.RelativeMove((lateral_move_dir + radial_move_dir).normalized);
+            sawyer.RelativeMove((lateral_move_dir + radial_move_dir).normalized);
 
-        t += Time.deltaTime;
-        switched_time += Time.deltaTime;
+            t += Time.deltaTime;
+            switched_time += Time.deltaTime;
+        }
     }
 
     void SetMoveDirForward()
@@ -188,6 +192,12 @@ public class SawyerController : MonoBehaviour
     int Random01()
     {
         return Random.Range(0, 2);
+    }
+
+    public void SetFreezed(bool f)
+    {
+        freezed = f;
+        //if (f) { sawyer.Pause(); } else { sawyer.Resume(); }
     }
 
 }

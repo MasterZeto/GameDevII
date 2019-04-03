@@ -173,7 +173,7 @@ public class Typewriter : MonoBehaviour
 			if (i == text.Length - 1) break;
 
 			/* Wait for a set amound of time */
-			yield return new WaitForSeconds(IsWaitPunctuation(text[i])
+			yield return new WaitForSecondsRealtime(IsWaitPunctuation(text[i])
 				? m_PunctuationWait
 				: m_CharacterWait);
 		}

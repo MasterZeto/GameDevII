@@ -33,6 +33,8 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField] PauseUIManager pauseUI;
 
+    bool control_active;
+
     void Awake()
     {
         cam=Camera.main.GetComponent<CameraController>();
@@ -40,20 +42,24 @@ public class InputHandler : MonoBehaviour
         p0 = p1 = p2 = JoystickPosition.CENTER;
         p1_time = p2_time = 0f;
         lp_ready = rp_ready = lk_ready = rk_ready = true;
+        control_active = true;
     }
 
     void Update()
     {
-        GetInput();
+        if (control_active)
+        {
+            GetInput();
 
-        TryDash();
-        TryPunch();
-        TryKick();
+            TryDash();
+            TryPunch();
+            TryKick();
 
-        fighter.Move((fighter.transform.right * h) + (fighter.transform.forward * v));
-        cam.Move(v, h);
+            fighter.Move((fighter.transform.right * h) + (fighter.transform.forward * v));
+            cam.Move(v, h);
 
-        UpdateDashTracking();        
+            UpdateDashTracking();        
+        }
 
         if (cool > 0f) { cool -= Time.unscaledDeltaTime; }
 
@@ -204,5 +210,8 @@ public class InputHandler : MonoBehaviour
         return JoystickPosition.CENTER;
     }
 
-
+    public void SetControlActive(bool active)
+    {
+        control_active = active;
+    }
 };

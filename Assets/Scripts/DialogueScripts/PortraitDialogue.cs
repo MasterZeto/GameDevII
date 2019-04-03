@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void EndCallback();
+
 public class PortraitDialogue : MonoBehaviour
 {
     [System.Serializable]
@@ -18,12 +20,24 @@ public class PortraitDialogue : MonoBehaviour
     bool next = false;
     int index = 0;
 
+    EndCallback callback = null;
+
     [ContextMenu("Start Dialogue")]
-    void StartDialogue()
+    public void StartDialogue()
     {
         printing = true;
         next = false;
         index = 0;
+
+        DisplayBlock(index);
+    }
+
+    public void StartDialogue(EndCallback callback)
+    {
+        printing = true;
+        next = false;
+        index = 0;
+        this.callback = callback;
 
         DisplayBlock(index);
     }
@@ -54,6 +68,7 @@ public class PortraitDialogue : MonoBehaviour
         {
             next = false;
             printing = false;
+            if (callback != null) callback();
         }
         else
         {
