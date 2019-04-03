@@ -733,6 +733,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3494558416500282019, guid: 1c81b6133f8c87b43aaf8e46eeee58c3,
+        type: 3}
+      propertyPath: target_scene
+      value: SaraOHara
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494558416500282019, guid: 1c81b6133f8c87b43aaf8e46eeee58c3,
+        type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 675871201}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c81b6133f8c87b43aaf8e46eeee58c3, type: 3}
 --- !u!224 &337184728 stripped
