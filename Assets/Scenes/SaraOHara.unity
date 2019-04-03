@@ -2315,8 +2315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 10
-  dash_duration: 0.3
+  dash_speed: 13
+  dash_duration: 0.25
   anim_name: 
 --- !u!1 &886121889
 GameObject:
