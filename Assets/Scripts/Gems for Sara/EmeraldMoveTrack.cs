@@ -34,7 +34,7 @@ public class EmeraldMoveTrack : MonoBehaviour
 
     IEnumerator LaserBullet()
     {
-        Instantiate(child, transform.position, Quaternion.identity);
+        Instantiate(child, transform.position,Quaternion.identity);
         yield return null;
     }
 
