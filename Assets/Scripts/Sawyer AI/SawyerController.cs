@@ -3,230 +3,207 @@ using System.Collections.Generic;
 using UnityEngine;
 using Giga.AI.FSM;
 using Giga.AI.Blackboard;
-
-public class SawyerCharacter : AICharacter
-{
-
-    public FighterController character;
-
-    public Animator animator { get; private set; }
-    public Hitbox hitbox { get; private set; }
-
-    float t;
-
-    //constructor
-    public SawyerCharacter(FighterController character, Hitbox h)
-    {
-        this.character = character;
-        animator = character.GetComponentInChildren<Animator>();
-        hitbox = h;
-
-
-    }
-
-    //sawyer sweep stricks and overhead smash add here
-    public void Attack()
-    {
-
-        character.RightPunch();
-    }
-    public void RightDash()
-    {
-        character.DashRight();
-    }
-    public void LeftDash()
-    {
-        character.DashLeft();
-    }
-    public void BackRightDash()
-    {
-        character.DashBackRight();
-    }
-    public void BackLeftDash()
-    {
-        character.DashBackLeft();
-    }
-    public void DashForward()
-    {
-        character.DashForward();
-    }
-
-}
-
-public class SawyerFSM : FiniteStateMachine<SawyerCharacter>
-{
-    private class FirstZigZag : MachineState<SawyerCharacter>
-    {
-        public FirstZigZag() { name = "FirstZigZag"; }
-        float zigZagTime = 0.3f;
-        float currentTime = 1f;
-        bool right = true;
-        public override void Update(SawyerCharacter actor, float dt)
-        {
-            currentTime += Time.deltaTime;
-
-            if (currentTime > zigZagTime)
-            {
-
-                currentTime = 0;
-                if (right)
-                {
-                    actor.RightDash();
-                    right = !right;
-                    Debug.Log("right dash to player");
-                }
-                else
-                {
-                    actor.LeftDash();
-                    right = !right;
-                    Debug.Log("left dash to player");
-                }
-            }
-
-
-            // actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection));
-
-        }
-    }
-    private class ZigZagAway : MachineState<SawyerCharacter>
-    {
-        public ZigZagAway() { name = "ZigZagAway"; }
-        float zigZagTime = 0.3f;
-        float currentTime = 1f;
-        float P = 0;// a parameter that is supposed to affect the change of angle for each zigzag move
-        bool right = true;
-        public override void Update(SawyerCharacter actor, float dt)
-        {
-            currentTime += Time.deltaTime;
-
-
-            if (currentTime > zigZagTime)
-            {
-
-                currentTime = 0;
-                if (right)
-                {
-                    actor.BackRightDash();
-                    right = !right;
-                    Debug.Log("right dash away player");
-                }
-                else
-                {
-                    actor.BackLeftDash();
-                    right = !right;
-                    Debug.Log("right dash away player");
-                }
-            }
-
-            //actor.character.transform.rotation = Quaternion.LookRotation(actor.character.RelativeMove(moveDirection));
-        }
-    }
-
-    private class DashToPlayer : MachineState<SawyerCharacter>
-    {
-        public DashToPlayer() { name = "DashToPlayer"; }
-
-        public override void Update(SawyerCharacter actor, float dt)
-        {
-            actor.DashForward();
-            Debug.Log("DashToPlayer");
-        }
-    }
-
-    private class AttackPlayer : MachineState<SawyerCharacter>
-    {
-        public AttackPlayer() { name = "AttackPlayer"; }
-
-        public override void Update(SawyerCharacter actor, float dt)
-        {
-            actor.Attack();
-
-            Debug.Log("should attack now");
-        }
-    }
-
-    private static MachineState<SawyerCharacter> next_state(
-        SawyerCharacter actor,
-        MachineState<SawyerCharacter> state
-    )
-    {
-        float dist_to_player = Vector3.Distance(actor.character.transform.position, Blackboard.player_position);
-
-        switch (state.name)
-        {
-            case "FirstZigZag": //only dash to player when get close
-                if (dist_to_player < 10f)
-                {
-                    //  actor.animator.SetBool("walk", false);
-                    return new DashToPlayer();
-                }//if get close to player but is within the sight, zigzag away
-                break;
-            case "ZigZagAway":
-                if (dist_to_player > 20f)
-                {
-                    return new FirstZigZag();
-                }
-                break;
-            case "DashToPlayer":
-              //  if (dist_to_player > 10f)
-              //  {
-                    //actor.animator.SetBool("walk", true);
-                   // return new FirstZigZag();
-              //  }
-
-                if (dist_to_player <10f)
-                {
-
-                    return new AttackPlayer();
-                }
-                break;
-            case "AttackPlayer":
-                if (dist_to_player < 3f)
-                {
-                    return new ZigZagAway();
-                }
-                break;
-        }
-        return null;
-    }
-    SawyerCharacter actor;
-
-    public SawyerFSM(SawyerCharacter actor)
-         : base(new FirstZigZag(), next_state)
-    {
-        this.actor = actor;
-    }
-}
+using Giga.AI.BehaviorTree;
 
 [RequireComponent(typeof(FighterController))]
 public class SawyerController : MonoBehaviour
 {
-    [SerializeField] Hitbox hitbox;
-    SawyerCharacter ai;
-    SawyerFSM fsm;
+    [SerializeField] float dash_distance;
+    [SerializeField] float backup_distance;
+    [SerializeField] float movein_distance;
+    [SerializeField] float attack_distance;
 
+    FighterController sawyer;
+    Blackboard blackboard;
+    BehaviorTree tree;
+
+    Vector3 lateral_move_dir;
+    Vector3 radial_move_dir;
+
+    float t = 0;
+    float switched_time = 0f;
+
+    bool freezed = false;
+
+    Queue<ActionDelegate> actions;
 
     void Awake()
-    {  //fightercontroller
-        ai = new SawyerCharacter(GetComponent<FighterController>(), hitbox);
-        fsm = new SawyerFSM(ai);
+    {  
+        sawyer = GetComponent<FighterController>();
+        blackboard = GameObject.FindGameObjectWithTag("Blackboard").GetComponent<Blackboard>();
+        actions = new Queue<ActionDelegate>();
+        lateral_move_dir = Vector3.zero;
+        radial_move_dir = (Random01() == 0) ? Vector3.right : Vector3.left;
+
+    }
+
+    void Start()
+    {
+        // should probably have a dash routine that's like
+
+        /* 
+            should circle the player...
+            so I should have some functions that set a local "move" variable
+            and do some actions that adjust this function. Then when I eval
+            the tree, do the action, then try to move in the direction
+
+            AttackL = Seq(AttackL, AttackRL)
+            AttackR = Seq(AttackR, AttackRL)
+            DashInL = Seq(DashL, DashR, DashL)
+            DashInR = Seq(DashR, DashL, DashR)
+
+            Retreat = DashBack
+
+            Select : DistFromPlayer
+                Select : WhereToMove (basically an else for the rest of the tree)
+                    ---
+                    ---
+                    ---
+                MoveForward  (if too far)
+                MoveBackward (if too close)
+                Select : Random01 (if in dash range)
+                    DashL
+                    DashR
+                Select : Random01 (if in attack range)
+                    AttackL
+                    AttackR
+
+         */
+
+        SequencerNode DashInLeft = new SequencerNode(
+            new List<Node>()
+            {
+                new ActionNode(sawyer.DashLeft),
+                new ActionNode(sawyer.DashRight),
+                new ActionNode(sawyer.DashLeft)
+            }
+        );
+
+        SequencerNode DashInRight = new SequencerNode(
+            new List<Node>()
+            {
+                new ActionNode(sawyer.DashRight),
+                new ActionNode(sawyer.DashLeft),
+                new ActionNode(sawyer.DashRight)
+            }
+        );
+
+        /* if (dist > movein_distance) return 0;
+        if (dist < attack_distance) return 3;
+        if (dist < backup_distance) return 1;
+        if (Mathf.Abs(dist - dash_distance) < 1f) return 2;
+        
+        return 4; */
+
+        tree = new BehaviorTree(
+            new SelectorNode(
+                DistanceToPlayer,
+                new List<Node>()
+                {
+                    new ActionNode(SetMoveDirForward),
+                    new ActionNode(SetMoveDirBackward),
+                    new SelectorNode(
+                        ShouldAttack,
+                        new List<Node>()
+                        {
+                            new SelectorNode(
+                                Random01,
+                                new List<Node>()
+                                {
+                                    DashInLeft,
+                                    DashInRight
+                                }
+                            ),
+                            new ActionNode(Nothing)
+                        }
+                    ),
+                    new ActionNode(sawyer.RightPunch),
+                    new SelectorNode(
+                        ShouldSwitchDirection,
+                        new List<Node>() 
+                        {
+                            new ActionNode(SwitchRadialDirection),
+                            new ActionNode(Nothing)
+                        }
+                    )
+                }
+            )
+        );
     }
 
     void Update()
     {
-        /*  transform.forward = Vector3.ProjectOnPlane(
-             (Blackboard.player_position - transform.position), 
-              Vector3.up
-          ).normalized;*/
+        if (!freezed) 
+        {
+            if (actions.Count == 0) actions = tree.Evaluate();
 
-        if(ai.character.animator.enabled) transform.forward = (ai.character.GetOpponent().transform.position - transform.position).normalized;
+            if (!sawyer.IsActing()) (actions.Dequeue())();
 
-        fsm.Update(ai, Time.deltaTime);
+            sawyer.RelativeMove((lateral_move_dir + radial_move_dir).normalized);
 
-
-
-
+            t += Time.deltaTime;
+            switched_time += Time.deltaTime;
+        }
     }
 
+    void SetMoveDirForward()
+    {
+        lateral_move_dir = Vector3.forward;
+    }
+
+    void SetMoveDirBackward()
+    {
+        lateral_move_dir = Vector3.back;
+    }
+
+    void SwitchRadialDirection()
+    {
+        radial_move_dir = -radial_move_dir;
+        switched_time = 0f;
+    }
+
+    void Nothing() {}
+
+    int DistanceToPlayer()
+    {
+        float dist = blackboard.DistanceFromPlayerToOpponent();
+
+        /* check distance against stuff */
+
+        if (dist > movein_distance) return 0;
+        if (dist < attack_distance) return 3;
+        if (dist < backup_distance) return 1;
+        if (Mathf.Abs(dist - dash_distance) < 1f) return 2;
+        
+        return 4;
+    }
+
+    int ShouldSwitchDirection()
+    {
+        float time_range_value = (switched_time - 2f) / 2f;
+        return ((Random.Range(0f, 1f) < time_range_value) ? 0 : 1);
+    }
+
+    int ShouldAttack()
+    {
+        return ((t > 5f && Random.Range(0f, 1f) > 0.4f) ? 0 : 1);
+    }
+
+    int Random01()
+    {
+        return Random.Range(0, 2);
+    }
+
+    public void SetFreezed(bool f)
+    {
+        freezed = f;
+        //if (f) { sawyer.Pause(); } else { sawyer.Resume(); }
+    }
 
 }
+
+/*
+    I'm thinking it would be better to instead of use actions in the tree, but
+    use a function call since everything gets routed through the fighter controller
+    so we can just have function calls with "is done"... maybe do that...
+ */

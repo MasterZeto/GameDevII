@@ -15,7 +15,7 @@ public class Hitbox : MonoBehaviour
     public float cooldown;
     
     float timescale = 1f;
-
+  
     void Start() { active = false; cooldown = -1f; }
 
     void OnTriggerStay(Collider c)
@@ -23,21 +23,22 @@ public class Hitbox : MonoBehaviour
         if (active)
         {
             //Debug.Log("entered and active");
+         //   Hurtbox h = GameObject.FindGameObjectWithTag("Opponent").GetComponent<Hurtbox>();
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
 
             if (h != null)
             {
-                //Debug.Log("oof");
+                Debug.Log("opponent hurtbox get");
                 active = false;
                 h.TakeDamage(_damage);
 
                 GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
 
-                transform.root.gameObject.GetComponent<SoundBox>().HitSFX();
+            //  transform.root.gameObject.GetComponent<SoundBox>().HitSFX();
 
                 GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
             } else {
-                transform.root.gameObject.GetComponent<SoundBox>().MissSFX();
+           //    transform.root.gameObject.GetComponent<SoundBox>().MissSFX();
             }
         }
     }

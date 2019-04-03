@@ -20,10 +20,9 @@ using UnityEngine;
         private PauseScript PauseScript;
         private int currentIndex=0;
         [SerializeField] FighterController fc;
-        [Space]
-        [Header("Heat List")]
+        [SerializeField] RectTransform startPosition;
         //probably will change it so it isn't hard coded lmao, but that's for l8r
-        [SerializeField] List<float> heatVal;
+        List<float> heatVal = new List<float>();
         [SerializeField] Image pause_heat;
         float currentHeat = 0;
         // Start is called before the first frame update
@@ -33,6 +32,7 @@ using UnityEngine;
             queueButtons = new Dictionary<Button, int>();
             buttonLoc = new Dictionary<Button, RectTransform>();
             PauseScript = pauseManager.GetComponent<PauseScript>();
+            fc.GetHeatValues(ref heatVal);
             //foreach(Button bttn in bttns){
                 //Button newBttn = Instantiate(bttnPrefabList[i]);
                 //RectTransform rect = newBttn.GetComponent<RectTransform>();
@@ -79,11 +79,16 @@ using UnityEngine;
             foreach (Button bttn in bttns)
             {
                 bttn.onClick.AddListener(() => AddToQueue(bttn));
-                Debug.Log("click added");
+//                Debug.Log("click added");
             }
-            startPos.x = Screen.width/2-maxQueued/2*bttns[0].GetComponent<RectTransform>().sizeDelta.x+70;
-            startPos.y = .5f*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
-            startPos.z = 0;
+            if(startPosition!=null){
+                startPos = startPosition.position;
+            }
+            else{
+                startPos.x = Screen.width/2-maxQueued/2*bttns[0].GetComponent<RectTransform>().sizeDelta.x+70;
+                startPos.y = .5f*bttns[0].GetComponent<RectTransform>().sizeDelta.y;
+                startPos.z = 0;
+            }
             currentPos = startPos;
             parent = bttns[0].GetComponent<RectTransform>().transform.parent;
             Hide();
@@ -98,6 +103,7 @@ using UnityEngine;
             AddToQueue(bttns[i]);
         }
         void AddToQueue(Button bttn){
+            if(fc.stunned) return;
             int index=bttns.IndexOf(bttn);
             if(PauseScript.pauseQueue.Count<maxQueued&&currentHeat+heatVal[index]<fc.max_heat){
                 Button newBttn = Instantiate(bttn);
@@ -191,6 +197,16 @@ using UnityEngine;
         }
         public void HidePauseHeat(){
             pause_heat.gameObject.SetActive(false);
+        }
+
+        public int PauseQueueCount()
+        {
+            return PauseScript.pauseQueue.Count;
+        }
+
+        public int PauseQueueIndex()
+        {
+            return currentIndex;
         }
     }
 

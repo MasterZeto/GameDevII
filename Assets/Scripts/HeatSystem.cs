@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HeatSystem : MonoBehaviour
 {
-    [SerializeField] Image heat_bar_cover;
+    [SerializeField] HeatController heat;
 
     FighterController fighter;
 
@@ -16,8 +16,6 @@ public class HeatSystem : MonoBehaviour
 
     void Update()
     {
-        heat_bar_cover.rectTransform.localScale = new Vector3(
-            (fighter.max_heat - fighter.heat) / fighter.max_heat, 1f, 1f
-        );
+        heat.SetHeat(fighter.heat);
     }
 }

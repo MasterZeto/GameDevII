@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] float maxHitPoints;
@@ -11,6 +13,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] Image uiHealthBar;
 
     float hitPoints;
+    VoidDelegate death_callback = null;
 
     void Start()
     {
@@ -35,8 +38,11 @@ public class HealthSystem : MonoBehaviour
         {
             hitPoints = 0; 
             Debug.Log("DEAD");
-            SceneManager.LoadScene("EndScene"); 
-            GameObject.Destroy(this.gameObject); 
+            /* TODO: fix this, we want to do specific things per character
+                when they die (player, should have a restart option, for the
+                opponent, should proceed to the next scene)
+             */ 
+            if (death_callback != null) death_callback();
         }
         UpdateHealthBar();
     }
@@ -49,5 +55,12 @@ public class HealthSystem : MonoBehaviour
             hitPoints = maxHitPoints;
         }
         UpdateHealthBar();
+    }
+
+    public float GetHealthPercent() { return (hitPoints / maxHitPoints); }
+
+    public void SetDeathCallback(VoidDelegate callback)
+    {
+        death_callback = callback;
     }
 }

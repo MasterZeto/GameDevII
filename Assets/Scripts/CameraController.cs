@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] Transform follow;
     [SerializeField] float lookAtHeight;
+    [SerializeField] Transform lookAt;
     [Range(0,1)]
     [SerializeField] float speed;
     [SerializeField] float moveSpeed = 10;
@@ -26,9 +27,8 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         if(!pause){
-            transform.position = Vector3.Lerp(transform.position, follow.position + (follow.forward * offset.z)
-                 + (Vector3.up * offset.y), speed);
-            transform.LookAt(follow.position + (lookAtHeight * Vector3.up), Vector3.up);
+            transform.position = Vector3.Lerp(transform.position, follow.position, speed);
+            transform.LookAt(lookAt.position, Vector3.up);
         }
 
         if (pause && moveable && !pause_effect.enabled)

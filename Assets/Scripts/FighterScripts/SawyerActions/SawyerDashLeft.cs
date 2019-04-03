@@ -22,7 +22,7 @@ public class SawyerDashLeft :DashAction
 
     private IEnumerator DashLeftRoutine()
     {
-        Vector3 moveDirection = Vector3.Lerp(-transform.right, transform.forward, 0.3f);
+        Vector3 moveDirection = Vector3.Lerp(-transform.right, transform.forward, 0.6f);
         Debug.Log("move");
         for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {

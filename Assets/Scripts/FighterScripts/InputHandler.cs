@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Giga.AI.Blackboard;
 
 public enum JoystickPosition
 {
@@ -32,6 +33,8 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField] PauseUIManager pauseUI;
 
+    bool control_active;
+
     void Awake()
     {
         cam=Camera.main.GetComponent<CameraController>();
@@ -39,22 +42,28 @@ public class InputHandler : MonoBehaviour
         p0 = p1 = p2 = JoystickPosition.CENTER;
         p1_time = p2_time = 0f;
         lp_ready = rp_ready = lk_ready = rk_ready = true;
+        control_active = true;
     }
 
     void Update()
     {
-        GetInput();
+        if (control_active)
+        {
+            GetInput();
 
-        TryDash();
-        TryPunch();
-        TryKick();
+            TryDash();
+            TryPunch();
+            TryKick();
 
-        fighter.Move((fighter.transform.right * h) + (fighter.transform.forward * v));
-        cam.Move(v, h);
+            fighter.Move((fighter.transform.right * h) + (fighter.transform.forward * v));
+            cam.Move(v, h);
 
-        UpdateDashTracking();        
+            UpdateDashTracking();        
+        }
 
         if (cool > 0f) { cool -= Time.unscaledDeltaTime; }
+
+        Blackboard.player_position = transform.position;
     }
 
     void GetInput()
@@ -84,7 +93,7 @@ public class InputHandler : MonoBehaviour
             p0 != JoystickPosition.CENTER && 
             p1 == JoystickPosition.CENTER &&
             (Time.unscaledTime - p2_time) < dash_window &&
-            cool <= 0f)
+            cool <= 0f &&!fighter.stunned)
         {
             if(!cam.pause){
                 switch (p0)
@@ -145,7 +154,7 @@ public class InputHandler : MonoBehaviour
         }
         if (rp >= 0.999f && rp_ready) 
         {
-            Debug.Log("RightPunch");
+ //           Debug.Log("RightPunch");
             if(!cam.pause){
                 fighter.RightPunch();
             }
@@ -201,5 +210,8 @@ public class InputHandler : MonoBehaviour
         return JoystickPosition.CENTER;
     }
 
-
+    public void SetControlActive(bool active)
+    {
+        control_active = active;
+    }
 };
