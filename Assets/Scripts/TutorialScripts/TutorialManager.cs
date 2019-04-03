@@ -19,7 +19,16 @@ public delegate void VoidFunc();
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] PortraitDialogue test_dialogue;
+    [SerializeField] PortraitDialogue intro_dialogue;
+    [SerializeField] PortraitDialogue moveDone_dialogue;
+    [SerializeField] PortraitDialogue dashDone_dialogue;
+    [SerializeField] PortraitDialogue attackDone_dialogue;
+    [SerializeField] PortraitDialogue doubleAttackDone_dialogue;
+    [SerializeField] PortraitDialogue heatDone_dialogue;
+    [SerializeField] PortraitDialogue pauseDone_dialogue;    
+    [SerializeField] PortraitDialogue comboDone_dialogue;
+    [SerializeField] PortraitDialogue outro_dialogue;
+
 
     [SerializeField] Action dash_left_action;
     [SerializeField] Action dash_right_action;
@@ -74,7 +83,7 @@ public class TutorialManager : MonoBehaviour
         dummy.Initialize(DummyNotifyMethod);
         notified = false;
         should_check = false;
-        test_dialogue.StartDialogue(ResumePlay);
+        intro_dialogue.StartDialogue(ResumePlay);
         input.SetControlActive(false);
     }
 
@@ -100,51 +109,51 @@ public class TutorialManager : MonoBehaviour
                 if (left && right && forward && back)
                 {
                     Debug.Log("MOVEMENT PHASE DONE");
-                    IncrementStage(TutorialStage.DASH, test_dialogue);
+                    IncrementStage(TutorialStage.DASH, moveDone_dialogue);
                 }
                 break;
             case TutorialStage.DASH: 
                 if (dash_left && dash_right && dash_forward && dash_back && !player.IsActing())
                 {
                     Debug.Log("DASHING STAGE DONE");
-                    IncrementStage(TutorialStage.SIMPLE_ATTACK, test_dialogue);
+                    IncrementStage(TutorialStage.SIMPLE_ATTACK, dashDone_dialogue);
                 }
                 break;
             case TutorialStage.SIMPLE_ATTACK: 
                 if (right_punch && left_punch && right_kick && left_kick && !player.IsActing())
                 {
                     Debug.Log("SIMPLE ATTACK STAGE DONE");
-                    IncrementStage(TutorialStage.DOUBLE_ATTACK, test_dialogue);
+                    IncrementStage(TutorialStage.DOUBLE_ATTACK, attackDone_dialogue);
                 }
                 break;
             case TutorialStage.DOUBLE_ATTACK: 
                 if (double_punch && double_kick && !player.IsActing())
                 {
                     Debug.Log("DOUBLE ATTACK STAGE DONE");
-                    IncrementStage(TutorialStage.HEAT, test_dialogue);
+                    IncrementStage(TutorialStage.HEAT, doubleAttackDone_dialogue);
                 }
                 break;
             case TutorialStage.HEAT: 
                 // probably just a thing with 
                 Debug.Log("HEAT STAGE DONE");
-                IncrementStage(TutorialStage.PAUSE, test_dialogue);
+                IncrementStage(TutorialStage.PAUSE, heatDone_dialogue);
                 break;
             case TutorialStage.PAUSE: 
                 if (player.pause)
                 {
                     Debug.Log("PAUSE STAGE DONE");
-                    IncrementStage(TutorialStage.COMBO, test_dialogue);
+                    IncrementStage(TutorialStage.COMBO, pauseDone_dialogue);
                 }
                 break;
             case TutorialStage.COMBO:
                 if (!player.pause && combo_entered && pause_manager.PauseQueueIndex() == pause_manager.PauseQueueCount())
                 {
                     Debug.Log("COMBO STAGE DONE");
-                    IncrementStage(TutorialStage.DODGING, test_dialogue);
+                    IncrementStage(TutorialStage.DODGING, comboDone_dialogue);
                 }
                 break;
             case TutorialStage.DODGING:
-                IncrementStage(TutorialStage.CLOSING, test_dialogue);
+                IncrementStage(TutorialStage.CLOSING, outro_dialogue);
                 break;
             case TutorialStage.CLOSING:
                 scene_transition.Transition();
