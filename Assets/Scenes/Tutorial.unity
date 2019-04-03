@@ -714,7 +714,7 @@ MonoBehaviour:
       to make sure it's still how you remember it.
     - Use your 'W' 'A' 'S' & 'D' keys or the LEFT JOYSTICK to move around.
   typewriters:
-  - {fileID: 1526001018}
+  - {fileID: 519996154}
 --- !u!4 &266259456
 Transform:
   m_ObjectHideFlags: 0
@@ -1111,7 +1111,12 @@ MonoBehaviour:
   text:
   - index: 0
     dialogue:
-    - e
+    - Alright, I'm in my zone now. Nothing can touch me here.
+    - I feel like I should give this guy a little more of a show than he's expecting.
+      After all, how fun is stopping time if you don't do anything while it's stopped?
+    - Let's see...any actions I make while paused will stack up and execute all in
+      a row as soon as I hit the pause button again... so what combo am I feeling
+      today...
   typewriters:
   - {fileID: 1526001018}
 --- !u!4 &436612759
@@ -1295,9 +1300,14 @@ MonoBehaviour:
   text:
   - index: 0
     dialogue:
-    - f
+    - '*applause*'
+    - Bravo! That was truly spectacular! But I'm sure I won't see your full gambit
+      until game day!
+    - I'm greatly anticipating seeing the use of dashes and attacks in tandem with
+      the enemies moves, and those bullet time dodges to juuuust miss the incoming
+      attack, whew!
   typewriters:
-  - {fileID: 1526001018}
+  - {fileID: 519996154}
 --- !u!4 &462051895
 Transform:
   m_ObjectHideFlags: 0
@@ -1312,6 +1322,18 @@ Transform:
   m_Father: {fileID: 1047468055}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519996154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5869623623491419305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d95f149bdb71a14486e8b6625021da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &533799892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1797,9 +1819,18 @@ MonoBehaviour:
   text:
   - index: 0
     dialogue:
-    - d
+    - On that note, the way you've styled your heat guage on the bottom left corner
+      of your visor is very nice.
+    - Be sure to keep an eye on that, you wouldn't want to overheat in the middle
+      of a match and leave yourself vulnerable!
+    - If you start getting too hot, hold back on the abilities until you mech has
+      a chance to cool off.
+    - But this next one is what I'm most looking forward to seeing in person. Would
+      you show me how your time stop ability works?
+    - 'From what I''ve heard, just pressing X on a controller or ''P'' on a keyboard,
+      you can actually pause the flow of time itself..... '
   typewriters:
-  - {fileID: 1526001018}
+  - {fileID: 519996154}
 --- !u!4 &590148720
 Transform:
   m_ObjectHideFlags: 0
@@ -2154,10 +2185,11 @@ MonoBehaviour:
   text:
   - index: 0
     dialogue:
-    - Nice moves, Murry
-    - b
+    - Nice moves, Murry! Finish it off with a couple power attacks!!
+    - Use both your power punch and your power kick!. For a power punch, press RB
+      + LB or 'U' + 'I' at the same time. For a power kick, RT + LT or 'J' + 'K'.
   typewriters:
-  - {fileID: 1526001018}
+  - {fileID: 519996154}
 --- !u!4 &615631823
 Transform:
   m_ObjectHideFlags: 0
@@ -2708,7 +2740,7 @@ MonoBehaviour:
       Punch (RB or ''I'') , Left Punch (LB or ''U''), Right Kick (RT or ''K''), and
       Left Kick (LT or ''J'').'
   typewriters:
-  - {fileID: 1526001018}
+  - {fileID: 519996154}
 --- !u!4 &1090490118
 Transform:
   m_ObjectHideFlags: 0
@@ -3178,8 +3210,24 @@ MonoBehaviour:
   text:
   - index: 0
     dialogue:
-    - g
+    - Well, suffice it to say, this is going to be an incredibly exciting tournament
+      this year! We've got quite the impressive lineup!
+    - Do you have any questions before I let you get some rest?
+  - index: 1
+    dialogue:
+    - 'No, I think I''m set. I''ve got things pretty well covered on my own. '
+    - Well... except for the debt from repairs, but I'll figure something out.
+  - index: 0
+    dialogue:
+    - Do well in GIGA and you might not have to! The prize money is...what you would
+      call, a comfortable sum.
+    - But I'm sure you already know that, that's why everyone competes!
+  - index: 1
+    dialogue:
+    - '...........'
+    - ..Y..yeah, for sure. Came for that... prize money...
   typewriters:
+  - {fileID: 519996154}
   - {fileID: 1526001018}
 --- !u!4 &1253731712
 Transform:
@@ -4372,7 +4420,7 @@ MonoBehaviour:
     - Try out your dash ability. I hear you're a master of dodging attacks last second.
     - Double tap any direction to dash in that direction.
   typewriters:
-  - {fileID: 1526001018}
+  - {fileID: 519996154}
 --- !u!4 &1545028125
 Transform:
   m_ObjectHideFlags: 0
@@ -4812,6 +4860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OpponentHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542699914138569950, guid: 9d02e20b47081ca4bb39c7859937326b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5542699914138569951, guid: 9d02e20b47081ca4bb39c7859937326b,
         type: 3}
@@ -5853,8 +5906,18 @@ MonoBehaviour:
   text:
   - index: 0
     dialogue:
-    - c
+    - Whew! Got a little carried away there, sorry about that. I just love to see
+      a mech in action, don't you?
+  - index: 1
+    dialogue:
+    - Well, I'm much happier being the mech in action, personally.
+  - index: 0
+    dialogue:
+    - Oh, my mistake, of course you are! Otherwise, why would you be here?
+    - But we can't let ourselves get too excited, now. If we spend too much energy
+      in training, we may have nothing left for the fight.
   typewriters:
+  - {fileID: 519996154}
   - {fileID: 1526001018}
 --- !u!4 &2027670143
 Transform:
@@ -6359,13 +6422,19 @@ PrefabInstance:
     - target: {fileID: 1074022867723603856, guid: 1d98e9b6d7caed14386e0bd0dca00715,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b26f15481c9c470e87c5ee10364adf1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d98e9b6d7caed14386e0bd0dca00715, type: 3}
 --- !u!1001 &5869623623491419305
@@ -6460,6 +6529,11 @@ PrefabInstance:
       propertyPath: m_TextPanelText
       value: 
       objectReference: {fileID: 1606711750}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_AudioSource
+      value: 
+      objectReference: {fileID: 1483727939}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef8ce49227b0c4844b16c4c67648213b, type: 3}
 --- !u!1001 &7642983359618510287
@@ -6654,7 +6728,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1b26f15481c9c470e87c5ee10364adf1,
+      objectReference: {fileID: 21300000, guid: 3acc9c7f433b702458272bce20b7bd44,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c11afd1b8146744ac0c45e6c6c5007, type: 3}
