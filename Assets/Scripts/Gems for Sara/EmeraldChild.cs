@@ -5,7 +5,7 @@ using UnityEngine;
 public class EmeraldChild : MonoBehaviour
 {
     GameObject player;
-    float speed = 17f;
+    float speed = 25f;
 
     void Start()
     {

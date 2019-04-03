@@ -93,7 +93,7 @@ public class InputHandler : MonoBehaviour
             p0 != JoystickPosition.CENTER && 
             p1 == JoystickPosition.CENTER &&
             (Time.unscaledTime - p2_time) < dash_window &&
-            cool <= 0f)
+            cool <= 0f &&!fighter.stunned)
         {
             if(!cam.pause){
                 switch (p0)
