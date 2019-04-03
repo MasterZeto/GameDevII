@@ -6203,7 +6203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1483727929}
-  shortDistance: 6
+  shortDistance: 7
 --- !u!114 &82167919077961220
 MonoBehaviour:
   m_ObjectHideFlags: 0
