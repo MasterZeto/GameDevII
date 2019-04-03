@@ -671,6 +671,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 35449d140713fbb4aa3be468a3594c67,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d98e9b6d7caed14386e0bd0dca00715, type: 3}
 --- !u!224 &359196073 stripped
@@ -2534,6 +2540,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Typewriters
       objectReference: {fileID: 0}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_DefaultDialogueChirp
+      value: 
+      objectReference: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanel
+      value: 
+      objectReference: {fileID: 1838043311}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanelText
+      value: 
+      objectReference: {fileID: 1838043310}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_AudioSource
+      value: 
+      objectReference: {fileID: 1483727939}
     - target: {fileID: 5869623624087871778, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2589,26 +2615,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_DefaultDialogueChirp
-      value: 
-      objectReference: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanel
-      value: 
-      objectReference: {fileID: 1838043311}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanelText
-      value: 
-      objectReference: {fileID: 1838043310}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_AudioSource
-      value: 
-      objectReference: {fileID: 1483727939}
     - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_DefaultDialogueChirp
@@ -3816,6 +3822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaraOHaraMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59769f16ab78744ffad05602b313a5a9, type: 2}
     - target: {fileID: 400070, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3872,10 +3882,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 59769f16ab78744ffad05602b313a5a9, type: 2}
     - target: {fileID: 13700000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4874,6 +4880,37 @@ PrefabInstance:
     - target: {fileID: 7642983361274025607, guid: 44c11afd1b8146744ac0c45e6c6c5007,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983361435109274, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983361435109274, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983361435109274, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983361435109272, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983361435109273, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3acc9c7f433b702458272bce20b7bd44,
+        type: 3}
+    - target: {fileID: 7642983361435109273, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
