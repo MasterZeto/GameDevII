@@ -6139,7 +6139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1483727929}
-  shortDistance: 10
+  shortDistance: 8
 --- !u!114 &82167919077961220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6286,8 +6286,8 @@ MonoBehaviour:
   speed: 200
   harpoon: {fileID: 306765552}
   harpoonStart: {fileID: 400691580}
-  hit_duration: 0.7
-  hit_delay: 0.3
+  hit_duration: 0.8
+  hit_delay: 0.2
   anim_name: Harpoon
   playerHit: 0
 --- !u!114 &82167919077961224
@@ -6318,8 +6318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   hitbox: {fileID: 1528827765}
-  hit_duration: 0.3
-  hit_delay: 0.8
+  hit_duration: 0.1
+  hit_delay: 0.9
   anim_name: SwingOverhead
 --- !u!114 &82167919077961226
 MonoBehaviour:
@@ -6536,8 +6536,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   hitbox: {fileID: 7752256114351979966}
-  hit_duration: 0.3
-  hit_delay: 0.8
+  hit_duration: 0.1
+  hit_delay: 0.9
   anim_name: SwingRightLeft
 --- !u!114 &7406572142231170057
 MonoBehaviour:
