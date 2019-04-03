@@ -6287,7 +6287,7 @@ MonoBehaviour:
   harpoon: {fileID: 306765552}
   harpoonStart: {fileID: 400691580}
   hit_duration: 0.7
-  hit_delay: 0.25
+  hit_delay: 0.3
   anim_name: Harpoon
   playerHit: 0
 --- !u!114 &82167919077961224
@@ -6319,7 +6319,7 @@ MonoBehaviour:
   heat: 0
   hitbox: {fileID: 1528827765}
   hit_duration: 0.3
-  hit_delay: 0.4
+  hit_delay: 0.8
   anim_name: SwingOverhead
 --- !u!114 &82167919077961226
 MonoBehaviour:
@@ -6537,7 +6537,7 @@ MonoBehaviour:
   heat: 0
   hitbox: {fileID: 7752256114351979966}
   hit_duration: 0.3
-  hit_delay: 0.4
+  hit_delay: 0.8
   anim_name: SwingRightLeft
 --- !u!114 &7406572142231170057
 MonoBehaviour:
