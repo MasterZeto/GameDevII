@@ -11,6 +11,8 @@ public class DiamondMoveTrack : MonoBehaviour
     GameObject child1;
     GameObject child2;
     GameObject child3;
+    GameObject child4;
+    GameObject child5;
     bool canReborn = true;
 
     // Start is called before the first frame update
@@ -46,6 +48,7 @@ public class DiamondMoveTrack : MonoBehaviour
       
         child1= Instantiate(child, transform.position, Quaternion.identity);
         child1.transform.LookAt(player.transform);
+
         //face to the left of player
         child2 = Instantiate(child, transform.position, Quaternion.identity);
         //should adjust the forward direction
@@ -53,23 +56,25 @@ public class DiamondMoveTrack : MonoBehaviour
         forward2.z -= 70;
         child2.transform.forward = forward2;
 
+        child4= Instantiate(child, transform.position, Quaternion.identity);
+        Vector3 forward4 = child4.transform.forward;
+        forward4.z -= 35;
+        child4.transform.forward = forward4;
 
-    /*    Vector3 angle2 = child2.transform.eulerAngles;
-        angle2.z += 60;
-        child2.transform.eulerAngles = angle2;*/
+
+
 
         //face to the right of player
         child3 = Instantiate(child, transform.position, Quaternion.identity);
         Vector3 forward3 = child3.transform.forward;
-        forward3.x -=10;
+        forward3.x -=20;
         child3.transform.forward = forward3;
 
 
-
-
-        /*Vector3 angle3 = child3.transform.eulerAngles;
-        angle3.z -= 60;
-        child3.transform.eulerAngles = angle3;*/
+        child5 = Instantiate(child, transform.position, Quaternion.identity);
+        Vector3 forward5 = child5.transform.forward;
+        forward5.x -= 60;
+        child5.transform.forward = forward5;
 
 
         Destroy(gameObject);
