@@ -115,7 +115,7 @@ public class HarpoonAction : Action
         t = 0;
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>1f&&t<timeTohit*3){
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>2f&&t<timeTohit*3){
             while(paused){
                 rb.velocity = Vector3.zero;
                 yield return null;
