@@ -33,5 +33,11 @@ public class HeatController : MonoBehaviour
     	topMaskSize.sizeDelta = new Vector2(topMaskSize.sizeDelta.x, topMaskSize.sizeDelta.y - ((amount / 100f) * 40f));
     	bottomMaskSize.sizeDelta = new Vector2(bottomMaskSize.sizeDelta.x, bottomMaskSize.sizeDelta.y - ((amount / 100f) * 40f));
     }
+
+	public void SetHeat(float amount)
+	{
+		topMaskSize.sizeDelta = new Vector2(topMaskSize.sizeDelta.x, (1.0f - (amount / 100f)) * 40f);
+    	bottomMaskSize.sizeDelta = new Vector2(bottomMaskSize.sizeDelta.x, ((amount / 100f)) * 40f);
+	}
  
 }

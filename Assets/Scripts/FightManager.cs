@@ -7,6 +7,7 @@ public delegate void VoidDelegate();
 public class FightManager : MonoBehaviour
 {
     [SerializeField] PortraitDialogue intro_dialogue;
+    [SerializeField] PortraitDialogue lose_dialogue;
     [SerializeField] PortraitDialogue final_dialogue;
 
     [SerializeField] SceneFade fade;
@@ -58,6 +59,11 @@ public class FightManager : MonoBehaviour
     {
         // freeze the boys and open the lose menu
         Freeze();
+        lose_dialogue.StartDialogue(BringUpLoseScreen);
+    }
+
+    void BringUpLoseScreen()
+    {
         loss_screen.SetActive(true);
     }
 
