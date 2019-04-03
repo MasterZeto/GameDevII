@@ -198,5 +198,15 @@ using UnityEngine;
         public void HidePauseHeat(){
             pause_heat.gameObject.SetActive(false);
         }
+
+        public int PauseQueueCount()
+        {
+            return PauseScript.pauseQueue.Count;
+        }
+
+        public int PauseQueueIndex()
+        {
+            return currentIndex;
+        }
     }
 

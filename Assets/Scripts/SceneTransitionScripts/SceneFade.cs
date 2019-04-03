@@ -22,6 +22,11 @@ public class SceneFade : MonoBehaviour
         FadePanel.rectTransform.anchoredPosition = Vector2.zero;
     }
 
+    public void FadeIn()
+    {
+        StartCoroutine(FadeRoutine(1f, 0f, fade_in_time));
+    }
+
     public void FadeIn(float fade_time)
     {
         StartCoroutine(FadeRoutine(1f, 0f, fade_time));

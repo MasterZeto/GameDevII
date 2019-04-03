@@ -5,12 +5,12 @@ using UnityEngine;
 public class EmeraldChild : MonoBehaviour
 {
     GameObject player;
-    float speed = 17f;
+    float speed = 25f;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        transform.LookAt(player.transform);
+        transform.LookAt(player.transform.position+ new Vector3(0, 4.0f, 0));
     }
 
 

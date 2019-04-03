@@ -20,21 +20,21 @@ public class EmeraldMoveTrack : MonoBehaviour
     {
         time += Time.deltaTime;
         transform.Rotate(Vector3.up * (RotationSpeed * Time.deltaTime));
-        if (time > 1f&&childCount<=3)
+        if (time > 1f&&childCount<=4)
         {
             time = 0;
             childCount++;
             StartCoroutine("LaserBullet");
         }
 
-        if (childCount > 3)
+        if (childCount > 4)
         { Destroy(gameObject); }
     }
 
 
     IEnumerator LaserBullet()
     {
-        Instantiate(child, transform.position, Quaternion.identity);
+        Instantiate(child, transform.position,Quaternion.identity);
         yield return null;
     }
 

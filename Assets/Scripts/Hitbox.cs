@@ -22,9 +22,8 @@ public class Hitbox : MonoBehaviour
     {
         if (active)
         {
-            Debug.Log("entered and active for player hitbox");
-            Debug.Log(c.gameObject.layer);
-
+            //Debug.Log("entered and active");
+         //   Hurtbox h = GameObject.FindGameObjectWithTag("Opponent").GetComponent<Hurtbox>();
             Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
 
             if (h != null)
