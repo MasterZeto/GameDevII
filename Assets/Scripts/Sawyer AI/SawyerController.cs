@@ -76,7 +76,7 @@ public class SawyerController : MonoBehaviour
                 new ActionNode(sawyer.DashLeft),
                 new ActionNode(sawyer.DashRight),
                 new ActionNode(sawyer.DashForward),
-                new ActionNode(sawyer.RightPunch)
+                new ActionNode(sawyer.LeftRightPunch)
             }
         );
 
@@ -86,7 +86,7 @@ public class SawyerController : MonoBehaviour
                 new ActionNode(sawyer.DashRight),
                 new ActionNode(sawyer.DashLeft),
                 new ActionNode(sawyer.DashForward),
-                new ActionNode(sawyer.RightPunch)
+                new ActionNode(sawyer.LeftRightPunch)
             }
         );
 
@@ -119,7 +119,6 @@ public class SawyerController : MonoBehaviour
                             new ActionNode(Nothing)
                         }
                     ),
-                    new ActionNode(sawyer.RightPunch),
                     new SelectorNode(
                         ShouldSwitchDirection,
                         new List<Node>() 
@@ -141,7 +140,7 @@ public class SawyerController : MonoBehaviour
 
             if (!sawyer.IsActing()) (actions.Dequeue())();
 
-            sawyer.RelativeMove((lateral_move_dir + radial_move_dir).normalized);
+            if (!sawyer.IsActing()) sawyer.RelativeMove((lateral_move_dir + radial_move_dir).normalized);
 
             t += Time.deltaTime;
             switched_time += Time.deltaTime;
@@ -173,11 +172,10 @@ public class SawyerController : MonoBehaviour
         /* check distance against stuff */
 
         if (dist > movein_distance) return 0;
-        if (dist < attack_distance) return 3;
         if (dist < backup_distance) return 1;
         if (Mathf.Abs(dist - dash_distance) < 1f) return 2;
         
-        return 4;
+        return 3;
     }
 
     int ShouldSwitchDirection()

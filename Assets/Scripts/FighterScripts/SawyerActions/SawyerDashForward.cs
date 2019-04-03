@@ -10,10 +10,7 @@ public class SawyerDashForward : DashAction
     {
         running = true;
         this.fighter = fighter;
-        fighter.SetBoolTrue(anim_name);
-        fighter.SetBoolFalse("ZigLeft");
-        fighter.SetBoolFalse("ZigRight");
-
+        fighter.SetTrigger(anim_name);
         StartCoroutine(DashForwardRoutine());
     }
 

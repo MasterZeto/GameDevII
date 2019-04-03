@@ -11,9 +11,7 @@ public class SawyerDashBackLeft : DashAction
     {
         running = true;
         this.fighter = fighter;
-        fighter.SetBoolTrue(anim_name);
-       
-     
+        fighter.SetTrigger(anim_name);
         StartCoroutine(DashLeftRoutine());
     }
 

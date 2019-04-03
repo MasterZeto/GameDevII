@@ -10,9 +10,7 @@ public class SawyerDashLeft :DashAction
     {
         running = true;
         this.fighter = fighter;
-        fighter.SetBoolTrue(anim_name);
-        fighter.SetBoolFalse("ZigRight");
-        fighter.SetBoolFalse("DashForward");
+        fighter.SetTrigger(anim_name);
         StartCoroutine(DashLeftRoutine());
     }
 

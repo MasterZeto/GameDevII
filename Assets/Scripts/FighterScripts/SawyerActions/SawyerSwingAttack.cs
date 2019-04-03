@@ -14,10 +14,6 @@ public class SawyerSwingAttack : Action
     {
         this.fighter = fighter;
         fighter.SetTrigger(anim_name);
-
-        transform.gameObject.GetComponent<SoundBox>().MissSFX();
-
-        fighter.SetBoolFalse("DashForward");
         StartCoroutine(HitWithDelayRoutine());
     }
 
