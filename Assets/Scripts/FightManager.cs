@@ -17,6 +17,7 @@ public class FightManager : MonoBehaviour
 
     [SerializeField] InputHandler player;
     [SerializeField] SawyerController sawyer;
+    [SerializeField] BTSaraAI sara;
     /* Put the other controllers in here */
 
     [SerializeField] GameObject loss_screen;
@@ -32,6 +33,7 @@ public class FightManager : MonoBehaviour
         // set death callbacks
         player_health_system.SetDeathCallback(LossCallback);
         if (sawyer != null) opponent_health_system.SetDeathCallback(WinCallback);
+        if (sara != null) opponent_health_system.SetDeathCallback(WinCallback);
         // start the dialogue with the StartGame() callback
         StartCoroutine(ExecAfterDelay(StartDialogue, 1.5f));
     }
@@ -65,12 +67,14 @@ public class FightManager : MonoBehaviour
     {
         player.SetControlActive(false);
         if (sawyer != null) sawyer.SetFreezed(true);
+        if (sara != null) sara.SetFreezed(true);
     }
 
     void Unfreeze()
     {
         player.SetControlActive(true);
         if (sawyer != null) sawyer.SetFreezed(false);
+        if (sara != null) sara.SetFreezed(false);
     }
 
     private IEnumerator ExecAfterDelay(VoidFunction func, float delay)

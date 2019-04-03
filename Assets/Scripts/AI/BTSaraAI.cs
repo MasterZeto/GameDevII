@@ -10,6 +10,7 @@ public class BTSaraAI: MonoBehaviour
    // [SerializeField] Hitbox hitbox;
     BehaviorTree behaviorTree;
     FighterController Sara;
+    bool freezed = false;
 
     //time variable?
     float t = 0;
@@ -171,26 +172,36 @@ public class BTSaraAI: MonoBehaviour
 
         void Update()
         {
+
+        if (!freezed)
+        {
             Debug.Log(Sara.IsActing());
-        if (actions.Count == 0) actions = behaviorTree.Evaluate();
-        else {
-            if (Distance() != 0 && first)
-            { actions = behaviorTree.Evaluate(); }
-            if (Distance() != 2 && third)
-            {actions = behaviorTree.Evaluate(); }
+            if (actions.Count == 0) actions = behaviorTree.Evaluate();
+            else
+            {
+                if (Distance() != 0 && first)
+                { actions = behaviorTree.Evaluate(); }
+                if (Distance() != 2 && third)
+                { actions = behaviorTree.Evaluate(); }
 
-        }
-    //  else if (Distance() == 2&&middle) actions = behaviorTree.Evaluate();
-        
+            }
+            //  else if (Distance() == 2&&middle) actions = behaviorTree.Evaluate();
+
             if (!Sara.IsActing()) (actions.Dequeue())();
-        //do I need to update distance here?
-       
+            //do I need to update distance here?
+           }
         }
 
-      //  while (actions.Count > 0)
-      //  {
-            //ActionDelegate a = actions.Dequeue();
-           // a();
-        //}
-    
+    public void SetFreezed(bool f)
+    {
+        freezed = f;
+        //if (f) { sawyer.Pause(); } else { sawyer.Resume(); }
+    }
+
+    //  while (actions.Count > 0)
+    //  {
+    //ActionDelegate a = actions.Dequeue();
+    // a();
+    //}
+
 }
