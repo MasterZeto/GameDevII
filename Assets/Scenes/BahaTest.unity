@@ -1685,7 +1685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &255573275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4356,6 +4356,36 @@ Transform:
   m_Father: {fileID: 1583720179}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &809990673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 809990674}
+  m_Layer: 10
+  m_Name: MurrayHoistPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &809990674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809990673}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 15.37, z: 0.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8369149539105636126}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821804569
 GameObject:
   m_ObjectHideFlags: 0
@@ -6232,6 +6262,36 @@ MonoBehaviour:
   hurtboxes:
   - {fileID: 300534104}
   uiHealthBar: {fileID: 0}
+--- !u!1 &1141679721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141679722}
+  m_Layer: 10
+  m_Name: MurrayDropPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1141679722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141679721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8369149539105636126}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1148368565 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8745178110322653378, guid: 19478ab55eece8f409c61f56a6e8b018,
@@ -6256,7 +6316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1148713072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13491,6 +13551,7 @@ GameObject:
   - component: {fileID: 82167919077961226}
   - component: {fileID: 82167919077961228}
   - component: {fileID: 82167919077961227}
+  - component: {fileID: 82167919077961229}
   m_Layer: 0
   m_Name: DummyBaha
   m_TagString: Untagged
@@ -13512,6 +13573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1483727929}
   shortDistance: 7
+  fishFromBehindDistance: 1
 --- !u!114 &82167919077961220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13744,6 +13806,29 @@ MonoBehaviour:
   hit_delay: 0.3
   anim_name: SwingRightLeft
   after_hit_delay: 0.6
+--- !u!114 &82167919077961229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82167919077961218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec9bb1b437f5124ab3b867d2574e011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 0
+  hitbox: {fileID: 306765553}
+  speed: 20
+  harpoon: {fileID: 306765552}
+  harpoonStart: {fileID: 400691580}
+  playerHoistPoint: {fileID: 809990674}
+  playerDropPoint: {fileID: 1141679722}
+  hit_duration: 0.9
+  hit_delay: 0.1
+  anim_name: 
+  playerHit: 0
 --- !u!4 &82167919077961276
 Transform:
   m_ObjectHideFlags: 0
@@ -13912,7 +13997,7 @@ MonoBehaviour:
   left_right_punch: {fileID: 82167919077961227}
   left_kick: {fileID: 82167919077961226}
   right_kick: {fileID: 82167919077961222}
-  left_right_kick: {fileID: 0}
+  left_right_kick: {fileID: 82167919077961229}
   pause: 0
 --- !u!114 &5436129065645605809
 MonoBehaviour:
@@ -13992,6 +14077,8 @@ Transform:
   - {fileID: 8841470628026056323}
   - {fileID: 400691580}
   - {fileID: 1528827767}
+  - {fileID: 1141679722}
+  - {fileID: 809990674}
   m_Father: {fileID: 82167919077961276}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

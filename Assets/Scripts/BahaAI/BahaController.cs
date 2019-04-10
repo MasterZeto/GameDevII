@@ -98,6 +98,7 @@ public class BahaController : MonoBehaviour
                             new SequencerNode(
                                 new List<Node>(){
                                     new ActionNode(fc.LeftRightPunch),
+                                    new ActionNode(fc.DashRight)
                                 }
                             ),
                             new SelectorNode(
