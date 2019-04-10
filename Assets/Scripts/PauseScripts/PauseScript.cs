@@ -138,7 +138,12 @@ public class PauseScript : MonoBehaviour
             action();
             UIManager.updateQueueButtons();
             //change this to be based on when something finishes running instead of being hard coded.
-            yield return new WaitForSeconds(.5f);
+            if(action == possibleComs[6]||action == possibleComs[9]){
+                yield return new WaitForSeconds(1f);
+            }
+            else{
+                yield return new WaitForSeconds(.5f);
+            }
         }
         if(i==0){
             actionCams[actionCams.Count-1].enabled = false;
