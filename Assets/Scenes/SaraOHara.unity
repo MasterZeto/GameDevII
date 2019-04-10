@@ -9649,6 +9649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaraOHaraMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59769f16ab78744ffad05602b313a5a9, type: 2}
     - target: {fileID: 400070, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9705,10 +9709,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 59769f16ab78744ffad05602b313a5a9, type: 2}
     - target: {fileID: 13700000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9720,7 +9720,7 @@ PrefabInstance:
     - target: {fileID: 13700004, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 530c8073441fe6346a23bf9feb5a6a7d, type: 2}
+      objectReference: {fileID: 2100000, guid: 35c13018cbd37964398da29d66973680, type: 2}
     - target: {fileID: 13700006, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9796,12 +9796,16 @@ PrefabInstance:
     - target: {fileID: 13700044, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fb1d35197feeb3348abbe38963df491c, type: 2}
+      objectReference: {fileID: 2100000, guid: 35c13018cbd37964398da29d66973680, type: 2}
     - target: {fileID: 13700044, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: fb1d35197feeb3348abbe38963df491c, type: 2}
     - target: {fileID: 13700046, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35c13018cbd37964398da29d66973680, type: 2}
+    - target: {fileID: 13700040, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 35c13018cbd37964398da29d66973680, type: 2}
