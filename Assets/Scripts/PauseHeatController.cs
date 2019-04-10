@@ -27,7 +27,7 @@ public class PauseHeatController : MonoBehaviour
     public void UseHeat(float amount)
     {
     	topMaskSize.sizeDelta = new Vector2(topMaskSize.sizeDelta.x, topMaskSize.sizeDelta.y - ((amount / 100f) * 40f));
-    	bottomMaskSize.sizeDelta = new Vector2(bottomMaskSize.sizeDelta.x, bottomMaskSize.sizeDelta.y - ((amount / 100f) * 40f));
+    	bottomMaskSize.sizeDelta = new Vector2(bottomMaskSize.sizeDelta.x, bottomMaskSize.sizeDelta.y + ((amount / 100f) * 40f));
     }
 
 	public void SetHeat(float amount)
