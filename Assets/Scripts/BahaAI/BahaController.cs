@@ -7,6 +7,7 @@ public class BahaController : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] float shortDistance;
+    [SerializeField] float fishFromBehindDistance;
     HarpoonAction harpoonCheck;
     FighterController fc;
     float t = 0;
@@ -44,6 +45,14 @@ public class BahaController : MonoBehaviour
             return 0;
         }
         Debug.Log("player is NOT attached");
+        return 1;
+    }
+    int playerBehind(){
+        if(Vector3.Distance(player.forward, transform.forward)>fishFromBehindDistance){
+            Debug.Log("Should not be fishing!!!");
+            return 0;
+        }
+        Debug.Log("Should fish for the player");
         return 1;
     }
     Queue<ActionDelegate> actions;
@@ -89,29 +98,37 @@ public class BahaController : MonoBehaviour
                             new SequencerNode(
                                 new List<Node>(){
                                     new ActionNode(fc.LeftRightPunch),
-                                    new ActionNode(fc.DashRight)
                                 }
                             ),
-                        new SelectorNode(
-                        gloat,
-                        new List<Node>(){
-                            new SequencerNode(
+                            new SelectorNode(
+                                playerBehind,
                                 new List<Node>{
-                                    new ActionNode(fc.DashRight),
-                                    new ActionNode(fc.LeftKick),
-                                    new ActionNode(fc.RightPunch),
-                                    new ActionNode(fc.RightKick)
-                                }
-                            ),
-                            new SequencerNode(
-                                new List<Node>{
-                                    new ActionNode(fc.DashRight),
-                                    new ActionNode(fc.LeftKick),
-                                    new ActionNode(fc.RightPunch),
+                                    new SelectorNode(
+                                    gloat,
+                                        new List<Node>(){
+                                            new SequencerNode(
+                                                new List<Node>{
+                                                    new ActionNode(fc.LeftKick),
+                                                    new ActionNode(fc.RightPunch),
+                                                    new ActionNode(fc.RightKick)
+                                                }
+                                            ),
+                                            new SequencerNode(
+                                                new List<Node>{
+                                                    new ActionNode(fc.LeftKick),
+                                                    new ActionNode(fc.RightPunch),
+                                                }
+                                            )
+                                        }
+                                    ),
+                                    new SequencerNode(
+                                        new List<Node>{
+                                            new ActionNode(fc.LeftPunch),
+                                            new ActionNode(fc.LeftRightPunch)
+                                        }
+                                    )
                                 }
                             )
-                        }
-                    )
                         }
                     )
                 }
