@@ -8,7 +8,7 @@ public class PearlMoveTrack : MonoBehaviour
     GameObject player;
     GameObject opponent;
     
-    float speed = 1f;
+    float speed = 0.2f;
     float rotateSpeed = 100f;
 
     float time;
@@ -26,17 +26,17 @@ public class PearlMoveTrack : MonoBehaviour
         height = 50;
         z = transform.position.z;
        
-     //   transform.LookAt(player.transform);
+      transform.LookAt(player.transform);
     }
 
 
     void Update()
     {
-        time += Time.deltaTime;
-        z =time*speed;
+        time += 10*Time.deltaTime;
+        z += 10* Time.deltaTime *speed;
         float x =transform.position.x+Mathf.Cos(time)*0.1f ;
         float y = transform.position.y+Mathf.Sin(time)*0.1f ;
-        transform.position = new Vector3(x, y, -z);
+        transform.position = new Vector3(x, y, z);
 
       //  transform.position += transform.forward * speed * Time.deltaTime;
         //Rotates the transform about axis passing through point in world coordinates by angle degrees.
