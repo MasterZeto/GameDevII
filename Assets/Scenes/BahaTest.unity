@@ -13820,7 +13820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   hitbox: {fileID: 306765553}
-  speed: 20
+  speed: 100
   harpoon: {fileID: 306765552}
   harpoonStart: {fileID: 400691580}
   playerHoistPoint: {fileID: 809990674}
