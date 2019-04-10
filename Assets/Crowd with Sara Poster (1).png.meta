@@ -1,12 +1,20 @@
 fileFormatVersion: 2
 guid: 52b9c113397e344629cfd8e6a9c317ec
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Crowd with Sara Poster (1)_0
+    21300002: Crowd with Sara Poster (1)_1
+    21300004: Crowd with Sara Poster (1)_2
+    21300006: Crowd with Sara Poster (1)_3
+    21300008: Crowd with Sara Poster (1)_4
+    21300010: Crowd with Sara Poster (1)_5
+    21300012: Crowd with Sara Poster (1)_6
+    21300014: Crowd with Sara Poster (1)_7
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,13 +42,13 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: -1
-    wrapV: -1
+    wrapU: 1
+    wrapV: 1
     wrapW: -1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,9 +57,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -82,11 +90,171 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Crowd with Sara Poster (1)_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2733
+        width: 1604
+        height: 2253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbf13f121c43471b84ef1042cd22e00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crowd with Sara Poster (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 2733
+        width: 1604
+        height: 2336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b3cdbe173d149a2bdda8a921443292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crowd with Sara Poster (1)_2
+      rect:
+        serializedVersion: 2
+        x: 3278
+        y: 2733
+        width: 1604
+        height: 2202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2632080b51e6741a9a19fa859f319375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crowd with Sara Poster (1)_3
+      rect:
+        serializedVersion: 2
+        x: 4910
+        y: 2851
+        width: 1604
+        height: 2543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a25d651549154aaca5dda3e49ffbdcf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crowd with Sara Poster (1)_4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 234
+        width: 1604
+        height: 2457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f25648fc8834b80afa64c23a91cdce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crowd with Sara Poster (1)_5
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 14
+        width: 1604
+        height: 2709
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ff0a5f67ec04244bfa5326fb117964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crowd with Sara Poster (1)_6
+      rect:
+        serializedVersion: 2
+        x: 3278
+        y: 116
+        width: 1604
+        height: 2607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328fdfa1813444514a400ebe7de665f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crowd with Sara Poster (1)_7
+      rect:
+        serializedVersion: 2
+        x: 4910
+        y: 14
+        width: 1604
+        height: 2269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b371656fa4d0d4b62859053365f3b7f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 64de295c786e94b4b83a635564ef7164
     vertices: []
     indices: 
     edges: []
