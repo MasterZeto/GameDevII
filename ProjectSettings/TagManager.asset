@@ -12,6 +12,7 @@ TagManager:
   - DiamondChild
   - Blackboard
   - PlayerHurtbox
+  - Wind
   layers:
   - Default
   - TransparentFX
