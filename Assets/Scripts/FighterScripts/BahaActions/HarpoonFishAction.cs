@@ -71,12 +71,6 @@ public class HarpoonFishAction : Action
         harpoon.SetActive(true);
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
-            if(Vector3.Distance(transform.forward, opponent.transform.forward)<2f){
-                Vector3 targetDir = opponent.transform.position - transform.position;
-                Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 10*Time.deltaTime, 0.0f);
-                transform.rotation = Quaternion.LookRotation(newDir);
-                transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,transform.eulerAngles.z);
-            }
             while(paused){
                 yield return null;
             }
@@ -116,14 +110,19 @@ public class HarpoonFishAction : Action
         t = 0;
         if(hitCheck.playerAttached){
             direction = playerHoistPoint.position - harpoon.transform.position;
+            direction.Normalize();
             while(Vector3.Distance(harpoon.transform.position, playerHoistPoint.position)>2f){
+                Debug.Log("is it stuck going to hoist point?");
+                Debug.Log(direction);
                 rb.velocity = direction*speed/2;
                 t+=Time.deltaTime;
                 rope.SetPosition(1, harpoon.transform.position);
                 yield return null;
             }
             direction = playerDropPoint.position - harpoon.transform.position;
+            direction.Normalize();
             while(Vector3.Distance(harpoon.transform.position, playerDropPoint.position)>2f){
+                Debug.Log("is it stuck going to drop point?");
                 rb.velocity = direction*speed/2;
                 t+=Time.deltaTime;
                 rope.SetPosition(1, harpoon.transform.position);
