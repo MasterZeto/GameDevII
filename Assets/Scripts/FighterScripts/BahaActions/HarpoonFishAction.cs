@@ -122,7 +122,7 @@ public class HarpoonFishAction : Action
             }
             direction = playerDropPoint.position - harpoon.transform.position;
             direction.Normalize();
-            while(Vector3.Distance(harpoon.transform.position, playerDropPoint.position)>2f){
+            while(harpoon.transform.position.y> playerDropPoint.position.y){
                 Debug.Log("is it stuck going to drop point?");
                 rb.velocity = direction*speed/2;
                 t+=Time.deltaTime;
