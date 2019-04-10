@@ -4752,7 +4752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846331266}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.32, y: 0.85, z: 14.74}
+  m_LocalPosition: {x: -1.32, y: 0.85, z: 14.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 886121890}
@@ -4852,8 +4852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 7
-  dash_duration: 2
+  dash_speed: 6.5
+  dash_duration: 2.5
   anim_name: 
 --- !u!114 &846331273
 MonoBehaviour:
@@ -4868,8 +4868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 7
-  dash_duration: 2
+  dash_speed: 6.5
+  dash_duration: 2.5
   anim_name: 
 --- !u!114 &846331274
 MonoBehaviour:
@@ -9758,7 +9758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_LocalRotation.x
