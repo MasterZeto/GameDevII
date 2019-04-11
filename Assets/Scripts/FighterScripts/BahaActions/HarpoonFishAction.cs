@@ -13,6 +13,8 @@ public class HarpoonFishAction : Action
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
+    [SerializeField] Camera bahaCam;
+    Camera mainCam;
     Rigidbody rb;
     LineRenderer rope;
     Harpooned hitCheck;
@@ -28,6 +30,8 @@ public class HarpoonFishAction : Action
 
     public void Start(){
         //anchor.IsActive(false);
+        bahaCam.enabled = false;
+        mainCam = Camera.main;
         rb = harpoon.GetComponent<Rigidbody>();
         hitCheck = harpoon.GetComponent<Harpooned>();
         rope = harpoon.GetComponent<LineRenderer>();
@@ -109,6 +113,8 @@ public class HarpoonFishAction : Action
     private IEnumerator ReturnHarpoon(){
         t = 0;
         if(hitCheck.playerAttached){
+            mainCam.enabled = false;
+            bahaCam.enabled = true;
             direction = playerHoistPoint.position - harpoon.transform.position;
             direction.Normalize();
             while(harpoon.transform.position.y< playerHoistPoint.position.y){
@@ -130,6 +136,12 @@ public class HarpoonFishAction : Action
                 rope.SetPosition(1, harpoon.transform.position);
                 yield return null;
             }
+            if(hitCheck.playerAttached){
+                hitCheck.UnparentPlayer();
+            }
+            if(hitCheck.isStunned){
+                hitCheck.isStunned = false;
+            }
         }
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
@@ -146,13 +158,12 @@ public class HarpoonFishAction : Action
             }
             yield return null;
         }
+        if(mainCam.enabled == false){
+            yield return new WaitForSeconds(.05f);
+            mainCam.enabled = true;
+            bahaCam.enabled = false;
+        }
         rb.velocity = Vector3.zero;
-        if(hitCheck.playerAttached){
-            hitCheck.UnparentPlayer();
-        }
-        if(hitCheck.isStunned){
-            hitCheck.isStunned = false;
-        }
         harpoon.SetActive(false);
         rope.positionCount = 0;
         delayDone = true;
