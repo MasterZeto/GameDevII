@@ -70,7 +70,6 @@ public class HarpoonAction : Action
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             if(Vector3.Distance(transform.forward, opponent.transform.forward)<2f){
-                Debug.Log("jkahsdkjashdkjshad");
                 Vector3 targetDir = opponent.transform.position - transform.position;
                 Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 10*Time.deltaTime, 0.0f);
                 transform.rotation = Quaternion.LookRotation(newDir);

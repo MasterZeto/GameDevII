@@ -20,7 +20,7 @@ public class SaraLeftAttack : Action
         
         fighter.SetTrigger(anim_name);
         int rand = Random.Range(0, 4);
-       tempForGem= Instantiate(gems[rand],LeftCannon.position,Quaternion.identity);
+        tempForGem= Instantiate(gems[rand],LeftCannon.position,Quaternion.identity);
         hitbox.Add(tempForGem.GetComponent<HitboxForGems>());
         box = tempForGem.GetComponent<HitboxForGems>();
         hitbox.Add(box);

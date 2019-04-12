@@ -7,9 +7,11 @@ public class BahaController : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] float shortDistance;
+    [SerializeField] float fishFromBehindDistance;
     HarpoonAction harpoonCheck;
     FighterController fc;
     float t = 0;
+    int hasRunAway = 0;
     bool freezed;
     
     BehaviorTree tree;
@@ -25,8 +27,18 @@ public class BahaController : MonoBehaviour
             return 0;
         }
         else{
+            hasRunAway = 1;
             return 1;
         }
+    }
+    int runAway(){
+        //used for gloating if player runs outside of close range attacks
+        if(hasRunAway == 1){
+            Debug.Log("run away returns 0");
+            hasRunAway = 0;
+            return 1;
+        }
+        return 0;
     }
     int gloat(){
         if(t>5){
@@ -46,6 +58,14 @@ public class BahaController : MonoBehaviour
         Debug.Log("player is NOT attached");
         return 1;
     }
+    int playerBehind(){
+        if(Vector3.Distance(player.forward, transform.forward)>fishFromBehindDistance){
+            Debug.Log("Should not be fishing!!!");
+            return 0;
+        }
+        Debug.Log("Should fish for the player");
+        return 1;
+    }
     Queue<ActionDelegate> actions;
 
     void Awake()
@@ -63,19 +83,19 @@ public class BahaController : MonoBehaviour
                 new List<Node>()
                 {
                     new SelectorNode(
-                        gloat,
+                        runAway,
                         new List<Node>()
                         {
                             new SequencerNode(
                                 new List<Node>{
                                     new ActionNode(fc.DashRight),
-                                    new ActionNode(fc.DashForward),
                                     new ActionNode(fc.LeftPunch),
-                                    new ActionNode(fc.RightKick),
+                                    new ActionNode(fc.DashRight),
                                 }
                             ),
                             new SequencerNode(
                                 new List<Node>{
+                                    new ActionNode(fc.RightKick),
                                     new ActionNode(fc.DashRight),
                                     new ActionNode(fc.LeftPunch),
                                     new ActionNode(fc.DashRight)
@@ -89,29 +109,37 @@ public class BahaController : MonoBehaviour
                             new SequencerNode(
                                 new List<Node>(){
                                     new ActionNode(fc.LeftRightPunch),
-                                    new ActionNode(fc.DashRight)
                                 }
                             ),
-                        new SelectorNode(
-                        gloat,
-                        new List<Node>(){
-                            new SequencerNode(
+                            new SelectorNode(
+                                playerBehind,
                                 new List<Node>{
-                                    new ActionNode(fc.DashRight),
-                                    new ActionNode(fc.LeftKick),
-                                    new ActionNode(fc.RightPunch),
-                                    new ActionNode(fc.RightKick)
-                                }
-                            ),
-                            new SequencerNode(
-                                new List<Node>{
-                                    new ActionNode(fc.DashRight),
-                                    new ActionNode(fc.LeftKick),
-                                    new ActionNode(fc.RightPunch),
+                                    new SelectorNode(
+                                    gloat,
+                                        new List<Node>(){
+                                            new SequencerNode(
+                                                new List<Node>{
+                                                    new ActionNode(fc.LeftKick),
+                                                    new ActionNode(fc.RightPunch),
+                                                    new ActionNode(fc.RightKick)
+                                                }
+                                            ),
+                                            new SequencerNode(
+                                                new List<Node>{
+                                                    new ActionNode(fc.LeftKick),
+                                                    new ActionNode(fc.RightPunch),
+                                                }
+                                            )
+                                        }
+                                    ),
+                                    new SequencerNode(
+                                        new List<Node>{
+                                            new ActionNode(fc.LeftRightKick),
+                                            new ActionNode(fc.LeftRightPunch)
+                                        }
+                                    )
                                 }
                             )
-                        }
-                    )
                         }
                     )
                 }
@@ -127,6 +155,7 @@ public class BahaController : MonoBehaviour
     {
         //note: rightkick is gloat, leftpunch is harpoon, rightpunch is anchor, dash right is turn to player, dash forward is a very slow dash forward
         //LeftRightPunch is swing overhead, //leftkick is a gloat action for wasting time for animation
+        // LeftRightKick is fish attack
         if(!freezed){
             Debug.Log(fc.IsActing());
         if (actions.Count == 0){

@@ -6,17 +6,26 @@ public class DiamondChild : MonoBehaviour
 {
     GameObject player;
     float speed = 17f;
+    float deathTimer;
+    float timer;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-      //  transform.LookAt(player.transform);
+        deathTimer = 3f;
+        timer = 0;
+        //  transform.LookAt(player.transform);
     }
 
- 
+
     void Update()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
+        timer += Time.deltaTime;
+        if (timer > deathTimer)
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnCollisionExit(Collision other)
     {
