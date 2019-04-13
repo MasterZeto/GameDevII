@@ -76,7 +76,7 @@ public class SawyerController : MonoBehaviour
                 new ActionNode(sawyer.DashLeft),
                 new ActionNode(sawyer.DashRight),
                 new ActionNode(sawyer.DashForward),
-                new ActionNode(sawyer.LeftRightPunch)
+                new ActionNode(sawyer.RightPunch)
             }
         );
 
@@ -86,7 +86,7 @@ public class SawyerController : MonoBehaviour
                 new ActionNode(sawyer.DashRight),
                 new ActionNode(sawyer.DashLeft),
                 new ActionNode(sawyer.DashForward),
-                new ActionNode(sawyer.LeftRightPunch)
+                new ActionNode(sawyer.LeftPunch)
             }
         );
 
