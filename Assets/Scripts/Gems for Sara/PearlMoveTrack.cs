@@ -39,9 +39,9 @@ public class PearlMoveTrack : MonoBehaviour
     {
         time += 20 * Time.deltaTime;
         timer += Time.deltaTime;
-        float z = transform.position.z - 20 * Time.deltaTime * speed;
-        float x = transform.position.x + Mathf.Cos(time) * 0.8f;
-        float y = transform.position.y + Mathf.Sin(time) * 0.8f;
+        float z = transform.position.z - 17 * Time.deltaTime * speed;
+        float x = transform.position.x + Mathf.Cos(time) * 0.6f;
+        float y = transform.position.y + Mathf.Sin(time) * 0.6f;
         transform.position = new Vector3(x, y, z);
         if (timer > deathTimer)
         {
