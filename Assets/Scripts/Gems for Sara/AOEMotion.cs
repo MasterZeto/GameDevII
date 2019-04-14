@@ -8,7 +8,7 @@ public class AOEMotion : MonoBehaviour
     GameObject player;
     GameObject opponent;
 
-    float force = 100f;
+    float force = 10f;
 
     float deathTimer;
     float timer;
@@ -24,7 +24,7 @@ public class AOEMotion : MonoBehaviour
         opponent = GameObject.FindGameObjectWithTag("Opponent");
         direction = Vector3.Lerp(opponent.transform.forward, opponent.transform.up, 0.5f);
         rb = GetComponent<Rigidbody>(); ;
-        rb.AddForce(direction * force, ForceMode.Force);
+        rb.AddForce(direction * force, ForceMode.Impulse);
         deathTimer = 3f;
         timer = 0;
        
