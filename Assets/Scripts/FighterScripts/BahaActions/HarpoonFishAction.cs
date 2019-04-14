@@ -91,6 +91,8 @@ public class HarpoonFishAction : Action
         hitbox.Fire(hit_duration);
         for( t = 0f; t < hit_duration; t+= Time.deltaTime){
             while(paused){
+                rope.SetPosition(0, harpoonStart.position);
+                rope.SetPosition(1, harpoon.transform.position);
                 rb.velocity = Vector3.zero;
                 Debug.Log("AHHH");
                 yield return null;
@@ -151,6 +153,8 @@ public class HarpoonFishAction : Action
         while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>5f){
             while(paused){
                 rb.velocity = Vector3.zero;
+                rope.SetPosition(0, harpoonStart.position);
+                rope.SetPosition(1, harpoon.transform.position);
                 yield return null;
             }
             direction = harpoonStart.transform.position - harpoon.transform.position;
