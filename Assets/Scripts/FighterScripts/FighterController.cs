@@ -157,6 +157,8 @@ public class FighterController : MonoBehaviour
     public void Stun(){
         stunned = true;
         Pause();
+        animator.enabled = true;
+        SetTrigger("Stunned");
     }
 
     public void Resume()

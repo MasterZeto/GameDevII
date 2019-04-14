@@ -27,7 +27,6 @@ public class PauseScript : MonoBehaviour
     void Start()
     {
         UIManager = GetComponent<PauseUIManager>();
-        camCon = Camera.main.GetComponent<CameraController>();
         pauseQueue = new List<voidDelegate>();
         possibleComs = new List<voidDelegate>();
         possibleComs.Add(() => playerActions.DashLeft());
@@ -45,7 +44,6 @@ public class PauseScript : MonoBehaviour
         foreach(Camera cam in actionCams){
             cam.enabled = false;
         }
-        mainCam = Camera.main;
         if(lr!=null) lr.positionCount = 0;
     }
 
@@ -67,6 +65,8 @@ public class PauseScript : MonoBehaviour
         if(Input.GetAxisRaw("Pause") == 1 && up){
             up = false;
             if(!pause&&!executing){
+                mainCam = Camera.main;
+                camCon = Camera.main.GetComponent<CameraController>();
                 playerActions.pause = true;
                 Time.timeScale = 0;
                 pause = true;

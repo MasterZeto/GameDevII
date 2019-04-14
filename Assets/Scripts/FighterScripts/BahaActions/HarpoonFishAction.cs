@@ -91,12 +91,15 @@ public class HarpoonFishAction : Action
         hitbox.Fire(hit_duration);
         for( t = 0f; t < hit_duration; t+= Time.deltaTime){
             while(paused){
+                rope.SetPosition(0, harpoonStart.position);
+                rope.SetPosition(1, harpoon.transform.position);
                 rb.velocity = Vector3.zero;
                 Debug.Log("AHHH");
                 yield return null;
             }
             rb.velocity=direction*speed;
             Debug.Log(hitbox.active);
+            rope.SetPosition(0, harpoonStart.position);
             rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached){
                 playerHit = true;
@@ -123,6 +126,7 @@ public class HarpoonFishAction : Action
                 rb.velocity = direction*speed/2;
                 t+=Time.deltaTime;
                 opponent.transform.position = harpoon.transform.position;
+                rope.SetPosition(0, harpoonStart.position);
                 rope.SetPosition(1, harpoon.transform.position);
                 yield return null;
             }
@@ -133,6 +137,7 @@ public class HarpoonFishAction : Action
                 rb.velocity = direction*speed/2;
                 t+=Time.deltaTime;
                 opponent.transform.position = harpoon.transform.position;
+                rope.SetPosition(0, harpoonStart.position);
                 rope.SetPosition(1, harpoon.transform.position);
                 yield return null;
             }
@@ -145,27 +150,32 @@ public class HarpoonFishAction : Action
         }
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>2f){
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>5f){
             while(paused){
                 rb.velocity = Vector3.zero;
+                rope.SetPosition(0, harpoonStart.position);
+                rope.SetPosition(1, harpoon.transform.position);
                 yield return null;
             }
+            direction = harpoonStart.transform.position - harpoon.transform.position;
+            direction.Normalize();
             rb.velocity = direction*speed/2;
             t+=Time.deltaTime;
+            rope.SetPosition(0, harpoonStart.position);
             rope.SetPosition(1, harpoon.transform.position);
-            if(Vector3.Distance(opponentLoc.position,transform.position)<5f&&hitCheck.playerAttached){
+            if(Vector3.Distance(opponentLoc.position,transform.position)<2f&&hitCheck.playerAttached){
                 break;
             }
             yield return null;
         }
+        harpoon.SetActive(false);
+        rope.positionCount = 0;
         if(mainCam.enabled == false){
             yield return new WaitForSeconds(.05f);
             mainCam.enabled = true;
             bahaCam.enabled = false;
         }
         rb.velocity = Vector3.zero;
-        harpoon.SetActive(false);
-        rope.positionCount = 0;
         delayDone = true;
     }
     public override bool IsDone() { return delayDone; }
