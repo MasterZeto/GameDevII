@@ -18,8 +18,8 @@ public class SaraBigWind : Action
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<FighterController>();
         fighter.SetTrigger(anim_name);
         player.SetTrigger("Stunned");
-
-        particle = gameObject.GetComponentInChildren<ParticleSystem>();
+        particle = GameObject.FindGameObjectWithTag("Wind").GetComponent<ParticleSystem>();
+       // particle = gameObject.GetComponentInChildren<ParticleSystem>();
         particle.Play();
 
 

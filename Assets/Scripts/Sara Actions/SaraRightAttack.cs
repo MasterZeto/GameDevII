@@ -12,12 +12,18 @@ public class SaraRightAttack : Action
     GameObject tempForGem;
     HitboxForGems box;
     bool done = false;
+    ParticleSystem[] particles = new ParticleSystem[2];
+ 
 
     public override void StartAction(FighterController fighter)
     {
         this.fighter = fighter;
-     
+        particles = GameObject.FindGameObjectWithTag("FireR").GetComponentsInChildren<ParticleSystem>();
         fighter.SetTrigger(anim_name);
+        foreach (ParticleSystem par in particles){
+            par.Play();
+        }
+       
         //instantiate one gem 
         int rand = Random.Range(0,4);
         tempForGem = Instantiate(gems[rand], RightCannon.position, Quaternion.identity);
