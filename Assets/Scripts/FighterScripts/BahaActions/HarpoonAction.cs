@@ -97,6 +97,7 @@ public class HarpoonAction : Action
             }
             rb.velocity=direction*speed;
             Debug.Log(hitbox.active);
+            rope.SetPosition(0, harpoonStart.position);
             rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached){
                 playerHit = true;
@@ -121,6 +122,7 @@ public class HarpoonAction : Action
             }
             rb.velocity = direction*speed/2;
             t+=Time.deltaTime;
+            rope.SetPosition(0, harpoonStart.position);
             rope.SetPosition(1, harpoon.transform.position);
             if(Vector3.Distance(opponentLoc.position,transform.position)<5f&&hitCheck.playerAttached){
                 break;
