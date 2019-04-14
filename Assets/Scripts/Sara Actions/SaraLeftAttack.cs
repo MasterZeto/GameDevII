@@ -7,7 +7,7 @@ public class SaraLeftAttack : Action
     public List<HitboxForGems> hitbox = new List<HitboxForGems>();
     [SerializeField] float hit_duration;
     [SerializeField] string anim_name;
-    [SerializeField] GameObject[] gems = new GameObject[4];
+    [SerializeField] GameObject[] gems = new GameObject[5];
     [SerializeField] Transform LeftCannon;
     GameObject tempForGem;
     HitboxForGems box;
@@ -24,7 +24,7 @@ public class SaraLeftAttack : Action
         {
             par.Play();
         }
-        int rand = Random.Range(0, 4);
+        int rand = Random.Range(0, 5);
         tempForGem= Instantiate(gems[rand],LeftCannon.position,Quaternion.identity);
         hitbox.Add(tempForGem.GetComponent<HitboxForGems>());
         box = tempForGem.GetComponent<HitboxForGems>();

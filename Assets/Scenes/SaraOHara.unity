@@ -6773,7 +6773,7 @@ PrefabInstance:
     - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
         type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
         type: 3}
@@ -6928,6 +6928,11 @@ PrefabInstance:
     - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
         type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
+        type: 3}
+      propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199803761772311968, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
@@ -9447,7 +9452,7 @@ PrefabInstance:
     - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
         type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
         type: 3}
@@ -9602,6 +9607,21 @@ PrefabInstance:
     - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
         type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
+        type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198106869874769972, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
+        type: 3}
+      propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199803761772311968, guid: 18c0a8b63ea8b4448a595b0c24c1384a,
@@ -16688,6 +16708,7 @@ MonoBehaviour:
   - {fileID: 3110626345608838188, guid: 20ffb704f919ccc41a92e5126419d210, type: 3}
   - {fileID: 2475286761252978432, guid: 5925b14877e457f418fb290c63958f0a, type: 3}
   - {fileID: 7287420757950015633, guid: 7d5e4df837a5eae44ab02e6e64d4963a, type: 3}
+  - {fileID: 3110626345608838188, guid: 7f97041303a3bbd468457a07db423fb4, type: 3}
   RightCannon: {fileID: 945459142}
 --- !u!114 &147508556430982886
 MonoBehaviour:
@@ -16710,6 +16731,7 @@ MonoBehaviour:
   - {fileID: 3110626345608838188, guid: 20ffb704f919ccc41a92e5126419d210, type: 3}
   - {fileID: 2475286761252978432, guid: 5925b14877e457f418fb290c63958f0a, type: 3}
   - {fileID: 7287420757950015633, guid: 7d5e4df837a5eae44ab02e6e64d4963a, type: 3}
+  - {fileID: 3110626345608838188, guid: 7f97041303a3bbd468457a07db423fb4, type: 3}
   LeftCannon: {fileID: 121946091}
 --- !u!114 &147508556430982887
 MonoBehaviour:
