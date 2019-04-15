@@ -11,7 +11,7 @@ public class SawyerController : MonoBehaviour
     [SerializeField] float dash_distance;
     [SerializeField] float backup_distance;
     [SerializeField] float movein_distance;
-    [SerializeField] float attack_distance;
+    [SerializeField] float rest_distance;
 
     FighterController sawyer;
     Blackboard blackboard;
@@ -21,9 +21,19 @@ public class SawyerController : MonoBehaviour
     Vector3 radial_move_dir;
 
     float t = 0;
+    float attack_delay = 5f;
     float switched_time = 0f;
+    float rest_time = 3f;
+    float rest_timer = 0f;
 
+    bool should_rest = true;
     bool freezed = false;
+
+    
+    [SerializeField, Range(0f,1f)] float nothing_percent    = 0.4f;
+    [SerializeField, Range(0f,1f)] float switch_percent     = 0.1f;
+    [SerializeField, Range(0f,1f)] float dash_left_percent  = 0.1f;
+    [SerializeField, Range(0f,1f)] float dash_right_percent = 0.1f;
 
     Queue<ActionDelegate> actions;
 
@@ -76,7 +86,8 @@ public class SawyerController : MonoBehaviour
                 new ActionNode(sawyer.DashLeft),
                 new ActionNode(sawyer.DashRight),
                 new ActionNode(sawyer.DashForward),
-                new ActionNode(sawyer.RightPunch)
+                new ActionNode(sawyer.RightPunch),
+                new ActionNode(GoRest)
             }
         );
 
@@ -86,7 +97,19 @@ public class SawyerController : MonoBehaviour
                 new ActionNode(sawyer.DashRight),
                 new ActionNode(sawyer.DashLeft),
                 new ActionNode(sawyer.DashForward),
-                new ActionNode(sawyer.LeftPunch)
+                new ActionNode(sawyer.LeftPunch),
+                new ActionNode(GoRest)
+            }
+        );
+
+        SelectorNode Idle = new SelectorNode(
+            IdleSelect,
+            new List<Node>()
+            {
+                new ActionNode(Nothing),
+                new ActionNode(SwitchRadialDirection),
+                new ActionNode(sawyer.DashLeft),
+                new ActionNode(sawyer.DashRight)
             }
         );
 
@@ -102,8 +125,22 @@ public class SawyerController : MonoBehaviour
                 DistanceToPlayer,
                 new List<Node>()
                 {
-                    new ActionNode(SetMoveDirForward),
-                    new ActionNode(SetMoveDirBackward),
+                    new SelectorNode(
+                        Random01,
+                        new List<Node>()
+                        {
+                            new ActionNode(sawyer.DashLeft),
+                            new ActionNode(sawyer.DashRight)
+                        }    
+                    ),
+                    new SelectorNode(
+                        Random01,
+                        new List<Node>()
+                        {
+                            new ActionNode(sawyer.DashBackLeft),
+                            new ActionNode(sawyer.DashBackRight)
+                        }    
+                    ),
                     new SelectorNode(
                         ShouldAttack,
                         new List<Node>()
@@ -116,17 +153,18 @@ public class SawyerController : MonoBehaviour
                                     DashInRight
                                 }
                             ),
-                            new ActionNode(Nothing)
+                            Idle
                         }
                     ),
                     new SelectorNode(
-                        ShouldSwitchDirection,
-                        new List<Node>() 
+                        Random01,
+                        new List<Node>()
                         {
-                            new ActionNode(SwitchRadialDirection),
-                            new ActionNode(Nothing)
-                        }
-                    )
+                            new ActionNode(sawyer.DashBackLeft),
+                            new ActionNode(sawyer.DashBackRight)
+                        }    
+                    ),
+                    new ActionNode(Nothing)
                 }
             )
         );
@@ -144,6 +182,9 @@ public class SawyerController : MonoBehaviour
 
             t += Time.deltaTime;
             switched_time += Time.deltaTime;
+
+            if (should_rest) rest_timer += Time.deltaTime;
+            if (rest_timer >= rest_time) should_rest = false;
         }
     }
 
@@ -171,11 +212,11 @@ public class SawyerController : MonoBehaviour
 
         /* check distance against stuff */
 
+        if (dist < rest_distance && should_rest) return 3;
+        if (should_rest) return 2;
         if (dist > movein_distance) return 0;
         if (dist < backup_distance) return 1;
-        if (Mathf.Abs(dist - dash_distance) < 1f) return 2;
-        
-        return 3;
+        return 2;
     }
 
     int ShouldSwitchDirection()
@@ -186,7 +227,29 @@ public class SawyerController : MonoBehaviour
 
     int ShouldAttack()
     {
-        return ((t > 5f && Random.Range(0f, 1f) > 0.4f) ? 0 : 1);
+        if (should_rest) return 1;
+        if (t > attack_delay) 
+        {
+            t = 0; 
+            attack_delay = Random.Range(1f, 3f);
+            return 0;
+        }
+        else 
+        {
+            return 1;
+        };
+    }
+
+    int IdleSelect()
+    {
+        float r = Random.Range(0f, 1f);
+
+        if (r < switch_percent)     return 1; r -= switch_percent;
+        if (r < dash_left_percent)  return 2; r -= dash_left_percent;
+        if (r < dash_right_percent) return 3; r -= dash_right_percent;
+        if (r < nothing_percent)    return 0; r -= nothing_percent;
+        
+        return 0;
     }
 
     int Random01()
@@ -198,6 +261,13 @@ public class SawyerController : MonoBehaviour
     {
         freezed = f;
         //if (f) { sawyer.Pause(); } else { sawyer.Resume(); }
+    }
+
+    void GoRest()
+    {
+        should_rest = true;
+        rest_time = Random.Range(2f, 4f);
+        rest_timer = 0f;
     }
 
 }

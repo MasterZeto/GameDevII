@@ -14658,7 +14658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f5d492f71e86041a689ab63df56464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 4
+  move_speed: 10
   max_heat: 100
   heat_dissipation_rate: 0
   animator: {fileID: 1814673699}
@@ -14773,8 +14773,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 13
-  dash_duration: 0.2
+  dash_speed: 10
+  dash_duration: 0.1
   anim_name: DashLeft
 --- !u!114 &3363794433316572831
 MonoBehaviour:
@@ -14870,7 +14870,11 @@ MonoBehaviour:
   dash_distance: 17.5
   backup_distance: 15
   movein_distance: 20
-  attack_distance: 3
+  rest_distance: 20
+  nothing_percent: 0.9
+  switch_percent: 0.1
+  dash_left_percent: 0
+  dash_right_percent: 0
 --- !u!114 &5038508504045181402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14962,8 +14966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: -10
-  dash_duration: 0.2
+  dash_speed: 10
+  dash_duration: 3
   anim_name: DashBackward
 --- !u!4 &5279375867718945962
 Transform:
@@ -15040,8 +15044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 13
-  dash_duration: 0.2
+  dash_speed: 10
+  dash_duration: 0.1
   anim_name: DashRight
 --- !u!54 &6972612634312658551
 Rigidbody:
@@ -15116,7 +15120,7 @@ MonoBehaviour:
   follow: {fileID: 178030824}
   lookAtHeight: 0
   lookAt: {fileID: 26844045}
-  speed: 0.66
+  speed: 0.6
   moveSpeed: 10
   pause: 0
   moveable: 0
