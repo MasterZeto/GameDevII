@@ -44,7 +44,7 @@ public class PearlMoveTrack : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         opponent = GameObject.FindGameObjectWithTag("Opponent");
         fighter = opponent.GetComponent<FighterController>();
-        deathTimer = 3f;
+        deathTimer = 100f;
         timer = 0;
         time = 0;
         width = 50;
@@ -77,10 +77,10 @@ public class PearlMoveTrack : MonoBehaviour
            // lr.positionCount = resolution + 1;
             for (int i=0;i<=resolution;i++)
             {
-               futureTime = time + 20 *i;
-               futureZ = transform.position.z - time * speed;
-               futureX = transform.position.x + Mathf.Cos(time) * 0.6f;
-               futureY = transform.position.y + Mathf.Sin(time) * 0.6f;
+               futureTime = time + 40 *i;
+               futureZ = transform.position.z - futureTime * speed;
+               futureX = transform.position.x + Mathf.Cos(futureTime) * 0.6f;
+               futureY = transform.position.y + Mathf.Sin(futureTime) * 0.6f;
                points[i] = new Vector3(futureX, futureY, futureZ);
             }
 
