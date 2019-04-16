@@ -12,9 +12,11 @@ public class Harpooned : MonoBehaviour
     Vector3 playerLoc;
     [SerializeField] FighterController playerCon;
     public bool isStunned = false;
+    PauseScript pauseScript;
     // Start is called before the first frame update
     void Start()
     {
+        pauseScript = (PauseScript)FindObjectOfType(typeof(PauseScript));
     }
 
     // Update is called once per frame
@@ -56,6 +58,6 @@ public class Harpooned : MonoBehaviour
     }
     private IEnumerator Resume(float stunned){
         yield return new WaitForSeconds(stunned);
-        bahaCon.Resume();
+        if(pauseScript.doneExecuting) bahaCon.Resume();
     }
 }
