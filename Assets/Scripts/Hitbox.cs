@@ -69,6 +69,9 @@ public class Hitbox : MonoBehaviour
         cooldown = duration;
         while (cooldown >= 0f)
         {
+            while(!_collider.enabled){
+                yield return null;
+            }
             cooldown -= Time.deltaTime * timescale;
             yield return null;
         }

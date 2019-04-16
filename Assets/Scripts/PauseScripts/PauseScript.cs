@@ -89,8 +89,10 @@ public class PauseScript : MonoBehaviour
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
                     col=enemy.GetHitbox(ref isProjectile);
+                    Debug.Log(col);
                     if(col!=null&&!isProjectile){
                         Debug.Log("the boy is here");
+                        predictor.SetActive(true);
                         predictor.transform.localScale=col.bounds.size;
                         predictor.transform.eulerAngles=enemy.transform.eulerAngles;
                     }
