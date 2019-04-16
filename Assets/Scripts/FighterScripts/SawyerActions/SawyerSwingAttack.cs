@@ -9,7 +9,7 @@ public class SawyerSwingAttack : Action
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
     bool delay_done = false;
-
+    
     public override void StartAction(FighterController fighter)
     {
         this.fighter = fighter;
