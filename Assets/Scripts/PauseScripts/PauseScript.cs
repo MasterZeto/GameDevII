@@ -11,6 +11,7 @@ public class PauseScript : MonoBehaviour
     [SerializeField] PauseUIManager UIManager;
     [SerializeField] GameObject predictor;
     [SerializeField] List<Camera> actionCams;
+    [SerializeField] Camera bahaCam = null;
     public List<voidDelegate> pauseQueue;
     private List<voidDelegate> possibleComs;
     FighterController playerActions;
@@ -23,9 +24,12 @@ public class PauseScript : MonoBehaviour
     bool isProjectile = false;
     Collider col;
     [SerializeField] LineRenderer lr = null;
+    bool bahaCamEnabled = false;
     // Start is called before the first frame update
     void Start()
     {
+        mainCam = Camera.main;
+        camCon = Camera.main.GetComponent<CameraController>();
         UIManager = GetComponent<PauseUIManager>();
         pauseQueue = new List<voidDelegate>();
         possibleComs = new List<voidDelegate>();
@@ -54,9 +58,9 @@ public class PauseScript : MonoBehaviour
             Debug.Log(col.bounds.center);
             Debug.Log(col);
             col=enemy.GetHitbox(ref isProjectile);
-            predictor.transform.position=col.gameObject.transform.position;
             predictor.SetActive(true);
             if(col.enabled){
+                predictor.transform.position=col.gameObject.transform.position;
                 Debug.Log("unenabled");
                 col.enabled = false;
             }
@@ -65,8 +69,11 @@ public class PauseScript : MonoBehaviour
         if(Input.GetAxisRaw("Pause") == 1 && up){
             up = false;
             if(!pause&&!executing){
-                mainCam = Camera.main;
-                camCon = Camera.main.GetComponent<CameraController>();
+                if(bahaCam!=null&&bahaCam.enabled){
+                    bahaCamEnabled = true;
+                    bahaCam.enabled = false;
+                    mainCam.enabled = true;
+                }
                 playerActions.pause = true;
                 Time.timeScale = 0;
                 pause = true;
@@ -154,6 +161,11 @@ public class PauseScript : MonoBehaviour
         mainCam.enabled = true;
         executing = false;
         camCon.pause = false;
+        if(bahaCamEnabled){
+            bahaCam.enabled = true;
+            mainCam.enabled = false;
+            bahaCamEnabled = false;
+        }
         if(enemy!=null){
             //resume enemy's action, somehow
             enemy.Resume();
@@ -192,11 +204,13 @@ public class PauseScript : MonoBehaviour
         if(harp.GetRemainingTime()>=harp.GetHitDuration()){
             lr.positionCount = 0;
         }
-        for(float t = harp.GetRemainingTime(); t < harp.GetHitDuration(); t+=Time.unscaledDeltaTime){
-            //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
-            lr.gameObject.transform.position+=(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
-            lr.SetPosition(1, lr.gameObject.transform.position);
-            yield return null;
+        else{
+            for(float t = harp.GetRemainingTime(); t < harp.GetHitDuration(); t+=Time.unscaledDeltaTime){
+                //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+                lr.gameObject.transform.position+=(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+                lr.SetPosition(1, lr.gameObject.transform.position);
+                yield return null;
+            }
         }
         /*Vector3 direction = lr.gameObject.transform.position;
         float y = direction.y;

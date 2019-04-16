@@ -47099,6 +47099,7 @@ MonoBehaviour:
   - {fileID: 395778888}
   - {fileID: 1036066488}
   - {fileID: 1274797457}
+  bahaCam: {fileID: 2070658339}
   lr: {fileID: 2080184717}
 --- !u!114 &1134376067
 MonoBehaviour:
@@ -90715,12 +90716,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2070658340}
   - component: {fileID: 2070658339}
-  - component: {fileID: 2070658338}
   - component: {fileID: 2070658337}
   - component: {fileID: 2070658336}
   m_Layer: 0
   m_Name: BahaCam
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90757,14 +90757,6 @@ MonoBehaviour:
   moveSpeed: 10
   pause: 0
   moveable: 0
---- !u!81 &2070658338
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070658335}
-  m_Enabled: 1
 --- !u!20 &2070658339
 Camera:
   m_ObjectHideFlags: 0
