@@ -7,6 +7,7 @@ public class PearlMoveTrack : MonoBehaviour
 {   //support for the renderer(trail prediction)
     LineRenderer lr;
     int resolution;
+    bool visible = false;
 
 
     GameObject player;
@@ -50,7 +51,7 @@ public class PearlMoveTrack : MonoBehaviour
         width = 50;
         height = 50;
         transform.LookAt(player.transform);
-        resolution = 20;
+        resolution = 40;
         points = new Vector3[resolution + 1];
         lr.positionCount = resolution + 1;
         //  z = transform.position.z;
@@ -61,33 +62,44 @@ public class PearlMoveTrack : MonoBehaviour
 
     void Update()
     {
-        time += 20 * Time.deltaTime;
-        timer += Time.deltaTime;
-        //  float z = transform.position.z - 17 * Time.deltaTime * speed;
-        float z = transform.position.z - time * speed;
-        float x = transform.position.x + Mathf.Cos(time) * 0.6f;
-        float y = transform.position.y + Mathf.Sin(time) * 0.6f;
-        transform.position = new Vector3(x, y, z);
+
         if (timer > deathTimer)
         {
             Destroy(gameObject);
         }
-        if (fighter.pause == true)
+        //only move the gem when unpaused
+        if (fighter.pause != true)
         {
-           // lr.positionCount = resolution + 1;
-            for (int i=0;i<=resolution;i++)
+            timer += Time.deltaTime;
+
+            time += 20 * Time.deltaTime;
+            //  float z = transform.position.z - 17 * Time.deltaTime * speed;
+            float z = transform.position.z - time * speed;
+            float x = transform.position.x + Mathf.Cos(time) * 0.6f;
+            float y = transform.position.y + Mathf.Sin(time) * 0.6f;
+            transform.position = new Vector3(x, y, z);
+
+        }
+        // when time is paused should show the line renderer
+        //should only generate line renderer once, should not keep updating 
+        else {
+         
+            // lr.positionCount = resolution + 1;
+            for (int i = 0; i <= resolution; i++)
             {
-               futureTime = time + 40 *i;
-               futureZ = transform.position.z - futureTime * speed;
-               futureX = transform.position.x + Mathf.Cos(futureTime) * 0.6f;
-               futureY = transform.position.y + Mathf.Sin(futureTime) * 0.6f;
-               points[i] = new Vector3(futureX, futureY, futureZ);
+                futureTime = time + 100 * i;
+                futureZ = transform.position.z - futureTime * speed;
+                futureX = transform.position.x + Mathf.Cos(futureTime) * 0.6f;
+                futureY = transform.position.y + Mathf.Sin(futureTime) * 0.6f;
+                points[i] = new Vector3(futureX, futureY, futureZ);
             }
 
-         
+
             lr.SetPositions(points);
 
             Debug.Log("Enter Pause here!!");
+
+
 
         }
         //  transform.position += transform.forward * speed * Time.deltaTime;
@@ -99,12 +111,14 @@ public class PearlMoveTrack : MonoBehaviour
 
 
 
-    private void OnCollisionExit(Collision other)
+
+
+    void OnCollisionExit(Collision other)
     {
         if (other.gameObject.tag == "Player")
             Destroy(gameObject);
     }
-    private void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag != "Player")
             Destroy(gameObject);
