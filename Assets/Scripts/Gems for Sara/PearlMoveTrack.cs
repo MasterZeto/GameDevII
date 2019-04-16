@@ -51,7 +51,7 @@ public class PearlMoveTrack : MonoBehaviour
         width = 50;
         height = 50;
         transform.LookAt(player.transform);
-        resolution = 40;
+        resolution = 50;
         points = new Vector3[resolution + 1];
         lr.positionCount = resolution + 1;
         //  z = transform.position.z;
@@ -62,7 +62,7 @@ public class PearlMoveTrack : MonoBehaviour
 
     void Update()
     {
-
+        
         if (timer > deathTimer)
         {
             Destroy(gameObject);
@@ -70,6 +70,7 @@ public class PearlMoveTrack : MonoBehaviour
         //only move the gem when unpaused
         if (fighter.pause != true)
         {
+            lr.positionCount = 0;
             timer += Time.deltaTime;
 
             time += 20 * Time.deltaTime;
@@ -83,19 +84,25 @@ public class PearlMoveTrack : MonoBehaviour
         // when time is paused should show the line renderer
         //should only generate line renderer once, should not keep updating 
         else {
-         
+      
+            visible = true;
+            lr.positionCount = resolution + 1;
             // lr.positionCount = resolution + 1;
-            for (int i = 0; i <= resolution; i++)
+            if (visible)
             {
-                futureTime = time + 100 * i;
-                futureZ = transform.position.z - futureTime * speed;
-                futureX = transform.position.x + Mathf.Cos(futureTime) * 0.6f;
-                futureY = transform.position.y + Mathf.Sin(futureTime) * 0.6f;
-                points[i] = new Vector3(futureX, futureY, futureZ);
+                visible = false;
+                for (int i = 0; i <= resolution; i++)
+                {
+                    futureTime = time + 100f * i;
+                    futureZ = transform.position.z - futureTime * speed;
+                    futureX = transform.position.x + Mathf.Cos(futureTime) * 3f;
+                    futureY = transform.position.y + Mathf.Sin(futureTime) * 3f;
+                    points[i] = new Vector3(futureX, futureY, futureZ);
+                }
+
+
+                lr.SetPositions(points);
             }
-
-
-            lr.SetPositions(points);
 
             Debug.Log("Enter Pause here!!");
 
