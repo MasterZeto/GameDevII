@@ -147,6 +147,11 @@ public class HarpoonFishAction : Action
             if(hitCheck.isStunned){
                 hitCheck.isStunned = false;
             }
+             if(mainCam.enabled == false){
+                yield return new WaitForSeconds(.05f);
+                mainCam.enabled = true;
+                bahaCam.enabled = false;
+            }
         }
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
@@ -170,11 +175,6 @@ public class HarpoonFishAction : Action
         }
         harpoon.SetActive(false);
         rope.positionCount = 0;
-        if(mainCam.enabled == false){
-            yield return new WaitForSeconds(.05f);
-            mainCam.enabled = true;
-            bahaCam.enabled = false;
-        }
         rb.velocity = Vector3.zero;
         delayDone = true;
     }
