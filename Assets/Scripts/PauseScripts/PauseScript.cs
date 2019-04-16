@@ -25,9 +25,11 @@ public class PauseScript : MonoBehaviour
     Collider col;
     [SerializeField] LineRenderer lr = null;
     bool bahaCamEnabled = false;
+    public bool doneExecuting {get; private set; }
     // Start is called before the first frame update
     void Start()
     {
+        doneExecuting = true;
         mainCam = Camera.main;
         camCon = Camera.main.GetComponent<CameraController>();
         UIManager = GetComponent<PauseUIManager>();
@@ -69,6 +71,7 @@ public class PauseScript : MonoBehaviour
         if(Input.GetAxisRaw("Pause") == 1 && up){
             up = false;
             if(!pause&&!executing){
+                doneExecuting = false;
                 if(bahaCam!=null&&bahaCam.enabled){
                     bahaCamEnabled = true;
                     bahaCam.enabled = false;
@@ -180,6 +183,7 @@ public class PauseScript : MonoBehaviour
         }
         playerActions.pause = false;
         UIManager.HidePauseHeat();
+        doneExecuting = true;
     }
     public void addToQueue(int i){
             pauseQueue.Add(possibleComs[i]);
