@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(LineRenderer))]
+//[RequireComponent(typeof(LineRenderer))]
 public class AOEMotion : MonoBehaviour
 {   //trail prediction support
     LineRenderer lr;
@@ -10,7 +10,8 @@ public class AOEMotion : MonoBehaviour
     public int resolution = 20;
     float g;
     float radianAngle;
-    
+    Vector3[] arcArray = new Vector3[21];
+
 
     GameObject player;
     GameObject opponent;
@@ -35,9 +36,10 @@ public class AOEMotion : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         opponent = GameObject.FindGameObjectWithTag("Opponent");
         fighter = opponent.GetComponent<FighterController>();
-        transform.forward = opponent.transform.forward;
+     //   transform.forward = opponent.transform.forward;
+      //  transform.up = opponent.transform.up;
         //the angle is set to be 45 degree
-        direction = Vector3.Lerp(opponent.transform.forward, opponent.transform.up, 0.5f);
+        direction = Vector3.Lerp(transform.forward, transform.up, 0.5f);
     
         rb = GetComponent<Rigidbody>(); ;
         rb.AddForce(direction * force, ForceMode.Impulse);
@@ -80,8 +82,10 @@ public class AOEMotion : MonoBehaviour
 
     Vector3[] CalculateArcArray()
     {
-        Vector3[] arcArray = new Vector3[resolution + 1];
+        
         radianAngle = Mathf.Deg2Rad * 45;
+        //i think the velocity here need to be changed
+        Debug.Log("velocity is :" + rb.velocity.magnitude);
         float maxDistance = (rb.velocity.magnitude * rb.velocity.magnitude * Mathf.Sin(2 * radianAngle) )/ g;
         for (int i=0; i<=resolution;i++)
         {
