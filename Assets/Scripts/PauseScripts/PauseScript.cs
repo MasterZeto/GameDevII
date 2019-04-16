@@ -61,7 +61,7 @@ public class PauseScript : MonoBehaviour
             Debug.Log(col);
             col=enemy.GetHitbox(ref isProjectile);
             predictor.SetActive(true);
-            if(col.enabled){
+            if(col!=null&&col.enabled){
                 predictor.transform.position=col.gameObject.transform.position;
                 Debug.Log("unenabled");
                 col.enabled = false;

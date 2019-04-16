@@ -9,8 +9,6 @@ public class SawyerSwingAttack : Action
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
     bool delay_done = false;
-    bool paused = false;
-
     public override void StartAction(FighterController fighter)
     {
         this.fighter = fighter;
@@ -24,11 +22,11 @@ public class SawyerSwingAttack : Action
     }
     public override void Pause()
     {
-        if (hitbox.active) { hitbox.Pause(); paused = true;}
+        if (hitbox.active) { hitbox.Pause();}
     }
     public override void Resume()
     {
-        if (hitbox.active) { hitbox.Resume(); paused = false;}
+        if (hitbox.active) { hitbox.Resume();}
     }
 
     private IEnumerator HitWithDelayRoutine()
@@ -36,9 +34,6 @@ public class SawyerSwingAttack : Action
        delay_done = false;
         for (float t = 0f; t < hit_delay; t += Time.deltaTime)
         {
-            while(paused){
-                yield return null;
-            }
             yield return null;
         }
        delay_done = true;

@@ -181,6 +181,8 @@ public class FighterController : MonoBehaviour
             if(attack==null){
                 SawyerSwingAttack swingAttack = current_action as SawyerSwingAttack;
                 if(swingAttack!=null) return swingAttack.hitbox._collider;
+                BahaSwingAttack bahaSwing = current_action as BahaSwingAttack;
+                if(bahaSwing!=null) return bahaSwing.hitbox._collider;
                 else{
                     HarpoonAction project = current_action as HarpoonAction;
                     if(project!=null){
@@ -192,6 +194,7 @@ public class FighterController : MonoBehaviour
             else{
                 return attack.hitbox._collider;
             }
+            Debug.Log(current_action);
             return null;
             
         }
