@@ -63,7 +63,6 @@ public class PauseScript : MonoBehaviour
             predictor.SetActive(true);
             if(col!=null&&col.enabled){
                 predictor.transform.position=col.gameObject.transform.position;
-                Debug.Log("unenabled");
                 col.enabled = false;
             }
         }
@@ -201,16 +200,15 @@ public class PauseScript : MonoBehaviour
             yield return null;
             counter++;
         }
-        lr.positionCount = 2;
         HarpoonAction harp = enemy.GetHarpoonAction();
         //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
-        lr.transform.position = harp.hitbox.gameObject.transform.position;
         //CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
-        lr.SetPosition(0, lr.gameObject.transform.position);
         if(harp.GetRemainingTime()>=harp.GetHitDuration()){
             lr.positionCount = 0;
         }
         else{
+            lr.positionCount = 2;
+            lr.SetPosition(0, lr.gameObject.transform.position);
             for(float t = harp.GetRemainingTime(); t < harp.GetHitDuration(); t+=Time.unscaledDeltaTime){
                 //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
                 lr.gameObject.transform.position+=(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
