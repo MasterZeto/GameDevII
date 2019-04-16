@@ -203,16 +203,19 @@ public class PauseScript : MonoBehaviour
         HarpoonAction harp = enemy.GetHarpoonAction();
         //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
         //CharacterController cc = lr.gameObject.GetComponent<CharacterController>();
-        if(harp.GetRemainingTime()>=harp.GetHitDuration()){
+        if(harp==null||harp.GetRemainingTime()>=harp.GetHitDuration()){
             lr.positionCount = 0;
         }
         else{
             lr.positionCount = 2;
-            lr.SetPosition(0, lr.gameObject.transform.position);
+            Vector3[] positionArray= new Vector3[2];
+            positionArray[0]=lr.gameObject.transform.position;
             for(float t = harp.GetRemainingTime(); t < harp.GetHitDuration(); t+=Time.unscaledDeltaTime){
                 //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
+                lr.positionCount = 2;
                 lr.gameObject.transform.position+=(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
-                lr.SetPosition(1, lr.gameObject.transform.position);
+                positionArray[1] = lr.gameObject.transform.position;
+                lr.SetPositions(positionArray);
                 yield return null;
             }
         }
