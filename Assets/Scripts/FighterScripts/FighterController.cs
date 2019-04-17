@@ -163,6 +163,11 @@ public class FighterController : MonoBehaviour
 
     public void Resume()
     {
+        if (current_action != null&&!stunned) current_action.Resume();
+        animator.enabled = true;
+        if(!stunned) pause = false;
+    }
+    public void ResumeFromStun(){
         if (current_action != null) current_action.Resume();
         animator.enabled = true;
         pause = false;

@@ -209,6 +209,7 @@ public class PauseScript : MonoBehaviour
         else{
             lr.positionCount = 2;
             Vector3[] positionArray= new Vector3[2];
+            lr.transform.position = harp.GetPosition();
             positionArray[0]=lr.gameObject.transform.position;
             for(float t = harp.GetRemainingTime(); t < harp.GetHitDuration(); t+=Time.unscaledDeltaTime){
                 //Debug.Log(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());

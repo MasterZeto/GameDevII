@@ -52,12 +52,17 @@ public class Harpooned : MonoBehaviour
         }
     }
     public void UnparentPlayer(){
-        playerCon.Resume();
+        playerCon.ResumeFromStun();
         player.transform.parent = null;
         player = null;
     }
     private IEnumerator Resume(float stunned){
-        yield return new WaitForSeconds(stunned);
-        if(pauseScript.doneExecuting) bahaCon.Resume();
+        for(float t = 0; t<stunned; t+=Time.deltaTime){
+            while(!pauseScript.doneExecuting){
+                yield return null;
+            }
+            yield return null;
+        }
+        bahaCon.ResumeFromStun();
     }
 }

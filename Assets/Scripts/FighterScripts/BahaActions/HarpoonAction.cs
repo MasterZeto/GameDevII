@@ -160,4 +160,7 @@ public class HarpoonAction : Action
     public Vector3 GetDirection(){
         return direction;
     }
+    public Vector3 GetPosition(){
+        return harpoon.transform.position;
+    }
 }
