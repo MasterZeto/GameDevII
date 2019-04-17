@@ -117,7 +117,7 @@ public class HarpoonAction : Action
         t = 0;
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>2f&&t<timeTohit*3){
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>4f&&t<timeTohit*3){
             while(paused){
                 rope.SetPosition(0, harpoonStart.position);
                 rope.SetPosition(1, harpoon.transform.position);
