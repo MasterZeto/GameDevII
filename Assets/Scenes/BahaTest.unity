@@ -1527,8 +1527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667c3cc1243c4f49bbc0763eb236d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakePower: 0.05
-  shakeTime: 0.3
+  shakePower: 0.1
+  shakeTime: 0.4
   mainCamera: {fileID: 8557437273265878747}
 --- !u!4 &39505678
 Transform:
@@ -78281,8 +78281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c4950ce68e47b4d9d3d581595725b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashTime: 1
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 3
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashing: 0
   flashImage: {fileID: 1804270049}
 --- !u!114 &1804270049
@@ -78298,7 +78298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -94747,7 +94747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144bc041e1d3e0c45bdbe8d7d92809d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSource: {fileID: 0}
+  playerSource: {fileID: 82167919077961221}
   muffle: {fileID: 0}
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: 975063f79e366514fa15743a2299e3a4, type: 3}
@@ -94765,7 +94765,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
