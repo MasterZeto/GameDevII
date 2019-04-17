@@ -41824,11 +41824,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144bc041e1d3e0c45bdbe8d7d92809d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 951583507}
+  playerSource: {fileID: 0}
   muffle: {fileID: 0}
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: 975063f79e366514fa15743a2299e3a4, type: 3}
   slowSound: {fileID: 0}
+  musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &951583507
 AudioSource:
@@ -53705,6 +53706,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 63b3da81c1fa92b4fa1e8942f4312bc8,
         type: 3}
+    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d98e9b6d7caed14386e0bd0dca00715, type: 3}
 --- !u!224 &1245382491 stripped
@@ -63346,11 +63357,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144bc041e1d3e0c45bdbe8d7d92809d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 1483727939}
+  playerSource: {fileID: 0}
   muffle: {fileID: 0}
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
+  musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &1483727939
 AudioSource:
@@ -85748,6 +85760,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3acc9c7f433b702458272bce20b7bd44,
         type: 3}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c11afd1b8146744ac0c45e6c6c5007, type: 3}
 --- !u!224 &1984130335 stripped
