@@ -34,7 +34,7 @@ public class SaraLeftAttack : Action
 
 
 
-        //      transform.gameObject.GetComponent<SoundBox>().MissSFX();
+        gameObject.GetComponent<SoundBox>().HitSFX();
     }
 
     public override void Stop() {}

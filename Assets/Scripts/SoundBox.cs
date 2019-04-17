@@ -6,7 +6,6 @@ public class SoundBox : MonoBehaviour
 {
 
 	public AudioSource playerSource;
-    public AudioLowPassFilter muffle;
     public AudioClip hitSound;
     public AudioClip missSound;
     public AudioClip slowSound;

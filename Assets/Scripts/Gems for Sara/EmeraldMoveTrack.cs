@@ -25,6 +25,7 @@ public class EmeraldMoveTrack : MonoBehaviour
             time = 0;
             childCount++;
             StartCoroutine("LaserBullet");
+            gameObject.GetComponent<SoundBox>().MissSFX();
         }
 
         if (childCount > 4)

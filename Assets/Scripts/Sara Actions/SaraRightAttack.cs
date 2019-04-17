@@ -32,7 +32,7 @@ public class SaraRightAttack : Action
         done = true;
      //   foreach (HitboxForGems box in hitbox)
       //  { box.Fire(hit_duration); }
-        //      transform.gameObject.GetComponent<SoundBox>().MissSFX();
+        gameObject.GetComponent<SoundBox>().HitSFX();
     }
 
     public override void Stop() {}
