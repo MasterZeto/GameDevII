@@ -89,6 +89,7 @@ public class HarpoonAction : Action
         //direction.y = 0;
         //direction.Normalize();
         hitbox.Fire(hit_duration);
+        gameObject.GetComponent<SoundBox>().ExtraSFX();
         for( t = 0f; t < hit_duration; t+= Time.deltaTime){
             while(paused){
                 rope.SetPosition(0, harpoonStart.position);
