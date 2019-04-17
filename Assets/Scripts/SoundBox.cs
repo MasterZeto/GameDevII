@@ -10,6 +10,7 @@ public class SoundBox : MonoBehaviour
     public AudioClip missSound;
     public AudioClip slowSound;
     public AudioClip extraSound;
+    public AudioClip specialSound;
 
     public AudioSource musicSource;
     public AudioLowPassFilter low_pass;
@@ -37,6 +38,11 @@ public class SoundBox : MonoBehaviour
     public void ExtraSFX()
     {
         playerSource.PlayOneShot(extraSound, 1F);
+    }
+
+    public void SpecialSFX()
+    {
+        playerSource.PlayOneShot(specialSound, 1F);
     }
 
     public void TimeSlowSFX()

@@ -63694,6 +63694,8 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
+  extraSound: {fileID: 0}
+  specialSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &1483727939
@@ -85214,6 +85216,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
+        type: 3}
+      propertyPath: Priority
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5024f9cdf08784e889fc7bb8aa948185, type: 3}
 --- !u!4 &1943444302 stripped
@@ -94748,8 +94765,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSource: {fileID: 82167919077961221}
   hitSound: {fileID: 8300000, guid: 2845f143155fcf9478687b8df217bce6, type: 3}
-  missSound: {fileID: 0}
+  missSound: {fileID: 8300000, guid: 975063f79e366514fa15743a2299e3a4, type: 3}
   slowSound: {fileID: 0}
+  extraSound: {fileID: 8300000, guid: adc9031d9db26d242830fc4675aeb01a, type: 3}
+  specialSound: {fileID: 8300000, guid: aa770c9279a639948a03932e6eba78e1, type: 3}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &82167919077961221
@@ -94808,7 +94827,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0
