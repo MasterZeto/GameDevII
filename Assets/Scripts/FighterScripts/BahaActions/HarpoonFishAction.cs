@@ -174,6 +174,10 @@ public class HarpoonFishAction : Action
             yield return null;
         }
         harpoon.SetActive(false);
+        if(bahaCam.enabled){
+            bahaCam.enabled = false;
+            mainCam.enabled = true;
+        }
         rope.positionCount = 0;
         rb.velocity = Vector3.zero;
         delayDone = true;
