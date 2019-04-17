@@ -37614,7 +37614,7 @@ PrefabInstance:
         type: 3}
       propertyPath: typewriters.Array.data[2]
       value: 
-      objectReference: {fileID: 1409731143}
+      objectReference: {fileID: 1245626046}
     - target: {fileID: 862927471814600483, guid: 43eb667879dbcad48bc5be2f18957803,
         type: 3}
       propertyPath: text.Array.data[2].dialogue.Array.data[0]
