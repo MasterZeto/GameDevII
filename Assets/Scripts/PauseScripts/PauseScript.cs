@@ -217,6 +217,10 @@ public class PauseScript : MonoBehaviour
                 lr.gameObject.transform.position+=(harp.GetDirection()*Time.unscaledDeltaTime*harp.GetSpeed());
                 positionArray[1] = lr.gameObject.transform.position;
                 lr.SetPositions(positionArray);
+                if(doneExecuting){
+                    lr.positionCount = 0;
+                    break;
+                }
                 yield return null;
             }
         }
