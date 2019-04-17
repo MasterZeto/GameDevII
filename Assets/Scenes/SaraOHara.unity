@@ -40176,6 +40176,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!169 &886861361 stripped
+AudioLowPassFilter:
+  m_CorrespondingSourceObject: {fileID: 891474822681468848, guid: 5024f9cdf08784e889fc7bb8aa948185,
+    type: 3}
+  m_PrefabInstance: {fileID: 508744747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &886861362 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
+    type: 3}
+  m_PrefabInstance: {fileID: 508744747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &893752090
 GameObject:
   m_ObjectHideFlags: 0
@@ -64833,12 +64845,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144bc041e1d3e0c45bdbe8d7d92809d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSource: {fileID: 0}
+  playerSource: {fileID: 1483727939}
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
-  musicSource: {fileID: 0}
-  low_pass: {fileID: 0}
+  musicSource: {fileID: 886861362}
+  low_pass: {fileID: 886861361}
 --- !u!82 &1483727939
 AudioSource:
   m_ObjectHideFlags: 0
