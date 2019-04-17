@@ -39832,8 +39832,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.5735893, y: 5.3703423, z: 4.770215}
-  m_Center: {x: 0.64064384, y: -2.1851711, z: 0.18582392}
+  m_Size: {x: 4.5118504, y: 6.3768244, z: 4.528878}
+  m_Center: {x: 0.60977435, y: -1.6819301, z: 0.065155506}
 --- !u!114 &886121892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70036,6 +70036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaraOHaraMech
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59769f16ab78744ffad05602b313a5a9, type: 2}
     - target: {fileID: 400070, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -70092,10 +70096,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 59769f16ab78744ffad05602b313a5a9, type: 2}
     - target: {fileID: 13700000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -95120,6 +95120,7 @@ MonoBehaviour:
   dash_speed: 10
   dash_duration: 0.2
   anim_name: 
+  player: {fileID: 1483727925}
 --- !u!1 &327708530158929558
 GameObject:
   m_ObjectHideFlags: 0

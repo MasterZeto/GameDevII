@@ -97,7 +97,7 @@ public class BTSaraAI: MonoBehaviour
         first = false;
         second = true;
         third = false;
-        Debug.Log("dash away");
+        Debug.Log("dash away A3");
         Sara.DashBackward();
     
     }
@@ -105,13 +105,13 @@ public class BTSaraAI: MonoBehaviour
         first = false;
         second = false;
         third = true;
-        Debug.Log("jump highly and generate wind");
+        Debug.Log("jump highly and generate wind A4");
         Sara.LeftRightKick(); }
     void A5() {
         first =false;
         second = false;
         third = true;
-        Debug.Log("cool down");
+        Debug.Log("cool down A5");
         Sara.LeftKick();
     }
    // void A6() { Debug.Log("empty here"); }
@@ -132,6 +132,7 @@ public class BTSaraAI: MonoBehaviour
         second = false;
         third = true;
         Sara.DashForward();
+        Debug.Log("A9");
 
 
     }
@@ -187,7 +188,8 @@ public class BTSaraAI: MonoBehaviour
             }
             //  else if (Distance() == 2&&middle) actions = behaviorTree.Evaluate();
 
-            if (!Sara.IsActing()) (actions.Dequeue())();
+            if (!Sara.IsActing()) actions.Dequeue()();
+          
             //do I need to update distance here?
            }
         }
