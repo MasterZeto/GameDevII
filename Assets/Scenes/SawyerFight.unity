@@ -41825,7 +41825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSource: {fileID: 951583507}
-  hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
+  hitSound: {fileID: 8300000, guid: a8c09493f3c609f4d88a17159ed2c146, type: 3}
   missSound: {fileID: 8300000, guid: 975063f79e366514fa15743a2299e3a4, type: 3}
   slowSound: {fileID: 0}
   extraSound: {fileID: 8300000, guid: 64da2e01d496b394892e15830f4cbfb3, type: 3}
