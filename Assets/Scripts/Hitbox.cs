@@ -38,7 +38,7 @@ public class Hitbox : MonoBehaviour
 
                 GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
             } else {
-               transform.root.gameObject.GetComponent<SoundBox>().MissSFX();
+           //    transform.root.gameObject.GetComponent<SoundBox>().MissSFX();
             }
         }
     }

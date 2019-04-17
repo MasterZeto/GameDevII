@@ -63382,7 +63382,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
-  extraSound: {fileID: 0}
+  extraSound: {fileID: 8300000, guid: 2bef1562407a5d94f9a854b241096db8, type: 3}
   specialSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}

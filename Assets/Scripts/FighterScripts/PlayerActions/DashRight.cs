@@ -18,6 +18,7 @@ public class DashRight : DashAction
 
     private IEnumerator DashRightRoutine()
     {
+        gameObject.GetComponent<SoundBox>().ExtraSFX();
         for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {
             fighter.UnsafeMove(fighter.transform.right * dash_speed);

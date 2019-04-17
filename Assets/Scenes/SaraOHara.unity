@@ -38273,6 +38273,8 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: fdd6323decaf10b4b8eb95a1828531aa, type: 3}
   missSound: {fileID: 8300000, guid: c64f7c37bd7363345bd787dc9d8ddb9c, type: 3}
   slowSound: {fileID: 0}
+  extraSound: {fileID: 0}
+  specialSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &846331278
@@ -38331,7 +38333,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -64849,6 +64851,8 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
+  extraSound: {fileID: 8300000, guid: 2bef1562407a5d94f9a854b241096db8, type: 3}
+  specialSound: {fileID: 0}
   musicSource: {fileID: 886861362}
   low_pass: {fileID: 886861361}
 --- !u!82 &1483727939
