@@ -94749,8 +94749,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSource: {fileID: 82167919077961221}
   muffle: {fileID: 0}
-  hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
-  missSound: {fileID: 8300000, guid: 975063f79e366514fa15743a2299e3a4, type: 3}
+  hitSound: {fileID: 8300000, guid: 2845f143155fcf9478687b8df217bce6, type: 3}
+  missSound: {fileID: 0}
   slowSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
@@ -94772,7 +94772,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
