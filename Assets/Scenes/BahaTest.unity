@@ -63690,8 +63690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144bc041e1d3e0c45bdbe8d7d92809d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSource: {fileID: 0}
-  muffle: {fileID: 0}
+  playerSource: {fileID: 1483727939}
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
@@ -94748,7 +94747,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSource: {fileID: 82167919077961221}
-  muffle: {fileID: 0}
   hitSound: {fileID: 8300000, guid: 2845f143155fcf9478687b8df217bce6, type: 3}
   missSound: {fileID: 0}
   slowSound: {fileID: 0}

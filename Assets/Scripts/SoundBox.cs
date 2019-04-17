@@ -17,7 +17,7 @@ public class SoundBox : MonoBehaviour
 
     void Awake()
     {
-        playerSource = GetComponent<AudioSource>();
+        //playerSource = gameObject.GetComponent<AudioSource>();
         musicSource = GameObject.Find("Center Light").GetComponent<AudioSource>();
         low_pass = GameObject.Find("Center Light").GetComponent<AudioLowPassFilter>();
     }
@@ -25,17 +25,17 @@ public class SoundBox : MonoBehaviour
 
     public void HitSFX()
 	{
-     	playerSource.PlayOneShot(hitSound, 0.3F);
+     	playerSource.PlayOneShot(hitSound, 1F);
     }
 
     public void MissSFX()
     {
-        playerSource.PlayOneShot(missSound, 0.3F);
+        playerSource.PlayOneShot(missSound, 1F);
     }
 
     public void TimeSlowSFX()
     {
-        playerSource.PlayOneShot(slowSound, 0.3F);
+        playerSource.PlayOneShot(slowSound, 1F);
         low_pass.enabled = true;    
         musicSource.pitch = 0.5F;
     }
