@@ -5051,6 +5051,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d95f149bdb71a14486e8b6625021da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &93172089 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5869623624087871778, guid: ef8ce49227b0c4844b16c4c67648213b,
+    type: 3}
+  m_PrefabInstance: {fileID: 93172086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &95405110
 GameObject:
   m_ObjectHideFlags: 0
@@ -10638,6 +10644,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &202055633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 202055634}
+  - component: {fileID: 202055635}
+  m_Layer: 0
+  m_Name: P3Typewriter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &202055634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202055633}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 93172089}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &202055635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202055633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d95f149bdb71a14486e8b6625021da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CharacterWait: 0.1
+  m_PunctuationWait: 0.2
+  m_DefaultDialogueChirp: {fileID: 0}
+  m_NameTag: {fileID: 0}
+  m_NameTagText: {fileID: 0}
+  m_TextPanel: {fileID: 1103606022}
+  m_TextPanelText: {fileID: 1103606021}
+  m_AudioSource: {fileID: 1483727939}
 --- !u!114 &203280720 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7244392183656221329, guid: 1d6e3ddef44afc04d8cbe4a3ff60f7d9,
@@ -47762,6 +47819,175 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1103606019
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2030526008}
+    m_Modifications:
+    - target: {fileID: 1074022868047532486, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Name
+      value: P3DialogueBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532486, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d67018b723abc7843a327967ecfd6a1a,
+        type: 3}
+    - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d98e9b6d7caed14386e0bd0dca00715, type: 3}
+--- !u!224 &1103606020 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1074022868047532487, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+    type: 3}
+  m_PrefabInstance: {fileID: 1103606019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1103606021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+    type: 3}
+  m_PrefabInstance: {fileID: 1103606019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1103606022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1074022868047532486, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+    type: 3}
+  m_PrefabInstance: {fileID: 1103606019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1103613698
 GameObject:
   m_ObjectHideFlags: 0
@@ -68071,22 +68297,23 @@ MonoBehaviour:
   - index: 1
     dialogue:
     - 'Hey there, pally! '
-    - Perfect day for some trouble, don't you say?
+    - Perfect day for some trouble, wouldn't you say?
   - index: 0
     dialogue:
-    - Yeah, it is a nice one, but let's save the pleasantries for after the fight
+    - Yeah, it is a nice one, but let's save the pleasantries for after the fight,
+      hmm?
   - index: 1
     dialogue:
     - No arguments here!
-    - Say... you wouldn't happen to have lost a few bolts and wires last night, would
-      you?
+    - Say... you wouldn't happen to have noticed whether you lost a few bolts and
+      wires last night, would you?
   - index: 0
     dialogue:
     - No...why do you ask?
   - index: 1
     dialogue:
-    - Oh, no reason!
-    - '*snickers*'
+    - Aw, so they weren't important, then?
+    - Well...he he... how's about we find out?
   typewriters:
   - {fileID: 93172088}
   - {fileID: 93172087}
@@ -68113,9 +68340,17 @@ MonoBehaviour:
     - That there is... I have a lot to learn before then.
     - I hope your streak keeps up, either way. (If pulling wires could be considered
       a streak.)
+  - index: 2
+    dialogue:
+    - Don't worry too much about him, he's very likely just trying ot get into your
+      head. That's what he does best.
+    - 'Your bot was under high security anyway, nobody could''ve gotten to it. Even
+      still, he''s right about one thing. '
+    - Do come back next year, I greatly look forward to chatting with you again.
   typewriters:
   - {fileID: 93172088}
   - {fileID: 93172087}
+  - {fileID: 202055635}
 --- !u!114 &1574085605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68140,9 +68375,23 @@ MonoBehaviour:
     dialogue:
     - '*beaming* '
     - That's might nice of you to say, pally! You're not half bad yourself.
+  - index: 2
+    dialogue:
+    - If I might interrupt, Sawyer, I'd like to congratulate you both on the fight.
+    - Very good showing from both of you! Based on your experience in the preliminaries,
+      I expected this to be an interesting matchup and I wasn't wrong!
+  - index: 1
+    dialogue:
+    - Thank you very kindly, mister! I hope I can give you a longer show next year,
+      long as this one here ain't competeing!
+  - index: 2
+    dialogue:
+    - As do I! Well, in any case, Murry, I think it's high time you started getting
+      prepped for your next fight. Best of luck!
   typewriters:
   - {fileID: 93172088}
   - {fileID: 93172087}
+  - {fileID: 202055635}
 --- !u!1 &1577420912
 GameObject:
   m_ObjectHideFlags: 0
@@ -79677,7 +79926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -88718,6 +88967,7 @@ RectTransform:
   - {fileID: 1201673979}
   - {fileID: 1984130335}
   - {fileID: 1245382491}
+  - {fileID: 1103606020}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

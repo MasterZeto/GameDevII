@@ -2148,96 +2148,74 @@ MonoBehaviour:
   text:
   - index: 1
     dialogue:
-    - Murry! The Champion of GIGA. That's quite an impressive display you put out
-      there today. Beyond impressive, really. You're a record setter.
+    - Way to go, Murry! The Champion of GIGA, imagine that! I'm beyond impressed,
+      really. And you're a record setter!
   - index: 0
     dialogue:
-    - Yeah, hehe, I guess I am. It still doesn't feel totally realy yet. Did I give
-      you the sort of show you said you were hoping for when we chatted in training?
+    - Yeah, hehe, I guess I am. It still doesn't feel totally real yet.
   - index: 1
     dialogue:
-    - Oh, beyond my wildest imaginations. You have a great mind, Murry, you will do
-      great things.
+    - Well, start believing! There's so much for you to do! Get that great mind back
+      to solving problems.
   - index: 0
     dialogue:
-    - Thanks, thats.. that's really nice to hear. Especially from you, I'm sure you
-      see all sorts of amazing people come through here.
+    - What do you mean?
   - index: 1
     dialogue:
-    - Yes, more than I can dare to try to remember, genuinely. I've watched countless
-      heroes rise in the glory of the arena, but I've also seen them fall into nothing,
-      consumed with greed. It's a give and take job, just like any other.
+    - 'Your workshop! I''m so excited to see it in action! That is.... if that''s
+      what you still want to do, of course. '
   - index: 0
     dialogue:
-    - Yeah... now that you mention it, what exactly is your job? You sound like you
-      know a little more about this place than a mech tester would.
+    - Well of course, I do, but I don't know if the Emperor would go for it. He seems
+      to be the type that wouldn't see the value in it.
   - index: 1
     dialogue:
-    - Well, I suppose there's no point in hiding it anymore. Really thought I had
-      you going there for a while. I knew you would not know me by face or even name,
-      had I given that to you, but I can never keep by enthusiasm for the mechanical
-      down.
-    - 'I am the Emporer of the Great Human Empire. The very same that led us out into
-      the stars an back again, conquered the Sun, and established civilizations on
-      a hundred planets. '
+    - Well, I'm sorry to hear that I give that impression. I thought I came across
+      as quite approachable.
+    - Murry, I am the Emporer of the Great Human Empire. I've lived a hundred lifetimes
+      or more, brought us across the stars, and colonized galaxies beyond count.
   - index: 0
     dialogue:
-    - The...the EMPEROR??? * she quickly falls to her knees in supplication* Your
-      Brilliance, he power of your mind is fabled across the stars, it is an honor
-      too great to-
+    - You're the...the EMPEROR??? *she quickly falls to her knees in supplication*
+      Your Brilliance, the power of your mind is fabled across the stars, it is an
+      honor too great to-
   - index: 1
     dialogue:
-    - Oh, shut up, will you? Stand up, had I wanted ceremonies and honors, I'd be
-      talking to "perfect Ms. O'Hara" over there. No, we have something far more important
-      to discuss.
+    - Seriously, Murry, if I wanted pomp and circumstance, why would I have come to
+      you under the guise of being a mechanic?
   - index: 0
     dialogue:
-    - I... well, of course, what is it?
+    - I... I have no...
+    - I... take it you didn't, then. Why hide yourself from me?
   - index: 1
     dialogue:
-    - Your prize, child! You won the tournament!
+    - Simply, to see if you really were all I heard you were. I was not disappointed,
+      Murry, not one bit!
+    - 'But to the point, your winnings. '
   - index: 0
     dialogue:
-    - Oh.........
-    - Yes, wonderful, we'll be discussing the details of my...how did you put it?
-      "Comfortable sum?"
+    - Oh..... right, that! So you really like my idea about the workshop??
   - index: 1
     dialogue:
-    - Sure, if that's what you'd like. I keep getting the impression from you that
-      you have no realy interest in the money, so I've come with a different offer.
-    - One that I think might be of a greater appeal to you, and I'm certainly excited
-      at the prospect myself!
-    - But genuinely, it's your choice. The money is yours if you want it.
+    - Hmm... mostly, but there's some things I would change.
+    - Firstly, don't waste any of the money covering debt, consider those handled.
+      A little gift from me to you. And as for that coat of paint, you can have as
+      many as you like, because....
+    - I'd like for you to do more than just fund the workshop.
   - index: 0
     dialogue:
-    - Well..I won't say I'm not curious about this other option. What do you have
-      in mind?
+    - Ooookay...? What exactly do you have in mind?
   - index: 1
     dialogue:
-    - Oooooohhh, I HOPED you would say that! *rubbing his hands together* I would
-      like to use your prize money to open a study center. More specifically, a training
-      facility for younger children to develop skills in robotics and engineering
-      that will help benefit our future. And......
-    - 'I want you to be the headmistress. Or lead engineer, or Executive Officer or
-      Grand Poobah of Robots, whatever you want to call yourself. '
-    - 'The ideas in your head are too unique to not be spread onto the next generation
-      of brilliant minds leading our future, and many generations after that to come. '
-    - How does that sound?
+    - Teaching. I want the next generation of minds to learn from yours, learn to
+      see and create things the way that you do.
+    - Having even 5 people that think like you would advance our species astronomically.
+      So, what do you say, Murry?
   - index: 0
     dialogue:
-    - It sounds... it sounds AMAZING. Like the best dream I've ever had, I can't possbly
-      explain how much that would mean to me.
-  - index: 1
-    dialogue:
-    - Then don't. You work better with your hands than with your mouth, same as me.
-      I understand. And it is, after all, your prize. I would hope you'd enjoy it.
-  - index: 0
-    dialogue:
-    - I do. I really, truly do. Thank you, Emperor. I hope I can make you proud.
-  - index: 1
-    dialogue:
-    - '*smiling warmly*'
-    - You already have.
+    - '*thinking intently* ...............'
+    - '*a smirk creeps onto her face*'
+    - Do I still get to compete?
   typewriters:
   - {fileID: 1526001018}
   - {fileID: 5869623623491419306}
