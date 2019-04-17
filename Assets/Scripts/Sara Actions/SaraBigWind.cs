@@ -32,7 +32,7 @@ public class SaraBigWind : Action
 
 
 
-        //      transform.gameObject.GetComponent<SoundBox>().MissSFX();
+        gameObject.GetComponent<SoundBox>().MissSFX();
     }
 
     public override void Stop() {}

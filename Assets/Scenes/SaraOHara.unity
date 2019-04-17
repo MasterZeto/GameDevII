@@ -38271,7 +38271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSource: {fileID: 846331278}
   hitSound: {fileID: 8300000, guid: fdd6323decaf10b4b8eb95a1828531aa, type: 3}
-  missSound: {fileID: 0}
+  missSound: {fileID: 8300000, guid: c64f7c37bd7363345bd787dc9d8ddb9c, type: 3}
   slowSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
