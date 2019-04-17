@@ -41827,7 +41827,7 @@ MonoBehaviour:
   playerSource: {fileID: 951583507}
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: 975063f79e366514fa15743a2299e3a4, type: 3}
-  slowSound: {fileID: 0}
+  slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &951583507
@@ -63380,7 +63380,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ca6b2e186b17c3e47ad20a53767c5c05, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: -1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
