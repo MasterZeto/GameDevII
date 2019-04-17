@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum TutorialStage
 {
@@ -17,6 +18,51 @@ public enum TutorialStage
 
 public delegate void VoidFunc();
 
+[System.Serializable]
+public struct MovementChecklist
+{
+    public GameObject list;
+    public Text move_forward;
+    public Text move_backward;
+    public Text move_right;
+    public Text move_left;
+}
+
+[System.Serializable]
+public struct DashChecklist
+{
+    public GameObject list;
+    public Text dash_forward;
+    public Text dash_backward;
+    public Text dash_right;
+    public Text dash_left;
+}
+
+[System.Serializable]
+public struct AttackChecklist
+{
+    public GameObject list;
+    public Text punch_left;
+    public Text punch_right;
+    public Text kick_left;
+    public Text kick_right;
+}
+
+[System.Serializable]
+public struct DoubleAttackChecklist
+{
+    public GameObject list;
+    public Text punch_double;
+    public Text kick_double;
+}
+
+[System.Serializable]
+public struct PauseChecklist
+{
+    public GameObject list;
+    public Text pause;
+}
+
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] PortraitDialogue intro_dialogue;
@@ -29,17 +75,26 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] PortraitDialogue comboDone_dialogue;
     [SerializeField] PortraitDialogue outro_dialogue;
 
+    [Space]
+    [SerializeField] MovementChecklist movement_checklist;
+    [SerializeField] DashChecklist dash_checklist;
+    [SerializeField] AttackChecklist attack_checklist;
+    [SerializeField] DoubleAttackChecklist double_checklist;
+    [SerializeField] PauseChecklist pause_checklist;
 
+    [Space]
     [SerializeField] Action dash_left_action;
     [SerializeField] Action dash_right_action;
     [SerializeField] Action dash_forward_action;
     [SerializeField] Action dash_back_action;
 
+    [Space]
     [SerializeField] FighterController player;
     [SerializeField] InputHandler input;
     [SerializeField] DummyHurtbox dummy;
     [SerializeField] PauseUIManager pause_manager;
 
+    [Space]
     [SerializeField] SceneTransition scene_transition;
     [SerializeField] SceneFade scene_fade;
 
@@ -83,7 +138,7 @@ public class TutorialManager : MonoBehaviour
         dummy.Initialize(DummyNotifyMethod);
         notified = false;
         should_check = false;
-        intro_dialogue.StartDialogue(ResumePlay);
+        intro_dialogue.StartDialogue(StartMovement);
         input.SetControlActive(false);
     }
 
@@ -109,51 +164,56 @@ public class TutorialManager : MonoBehaviour
                 if (left && right && forward && back)
                 {
                     Debug.Log("MOVEMENT PHASE DONE");
-                    IncrementStage(TutorialStage.DASH, moveDone_dialogue);
+                    movement_checklist.list.SetActive(false);
+                    IncrementStage(TutorialStage.DASH, moveDone_dialogue, StartDash);
                 }
                 break;
             case TutorialStage.DASH: 
                 if (dash_left && dash_right && dash_forward && dash_back && !player.IsActing())
                 {
                     Debug.Log("DASHING STAGE DONE");
-                    IncrementStage(TutorialStage.SIMPLE_ATTACK, dashDone_dialogue);
+                    dash_checklist.list.SetActive(false);
+                    IncrementStage(TutorialStage.SIMPLE_ATTACK, dashDone_dialogue, StartAttack);
                 }
                 break;
             case TutorialStage.SIMPLE_ATTACK: 
                 if (right_punch && left_punch && right_kick && left_kick && !player.IsActing())
                 {
                     Debug.Log("SIMPLE ATTACK STAGE DONE");
-                    IncrementStage(TutorialStage.DOUBLE_ATTACK, attackDone_dialogue);
+                    attack_checklist.list.SetActive(false);
+                    IncrementStage(TutorialStage.DOUBLE_ATTACK, attackDone_dialogue, StartDoubleAttack);
                 }
                 break;
             case TutorialStage.DOUBLE_ATTACK: 
                 if (double_punch && double_kick && !player.IsActing())
                 {
                     Debug.Log("DOUBLE ATTACK STAGE DONE");
-                    IncrementStage(TutorialStage.HEAT, doubleAttackDone_dialogue);
+                    double_checklist.list.SetActive(false);
+                    IncrementStage(TutorialStage.HEAT, doubleAttackDone_dialogue, ResumePlay);
                 }
                 break;
             case TutorialStage.HEAT: 
                 // probably just a thing with 
                 Debug.Log("HEAT STAGE DONE");
-                IncrementStage(TutorialStage.PAUSE, heatDone_dialogue);
+                IncrementStage(TutorialStage.PAUSE, heatDone_dialogue, StartPause);
                 break;
             case TutorialStage.PAUSE: 
                 if (player.pause)
                 {
                     Debug.Log("PAUSE STAGE DONE");
-                    IncrementStage(TutorialStage.COMBO, pauseDone_dialogue);
+                    pause_checklist.list.SetActive(false);
+                    IncrementStage(TutorialStage.COMBO, pauseDone_dialogue, ResumePlay);
                 }
                 break;
             case TutorialStage.COMBO:
                 if (!player.pause && combo_entered && pause_manager.PauseQueueIndex() == pause_manager.PauseQueueCount())
                 {
                     Debug.Log("COMBO STAGE DONE");
-                    IncrementStage(TutorialStage.DODGING, comboDone_dialogue);
+                    IncrementStage(TutorialStage.DODGING, comboDone_dialogue, ResumePlay);
                 }
                 break;
             case TutorialStage.DODGING:
-                IncrementStage(TutorialStage.CLOSING, outro_dialogue);
+                IncrementStage(TutorialStage.CLOSING, outro_dialogue, ResumePlay);
                 break;
             case TutorialStage.CLOSING:
                 scene_transition.Transition();
@@ -161,13 +221,13 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    void IncrementStage(TutorialStage new_stage, PortraitDialogue dialogue)
+    void IncrementStage(TutorialStage new_stage, PortraitDialogue dialogue, EndCallback callback)
     {
         should_check = false;
         current_stage = new_stage;
         // freeze player
         input.SetControlActive(false);
-        dialogue.StartDialogue(ResumePlay);
+        dialogue.StartDialogue(callback);
     }
 
     void Check()
@@ -201,20 +261,20 @@ public class TutorialManager : MonoBehaviour
     void CheckMovement()
     {
         float h = Input.GetAxisRaw("Horizontal");
-        if (h < -0.1f) left  = true;
-        if (h > 0.1f)  right = true;
+        if (h < -0.1f) { left  = true; movement_checklist.move_left.color = Color.grey; }
+        if (h > 0.1f)  { right = true; movement_checklist.move_right.color = Color.grey; }
         float v = Input.GetAxisRaw("Vertical");
-        if (v < -0.1f) back    = true;
-        if (v > 0.1f)  forward = true;
+        if (v < -0.1f) { back    = true; movement_checklist.move_backward.color = Color.grey; }
+        if (v > 0.1f)  { forward = true; movement_checklist.move_forward.color = Color.grey; }
     }
 
     void CheckDash()
     {
         // the actual logic for IsDone is highkey jank, but it should work
-        if (!dash_left_action.IsDone())    dash_left    = true;
-        if (!dash_right_action.IsDone())   dash_right   = true;
-        if (!dash_forward_action.IsDone()) dash_forward = true;
-        if (!dash_back_action.IsDone())    dash_back    = true;
+        if (!dash_left_action.IsDone())    { dash_left    = true; dash_checklist.dash_left.color = Color.grey; }
+        if (!dash_right_action.IsDone())   { dash_right   = true; dash_checklist.dash_right.color = Color.grey; }
+        if (!dash_forward_action.IsDone()) { dash_forward = true; dash_checklist.dash_forward.color = Color.grey; }
+        if (!dash_back_action.IsDone())    { dash_back    = true; dash_checklist.dash_backward.color = Color.grey; }
     }
 
     void CheckSimpleAttack()
@@ -223,10 +283,26 @@ public class TutorialManager : MonoBehaviour
         {
             switch (last_box)
             {
-                case "RightArmHitbox": right_punch = true; notified = false; break;
-                case "LeftArmHitbox":  left_punch  = true; notified = false; break;
-                case "RightLegHitbox": right_kick  = true; notified = false; break;
-                case "LeftLegHitbox":  left_kick   = true; notified = false; break;
+                case "RightArmHitbox": 
+                    right_punch = true; 
+                    notified = false; 
+                    attack_checklist.punch_right.color = Color.grey; 
+                    break;
+                case "LeftArmHitbox":  
+                    left_punch = true; 
+                    notified = false; 
+                    attack_checklist.punch_left.color = Color.grey; 
+                    break;
+                case "RightLegHitbox": 
+                    right_kick = true; 
+                    notified = false; 
+                    attack_checklist.kick_right.color = Color.grey; 
+                    break;
+                case "LeftLegHitbox":  
+                    left_kick = true; 
+                    notified = false; 
+                    attack_checklist.kick_left.color = Color.grey; 
+                    break;
             }
         }
     }
@@ -237,8 +313,16 @@ public class TutorialManager : MonoBehaviour
         {
             switch (last_box)
             {
-                case "DoubleArmHitbox": double_punch = true; notified = false; break;
-                case "DoubleLegHitbox": double_kick  = true; notified = false; break;
+                case "DoubleArmHitbox": 
+                    double_punch = true; 
+                    notified = false; 
+                    double_checklist.punch_double.color = Color.grey;
+                    break;
+                case "DoubleLegHitbox": 
+                    double_kick = true; 
+                    notified = false; 
+                    double_checklist.kick_double.color = Color.grey;
+                    break;
             }
         }
     }
@@ -257,6 +341,36 @@ public class TutorialManager : MonoBehaviour
         last_box = box;
         notified = true;
         Debug.Log(last_box);
+    }
+
+    void StartMovement()
+    {
+        ResumePlay();
+        movement_checklist.list.SetActive(true);
+    }
+
+    void StartDash()
+    {
+        ResumePlay();
+        dash_checklist.list.SetActive(true);
+    }
+
+    void StartAttack()
+    {
+        ResumePlay();
+        attack_checklist.list.SetActive(true);
+    }
+
+    void StartDoubleAttack()
+    {
+        ResumePlay();
+        double_checklist.list.SetActive(true);
+    }
+
+    void StartPause()
+    {
+        ResumePlay();
+        pause_checklist.list.SetActive(true);
     }
 
     void ResumePlay()
