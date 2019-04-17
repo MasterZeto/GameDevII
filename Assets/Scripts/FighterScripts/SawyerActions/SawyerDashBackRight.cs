@@ -21,6 +21,7 @@ public class SawyerDashBackRight : DashAction
     private IEnumerator DashRightRoutine()
     {
         Vector3 moveDirection = Vector3.Lerp(transform.right, -transform.forward, 0.7f);
+        gameObject.GetComponent<SoundBox>().ExtraSFX();
         for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {
             while(paused){

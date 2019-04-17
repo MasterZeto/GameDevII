@@ -41827,7 +41827,9 @@ MonoBehaviour:
   playerSource: {fileID: 951583507}
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: 975063f79e366514fa15743a2299e3a4, type: 3}
-  slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
+  slowSound: {fileID: 0}
+  extraSound: {fileID: 8300000, guid: 64da2e01d496b394892e15830f4cbfb3, type: 3}
+  specialSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &951583507
@@ -41886,7 +41888,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -48521,6 +48523,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
+        type: 3}
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5024f9cdf08784e889fc7bb8aa948185, type: 3}
@@ -63365,6 +63382,8 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
+  extraSound: {fileID: 0}
+  specialSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &1483727939

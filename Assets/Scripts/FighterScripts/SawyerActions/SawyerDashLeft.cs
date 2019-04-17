@@ -22,6 +22,7 @@ public class SawyerDashLeft :DashAction
     {
         Vector3 moveDirection = Vector3.Lerp(-transform.right, transform.forward, 0.6f);
         Debug.Log("move");
+        gameObject.GetComponent<SoundBox>().ExtraSFX();
         for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {
             while(paused){

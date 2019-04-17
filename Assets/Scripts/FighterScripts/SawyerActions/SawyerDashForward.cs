@@ -20,6 +20,7 @@ public class SawyerDashForward : DashAction
 
     private IEnumerator DashForwardRoutine()
     {
+        gameObject.GetComponent<SoundBox>().ExtraSFX();
         for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {
             while(paused){
