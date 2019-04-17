@@ -45,7 +45,7 @@ public class PearlMoveTrack : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         opponent = GameObject.FindGameObjectWithTag("Opponent");
         fighter = opponent.GetComponent<FighterController>();
-        deathTimer = 100f;
+        deathTimer = 10f;
         timer = 0;
         time = 0;
         width = 50;

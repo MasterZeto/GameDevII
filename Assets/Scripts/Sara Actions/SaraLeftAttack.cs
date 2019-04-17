@@ -24,7 +24,7 @@ public class SaraLeftAttack : Action
         {
             par.Play();
         }
-        int rand = Random.Range(0, 5);
+        int rand = Random.Range(0, 4);
         tempForGem= Instantiate(gems[rand],LeftCannon.position,Quaternion.identity);
         hitbox.Add(tempForGem.GetComponent<HitboxForGems>());
         box = tempForGem.GetComponent<HitboxForGems>();
