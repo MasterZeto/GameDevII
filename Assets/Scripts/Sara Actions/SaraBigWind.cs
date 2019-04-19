@@ -11,12 +11,19 @@ public class SaraBigWind : Action
     ParticleSystem particle;
     FighterController player;
     HealthSystem health;
-    [SerializeField] GameObject[] diamonds = new GameObject[7];
+    GameObject[] diamonds = new GameObject[7];
     public override void StartAction(FighterController fighter)
     {   
         this.fighter = fighter;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<FighterController>();
         health = gameObject.GetComponent<HealthSystem>();
+        diamonds[0] = Resources.Load("DiamondF0") as GameObject;
+        diamonds[1] = Resources.Load("DiamondF1") as GameObject;
+        diamonds[2] = Resources.Load("DiamondF2") as GameObject;
+        diamonds[3] = Resources.Load("DiamondF3") as GameObject;
+        diamonds[4] = Resources.Load("DiamondF4") as GameObject;
+        diamonds[5] = Resources.Load("DiamondF5") as GameObject;
+        diamonds[6] = Resources.Load("DiamondF6") as GameObject;
         fighter.SetTrigger(anim_name);
         player.SetTrigger("Stunned");
         particle = GameObject.FindGameObjectWithTag("Wind").GetComponent<ParticleSystem>();
@@ -27,7 +34,7 @@ public class SaraBigWind : Action
         else {//diamond projectile
             foreach (GameObject diamond in diamonds)
             {
-                diamond.SetActive(true);
+                Instantiate(diamond, gameObject.transform, true);
             }
 
         }
