@@ -9,18 +9,28 @@ public class SaraBigWind : Action
     [SerializeField] float hit_duration;
     [SerializeField] string anim_name;
     ParticleSystem particle;
-    float chaseTime = 1f;
     FighterController player;
-
+    HealthSystem health;
+    [SerializeField] GameObject[] diamonds = new GameObject[7];
     public override void StartAction(FighterController fighter)
     {   
         this.fighter = fighter;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<FighterController>();
+        health = gameObject.GetComponent<HealthSystem>();
         fighter.SetTrigger(anim_name);
         player.SetTrigger("Stunned");
         particle = GameObject.FindGameObjectWithTag("Wind").GetComponent<ParticleSystem>();
-       // particle = gameObject.GetComponentInChildren<ParticleSystem>();
-        particle.Play();
+        // particle = gameObject.GetComponentInChildren<ParticleSystem>();
+
+        if (health.getHitPoints() > 100)
+        { particle.Play(); }
+        else {//diamond projectile
+            foreach (GameObject diamond in diamonds)
+            {
+                diamond.SetActive(true);
+            }
+
+        }
 
 
         //should fire once here

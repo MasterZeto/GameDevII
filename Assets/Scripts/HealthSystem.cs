@@ -31,6 +31,12 @@ public class HealthSystem : MonoBehaviour
         uiHealthBar.rectTransform.localScale = new Vector3(ratio,1,1);
     }
 
+    public float getHitPoints()
+    {
+        return hitPoints;
+
+    }
+
     public void TakeDamage(float damage)
     {
         hitPoints -= damage;

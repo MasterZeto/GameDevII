@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiamondChild : MonoBehaviour
+public class SkirtDiamond : MonoBehaviour
 {
     GameObject player;
     float speed = 17f;
     float deathTimer;
     float timer;
 
-
     void Start()
     {
-     
         player = GameObject.FindGameObjectWithTag("Player");
         deathTimer = 3f;
         timer = 0;
