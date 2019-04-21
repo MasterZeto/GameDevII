@@ -14975,7 +14975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60953b89f9f97343b2c850339402ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
+  _damage: 5
   _collider: {fileID: 329427336}
   cooldown: 0
 --- !u!4 &307184336
