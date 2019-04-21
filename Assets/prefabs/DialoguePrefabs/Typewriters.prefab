@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d95f149bdb71a14486e8b6625021da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterWait: 0.1
-  m_PunctuationWait: 0.2
+  m_CharacterWait: 0.05
+  m_PunctuationWait: 0.1
   m_DefaultDialogueChirp: {fileID: 0}
   m_NameTag: {fileID: 0}
   m_NameTagText: {fileID: 0}
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d95f149bdb71a14486e8b6625021da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterWait: 0.1
-  m_PunctuationWait: 0.2
+  m_CharacterWait: 0.05
+  m_PunctuationWait: 0.1
   m_DefaultDialogueChirp: {fileID: 0}
   m_NameTag: {fileID: 0}
   m_NameTagText: {fileID: 0}
