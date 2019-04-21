@@ -29,12 +29,12 @@ public class SaraBigWind : Action
         particle = GameObject.FindGameObjectWithTag("Wind").GetComponent<ParticleSystem>();
         // particle = gameObject.GetComponentInChildren<ParticleSystem>();
 
-        if (health.getHitPoints() > 100)
+        if (health.getHitPoints() > 30)
         { particle.Play(); }
         else {//diamond projectile
             foreach (GameObject diamond in diamonds)
             {
-                Instantiate(diamond, gameObject.transform, true);
+                Instantiate(diamond, gameObject.transform, false);
             }
 
         }
