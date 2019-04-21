@@ -16,6 +16,7 @@ public class AOEMotion : MonoBehaviour
     GameObject player;
     GameObject opponent;
     FighterController fighter;
+    GameObject AOE;
 
     float force = 10f;
 
@@ -23,6 +24,9 @@ public class AOEMotion : MonoBehaviour
     float timer;
     Rigidbody rb;
     Vector3 direction;
+
+    //ParticleSystem[] particles = new ParticleSystem[3];
+
 
     void Awake()
     {
@@ -47,8 +51,12 @@ public class AOEMotion : MonoBehaviour
         timer = 0;
 
         RendererArc();
-       
-       // transform.LookAt(player.transform);
+        AOE = Resources.Load("AOE") as GameObject;
+
+
+
+
+        // transform.LookAt(player.transform);
         //  z = transform.position.z;
 
 
@@ -113,8 +121,16 @@ public class AOEMotion : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag != "Player")
+        if (other.gameObject.tag == "Base")
+        //instantiate particle
+        {
+            Debug.Log("AOE gem hit the ground");
+
+          
+            Instantiate(AOE, transform.position, Quaternion.identity);
+       
             Destroy(gameObject);
+        }
     }
     void Rotate(Vector3 point, Vector3 axis, float angle)
     {
