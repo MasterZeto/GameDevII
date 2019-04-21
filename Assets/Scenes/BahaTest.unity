@@ -95036,7 +95036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1483727929}
-  shortDistance: 8
+  shortDistance: 7
   fishFromBehindDistance: 1.6
 --- !u!114 &82167919077961220
 MonoBehaviour:
@@ -95189,6 +95189,7 @@ MonoBehaviour:
   hit_duration: 0.8
   hit_delay: 0.2
   anim_name: Harpoon
+  playerDropPoint: {fileID: 1141679722}
   playerHit: 0
 --- !u!114 &82167919077961224
 MonoBehaviour:
