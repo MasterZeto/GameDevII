@@ -5,6 +5,8 @@ using UnityEngine;
 public class DiamondChild : MonoBehaviour
 {
     GameObject player;
+    GameObject opponent;
+    FighterController fighter;
     float speed = 17f;
     float deathTimer;
     float timer;
@@ -14,6 +16,8 @@ public class DiamondChild : MonoBehaviour
     {
      
         player = GameObject.FindGameObjectWithTag("Player");
+        opponent = GameObject.FindGameObjectWithTag("Opponent");
+        fighter = opponent.GetComponent<FighterController>();
         deathTimer = 3f;
         timer = 0;
         //  transform.LookAt(player.transform);
@@ -22,8 +26,13 @@ public class DiamondChild : MonoBehaviour
 
     void Update()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
-        timer += Time.deltaTime;
+
+
+        if (fighter.pause != true)
+        {
+            transform.position += transform.forward * speed * Time.deltaTime;
+            timer += Time.deltaTime;
+        }
         if (timer > deathTimer)
         {
             Destroy(gameObject);
