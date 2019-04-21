@@ -2945,6 +2945,12 @@ Transform:
   m_Father: {fileID: 1047468055}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &592126942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7642983361274025608, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059197976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &594178616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4052,6 +4058,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P1DialogueBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642983361274025608, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7642983361274025607, guid: 44c11afd1b8146744ac0c45e6c6c5007,
         type: 3}
@@ -7015,6 +7026,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d02e20b47081ca4bb39c7859937326b, type: 3}
+--- !u!114 &1762334721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7642983360202973402, guid: 44c11afd1b8146744ac0c45e6c6c5007,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059197976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1764076277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8764,12 +8787,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TextPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 592126942}
     - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_TextPanelText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1762334721}
     - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_AudioSource
