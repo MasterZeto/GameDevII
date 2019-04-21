@@ -124,7 +124,7 @@ public class HarpoonAction : Action
             Vector3 playerDropPointDist = playerDropPoint.position;
             harpoonDist.y = 0;
             playerDropPointDist.y = 0;
-            while(Vector3.Distance(harpoonDist, playerDropPointDist)>8f){
+            while(Vector3.Distance(harpoonDist, playerDropPointDist)>6f){
                 Debug.Log("is it stuck going to drop point?");
                 rb.velocity = direction*speed/2f;
                 t+=Time.deltaTime;
