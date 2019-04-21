@@ -13,6 +13,7 @@ public class SaraLeftAttack : Action
     HitboxForGems box;
     bool done = false;
     ParticleSystem[] particles;
+    int rand = 0;
 
     public override void StartAction(FighterController fighter)
     {
@@ -24,7 +25,7 @@ public class SaraLeftAttack : Action
         {
             par.Play();
         }
-        int rand = Random.Range(0, 5);
+        rand = Random.Range(0, 5);
         tempForGem= Instantiate(gems[rand],LeftCannon.position,Quaternion.identity);
         hitbox.Add(tempForGem.GetComponent<HitboxForGems>());
         box = tempForGem.GetComponent<HitboxForGems>();
