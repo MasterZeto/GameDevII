@@ -38436,7 +38436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heat: 0
-  dash_speed: 12
+  dash_speed: 15
   dash_duration: 2
   anim_name: 
 --- !u!114 &846331276

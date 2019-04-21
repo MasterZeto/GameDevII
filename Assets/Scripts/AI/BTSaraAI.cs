@@ -14,7 +14,7 @@ public class BTSaraAI: MonoBehaviour
 
     //time variable?
     float t = 0;
-    bool first = true;
+    bool first = false;
     bool second = false;
     bool third = false;
     //?
@@ -33,7 +33,7 @@ public class BTSaraAI: MonoBehaviour
     }
     int Distance()
     {
-        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 15f)
+        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 20f)
         { return 0; }
         else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 10f)
         {  return 2; }
@@ -183,6 +183,8 @@ public class BTSaraAI: MonoBehaviour
                 if (Distance() != 0 && first)
                 { actions = behaviorTree.Evaluate(); }
                 if (Distance() != 2 && third)
+                { actions = behaviorTree.Evaluate(); }
+                if (Distance() != 1 && second)
                 { actions = behaviorTree.Evaluate(); }
 
             }
