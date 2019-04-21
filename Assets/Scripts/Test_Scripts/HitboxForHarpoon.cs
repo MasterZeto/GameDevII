@@ -11,13 +11,22 @@ public class HitboxForHarpoon : MonoBehaviour
     [SerializeField] float _damage;
     public Collider _collider;
     Harpooned collisionEffect;
+    CameraShaker camShake;
+    ScreenFlash flash;
 
     public bool active { get; private set; }
     public float cooldown;
 
     float timescale = 1f;
 
-    void Start() { active = true; cooldown = -1f; collisionEffect = GetComponent<Harpooned>();}
+    void Start() { 
+        active = true; 
+        cooldown = -1f; 
+        collisionEffect = GetComponent<Harpooned>();
+        camShake = GameObject.Find("CameraShaker").GetComponent<CameraShaker>();
+        flash = GameObject.Find("Flash").GetComponent<ScreenFlash>();
+        
+    }
 
     void OnTriggerStay(Collider c)
     {
@@ -31,13 +40,12 @@ public class HitboxForHarpoon : MonoBehaviour
                 collisionEffect.ParentPlayer(c);
                 //Debug.Log("oof");
                 active = false;
+                camShake.Shake();
                 h.TakeDamage(_damage);
-
-                GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
+                flash.Flash();
 
               //  transform.root.gameObject.GetComponent<SoundBox>().HitSFX();
 
-                GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
             }
             else
             {

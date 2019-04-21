@@ -12606,7 +12606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265957564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 34.2, z: -75.9}
+  m_LocalPosition: {x: -5, y: 34.2, z: -82.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1442293362}
@@ -22416,7 +22416,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501434342}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 38.9, y: 34.2, z: -18.7}
+  m_LocalPosition: {x: 65, y: 34.2, z: -18.7}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 1442293362}
@@ -82539,7 +82539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882863525}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -58.4, y: 34.2, z: -18.7}
+  m_LocalPosition: {x: -81.3, y: 34.2, z: -18.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1442293362}
@@ -89350,7 +89350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005997789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.3, y: 34.2, z: 28.4}
+  m_LocalPosition: {x: -6.3, y: 34.2, z: 47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1442293362}
@@ -94863,6 +94863,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHealth (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8392157
+      objectReference: {fileID: 0}
     - target: {fileID: 8745178110322653378, guid: 19478ab55eece8f409c61f56a6e8b018,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -94967,21 +94982,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.5529412
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.8392157
       objectReference: {fileID: 0}
     - target: {fileID: 8745178110322653379, guid: 19478ab55eece8f409c61f56a6e8b018,
         type: 3}
@@ -95189,6 +95189,7 @@ MonoBehaviour:
   hit_duration: 0.8
   hit_delay: 0.2
   anim_name: Harpoon
+  playerDropPoint: {fileID: 1141679722}
   playerHit: 0
 --- !u!114 &82167919077961224
 MonoBehaviour:
@@ -95286,7 +95287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   hitbox: {fileID: 306765553}
-  speed: 150
+  speed: 100
   harpoon: {fileID: 306765552}
   harpoonStart: {fileID: 104156819}
   playerHoistPoint: {fileID: 809990674}
@@ -95295,6 +95296,7 @@ MonoBehaviour:
   hit_delay: 0.1
   anim_name: HarpoonBehind
   bahaCam: {fileID: 2070658339}
+  max_player_dist: 15
   playerHit: 0
 --- !u!4 &82167919077961276
 Transform:

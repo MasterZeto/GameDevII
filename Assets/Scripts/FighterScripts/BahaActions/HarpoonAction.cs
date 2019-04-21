@@ -11,6 +11,7 @@ public class HarpoonAction : Action
     [SerializeField] float hit_duration;
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
+    [SerializeField] Transform playerDropPoint = null;
     Rigidbody rb;
     LineRenderer rope;
     Harpooned hitCheck;
@@ -116,9 +117,33 @@ public class HarpoonAction : Action
     }
     private IEnumerator ReturnHarpoon(){
         t = 0;
+        if(playerHit&&playerDropPoint!=null){
+            direction = playerDropPoint.position - harpoon.transform.position;
+            direction.Normalize();
+            Vector3 harpoonDist = harpoon.transform.position;
+            Vector3 playerDropPointDist = playerDropPoint.position;
+            harpoonDist.y = 0;
+            playerDropPointDist.y = 0;
+            while(Vector3.Distance(harpoonDist, playerDropPointDist)>8f){
+                Debug.Log("is it stuck going to drop point?");
+                rb.velocity = direction*speed/2f;
+                t+=Time.deltaTime;
+                opponent.transform.position = harpoon.transform.position;
+                rope.SetPosition(0, harpoonStart.position);
+                rope.SetPosition(1, harpoon.transform.position);
+                harpoonDist = harpoon.transform.position;
+                playerDropPointDist = playerDropPoint.position;
+                harpoonDist.y = 0;
+                playerDropPointDist.y = 0;
+                if(Vector3.Distance(opponentLoc.position,transform.position)<6f){
+                    break;
+                }
+                yield return null;
+            }
+        }
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>4f&&t<timeTohit*3){
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>7f&&t<timeTohit*3){
             while(paused){
                 rope.SetPosition(0, harpoonStart.position);
                 rope.SetPosition(1, harpoon.transform.position);

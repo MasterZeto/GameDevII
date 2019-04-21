@@ -14,6 +14,7 @@ public class HarpoonFishAction : Action
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
     [SerializeField] Camera bahaCam;
+    [SerializeField] float max_player_dist = 10f;
     Camera mainCam;
     Rigidbody rb;
     LineRenderer rope;
@@ -25,6 +26,7 @@ public class HarpoonFishAction : Action
     GameObject opponent;
     Transform opponentLoc;
     Vector3 direction;
+    bool brokeEarly = false;
     float t;
     bool returning = false;
 
@@ -48,6 +50,7 @@ public class HarpoonFishAction : Action
         playerHit = false;
         hitCheck.playerAttached = false;
         returning = false;
+        brokeEarly = false;
         fighter.SetTrigger(anim_name);
         harpoon.SetActive(false);
         StartCoroutine(HitWithDelayRoutine());
@@ -84,6 +87,13 @@ public class HarpoonFishAction : Action
             direction.Normalize();
             yield return null;
         }
+        /* if(Vector3.Distance(transform.position, opponentLoc.position)>max_player_dist){
+            Debug.Log("breaking early");
+            brokeEarly = true;
+            returning = true;
+            StartCoroutine(ReturnHarpoon());
+            yield break;
+        }*/
         rope.positionCount = 2;
         rope.SetPosition(0, harpoonStart.position);
         //direction.y = 0;
@@ -99,13 +109,15 @@ public class HarpoonFishAction : Action
                 yield return null;
             }
             rb.velocity=direction*speed;
-            Debug.Log(hitbox.active);
             rope.SetPosition(0, harpoonStart.position);
             rope.SetPosition(1, harpoon.transform.position);
             if(hitCheck.playerAttached){
                 playerHit = true;
                 break;
             } 
+            else if(Vector3.Distance(transform.position, harpoon.transform.position)>max_player_dist){
+                break;
+            }
             timeTohit = t;
             if(hitCheck.isStunned) break;
             yield return null;
@@ -124,7 +136,7 @@ public class HarpoonFishAction : Action
             while(harpoon.transform.position.y< playerHoistPoint.position.y){
                 Debug.Log("is it stuck going to hoist point?");
                 Debug.Log(direction);
-                rb.velocity = direction*speed/2;
+                rb.velocity = direction*speed/1.5f;
                 t+=Time.deltaTime;
                 opponent.transform.position = harpoon.transform.position;
                 rope.SetPosition(0, harpoonStart.position);
@@ -135,7 +147,7 @@ public class HarpoonFishAction : Action
             direction.Normalize();
             while(harpoon.transform.position.y> playerDropPoint.position.y){
                 Debug.Log("is it stuck going to drop point?");
-                rb.velocity = direction*speed/2;
+                rb.velocity = direction*speed/1.5f;
                 t+=Time.deltaTime;
                 opponent.transform.position = harpoon.transform.position;
                 rope.SetPosition(0, harpoonStart.position);
@@ -156,7 +168,7 @@ public class HarpoonFishAction : Action
         }
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>5f){
+        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>5f&&!brokeEarly){
             while(paused){
                 rb.velocity = Vector3.zero;
                 rope.SetPosition(0, harpoonStart.position);
