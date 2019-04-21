@@ -91777,7 +91777,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070658335}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -94863,6 +94863,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHealth (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8392157
+      objectReference: {fileID: 0}
     - target: {fileID: 8745178110322653378, guid: 19478ab55eece8f409c61f56a6e8b018,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -94968,21 +94983,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.5529412
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745178110355599013, guid: 19478ab55eece8f409c61f56a6e8b018,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.8392157
-      objectReference: {fileID: 0}
     - target: {fileID: 8745178110322653379, guid: 19478ab55eece8f409c61f56a6e8b018,
         type: 3}
       propertyPath: m_Sprite
@@ -95036,7 +95036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1483727929}
-  shortDistance: 7
+  shortDistance: 8
   fishFromBehindDistance: 1.6
 --- !u!114 &82167919077961220
 MonoBehaviour:
@@ -95286,7 +95286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 0
   hitbox: {fileID: 306765553}
-  speed: 150
+  speed: 75
   harpoon: {fileID: 306765552}
   harpoonStart: {fileID: 104156819}
   playerHoistPoint: {fileID: 809990674}
@@ -95295,6 +95295,7 @@ MonoBehaviour:
   hit_delay: 0.1
   anim_name: HarpoonBehind
   bahaCam: {fileID: 2070658339}
+  max_player_dist: 5
   playerHit: 0
 --- !u!4 &82167919077961276
 Transform:
@@ -96337,7 +96338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8557437273265878725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
