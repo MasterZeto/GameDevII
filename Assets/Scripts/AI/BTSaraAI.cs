@@ -190,10 +190,13 @@ public class BTSaraAI: MonoBehaviour
             }
             //  else if (Distance() == 2&&middle) actions = behaviorTree.Evaluate();
 
-            if (!Sara.IsActing()) actions.Dequeue()();
-          
+              if (!Sara.IsActing()) actions.Dequeue()();
+            if (!Sara.IsActing()) actions = behaviorTree.Evaluate();
+
+
+
             //do I need to update distance here?
-           }
+        }
         }
 
     public void SetFreezed(bool f)
