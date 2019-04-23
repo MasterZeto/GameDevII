@@ -12,6 +12,7 @@ public class PauseScript : MonoBehaviour
     [SerializeField] GameObject predictor;
     [SerializeField] List<Camera> actionCams;
     [SerializeField] Camera bahaCam = null;
+    [SerializeField] GameObject hurtBoxHighlight = null;
     public List<voidDelegate> pauseQueue;
     private List<voidDelegate> possibleComs;
     FighterController playerActions;
@@ -26,6 +27,7 @@ public class PauseScript : MonoBehaviour
     [SerializeField] LineRenderer lr = null;
     bool bahaCamEnabled = false;
     public bool doneExecuting {get; private set; }
+    BoxCollider hurtbox = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,9 @@ public class PauseScript : MonoBehaviour
             cam.enabled = false;
         }
         if(lr!=null) lr.positionCount = 0;
+        GameObject hurtboxObj = enemyGameObject.transform.Find("HurtBoxes").gameObject;
+        if(hurtboxObj!=null) hurtbox = hurtboxObj.GetComponent<BoxCollider>();
+        if(hurtBoxHighlight!=null) hurtBoxHighlight.SetActive(false);
     }
 
     // Update is called once per frame
@@ -99,6 +104,7 @@ public class PauseScript : MonoBehaviour
                         //check type of path somewhere to adjust line renderer?
                         StartCoroutine(DrawPath());
                     }
+                    SetHurtBox();
                     enemy.Pause();  
                 }   
             }
@@ -183,6 +189,7 @@ public class PauseScript : MonoBehaviour
             isProjectile = false;
         }
         playerActions.pause = false;
+        HideHurtBox();
         UIManager.HidePauseHeat();
         doneExecuting = true;
     }
@@ -233,5 +240,16 @@ public class PauseScript : MonoBehaviour
         direction.y = y;
         lr.SetPosition(1, direction);*/
         yield return null;
+    }
+    private void SetHurtBox(){
+        if(hurtbox!=null&&hurtBoxHighlight!=null){
+            hurtBoxHighlight.SetActive(true);
+            hurtBoxHighlight.transform.localScale=hurtbox.bounds.size;
+            hurtBoxHighlight.transform.eulerAngles=enemy.transform.eulerAngles;
+        }
+
+    }
+    private void HideHurtBox(){
+        if(hurtBoxHighlight!=null) hurtBoxHighlight.SetActive(false);
     }
 }
