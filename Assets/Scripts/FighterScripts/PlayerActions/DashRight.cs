@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class DashRight : DashAction
 {
+    Vector3 move;
+    [SerializeField] GameObject landing;
     public override void StartAction(FighterController fighter)
     {
         running = true;
         this.fighter = fighter;
         fighter.SetTrigger("DashRight");
+        if (gameObject.tag == "Player")
+        {
+            Vector3 position = transform.position + Predictor(transform.right);
+            Instantiate(landing, position, Quaternion.identity);
+        }
         StartCoroutine(DashRightRoutine());        
     }
 
@@ -25,5 +32,11 @@ public class DashRight : DashAction
             yield return null;
         }
         running = false;
+    }
+    public Vector3 Predictor(Vector3 right)
+    {  //here right should be fighter.transform.right 
+        //10f is the move speed in unsafe move
+        move = right * dash_duration * dash_speed * 10f;
+        return move;
     }
 }
