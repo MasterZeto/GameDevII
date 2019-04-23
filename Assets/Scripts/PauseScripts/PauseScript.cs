@@ -245,7 +245,7 @@ public class PauseScript : MonoBehaviour
         if(hurtbox!=null&&hurtBoxHighlight!=null){
             hurtBoxHighlight.SetActive(true);
             hurtBoxHighlight.transform.localScale=hurtbox.bounds.size;
-            hurtBoxHighlight.transform.position=hurtbox.gameObject.transform.position;
+            hurtBoxHighlight.transform.position=hurtbox.bounds.center;
             hurtBoxHighlight.transform.eulerAngles=enemy.transform.eulerAngles;
         }
 
