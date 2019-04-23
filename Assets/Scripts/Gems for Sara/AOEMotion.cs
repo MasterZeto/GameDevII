@@ -18,7 +18,7 @@ public class AOEMotion : MonoBehaviour
     FighterController fighter;
     GameObject AOE;
 
-    float force = 10f;
+    float force = 100f;
 
     float deathTimer;
     float timer;
@@ -43,10 +43,10 @@ public class AOEMotion : MonoBehaviour
      //   transform.forward = opponent.transform.forward;
       //  transform.up = opponent.transform.up;
         //the angle is set to be 45 degree
-        direction = Vector3.Lerp(transform.forward, transform.up, 0.5f);
+        direction = Vector3.Lerp(transform.forward, transform.up, 0.1f);
     
         rb = GetComponent<Rigidbody>(); ;
-        rb.AddForce(direction * force, ForceMode.Impulse);
+        rb.AddForce(direction * force, ForceMode.Force);
         deathTimer = 300f;
         timer = 0;
 
