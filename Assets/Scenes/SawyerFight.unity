@@ -9347,6 +9347,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &156916515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2848646402258932590, guid: 764d09ccf848f084084567f2f6022346,
+    type: 3}
+  m_PrefabInstance: {fileID: 690815144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &158964632
 GameObject:
   m_ObjectHideFlags: 0
@@ -32598,6 +32604,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &690815144
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2848646402258932590, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_Name
+      value: HurtBoxHighlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848646402258932579, guid: 764d09ccf848f084084567f2f6022346,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 764d09ccf848f084084567f2f6022346, type: 3}
 --- !u!1001 &692757187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50494,6 +50569,7 @@ MonoBehaviour:
   - {fileID: 1036066488}
   - {fileID: 1274797457}
   bahaCam: {fileID: 0}
+  hurtBoxHighlight: {fileID: 156916515}
   lr: {fileID: 0}
 --- !u!114 &1134376067
 MonoBehaviour:
