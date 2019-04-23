@@ -11,11 +11,11 @@ public class DashForward : DashAction
         running = true;
         this.fighter = fighter;
         fighter.SetTrigger("DashForward");
-        if (gameObject.tag == "Player")
+  /*      if (gameObject.tag == "Player")
         {
             Vector3 position = transform.position + Predictor(transform.forward);
             Instantiate(landing, position,Quaternion.identity);
-        }
+        }*/
         StartCoroutine(DashForwardRoutine());        
     }
 
