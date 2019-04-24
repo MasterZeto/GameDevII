@@ -175,7 +175,10 @@ public class SawyerController : MonoBehaviour
 
     void Update()
     {
-        if (sawyer.current_action != null && sawyer.current_action.IsPaused() && !pause.IsPaused()) { sawyer.current_action.Resume(); }
+        if (sawyer.current_action != null && sawyer.current_action.IsPaused() && !pause.IsPaused()) 
+        { 
+            sawyer.current_action.Resume(); 
+        }
         if (!freezed) 
         {
             if (actions.Count == 0) actions = tree.Evaluate();

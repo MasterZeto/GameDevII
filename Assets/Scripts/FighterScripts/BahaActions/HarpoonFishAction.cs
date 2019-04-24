@@ -15,6 +15,7 @@ public class HarpoonFishAction : Action
     [SerializeField] string anim_name;
     [SerializeField] Camera bahaCam;
     [SerializeField] float max_player_dist = 10f;
+    [SerializeField] float frontDist = 1.65f;
     Camera mainCam;
     Rigidbody rb;
     LineRenderer rope;
@@ -76,9 +77,20 @@ public class HarpoonFishAction : Action
         delayDone = false;
         harpoon.transform.position = harpoonStart.position;
         harpoon.SetActive(true);
+        opponentLoc = opponent.transform;
+        Vector3 aimTo = opponentLoc.position;
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             Debug.Log("skdjfskdjlflksdjflksjdflksjdf harpoon delay");
+            if(t<4*hit_delay/5){
+                aimTo = opponentLoc.position;
+                if(Vector3.Distance(opponentLoc.forward, transform.forward)>frontDist){
+                    harpoon.SetActive(false);
+                    yield return new WaitForSeconds(hit_duration);
+                    delayDone = true;
+                    yield break;
+                }
+            }
             harpoon.transform.position = harpoonStart.position;
             while(paused){
                 yield return null;
@@ -93,8 +105,7 @@ public class HarpoonFishAction : Action
             yield break;
         }*/
         harpoon.transform.position = harpoonStart.position;
-        opponentLoc = opponent.transform;
-        direction = opponentLoc.position - harpoonStart.transform.position;
+        direction = aimTo - harpoonStart.transform.position;
         direction.y/=3;
         direction.Normalize();
         rope.positionCount = 2;
@@ -209,6 +220,9 @@ public class HarpoonFishAction : Action
         if(bahaCam.enabled){
             bahaCam.enabled = false;
             mainCam.enabled = true;
+        }
+        if(hitCheck.isStunned){
+            hitCheck.isStunned = false;
         }
         rope.positionCount = 0;
         rb.velocity = Vector3.zero;

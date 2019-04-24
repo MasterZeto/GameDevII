@@ -14,11 +14,12 @@ public class SaraLeftAttack : Action
     bool done = false;
     ParticleSystem[] particles;
     int rand = 0;
+    GameObject player;
 
     public override void StartAction(FighterController fighter)
     {
         this.fighter = fighter;
-
+        player = GameObject.FindGameObjectWithTag("Player");
         particles = GameObject.FindGameObjectWithTag("FireL").GetComponentsInChildren<ParticleSystem>();
         fighter.SetTrigger(anim_name);
         foreach (ParticleSystem par in particles)
@@ -28,10 +29,11 @@ public class SaraLeftAttack : Action
         rand = Random.Range(0, 4);
         Debug.Log("rand: " + rand);
         //why double add hitbox here?
-        //gameobject.transform.rotation
-
-        tempForGem = Instantiate(gems[0], LeftCannon.position, Quaternion.LookRotation(gameObject.transform.forward, Vector3.up)
-            ) as GameObject;
+        //set the aoe gem to throw towards center of stage
+        //Quaternion.LookRotation(direction, Vector3.up
+        //Vector3 direction = Vector3.zero - gameObject.transform.position;
+        tempForGem = Instantiate(gems[rand], LeftCannon.position, Quaternion.identity)
+             as GameObject;
         hitbox.Add(tempForGem.GetComponent<HitboxForGems>());
         box = tempForGem.GetComponent<HitboxForGems>();
         hitbox.Add(box);

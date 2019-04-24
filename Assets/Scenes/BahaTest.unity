@@ -98317,6 +98317,7 @@ MonoBehaviour:
   anim_name: HarpoonBehind
   bahaCam: {fileID: 2070658339}
   max_player_dist: 15
+  frontDist: 1.95
   playerHit: 0
 --- !u!4 &82167919077961276
 Transform:
