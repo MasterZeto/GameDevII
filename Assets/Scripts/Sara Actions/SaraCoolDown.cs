@@ -29,7 +29,9 @@ public class SaraCoolDown:DashAction
             {
                 yield return null;
             }
-            fighter.UnsafeMove(-fighter.transform.forward *dash_speed*0.4f);
+
+            Vector3 direction = Vector3.Lerp(fighter.transform.right, -fighter.transform.forward, 0.8f);
+            fighter.UnsafeMove(direction *dash_speed*0.4f);
 
             yield return null;
         }

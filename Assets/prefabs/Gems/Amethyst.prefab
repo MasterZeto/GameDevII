@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 2284354151114503244}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.81, y: -3.16, z: -1.93}
-  m_LocalScale: {x: 0.006550362, y: 0.006550362, z: 0.006550362}
+  m_LocalScale: {x: 0.0090552205, y: 0.0090552205, z: 0.0090552205}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -155,6 +155,8 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 56e54d01fa08ded4fa6bd5e3fc650ba9, type: 3}
   missSound: {fileID: 0}
   slowSound: {fileID: 0}
+  extraSound: {fileID: 0}
+  specialSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &1710873590828249566

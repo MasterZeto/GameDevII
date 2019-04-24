@@ -13,6 +13,7 @@ public class SaraRightAttack : Action
     HitboxForGems box;
     bool done = false;
     ParticleSystem[] particles = new ParticleSystem[2];
+    int rand = 0;
  
 
     public override void StartAction(FighterController fighter)
@@ -25,8 +26,9 @@ public class SaraRightAttack : Action
         }
        
         //instantiate one gem 
-        int rand = Random.Range(0,4);
-        tempForGem = Instantiate(gems[rand], RightCannon.position, Quaternion.identity);
+        rand = Random.Range(0,5);
+        Debug.Log("R-rand: " + rand);
+        tempForGem = Instantiate(gems[rand], RightCannon.position, Quaternion.identity) as GameObject;
         box = tempForGem.GetComponent<HitboxForGems>();
         hitbox.Add(box);
         done = true;

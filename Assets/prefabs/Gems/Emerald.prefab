@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2475286761250972096}
   - component: {fileID: 2475286761252978433}
   - component: {fileID: 4141702736212229335}
-  - component: {fileID: 3299146251059788852}
   - component: {fileID: 4412028837265257189}
   - component: {fileID: 1868455159300190694}
   m_Layer: 0
@@ -32,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2475286761252978432}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.96, y: -3.11, z: -1.28}
-  m_LocalScale: {x: 0.005793553, y: 0.006620617, z: 0.009749535}
+  m_LocalScale: {x: 0.0076689254, y: 0.008763711, z: 0.012905458}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,21 +106,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 186.9221, y: 121.53475, z: 100.00002}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3299146251059788852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475286761252978432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faf4d4aedcf12ea49b87f10ebae33998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 10
-  _collider: {fileID: 4141702736212229335}
-  cooldown: 0
 --- !u!82 &4412028837265257189
 AudioSource:
   m_ObjectHideFlags: 0
@@ -234,5 +218,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 56e54d01fa08ded4fa6bd5e3fc650ba9, type: 3}
   missSound: {fileID: 8300000, guid: fdd6323decaf10b4b8eb95a1828531aa, type: 3}
   slowSound: {fileID: 0}
+  extraSound: {fileID: 0}
+  specialSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}

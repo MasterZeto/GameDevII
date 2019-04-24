@@ -8,6 +8,8 @@ public class EmeraldChild : MonoBehaviour
     float speed = 25f;
     float deathTimer;
     float timer;
+    GameObject opponent;
+    FighterController fighter;
 
     void Start()
     {
@@ -15,26 +17,23 @@ public class EmeraldChild : MonoBehaviour
         deathTimer = 3f;
         timer = 0;
         transform.LookAt(player.transform.position + new Vector3(0, 4.0f, 0));
+        opponent = GameObject.FindGameObjectWithTag("Opponent");
+        fighter = opponent.GetComponent<FighterController>();
     }
 
 
     void Update()
     {
-        timer += Time.deltaTime;
-        transform.position += transform.forward * speed * Time.deltaTime;
+
+        if (fighter.pause != true)
+        {
+            timer += Time.deltaTime;
+            transform.position += transform.forward * speed * Time.deltaTime;
+        }
         if (timer > deathTimer)
         {
             Destroy(gameObject);
         }
     }
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.tag == "Player")
-            Destroy(gameObject);
-    }
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag != "Player")
-            Destroy(gameObject);
-    }
+
 }
