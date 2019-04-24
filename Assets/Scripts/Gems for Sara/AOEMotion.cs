@@ -5,8 +5,7 @@ using UnityEngine;
 public class AOEMotion : MonoBehaviour
 {   //trail prediction support
     LineRenderer lr;
-    public float velocity;
-    public float angle;
+ 
     public int resolution = 20;
     float g;
     float radianAngle;
@@ -37,8 +36,8 @@ public class AOEMotion : MonoBehaviour
         fighter = opponent.GetComponent<FighterController>();
         lr = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
-
-        transform.LookAt(player.transform);
+        transform.rotation = opponent.transform.rotation;
+      //  transform.LookAt(player.transform);
         radianAngle = Mathf.Deg2Rad * 45;
     
         RendererArc();
@@ -58,10 +57,11 @@ public class AOEMotion : MonoBehaviour
     {
         if (fighter.pause != true)
         {
+            
             // lr.positionCount = 0;
 
 
-            time += 30 * Time.deltaTime;
+             time += 30 * Time.deltaTime;
              lz = transform.position.z -time * speed;
 
             //  float y = transform.position.y + z * Mathf.Tan(radianAngle) - ((g * z * z) / (2 *30f *30f * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
