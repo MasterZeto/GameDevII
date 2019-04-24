@@ -19,6 +19,7 @@ public class SawyerDashBackLeft : DashAction
     public override void Pause() { paused = true; }
     public override void Resume() { paused = false; }
 
+    public override bool IsPaused() { return paused; }
     private IEnumerator DashLeftRoutine()
     {
         Vector3 moveDirection = Vector3.Lerp(-transform.right, -transform.forward, 0.7f);

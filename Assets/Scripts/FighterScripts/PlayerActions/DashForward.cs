@@ -26,7 +26,7 @@ public class DashForward : DashAction
     private IEnumerator DashForwardRoutine()
     {
         gameObject.GetComponent<SoundBox>().ExtraSFX();
-        for (float t = 0f; t < dash_duration && running; t += Time.fixedDeltaTime)
+        for (float t = 0f; t < dash_duration && running; t += Time.deltaTime)
         {
             fighter.UnsafeMove(fighter.transform.forward * dash_speed);
             yield return null;

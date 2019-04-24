@@ -18,6 +18,7 @@ public class SawyerDashForward : DashAction
     public override void Pause() { paused = true; }
     public override void Resume() { paused = false; }
 
+    public override bool IsPaused() { return paused; }
     private IEnumerator DashForwardRoutine()
     {
         gameObject.GetComponent<SoundBox>().ExtraSFX();

@@ -35,6 +35,9 @@ public class SawyerController : MonoBehaviour
     [SerializeField, Range(0f,1f)] float dash_left_percent  = 0.1f;
     [SerializeField, Range(0f,1f)] float dash_right_percent = 0.1f;
 
+    [Space]
+    [SerializeField] PauseScript pause;
+
     Queue<ActionDelegate> actions;
 
     void Awake()
@@ -172,6 +175,10 @@ public class SawyerController : MonoBehaviour
 
     void Update()
     {
+        if (sawyer.current_action != null && sawyer.current_action.IsPaused() && !pause.IsPaused()) 
+        { 
+            sawyer.current_action.Resume(); 
+        }
         if (!freezed) 
         {
             if (actions.Count == 0) actions = tree.Evaluate();

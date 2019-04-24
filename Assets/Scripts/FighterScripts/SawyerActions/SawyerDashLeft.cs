@@ -5,7 +5,7 @@ using UnityEngine;
 public class SawyerDashLeft :DashAction
 {
     [SerializeField] string anim_name;
-    bool paused;
+    bool paused = false;
     public override void StartAction(FighterController fighter)
     {
         running = true;
@@ -17,6 +17,8 @@ public class SawyerDashLeft :DashAction
     public override void Stop() { running = false; }
     public override void Pause() { paused = true; }
     public override void Resume() { paused = false; }
+
+    public override bool IsPaused() { return paused; }
 
     private IEnumerator DashLeftRoutine()
     {

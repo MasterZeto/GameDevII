@@ -38,7 +38,7 @@ public class FighterController : MonoBehaviour
     [SerializeField] Action right_kick;
     [SerializeField] Action left_right_kick;
 
-    Action current_action;
+    [HideInInspector] public Action current_action;
 
     public float heat { get; private set; }
 
@@ -99,6 +99,7 @@ public class FighterController : MonoBehaviour
 
     public void StartAction(Action action)
     {
+        if (current_action != null && current_action.IsDone()) current_action = null;
         if (max_heat - heat > action.GetHeat() && current_action == null)
         {
             current_action = action;
