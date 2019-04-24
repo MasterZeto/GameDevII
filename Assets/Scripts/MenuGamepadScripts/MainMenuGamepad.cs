@@ -10,7 +10,7 @@ public class MainMenuGamepad : MonoBehaviour
 
     void Update()
     {
-        new_game_button.Select();
-        quit_game_button.Select();
+        if (Input.GetAxisRaw("Submit") >= 0.999f) new_game_button.onClick.Invoke();
+        if (Input.GetAxisRaw("Cancel") >= 0.999f) quit_game_button.onClick.Invoke();
     }
 }

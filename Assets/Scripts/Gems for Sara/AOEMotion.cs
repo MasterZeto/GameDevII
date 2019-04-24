@@ -5,7 +5,8 @@ using UnityEngine;
 public class AOEMotion : MonoBehaviour
 {   //trail prediction support
     LineRenderer lr;
- 
+    bool visible = false;
+
     public int resolution = 20;
     float g;
     float radianAngle;
@@ -40,7 +41,7 @@ public class AOEMotion : MonoBehaviour
       //  transform.LookAt(player.transform);
         radianAngle = Mathf.Deg2Rad * 45;
     
-        RendererArc();
+       // RendererArc();
         AOE = Resources.Load("AOE") as GameObject;
 
 
@@ -57,17 +58,27 @@ public class AOEMotion : MonoBehaviour
     {
         if (fighter.pause != true)
         {
-            
-            // lr.positionCount = 0;
+
+            lr.positionCount = 0;
 
 
-             time += 30 * Time.deltaTime;
-             lz = transform.position.z -time * speed;
+            time += 30 * Time.deltaTime;
+            lz = transform.position.z - time * speed;
 
             //  float y = transform.position.y + z * Mathf.Tan(radianAngle) - ((g * z * z) / (2 *30f *30f * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
-            ly = transform.position.y + time*speed * Mathf.Tan(radianAngle) - ((g * time*speed * time*speed) / (2 *2f* Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
+            ly = transform.position.y + time * speed * Mathf.Tan(radianAngle) - ((g * time * speed * time * speed) / (2 * 2f * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
             lx = transform.position.x;
             transform.position = new Vector3(lx, ly, lz);
+        }
+        else {
+            visible = true;
+            if (visible)
+            {
+                visible = false;
+                RendererArc();
+            }
+
+
         }
 
         //  transform.position += transform.forward * speed * Time.deltaTime;
