@@ -10,6 +10,7 @@ public class BahaController : MonoBehaviour
     [SerializeField] float medDistance = 8f;
     [SerializeField] float fishFromBehindDistance;
     HarpoonAction harpoonCheck;
+    HarpoonFishAction harpoonDoubleCheck;
     FighterController fc;
     float t = 0;
     int hasRunAway = 0;
@@ -56,7 +57,11 @@ public class BahaController : MonoBehaviour
     int playerAttached () {
         if(harpoonCheck.playerHit){
             harpoonCheck.playerHit = false;
+            harpoonDoubleCheck.playerHit = false;
             Debug.Log("player is attached");
+            return 0;
+        }else if(harpoonDoubleCheck.playerHit){
+            harpoonDoubleCheck.playerHit = false;
             return 0;
         }
         Debug.Log("player is NOT attached");
@@ -74,7 +79,8 @@ public class BahaController : MonoBehaviour
 
     void Awake()
     {
-        harpoonCheck = GetComponent<HarpoonAction>();  
+        harpoonCheck = GetComponent<HarpoonAction>();
+        harpoonDoubleCheck = GetComponent<HarpoonFishAction>();  
         fc = GetComponent<FighterController>();
         actions = new Queue<ActionDelegate>();
     }
@@ -139,7 +145,7 @@ public class BahaController : MonoBehaviour
                                     new SequencerNode(
                                         new List<Node>{
                                             new ActionNode(fc.LeftRightKick),
-                                            new ActionNode(fc.LeftRightPunch)
+                                            new ActionNode(fc.LeftKick)
                                         }
                                     )
                                 }

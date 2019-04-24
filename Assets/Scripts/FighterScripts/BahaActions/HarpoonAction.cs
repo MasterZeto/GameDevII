@@ -155,6 +155,9 @@ public class HarpoonAction : Action
                 if(Vector3.Distance(opponentLoc.position,transform.position)<2f){
                     break;
                 }
+                if(opponentLoc.position.y<0f){
+                    break;
+                }
                 yield return null;
             }
         }
@@ -176,6 +179,9 @@ public class HarpoonAction : Action
                 Debug.Log("Is breaking here?");
                 break;
             }
+            if(opponentLoc.position.y<0f){
+                    break;
+                }
             yield return null;
         }
         rb.velocity = Vector3.zero;
@@ -187,6 +193,7 @@ public class HarpoonAction : Action
         }
         harpoon.SetActive(false);
         rope.positionCount = 0;
+        opponentLoc.position = new Vector3(opponentLoc.position.x,0,opponentLoc.position.z);
         delayDone = true;
     }
     public override bool IsDone() { return delayDone; }
