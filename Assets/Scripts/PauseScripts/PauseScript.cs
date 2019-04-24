@@ -213,6 +213,16 @@ public class PauseScript : MonoBehaviour
                 dashPredictor.transform.position = dashPredictorPosition;
             }  
         }
+
+    public void PopBackQueue()
+    {
+        if (pause)
+        {
+            pauseQueue.RemoveAt(pauseQueue.Count - 1);
+            UIManager.PopBackQueue();
+        }
+    }
+
     public void UpdateDash(int i){
         DashAction dash = playerActions.GetDash(possibleComs.IndexOf(pauseQueue[i]));
         if(dash!=null){
