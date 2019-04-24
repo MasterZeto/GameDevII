@@ -126,6 +126,7 @@ using UnityEngine;
             int index = PauseScript.GetPosComIndex(queueButtons[bttn]);
             currentHeat -= heatVal[index];
             pauseHeat.UseHeat(-heatVal[index]);
+            PauseScript.UpdateDash(queueButtons[bttn]);
             PauseScript.pauseQueue.RemoveAt(queueButtons[bttn]);
             index = queueButtons[bttn];
             currentIndex--;

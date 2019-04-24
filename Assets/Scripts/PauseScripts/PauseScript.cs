@@ -28,6 +28,8 @@ public class PauseScript : MonoBehaviour
     bool bahaCamEnabled = false;
     public bool doneExecuting {get; private set; }
     BoxCollider hurtbox = null;
+    Vector3 dashPredictorPosition;
+    [SerializeField] GameObject dashPredictor = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,8 +64,6 @@ public class PauseScript : MonoBehaviour
     void Update()
     {
         if(col!=null&&pause&&!isProjectile){
-            Debug.Log(col.bounds.center);
-            Debug.Log(col);
             col=enemy.GetHitbox(ref isProjectile);
             predictor.SetActive(true);
             if(col!=null&&col.enabled){
@@ -195,7 +195,23 @@ public class PauseScript : MonoBehaviour
     }
     public void addToQueue(int i){
             pauseQueue.Add(possibleComs[i]);
+            DashAction dash = playerActions.GetDash(i);
+            dashPredictorPosition = playerActions.gameObject.transform.position;
+            if(dash!=null){
+                dashPredictorPosition+=dash.Predictor(playerActions);
+            }
+            if(dashPredictor!=null){
+                dashPredictor.SetActive(true);
+                dashPredictor.transform.position = dashPredictorPosition;
+            }  
         }
+    public void UpdateDash(int i){
+        DashAction dash = playerActions.GetDash(possibleComs.IndexOf(pauseQueue[i]));
+        if(dash!=null){
+                dashPredictorPosition-=dash.Predictor(playerActions);
+                if(dashPredictor!=null) dashPredictor.transform.position = dashPredictorPosition;
+            }
+    }
     public int GetPosComIndex(int x){
         return possibleComs.IndexOf(pauseQueue[x]);
     }
