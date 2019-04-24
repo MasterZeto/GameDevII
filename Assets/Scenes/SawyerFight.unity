@@ -64606,6 +64606,7 @@ MonoBehaviour:
   dash_window: 0.2
   dash_deadzone: 0.25
   dash_cooldown: 1
+  pause: {fileID: 0}
   pauseUI: {fileID: 1134376067}
 --- !u!4 &1483727929
 Transform:
