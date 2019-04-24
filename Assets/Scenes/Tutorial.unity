@@ -1090,13 +1090,27 @@ MonoBehaviour:
       sure you probably know it by its more common name, GIGA. '
     - You should be proud of yourself for making it here, you're the youngest pure
       human to qualify in all the years of this tournament!
-    - But let's see what you've got up your sleeves that got your name around the
-      lower rings.
+  - index: 1
+    dialogue:
+    - 'Thank you so much! It''s such an honor to be here, I''ve dreamed of fighting
+      in GIGA since I was a little kid. '
+    - Well....a littler kid.
+    - I got something called the "Emperor's Boon" in the mail, but somehow I have
+      no idea what it means. Think you could fill me in?
+  - index: 0
+    dialogue:
+    - Ah, of course I can! That Boon waives your entry fee. For most fighter's, it
+      costs to qualify, but every year, the emperor chooses one fighter to sponsor.
+    - The reason you've never heard of it is because we don't want that fighter to
+      be treated any differently, so we don't tell anyone they've got it.
+    - But let's see what you've got up your sleeves that made the Great Emperor choose
+      you.
     - We've gone ahead and reassembled your mech after transport. Move around a little
       to make sure it's still how you remember it.
     - Use your 'W' 'A' 'S' & 'D' keys or the LEFT JOYSTICK to move around.
   typewriters:
   - {fileID: 519996154}
+  - {fileID: 1526001018}
 --- !u!4 &266259456
 Transform:
   m_ObjectHideFlags: 0
@@ -3340,8 +3354,12 @@ MonoBehaviour:
       of a match and leave yourself vulnerable!
     - If you start getting too hot, hold back on the abilities until you mech has
       a chance to cool off.
-    - But this next one is what I'm most looking forward to seeing in person. Would
-      you show me how your time stop ability works?
+    - And that bar across the top of your field of view? That's your health interface.
+      It may look a little different than you're used to it, but this one is standard
+      for all GIGA fighters.
+    - But this next ability is what I'm most looking forward to seeing in person.
+      Your ace in the hole, I'm told. Would you show me how your time stop ability
+      works?
     - 'From what I''ve heard, just pressing X on a controller or ''P'' on a keyboard,
       you can actually pause the flow of time itself..... '
   typewriters:
@@ -5287,8 +5305,19 @@ MonoBehaviour:
     - But I'm sure you already know that, that's why everyone competes!
   - index: 1
     dialogue:
-    - '...........'
-    - ..Y..yeah, for sure. Came for that... prize money...
+    - '........'
+    - Not everyone.
+  - index: 0
+    dialogue:
+    - I see... well, whatever your reasoning, I hope you enjoy yourself while you're
+      with us.
+    - Oh, and don't let anything the other fighters say get to you. They can be...
+      well, humans of any age are pretty rare anymore. A lot of people think they
+      just can't compete.
+    - But you're here, and that has to stand for something. Hold on to that.
+  - index: 1
+    dialogue:
+    - I..I will. Thank you
   typewriters:
   - {fileID: 519996154}
   - {fileID: 1526001018}
@@ -6195,6 +6224,7 @@ MonoBehaviour:
   left_kick: {fileID: 1483727942}
   right_kick: {fileID: 1483727941}
   left_right_kick: {fileID: 1483727943}
+  current_action: {fileID: 0}
   pause: 0
 --- !u!114 &1483727928
 MonoBehaviour:
@@ -6373,6 +6403,7 @@ MonoBehaviour:
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
   extraSound: {fileID: 8300000, guid: 2bef1562407a5d94f9a854b241096db8, type: 3}
   specialSound: {fileID: 0}
+  justBahaSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &1483727939
@@ -8756,7 +8787,8 @@ MonoBehaviour:
     - Well, I'm much happier being the mech in action, personally.
   - index: 0
     dialogue:
-    - Oh, my mistake, of course you are! Otherwise, why would you be here?
+    - Oh, my mistake, of course you are! Makes sense why you're down there and I'm
+      up here, then!
     - But we can't let ourselves get too excited, now. If we spend too much energy
       in training, we may have nothing left for the fight.
   typewriters:
@@ -9251,6 +9283,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
         type: 3}
       propertyPath: m_Enabled
@@ -9262,16 +9304,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d67018b723abc7843a327967ecfd6a1a,
         type: 3}
-    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1074022867761131374, guid: 1d98e9b6d7caed14386e0bd0dca00715,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9301,6 +9333,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Typewriters
       objectReference: {fileID: 0}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanel
+      value: 
+      objectReference: {fileID: 959626838}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanelText
+      value: 
+      objectReference: {fileID: 1606711750}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_AudioSource
+      value: 
+      objectReference: {fileID: 1483727939}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanel
+      value: 
+      objectReference: {fileID: 592126942}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanelText
+      value: 
+      objectReference: {fileID: 1762334721}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_AudioSource
+      value: 
+      objectReference: {fileID: 1483727939}
     - target: {fileID: 5869623624087871778, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9356,36 +9418,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanel
-      value: 
-      objectReference: {fileID: 592126942}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanelText
-      value: 
-      objectReference: {fileID: 1762334721}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_AudioSource
-      value: 
-      objectReference: {fileID: 1483727939}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanel
-      value: 
-      objectReference: {fileID: 959626838}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanelText
-      value: 
-      objectReference: {fileID: 1606711750}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_AudioSource
-      value: 
-      objectReference: {fileID: 1483727939}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef8ce49227b0c4844b16c4c67648213b, type: 3}
 --- !u!81 &8557437273265878724
