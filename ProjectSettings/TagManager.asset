@@ -17,6 +17,7 @@ TagManager:
   - FireL
   - Base
   - AOE
+  - toxic
   layers:
   - Default
   - TransparentFX
