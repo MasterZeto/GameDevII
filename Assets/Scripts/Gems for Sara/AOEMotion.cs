@@ -41,7 +41,8 @@ public class AOEMotion : MonoBehaviour
       //  transform.LookAt(player.transform);
         radianAngle = Mathf.Deg2Rad * 45;
     
-       // RendererArc();
+         RendererArc();
+        lr.enabled = false;
         AOE = Resources.Load("AOE") as GameObject;
 
 
@@ -59,9 +60,9 @@ public class AOEMotion : MonoBehaviour
         if (fighter.pause != true)
         {
 
-            lr.positionCount = 0;
+            //  lr.positionCount = 0;
 
-
+            lr.enabled = false;
             time += 30 * Time.deltaTime;
             lz = transform.position.z - time * speed;
 
@@ -75,7 +76,8 @@ public class AOEMotion : MonoBehaviour
             if (visible)
             {
                 visible = false;
-                RendererArc();
+                lr.enabled = true;
+              //  RendererArc();
             }
 
 
