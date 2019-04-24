@@ -11,7 +11,7 @@ public class DashLeft : DashAction
         running = true;
         this.fighter = fighter;
         fighter.SetTrigger("DashLeft");
-     /*   if (gameObject.tag == "Player")
+    /*   if (gameObject.tag == "Player")
         {
             Vector3 position = transform.position + Predictor(-transform.right);
             Instantiate(landing, position, Quaternion.identity);

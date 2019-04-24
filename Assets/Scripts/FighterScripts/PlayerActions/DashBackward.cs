@@ -11,7 +11,7 @@ public class DashBackward : DashAction
         running = true;
         this.fighter = fighter;
         fighter.SetTrigger("DashBackward");
-    /*    if (gameObject.tag == "Player")
+    /*   if (gameObject.tag == "Player")
         {
             Vector3 position = transform.position + Predictor(transform.forward);
             Instantiate(landing, position, Quaternion.identity);

@@ -30,7 +30,9 @@ public class AOEMotion : MonoBehaviour
         fighter = opponent.GetComponent<FighterController>();
         lr = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
-        transform.LookAt(player.transform);
+        transform.forward = opponent.transform.forward;
+
+       // transform.LookAt(player.transform);
         radianAngle = Mathf.Deg2Rad * 45;
     
         RendererArc();
