@@ -6,36 +6,44 @@ using UnityEngine;
 public class SaraBigWind : Action
 {
     public HitboxForSaraWind hitbox;
+    Hurtbox playerHurtbox;
     [SerializeField] float hit_duration;
     [SerializeField] string anim_name;
     ParticleSystem particle;
+    ParticleSystem poisonAir;
     FighterController player;
     HealthSystem health;
-    GameObject[] diamonds = new GameObject[7];
+  //  GameObject[] diamonds = new GameObject[7];
     public override void StartAction(FighterController fighter)
     {   
         this.fighter = fighter;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<FighterController>();
         health = gameObject.GetComponent<HealthSystem>();
-        diamonds[0] = Resources.Load("DiamondF0") as GameObject;
+  /*      diamonds[0] = Resources.Load("DiamondF0") as GameObject;
         diamonds[1] = Resources.Load("DiamondF1") as GameObject;
         diamonds[2] = Resources.Load("DiamondF2") as GameObject;
         diamonds[3] = Resources.Load("DiamondF3") as GameObject;
         diamonds[4] = Resources.Load("DiamondF4") as GameObject;
         diamonds[5] = Resources.Load("DiamondF5") as GameObject;
-        diamonds[6] = Resources.Load("DiamondF6") as GameObject;
+        diamonds[6] = Resources.Load("DiamondF6") as GameObject;*/
         fighter.SetTrigger(anim_name);
         player.SetTrigger("Stunned");
         particle = GameObject.FindGameObjectWithTag("Wind").GetComponent<ParticleSystem>();
+        poisonAir = GameObject.FindGameObjectWithTag("toxic").GetComponent<ParticleSystem>();
         // particle = gameObject.GetComponentInChildren<ParticleSystem>();
 
         if (health.getHitPoints() > 30)
         { particle.Play(); }
-        else {//diamond projectile
-            foreach (GameObject diamond in diamonds)
+        else {
+
+            poisonAir.Play();
+            playerHurtbox = GameObject.FindGameObjectWithTag("PlayerHurtbox").GetComponent<Hurtbox>();
+            playerHurtbox.TakeDamage(5f);
+            //diamond projectile
+         /*   foreach (GameObject diamond in diamonds)
             {
                 Instantiate(diamond, gameObject.transform, false);
-            }
+            }*/
 
         }
 
