@@ -13,7 +13,14 @@ public class AOEMotion : MonoBehaviour
     Vector3[] arcArray = new Vector3[21];
     float time = 0f;
     float speed = 0.005f;
+    float x;
+    float y;
+    float z;
 
+    float lx;
+    float ly;
+    float lz;
+         
 
 
     GameObject player;
@@ -30,9 +37,8 @@ public class AOEMotion : MonoBehaviour
         fighter = opponent.GetComponent<FighterController>();
         lr = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
-        transform.forward = opponent.transform.forward;
 
-       // transform.LookAt(player.transform);
+        transform.LookAt(player.transform);
         radianAngle = Mathf.Deg2Rad * 45;
     
         RendererArc();
@@ -56,12 +62,12 @@ public class AOEMotion : MonoBehaviour
 
 
             time += 30 * Time.deltaTime;
-            float z = transform.position.z -time * speed;
+             lz = transform.position.z -time * speed;
 
             //  float y = transform.position.y + z * Mathf.Tan(radianAngle) - ((g * z * z) / (2 *30f *30f * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
-            float y = transform.position.y + time*speed * Mathf.Tan(radianAngle) - ((g * time*speed * time*speed) / (2 *2f* Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
-            float x = transform.position.x;
-            transform.position = new Vector3(x, y, z);
+            ly = transform.position.y + time*speed * Mathf.Tan(radianAngle) - ((g * time*speed * time*speed) / (2 *2f* Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
+            lx = transform.position.x;
+            transform.position = new Vector3(lx, ly, lz);
         }
 
         //  transform.position += transform.forward * speed * Time.deltaTime;
@@ -101,11 +107,11 @@ public class AOEMotion : MonoBehaviour
 
     Vector3 CalculateArcPoint(float t, float maxDistance)
     {
-        float z = transform.position.z - t * maxDistance;
+        z = transform.position.z - t * maxDistance;
 
         //  float y = transform.position.y + z * Mathf.Tan(radianAngle) - ((g * z * z) / (2 *30f *30f * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
-        float y = transform.position.y + t*maxDistance* Mathf.Tan(radianAngle) - ((g * t*maxDistance * t*maxDistance) / (2 * 20f * 10f * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
-        float x = transform.position.x;
+        y = transform.position.y + t*maxDistance* Mathf.Tan(radianAngle) - ((g * t*maxDistance * t*maxDistance) / (2 * 20f * 10f * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
+        x = transform.position.x;
         return new Vector3(x, y, z);
 
     }

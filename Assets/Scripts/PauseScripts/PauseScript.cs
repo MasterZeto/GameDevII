@@ -28,6 +28,8 @@ public class PauseScript : MonoBehaviour
     bool bahaCamEnabled = false;
     public bool doneExecuting {get; private set; }
     BoxCollider hurtbox = null;
+    Vector3 dashPredictorPosition;
+    [SerializeField] GameObject dashPredictor = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,14 +58,13 @@ public class PauseScript : MonoBehaviour
         GameObject hurtboxObj = enemyGameObject.transform.Find("HurtBoxes").gameObject;
         if(hurtboxObj!=null) hurtbox = hurtboxObj.GetComponent<BoxCollider>();
         if(hurtBoxHighlight!=null) hurtBoxHighlight.SetActive(false);
+        if(dashPredictor!=null) dashPredictor.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(col!=null&&pause&&!isProjectile){
-            Debug.Log(col.bounds.center);
-            Debug.Log(col);
             col=enemy.GetHitbox(ref isProjectile);
             predictor.SetActive(true);
             if(col!=null&&col.enabled){
@@ -90,6 +91,7 @@ public class PauseScript : MonoBehaviour
                 camCon.moveable = true;
                 camOrigPos=Camera.main.transform.position;
                 GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowSFX();
+                dashPredictorPosition = playerActions.gameObject.transform.position;
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
                     col=enemy.GetHitbox(ref isProjectile);
@@ -113,7 +115,8 @@ public class PauseScript : MonoBehaviour
                 executing = true;
                 pause = false;
                 Debug.Log("unpause time");
-                GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowStop();                
+                GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowStop();
+                if(dashPredictor!=null) dashPredictor.SetActive(false);                
                 StartCoroutine(ExecuteMoves());
             }
         }
@@ -195,7 +198,22 @@ public class PauseScript : MonoBehaviour
     }
     public void addToQueue(int i){
             pauseQueue.Add(possibleComs[i]);
+            DashAction dash = playerActions.GetDash(i);
+            if(dash!=null){
+                dashPredictorPosition+=dash.Predictor(playerActions);
+            }
+            if(dashPredictor!=null){
+                dashPredictor.SetActive(true);
+                dashPredictor.transform.position = dashPredictorPosition;
+            }  
         }
+    public void UpdateDash(int i){
+        DashAction dash = playerActions.GetDash(possibleComs.IndexOf(pauseQueue[i]));
+        if(dash!=null){
+                dashPredictorPosition-=dash.Predictor(playerActions);
+                if(dashPredictor!=null) dashPredictor.transform.position = dashPredictorPosition;
+            }
+    }
     public int GetPosComIndex(int x){
         return possibleComs.IndexOf(pauseQueue[x]);
     }

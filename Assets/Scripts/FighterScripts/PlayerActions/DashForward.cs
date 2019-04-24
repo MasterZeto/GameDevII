@@ -33,10 +33,10 @@ public class DashForward : DashAction
         }
         running = false;
     }
-   public  Vector3 Predictor(Vector3 forward)
+   public override Vector3 Predictor(FighterController fighter)
     {  //here forward should be fighter.transform.forward 
         //10f is the move speed in unsafe move
-        move = forward * dash_duration * dash_speed*10f;
+        move = fighter.transform.forward * dash_duration * dash_speed*10f;
         return move;
 
 

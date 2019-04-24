@@ -219,6 +219,22 @@ public class FighterController : MonoBehaviour
         //if(project!=null) return project.GetSpeed();
         return -1;
     }
+    /*Used for dash prediction */
+    public DashAction GetDash(int i){
+        if(i==0){
+            return dash_left as DashAction;
+        }
+        else if(i==1){
+            return dash_right as DashAction;
+        }
+        else if(i==2){
+            return dash_forward as DashAction;
+        }
+        else if(i==3){
+            return dash_backward as DashAction;
+        }
+        return null;
+    }
     //used to get heat for pause menu heat bar
     public void GetHeatValues(ref List<float> heatVal){
         heatVal.Add(dash_left.GetHeat());
