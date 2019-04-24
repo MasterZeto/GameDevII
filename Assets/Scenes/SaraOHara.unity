@@ -22677,21 +22677,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 891474822681468849, guid: 5024f9cdf08784e889fc7bb8aa948185,
-        type: 3}
-      propertyPath: Priority
-      value: 256
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5024f9cdf08784e889fc7bb8aa948185, type: 3}
 --- !u!4 &508744748 stripped
@@ -39376,14 +39361,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fdd6323decaf10b4b8eb95a1828531aa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 0
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -85010,8 +84995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CharacterWait: 0.1
   m_PunctuationWait: 0.2
-  m_DefaultDialogueChirp: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e,
-    type: 3}
+  m_DefaultDialogueChirp: {fileID: 0}
   m_NameTag: {fileID: 0}
   m_NameTagText: {fileID: 0}
   m_TextPanel: {fileID: 121511283}
