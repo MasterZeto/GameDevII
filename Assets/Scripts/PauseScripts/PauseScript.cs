@@ -73,59 +73,63 @@ public class PauseScript : MonoBehaviour
                 col.enabled = false;
             }
         }
-        //move this to input handler later
-        if(Input.GetAxisRaw("Pause") == 1 && up){
-            up = false;
-            if(!pause&&!executing){
-                doneExecuting = false;
-                if(bahaCam!=null&&bahaCam.enabled){
-                    bahaCamEnabled = true;
-                    bahaCam.enabled = false;
-                    mainCam.enabled = true;
-                }
-                playerActions.pause = true;
-                Time.timeScale = 0;
-                pause = true;
-                UIManager.SetUp();
-                pauseQueue.Clear();
-                camCon.pause = true;
-                camCon.moveable = true;
-                camOrigPos=Camera.main.transform.position;
-                GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowSFX();
-                dashPredictorPosition = playerActions.gameObject.transform.position;
-                dashPredictorForward = playerActions.gameObject.transform.forward;
-                if(enemy!=null){
-                    //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
-                    col=enemy.GetHitbox(ref isProjectile);
-                    Debug.Log(col);
-                    if(col!=null&&!isProjectile){
-                        Debug.Log("the boy is here");
-                        predictor.SetActive(true);
-                        predictor.transform.localScale=col.bounds.size;
-                        predictor.transform.eulerAngles=enemy.transform.eulerAngles;
-                    }
-                    else if(col!=null){
-                        //check type of path somewhere to adjust line renderer?
-                        StartCoroutine(DrawPath());
-                    }
-                    SetHurtBox();
-                    enemy.Pause();  
-                }   
+    }
+
+    public void TogglePause()
+    {
+        if (!pause && !executing)
+        {
+            doneExecuting = false;
+            if (bahaCam != null && bahaCam.enabled)
+            {
+                bahaCamEnabled = true;
+                bahaCam.enabled = false;
+                mainCam.enabled = true;
             }
-            else if(pause&&!executing){
-                Time.timeScale = 1;
-                executing = true;
-                pause = false;
-                Debug.Log("unpause time");
-                GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowStop();
-                if(dashPredictor!=null) dashPredictor.SetActive(false);                
-                StartCoroutine(ExecuteMoves());
+            playerActions.pause = true;
+            Time.timeScale = 0;
+            pause = true;
+            UIManager.SetUp();
+            pauseQueue.Clear();
+            camCon.pause = true;
+            camCon.moveable = true;
+            camOrigPos = Camera.main.transform.position;
+            GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowSFX();
+            dashPredictorPosition = playerActions.gameObject.transform.position;
+            dashPredictorForward = playerActions.gameObject.transform.forward;
+            if (enemy != null)
+            {
+                //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
+                col = enemy.GetHitbox(ref isProjectile);
+                Debug.Log(col);
+                if (col != null && !isProjectile)
+                {
+                    Debug.Log("the boy is here");
+                    predictor.SetActive(true);
+                    predictor.transform.localScale = col.bounds.size;
+                    predictor.transform.eulerAngles = enemy.transform.eulerAngles;
+                }
+                else if (col != null)
+                {
+                    //check type of path somewhere to adjust line renderer?
+                    StartCoroutine(DrawPath());
+                }
+                SetHurtBox();
+                enemy.Pause();
             }
         }
-        if(Input.GetAxisRaw("Pause") == 0){
-            up = true;
+        else if (pause && !executing)
+        {
+            Time.timeScale = 1;
+            executing = true;
+            pause = false;
+            Debug.Log("unpause time");
+            GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowStop();
+            if (dashPredictor != null) dashPredictor.SetActive(false);
+            StartCoroutine(ExecuteMoves());
         }
     }
+
     private IEnumerator ExecuteMoves(){
         camCon.moveable = false;
         camCon.pause = false;
