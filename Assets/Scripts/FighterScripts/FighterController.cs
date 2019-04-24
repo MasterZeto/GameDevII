@@ -38,7 +38,7 @@ public class FighterController : MonoBehaviour
     [SerializeField] Action right_kick;
     [SerializeField] Action left_right_kick;
 
-    public Action current_action;
+    [HideInInspector] public Action current_action;
 
     public float heat { get; private set; }
 
