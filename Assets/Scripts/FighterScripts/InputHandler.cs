@@ -24,9 +24,10 @@ public class InputHandler : MonoBehaviour
 
     FighterController fighter;
     CameraController cam;
+    [SerializeField] PauseScript pause;
 
-    float h, v, lp, rp, lk, rk, cool;
-    bool lp_ready, rp_ready, lk_ready, rk_ready;
+    float h, v, lp, rp, lk, rk, p, cool;
+    bool lp_ready, rp_ready, lk_ready, rk_ready, p_ready;
 
     JoystickPosition p0, p1, p2;
     float p1_time, p2_time;
@@ -41,7 +42,7 @@ public class InputHandler : MonoBehaviour
         fighter = GetComponent<FighterController>();
         p0 = p1 = p2 = JoystickPosition.CENTER;
         p1_time = p2_time = 0f;
-        lp_ready = rp_ready = lk_ready = rk_ready = true;
+        lp_ready = rp_ready = lk_ready = rk_ready = p_ready = true;
         control_active = true;
     }
 
@@ -50,6 +51,8 @@ public class InputHandler : MonoBehaviour
         if (control_active)
         {
             GetInput();
+
+            if (TryPause()) return;
 
             TryDash();
             TryPunch();
@@ -74,12 +77,26 @@ public class InputHandler : MonoBehaviour
         rp = Input.GetAxisRaw("RightPunch");
         lk = Input.GetAxisRaw("LeftKick");
         rk = Input.GetAxisRaw("RightKick");
+        p = Input.GetAxisRaw("Pause");
 
         // do the stuff to figure out if the thing is back down again...
         if (!lp_ready && lp <= 0.001f) lp_ready = true;
         if (!rp_ready && rp <= 0.001f) rp_ready = true;
         if (!lk_ready && lk <= 0.001f) lk_ready = true;
         if (!rk_ready && rk <= 0.001f) rk_ready = true;
+        if (!p_ready  && p <= 0.001f)  p_ready = true;
+    }
+
+    bool TryPause()
+    {
+        if (p >= 0.999f && p_ready)
+        {
+            p_ready = false;
+            pause.TogglePause();
+            return true;
+        } 
+
+        return false;
     }
 
     void TryDash()
