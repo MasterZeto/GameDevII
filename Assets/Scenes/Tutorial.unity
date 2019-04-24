@@ -2924,14 +2924,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2cafc2691c2458b42b73715f3615f246, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 256
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -2968,7 +2968,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6094,17 +6094,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8344918331855392296, guid: 19478ab55eece8f409c61f56a6e8b018,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8745178110322653379, guid: 19478ab55eece8f409c61f56a6e8b018,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2bdc4e61267a2224291d44c72a6ee35c,
         type: 3}
+    - target: {fileID: 8344918331855392296, guid: 19478ab55eece8f409c61f56a6e8b018,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19478ab55eece8f409c61f56a6e8b018, type: 3}
 --- !u!1 &1467077509 stripped
@@ -6371,7 +6371,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: f0f2c0f9d7b9d48eb804b8e0bc787be9, type: 3}
   missSound: {fileID: 8300000, guid: f43a8d5fd13969e4ea8ecefe8399276e, type: 3}
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
-  extraSound: {fileID: 0}
+  extraSound: {fileID: 8300000, guid: 2bef1562407a5d94f9a854b241096db8, type: 3}
   specialSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
@@ -6387,14 +6387,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ca6b2e186b17c3e47ad20a53767c5c05, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -9251,16 +9251,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1074022867761131375, guid: 1d98e9b6d7caed14386e0bd0dca00715,
         type: 3}
       propertyPath: m_Enabled
@@ -9272,6 +9262,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d67018b723abc7843a327967ecfd6a1a,
         type: 3}
+    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074022868614403670, guid: 1d98e9b6d7caed14386e0bd0dca00715,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1074022867761131374, guid: 1d98e9b6d7caed14386e0bd0dca00715,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9301,36 +9301,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Typewriters
       objectReference: {fileID: 0}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanel
-      value: 
-      objectReference: {fileID: 959626838}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanelText
-      value: 
-      objectReference: {fileID: 1606711750}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_AudioSource
-      value: 
-      objectReference: {fileID: 1483727939}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanel
-      value: 
-      objectReference: {fileID: 592126942}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanelText
-      value: 
-      objectReference: {fileID: 1762334721}
-    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_AudioSource
-      value: 
-      objectReference: {fileID: 1483727939}
     - target: {fileID: 5869623624087871778, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9386,6 +9356,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanel
+      value: 
+      objectReference: {fileID: 592126942}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanelText
+      value: 
+      objectReference: {fileID: 1762334721}
+    - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_AudioSource
+      value: 
+      objectReference: {fileID: 1483727939}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanel
+      value: 
+      objectReference: {fileID: 959626838}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanelText
+      value: 
+      objectReference: {fileID: 1606711750}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_AudioSource
+      value: 
+      objectReference: {fileID: 1483727939}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef8ce49227b0c4844b16c4c67648213b, type: 3}
 --- !u!81 &8557437273265878724
