@@ -9,7 +9,9 @@ public class BracketGamepad : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetAxisRaw("Submit") >= 0.999f && button.IsActive())
+        if (Input.GetAxisRaw("Submit") >= 0.999f
+            && button != null
+            && button.IsActive())
             button.onClick.Invoke();
     }
 }
