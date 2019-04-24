@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8342657962038046775}
   - component: {fileID: 5605245078212047374}
   - component: {fileID: 3124438485535100345}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AoeDiamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
