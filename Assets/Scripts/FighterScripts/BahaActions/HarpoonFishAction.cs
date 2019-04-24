@@ -82,7 +82,7 @@ public class HarpoonFishAction : Action
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             Debug.Log("skdjfskdjlflksdjflksjdflksjdf harpoon delay");
-            if(t<3.5*hit_delay/5){
+            if(t<4*hit_delay/5){
                 aimTo = opponentLoc.position;
                 if(Vector3.Distance(opponentLoc.forward, transform.forward)>frontDist){
                     harpoon.SetActive(false);
