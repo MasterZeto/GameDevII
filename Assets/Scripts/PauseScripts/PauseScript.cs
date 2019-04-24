@@ -58,6 +58,7 @@ public class PauseScript : MonoBehaviour
         GameObject hurtboxObj = enemyGameObject.transform.Find("HurtBoxes").gameObject;
         if(hurtboxObj!=null) hurtbox = hurtboxObj.GetComponent<BoxCollider>();
         if(hurtBoxHighlight!=null) hurtBoxHighlight.SetActive(false);
+        if(dashPredictor!=null) dashPredictor.SetActive(false);
     }
 
     // Update is called once per frame
@@ -90,6 +91,7 @@ public class PauseScript : MonoBehaviour
                 camCon.moveable = true;
                 camOrigPos=Camera.main.transform.position;
                 GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowSFX();
+                dashPredictorPosition = playerActions.gameObject.transform.position;
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
                     col=enemy.GetHitbox(ref isProjectile);
@@ -113,7 +115,8 @@ public class PauseScript : MonoBehaviour
                 executing = true;
                 pause = false;
                 Debug.Log("unpause time");
-                GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowStop();                
+                GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowStop();
+                if(dashPredictor!=null) dashPredictor.SetActive(false);                
                 StartCoroutine(ExecuteMoves());
             }
         }
@@ -196,7 +199,6 @@ public class PauseScript : MonoBehaviour
     public void addToQueue(int i){
             pauseQueue.Add(possibleComs[i]);
             DashAction dash = playerActions.GetDash(i);
-            dashPredictorPosition = playerActions.gameObject.transform.position;
             if(dash!=null){
                 dashPredictorPosition+=dash.Predictor(playerActions);
             }
