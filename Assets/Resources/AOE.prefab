@@ -9639,7 +9639,7 @@ GameObject:
   - component: {fileID: 1193809074031783128}
   - component: {fileID: 2217629883279010156}
   - component: {fileID: 6907636915084502034}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AOE
   m_TagString: AOE
   m_Icon: {fileID: 0}
