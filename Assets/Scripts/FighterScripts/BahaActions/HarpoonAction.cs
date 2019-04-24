@@ -60,6 +60,7 @@ public class HarpoonAction : Action
         returning = false;
         fighter.SetTrigger(anim_name);
         harpoon.SetActive(false);
+        gameObject.GetComponent<SoundBox>().OnlyBahaNeedsThisManySFX();
         StartCoroutine(HitWithDelayRoutine());
     }
 

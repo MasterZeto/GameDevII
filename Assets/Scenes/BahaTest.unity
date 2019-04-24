@@ -49764,6 +49764,7 @@ MonoBehaviour:
   left_kick: {fileID: 0}
   right_kick: {fileID: 0}
   left_right_kick: {fileID: 0}
+  current_action: {fileID: 0}
   pause: 0
 --- !u!114 &1141262571
 MonoBehaviour:
@@ -65757,6 +65758,7 @@ MonoBehaviour:
   left_kick: {fileID: 1483727942}
   right_kick: {fileID: 1483727941}
   left_right_kick: {fileID: 1483727943}
+  current_action: {fileID: 0}
   pause: 0
 --- !u!114 &1483727928
 MonoBehaviour:
@@ -65935,6 +65937,7 @@ MonoBehaviour:
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
   extraSound: {fileID: 8300000, guid: 2bef1562407a5d94f9a854b241096db8, type: 3}
   specialSound: {fileID: 0}
+  justBahaSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &1483727939
@@ -97906,6 +97909,7 @@ MonoBehaviour:
   slowSound: {fileID: 0}
   extraSound: {fileID: 8300000, guid: adc9031d9db26d242830fc4675aeb01a, type: 3}
   specialSound: {fileID: 8300000, guid: aa770c9279a639948a03932e6eba78e1, type: 3}
+  justBahaSound: {fileID: 8300000, guid: 6e41eee82ee04a64584bb146efdc3183, type: 3}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &82167919077961221
@@ -98036,8 +98040,8 @@ MonoBehaviour:
   speed: 200
   harpoon: {fileID: 306765552}
   harpoonStart: {fileID: 104156819}
-  hit_duration: 0.8
-  hit_delay: 0.2
+  hit_duration: 0.6
+  hit_delay: 0.4
   anim_name: Harpoon
   playerDropPoint: {fileID: 1141679722}
   minDist: 7
@@ -98388,6 +98392,7 @@ MonoBehaviour:
   left_kick: {fileID: 82167919077961226}
   right_kick: {fileID: 82167919077961222}
   left_right_kick: {fileID: 82167919077961229}
+  current_action: {fileID: 0}
   pause: 0
 --- !u!114 &5436129065645605809
 MonoBehaviour:

@@ -11,6 +11,7 @@ public class SoundBox : MonoBehaviour
     public AudioClip slowSound;
     public AudioClip extraSound;
     public AudioClip specialSound;
+    public AudioClip justBahaSound;
 
     public AudioSource musicSource;
     public AudioLowPassFilter low_pass;
@@ -43,6 +44,11 @@ public class SoundBox : MonoBehaviour
     public void SpecialSFX()
     {
         playerSource.PlayOneShot(specialSound, 1F);
+    }
+
+    public void OnlyBahaNeedsThisManySFX()
+    {
+        playerSource.PlayOneShot(justBahaSound, 1F);
     }
 
     public void TimeSlowSFX()
