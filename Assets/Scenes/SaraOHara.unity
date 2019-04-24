@@ -23942,11 +23942,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 621ad164d76f845ff863b16724755995, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.82
+      value: 10.84
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 621ad164d76f845ff863b16724755995, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.97
+      value: -6.92
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 621ad164d76f845ff863b16724755995, type: 3}
       propertyPath: m_LocalPosition.y
@@ -66636,6 +66636,7 @@ MonoBehaviour:
   heat: 10
   dash_speed: 3
   dash_duration: 0.3
+  landing: {fileID: 0}
 --- !u!114 &1483727931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66651,6 +66652,7 @@ MonoBehaviour:
   heat: 10
   dash_speed: 3
   dash_duration: 0.3
+  landing: {fileID: 0}
 --- !u!114 &1483727932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66666,6 +66668,7 @@ MonoBehaviour:
   heat: 10
   dash_speed: 5
   dash_duration: 0.3
+  landing: {fileID: 0}
 --- !u!114 &1483727933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66681,6 +66684,7 @@ MonoBehaviour:
   heat: 10
   dash_speed: 5
   dash_duration: 0.3
+  landing: {fileID: 0}
 --- !u!114 &1483727934
 MonoBehaviour:
   m_ObjectHideFlags: 0
