@@ -21,17 +21,6 @@ public class AOEMotion : MonoBehaviour
     FighterController fighter;
     GameObject AOE;
 
-  //  float force = 50f;
-
-  
-
-   // Rigidbody rb;
-   // Vector3 direction;
-
-    //ParticleSystem[] particles = new ParticleSystem[3];
-
-
-  
 
 
     void Start()
@@ -44,15 +33,6 @@ public class AOEMotion : MonoBehaviour
         transform.LookAt(player.transform);
         radianAngle = Mathf.Deg2Rad * 45;
     
-        //   transform.forward = opponent.transform.forward;
-        //  transform.up = opponent.transform.up;
-        //the angle is set to be 45 degree
-        //   direction = Vector3.Lerp(transform.forward, transform.up, 0.7f);
-        //   rb = GetComponent<Rigidbody>(); ;
-        //  rb.AddForce(-direction * force, ForceMode.Impulse);
-
-
-
         RendererArc();
         AOE = Resources.Load("AOE") as GameObject;
 
