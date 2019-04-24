@@ -38328,6 +38328,7 @@ MonoBehaviour:
   left_kick: {fileID: 846331275}
   right_kick: {fileID: 0}
   left_right_kick: {fileID: 846331271}
+  current_action: {fileID: 0}
   pause: 0
 --- !u!143 &846331269
 CharacterController:
@@ -38473,6 +38474,7 @@ MonoBehaviour:
   slowSound: {fileID: 0}
   extraSound: {fileID: 0}
   specialSound: {fileID: 0}
+  justBahaSound: {fileID: 0}
   musicSource: {fileID: 0}
   low_pass: {fileID: 0}
 --- !u!82 &846331278
@@ -52716,6 +52718,7 @@ MonoBehaviour:
   left_kick: {fileID: 0}
   right_kick: {fileID: 0}
   left_right_kick: {fileID: 0}
+  current_action: {fileID: 0}
   pause: 0
 --- !u!114 &1141262571
 MonoBehaviour:
@@ -65012,6 +65015,7 @@ MonoBehaviour:
   left_kick: {fileID: 1483727942}
   right_kick: {fileID: 1483727941}
   left_right_kick: {fileID: 1483727943}
+  current_action: {fileID: 0}
   pause: 0
 --- !u!114 &1483727928
 MonoBehaviour:
@@ -65028,6 +65032,7 @@ MonoBehaviour:
   dash_window: 0.2
   dash_deadzone: 0.25
   dash_cooldown: 1
+  pause: {fileID: 1134376066}
   pauseUI: {fileID: 1134376067}
 --- !u!4 &1483727929
 Transform:
@@ -65189,6 +65194,7 @@ MonoBehaviour:
   slowSound: {fileID: 8300000, guid: ca76e35d543982e4592c74b5f167b33e, type: 3}
   extraSound: {fileID: 8300000, guid: 2bef1562407a5d94f9a854b241096db8, type: 3}
   specialSound: {fileID: 0}
+  justBahaSound: {fileID: 0}
   musicSource: {fileID: 886861362}
   low_pass: {fileID: 886861361}
 --- !u!82 &1483727939

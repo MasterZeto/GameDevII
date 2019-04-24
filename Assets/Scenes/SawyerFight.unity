@@ -97139,7 +97139,7 @@ MonoBehaviour:
   switch_percent: 0.1
   dash_left_percent: 0
   dash_right_percent: 0
-  pause: {fileID: 0}
+  pause: {fileID: 1134376066}
 --- !u!114 &5038508504045181402
 MonoBehaviour:
   m_ObjectHideFlags: 0

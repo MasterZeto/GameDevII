@@ -55,6 +55,10 @@ public class FightManager : MonoBehaviour
     void WinCallback()
     {
         // freeze the boys and play the ending dialogue 
+        if (sawyer != null) sawyer.gameObject.GetComponent<FighterController>().SetTrigger("Lose");
+        if (sara != null) sara.gameObject.GetComponent<FighterController>().SetTrigger("Lose");
+        if (baha != null) baha.gameObject.GetComponent<FighterController>().SetTrigger("Lose");
+        player.gameObject.GetComponent<FighterController>().SetTrigger("Win");
         Freeze();
         final_dialogue.StartDialogue(transition.Transition);
     }
@@ -62,6 +66,10 @@ public class FightManager : MonoBehaviour
     void LossCallback()
     {
         // freeze the boys and open the lose menu
+        if (sawyer != null) sawyer.gameObject.GetComponent<FighterController>().SetTrigger("Win");
+        if (sara != null) sara.gameObject.GetComponent<FighterController>().SetTrigger("Win");
+        if (baha != null) baha.gameObject.GetComponent<FighterController>().SetTrigger("Win");
+        player.gameObject.GetComponent<FighterController>().SetTrigger("Lose");
         Freeze();
         lose_dialogue.StartDialogue(BringUpLoseScreen);
     }
