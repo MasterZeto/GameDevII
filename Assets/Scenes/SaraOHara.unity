@@ -14840,6 +14840,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8640463128108495610, guid: 1c81b6133f8c87b43aaf8e46eeee58c3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 227
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640463128108495610, guid: 1c81b6133f8c87b43aaf8e46eeee58c3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -117
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c81b6133f8c87b43aaf8e46eeee58c3, type: 3}
 --- !u!224 &337184728 stripped
@@ -57505,26 +57515,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Typewriters
       objectReference: {fileID: 0}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_DefaultDialogueChirp
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanel
-      value: 
-      objectReference: {fileID: 359196075}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_TextPanelText
-      value: 
-      objectReference: {fileID: 359196074}
-    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
-        type: 3}
-      propertyPath: m_AudioSource
-      value: 
-      objectReference: {fileID: 1483727939}
     - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_DefaultDialogueChirp
@@ -57541,6 +57531,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1838043310}
     - target: {fileID: 5869623622788092371, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_AudioSource
+      value: 
+      objectReference: {fileID: 1483727939}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_DefaultDialogueChirp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanel
+      value: 
+      objectReference: {fileID: 359196075}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
+        type: 3}
+      propertyPath: m_TextPanelText
+      value: 
+      objectReference: {fileID: 359196074}
+    - target: {fileID: 5869623622966496930, guid: ef8ce49227b0c4844b16c4c67648213b,
         type: 3}
       propertyPath: m_AudioSource
       value: 
@@ -77870,10 +77880,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaraOHaraMech
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 59769f16ab78744ffad05602b313a5a9, type: 2}
     - target: {fileID: 400070, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -77930,6 +77936,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59769f16ab78744ffad05602b313a5a9, type: 2}
     - target: {fileID: 13700000, guid: 9e54b6bc2cd078243904f67662c4f019, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
