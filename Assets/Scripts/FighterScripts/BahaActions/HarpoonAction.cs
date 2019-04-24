@@ -12,6 +12,8 @@ public class HarpoonAction : Action
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
     [SerializeField] Transform playerDropPoint = null;
+    [SerializeField] float minDist = 7f;
+    [SerializeField] float medDist = 8.5f;
     Rigidbody rb;
     LineRenderer rope;
     Harpooned hitCheck;
@@ -24,6 +26,7 @@ public class HarpoonAction : Action
     Vector3 direction;
     float t;
     bool returning = false;
+    float oriSpeed;
 
     public void Start(){
         //anchor.IsActive(false);
@@ -35,11 +38,19 @@ public class HarpoonAction : Action
     public override void StartAction(FighterController fighter) 
     {
         this.fighter = fighter;
+        oriSpeed = speed;
         opponent = fighter.GetOpponent();
         opponentLoc = opponent.transform;
         direction = opponentLoc.position - harpoonStart.transform.position;
         direction.y/=3;
         direction.Normalize();
+        if(Vector3.Distance(opponentLoc.position, transform.position)<minDist){
+            delayDone = true;
+            return;
+        }
+        if(Vector3.Distance(opponentLoc.position, transform.position)<medDist){
+            speed = speed/3;
+        }
         playerHit = false;
         hitCheck.playerAttached = false;
         returning = false;
@@ -113,6 +124,7 @@ public class HarpoonAction : Action
         }
         rope.SetPosition(1, harpoon.transform.position);
         returning = true;
+        speed = oriSpeed;
         StartCoroutine(ReturnHarpoon());
     }
     private IEnumerator ReturnHarpoon(){
