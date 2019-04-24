@@ -7,6 +7,7 @@ public class BahaController : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] float shortDistance;
+    [SerializeField] float medDistance = 8f;
     [SerializeField] float fishFromBehindDistance;
     HarpoonAction harpoonCheck;
     FighterController fc;
@@ -22,13 +23,16 @@ public class BahaController : MonoBehaviour
     }
 
     int distPlayer(){
-        if(Vector3.Distance(player.position, transform.position)>shortDistance){
+        if(Vector3.Distance(player.position, transform.position)>medDistance){
             harpoonCheck.playerHit = false;
             return 0;
         }
-        else{
+        else if(Vector3.Distance(player.position, transform.position)<shortDistance){
             hasRunAway = 1;
             return 1;
+        }
+        else{
+            return 2;
         }
     }
     int runAway(){
@@ -119,14 +123,14 @@ public class BahaController : MonoBehaviour
                                         new List<Node>(){
                                             new SequencerNode(
                                                 new List<Node>{
-                                                    new ActionNode(fc.LeftKick),
+                                                    //new ActionNode(fc.LeftKick),
                                                     //new ActionNode(fc.RightPunch),
                                                     new ActionNode(fc.RightKick)
                                                 }
                                             ),
                                             new SequencerNode(
                                                 new List<Node>{
-                                                    new ActionNode(fc.LeftKick),
+                                                    //new ActionNode(fc.LeftKick),
                                                     new ActionNode(fc.RightPunch),
                                                 }
                                             )
@@ -140,6 +144,12 @@ public class BahaController : MonoBehaviour
                                     )
                                 }
                             )
+                        }
+                    ),
+                    new SequencerNode(
+                        new List<Node>{
+                            new ActionNode(fc.LeftKick),
+                            new ActionNode(fc.LeftPunch)
                         }
                     )
                 }
