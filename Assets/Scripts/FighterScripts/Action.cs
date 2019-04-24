@@ -15,6 +15,7 @@ public abstract class Action : MonoBehaviour
     public abstract void Resume();
     
     public virtual bool IsDone() { return !running; }
+    public virtual bool IsPaused() { return false; }
 
     public float GetHeat() { return heat; }
 }
