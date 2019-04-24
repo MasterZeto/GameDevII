@@ -39200,7 +39200,7 @@ PrefabInstance:
     - target: {fileID: 862927471814600483, guid: 43eb667879dbcad48bc5be2f18957803,
         type: 3}
       propertyPath: text.Array.data[1].dialogue.Array.data[3]
-      value: ..fuck you.
+      value: Humans just aren't as able...
       objectReference: {fileID: 0}
     - target: {fileID: 862927471814600483, guid: 43eb667879dbcad48bc5be2f18957803,
         type: 3}
@@ -39231,6 +39231,16 @@ PrefabInstance:
         type: 3}
       propertyPath: text.Array.data[2].index
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600483, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: text.Array.data[0].dialogue.Array.data[0]
+      value: Yes, grand. Hoorah, hoorah. Just give me my money, I have places to be.
+      objectReference: {fileID: 0}
+    - target: {fileID: 862927471814600483, guid: 43eb667879dbcad48bc5be2f18957803,
+        type: 3}
+      propertyPath: text.Array.data[1].dialogue.Array.data[2]
+      value: I guess I... I was wrong.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43eb667879dbcad48bc5be2f18957803, type: 3}
@@ -43247,6 +43257,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
         type: 3}
+      propertyPath: text.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: text.Array.data[3].dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: text.Array.data[4].dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
       propertyPath: typewriters.Array.data[0]
       value: 
       objectReference: {fileID: 1416296611}
@@ -43255,6 +43280,27 @@ PrefabInstance:
       propertyPath: typewriters.Array.data[1]
       value: 
       objectReference: {fileID: 1409731143}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: text.Array.data[3].dialogue.Array.data[0]
+      value: No, you were "just" wasting my time. I scheduled my car to leave this
+        retched Earth and head back to my own planet right after this fight.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: text.Array.data[4].dialogue.Array.data[0]
+      value: Don't worry, you won't have to think about making your car at all.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: text.Array.data[3].index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378953711733687759, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746,
+        type: 3}
+      propertyPath: text.Array.data[3].dialogue.Array.data[1]
+      value: So, don't take too long to die, alright?
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dd3ebb7bc3c9464d8cb512cf5ccd746, type: 3}
 --- !u!1 &1013115676

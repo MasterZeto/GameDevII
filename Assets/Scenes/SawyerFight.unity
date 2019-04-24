@@ -70038,15 +70038,19 @@ MonoBehaviour:
   text:
   - index: 1
     dialogue:
-    - 'Hey there, pally! '
-    - Perfect day for some trouble, wouldn't you say?
+    - Hey there, pally! Name's Sawyer. Say, you wouldn't happen to be a human, wouldja?
+    - I didn't think humans were allowed to compete!
   - index: 0
     dialogue:
-    - Yeah, it is a nice one, but let's save the pleasantries for after the fight,
-      hmm?
+    - Yeah, I'm a human, but what makes you say that? There are plenty of humans in
+      the lower rings.
   - index: 1
     dialogue:
-    - No arguments here!
+    - 'In the lower rings, sure! Just, GIGA''s meant to be the best of the best in
+      the universe, is all. '
+    - That's why we're all here, you know. Invitations across the stars to test ourselves
+      against other sentient species.
+    - I mean no offense, mind you! You must be here for good reason!
     - Say... you wouldn't happen to have noticed whether you lost a few bolts and
       wires last night, would you?
   - index: 0

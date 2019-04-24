@@ -10473,7 +10473,7 @@ PrefabInstance:
     - target: {fileID: 9118908160473172294, guid: 5fc938938e4621a469e6ddf03a959eb4,
         type: 3}
       propertyPath: text.Array.data[5].dialogue.Array.data[1]
-      value: Though I suppose I should watch my tongue! If you kep on this track,
+      value: Though I suppose I should watch my tongue! If you keep on this track,
         you're likely to be one of the wealthy brats come the end of this tournament!
       objectReference: {fileID: 0}
     - target: {fileID: 9118908160473172294, guid: 5fc938938e4621a469e6ddf03a959eb4,
@@ -10496,7 +10496,7 @@ PrefabInstance:
         type: 3}
       propertyPath: text.Array.data[6].dialogue.Array.data[2]
       value: But if I win? Pay off a couple debts, maybe get the bot a fresh coat
-        of paint. With the rest, I think I'd open a workshop. One thar anybody could
+        of paint. With the rest, I think I'd open a workshop. One that anybody could
         work at without...
       objectReference: {fileID: 0}
     - target: {fileID: 9118908160473172294, guid: 5fc938938e4621a469e6ddf03a959eb4,
@@ -102271,6 +102271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4759420942499719618, guid: 56dc9693938516a42890a2492bf8699b,
         type: 3}
+      propertyPath: text.Array.data[0].dialogue.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719618, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
       propertyPath: typewriters.Array.data[0]
       value: 
       objectReference: {fileID: 1224117969}
@@ -102289,6 +102294,23 @@ PrefabInstance:
       propertyPath: text.Array.data[2].dialogue.Array.data[0]
       value: YOU made it into GIGA? At only 11? Oh, you must be joking, the Emperor
         would never allow such folly.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719618, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: text.Array.data[0].index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719618, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: text.Array.data[0].dialogue.Array.data[2]
+      value: Have you come for an autograph, or simply to see what you might like
+        to become when you grow up?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759420942499719618, guid: 56dc9693938516a42890a2492bf8699b,
+        type: 3}
+      propertyPath: text.Array.data[0].dialogue.Array.data[1]
+      value: I've been in the Emperor's company for near this entire age of the Great
+        Human Empire.
       objectReference: {fileID: 0}
     - target: {fileID: 4759420942499719619, guid: 56dc9693938516a42890a2492bf8699b,
         type: 3}
