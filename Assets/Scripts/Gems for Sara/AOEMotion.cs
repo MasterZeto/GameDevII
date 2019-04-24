@@ -82,6 +82,18 @@ public class AOEMotion : MonoBehaviour
 
 
         }
+        //handle destroy
+        if (transform.position.y < 0.001)
+        {
+            Debug.Log("AOE gem hit the ground or the player");
+
+
+            Instantiate(AOE, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+
+        }
+
 
         //  transform.position += transform.forward * speed * Time.deltaTime;
         //Rotates the transform about axis passing through point in world coordinates by angle degrees.
@@ -129,19 +141,7 @@ public class AOEMotion : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Base"||other.gameObject.tag =="Player")
-        //instantiate particle
-        {
-            Debug.Log("AOE gem hit the ground or the player");
 
-          
-            Instantiate(AOE, transform.position, Quaternion.identity);
-       
-            Destroy(gameObject);
-        }
-    }
 
 
 }
