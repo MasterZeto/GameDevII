@@ -223,6 +223,8 @@ public class PauseScript : MonoBehaviour
         }
     }
 
+    public bool IsPaused() { return pause; }
+
     public void UpdateDash(int i){
         DashAction dash = playerActions.GetDash(possibleComs.IndexOf(pauseQueue[i]));
         if(dash!=null){
