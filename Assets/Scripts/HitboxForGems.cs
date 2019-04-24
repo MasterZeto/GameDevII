@@ -33,7 +33,7 @@ public class HitboxForGems : MonoBehaviour
 
                 GameObject.Find("CameraShaker").GetComponent<CameraShaker>().Shake();
 
-                gameObject.GetComponent<SoundBox>().HitSFX();
+             //   gameObject.GetComponent<SoundBox>().HitSFX();
 
                 GameObject.Find("Flash").GetComponent<ScreenFlash>().Flash();
             }
