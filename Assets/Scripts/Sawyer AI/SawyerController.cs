@@ -175,7 +175,6 @@ public class SawyerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(sawyer.current_action == null);
         if (sawyer.current_action != null && sawyer.current_action.IsPaused() && !pause.IsPaused()) 
         { 
             sawyer.current_action.Resume(); 

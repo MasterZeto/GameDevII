@@ -99,6 +99,7 @@ public class FighterController : MonoBehaviour
 
     public void StartAction(Action action)
     {
+        if (current_action != null && current_action.IsDone()) current_action = null;
         if (max_heat - heat > action.GetHeat() && current_action == null)
         {
             current_action = action;
