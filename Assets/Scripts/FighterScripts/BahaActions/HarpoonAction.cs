@@ -14,6 +14,7 @@ public class HarpoonAction : Action
     [SerializeField] Transform playerDropPoint = null;
     [SerializeField] float minDist = 7f;
     [SerializeField] float medDist = 8.5f;
+    float medminDist = 7.75f;
     Rigidbody rb;
     LineRenderer rope;
     Harpooned hitCheck;
@@ -50,6 +51,9 @@ public class HarpoonAction : Action
         }
         if(Vector3.Distance(opponentLoc.position, transform.position)<medDist){
             speed = speed/3;
+        }
+        if(Vector3.Distance(opponentLoc.position, transform.position)<medminDist){
+            speed = speed/4;
         }
         playerHit = false;
         hitCheck.playerAttached = false;
@@ -136,7 +140,8 @@ public class HarpoonAction : Action
             Vector3 playerDropPointDist = playerDropPoint.position;
             harpoonDist.y = 0;
             playerDropPointDist.y = 0;
-            while(Vector3.Distance(harpoonDist, playerDropPointDist)>6f){
+            Debug.Log("akljsdlkajsdasd");
+            while(Vector3.Distance(harpoonDist, playerDropPointDist)>.5f){
                 Debug.Log("is it stuck going to drop point?");
                 rb.velocity = direction*speed/2f;
                 t+=Time.deltaTime;
@@ -147,7 +152,10 @@ public class HarpoonAction : Action
                 playerDropPointDist = playerDropPoint.position;
                 harpoonDist.y = 0;
                 playerDropPointDist.y = 0;
-                if(Vector3.Distance(opponentLoc.position,transform.position)<6f){
+                if(Vector3.Distance(opponentLoc.position,transform.position)<2f){
+                    break;
+                }
+                if(opponentLoc.position.y<0f){
                     break;
                 }
                 yield return null;
@@ -155,7 +163,8 @@ public class HarpoonAction : Action
         }
         direction = harpoonStart.transform.position - harpoon.transform.position;
         direction.Normalize();
-        while(Vector3.Distance(harpoon.transform.position, harpoonStart.position)>7f&&t<timeTohit*3){
+        while((Vector3.Distance(harpoon.transform.position, harpoonStart.position)>7f&&!hitCheck.playerAttached)||
+        (hitCheck.playerAttached&&Vector3.Distance(opponentLoc.position,transform.position)<2f)){
             while(paused){
                 rope.SetPosition(0, harpoonStart.position);
                 rope.SetPosition(1, harpoon.transform.position);
@@ -167,8 +176,12 @@ public class HarpoonAction : Action
             rope.SetPosition(0, harpoonStart.position);
             rope.SetPosition(1, harpoon.transform.position);
             if(Vector3.Distance(opponentLoc.position,transform.position)<5f&&hitCheck.playerAttached){
+                Debug.Log("Is breaking here?");
                 break;
             }
+            if(opponentLoc.position.y<0f){
+                    break;
+                }
             yield return null;
         }
         rb.velocity = Vector3.zero;
@@ -180,6 +193,7 @@ public class HarpoonAction : Action
         }
         harpoon.SetActive(false);
         rope.positionCount = 0;
+        opponentLoc.position = new Vector3(opponentLoc.position.x,0,opponentLoc.position.z);
         delayDone = true;
     }
     public override bool IsDone() { return delayDone; }
