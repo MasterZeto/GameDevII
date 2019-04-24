@@ -53,7 +53,7 @@ public class HarpoonAction : Action
             speed = speed/3;
         }
         if(Vector3.Distance(opponentLoc.position, transform.position)<medminDist){
-            speed = speed/4;
+            speed = speed/2.5f;
         }
         playerHit = false;
         hitCheck.playerAttached = false;
@@ -95,6 +95,7 @@ public class HarpoonAction : Action
             while(paused){
                 yield return null;
             }
+            harpoon.transform.position = harpoonStart.position;
             opponentLoc = opponent.transform;
             direction = opponentLoc.position - harpoonStart.transform.position;
             direction.y/=3;
