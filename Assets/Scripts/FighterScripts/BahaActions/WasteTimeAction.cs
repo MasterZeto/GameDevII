@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WasteTime : Action
+public class WasteTimeAction : Action
 {
     [SerializeField] float gloat_time = 1f;
     bool paused;
