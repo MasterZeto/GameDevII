@@ -9,35 +9,41 @@ public class EmeraldMoveTrack : MonoBehaviour
     float RotationSpeed = 100;
     float time = 0;
     int childCount = 0;
+    GameObject opponent;
+    FighterController fighter;
 
     void Start()
     {
         child = Resources.Load("LaserBullet") as GameObject;
+        opponent = GameObject.FindGameObjectWithTag("Opponent");
+        fighter = opponent.GetComponent<FighterController>();
     }
 
    //inject a laser buttle , rotate a bit and repeate this process
     void Update()
     {
-        time += Time.deltaTime;
-        transform.Rotate(Vector3.up * (RotationSpeed * Time.deltaTime));
-        if (time > 1f&&childCount<=4)
-        {
-            time = 0;
-            childCount++;
-            StartCoroutine("LaserBullet");
-            gameObject.GetComponent<SoundBox>().MissSFX();
-        }
 
+
+        if (fighter.pause != true)
+        {
+
+            time += Time.deltaTime;
+            transform.Rotate(Vector3.up * (RotationSpeed * Time.deltaTime));
+
+            if (time > 1f && childCount <= 4)
+            {
+                time = 0;
+                childCount++;
+                Instantiate(child, transform.position, Quaternion.identity);
+                gameObject.GetComponent<SoundBox>().MissSFX();
+            }
+        }
         if (childCount > 4)
         { Destroy(gameObject); }
     }
 
 
-    IEnumerator LaserBullet()
-    {
-        Instantiate(child, transform.position,Quaternion.identity);
-        yield return null;
-    }
+
 
 
 }

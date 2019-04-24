@@ -14,7 +14,7 @@ public class BTSaraAI: MonoBehaviour
 
     //time variable?
     float t = 0;
-    bool first = true;
+    bool first = false;
     bool second = false;
     bool third = false;
     //?
@@ -33,7 +33,7 @@ public class BTSaraAI: MonoBehaviour
     }
     int Distance()
     {
-        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 15f)
+        if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) > 20f)
         { return 0; }
         else if (Vector3.Distance(Sara.transform.position, Blackboard.player_position) < 10f)
         {  return 2; }
@@ -184,14 +184,19 @@ public class BTSaraAI: MonoBehaviour
                 { actions = behaviorTree.Evaluate(); }
                 if (Distance() != 2 && third)
                 { actions = behaviorTree.Evaluate(); }
+                if (Distance() != 1 && second)
+                { actions = behaviorTree.Evaluate(); }
 
             }
             //  else if (Distance() == 2&&middle) actions = behaviorTree.Evaluate();
 
-            if (!Sara.IsActing()) actions.Dequeue()();
-          
+              if (!Sara.IsActing()) actions.Dequeue()();
+            if (!Sara.IsActing()) actions = behaviorTree.Evaluate();
+
+
+
             //do I need to update distance here?
-           }
+        }
         }
 
     public void SetFreezed(bool f)

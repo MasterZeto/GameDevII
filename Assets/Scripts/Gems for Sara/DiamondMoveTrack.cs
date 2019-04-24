@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//should intantiate into three other pieces and destroy itself
+
 public class DiamondMoveTrack : MonoBehaviour
 {
     GameObject player;
@@ -19,14 +19,14 @@ public class DiamondMoveTrack : MonoBehaviour
     void Start()
     {
         child = Resources.Load("DiamondChild") as GameObject;
-        Debug.Log("diamond");
+      
         player = GameObject.FindGameObjectWithTag("Player");
         transform.LookAt(player.transform);
         
         
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
         //Debug.Log(distance);

@@ -64,12 +64,12 @@ public class HitboxForSaraWind : MonoBehaviour
             }
         
     }
-    void FixedUpdate()
+    void Update()
     {
 
         if (knock_back)
         {
-            impact = -player.gameObject.transform.forward * 150f;
+            impact = -player.gameObject.transform.forward * 300f;
             if (impact.magnitude > 0.2f)
             { player.Move(impact * Time.deltaTime); }
             impact = Vector3.Lerp(impact, Vector3.zero, 1 * Time.deltaTime);
