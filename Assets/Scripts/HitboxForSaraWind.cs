@@ -28,12 +28,15 @@ public class HitboxForSaraWind : MonoBehaviour
             {
             Debug.Log("hey I am active");
             //c should be player hurtbox here 
-            Hurtbox h = c.gameObject.GetComponent<Hurtbox>();
+          
+             Hurtbox h = c.gameObject.GetComponent<Hurtbox>(); 
            playerFighter = c.gameObject.GetComponentInParent<FighterController>();
             if (playerFighter != null&&playerFighter.gameObject.tag=="Player")
             {
                // playerFighter.SetTrigger("Stunned");
                 knock_back = true;
+                if (h != null)
+                    h.TakeDamage(_damage);
        /*         impact = -playerFighter.gameObject.transform.forward * 100f;
                 if (impact.magnitude > 0.2f)
                 { playerFighter.Move(impact * Time.deltaTime); }
