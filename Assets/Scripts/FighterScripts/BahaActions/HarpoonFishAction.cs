@@ -15,6 +15,7 @@ public class HarpoonFishAction : Action
     [SerializeField] string anim_name;
     [SerializeField] Camera bahaCam;
     [SerializeField] float max_player_dist = 10f;
+    [SerializeField] float frontDist = 1.65f;
     Camera mainCam;
     Rigidbody rb;
     LineRenderer rope;
@@ -81,6 +82,15 @@ public class HarpoonFishAction : Action
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             Debug.Log("skdjfskdjlflksdjflksjdflksjdf harpoon delay");
+            if(t<3.5*hit_delay/5){
+                aimTo = opponentLoc.position;
+                if(Vector3.Distance(opponentLoc.forward, transform.forward)>frontDist){
+                    harpoon.SetActive(false);
+                    yield return new WaitForSeconds(hit_duration);
+                    delayDone = true;
+                    yield break;
+                }
+            }
             harpoon.transform.position = harpoonStart.position;
             while(paused){
                 yield return null;
