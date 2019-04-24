@@ -29,6 +29,7 @@ public class PauseScript : MonoBehaviour
     public bool doneExecuting {get; private set; }
     BoxCollider hurtbox = null;
     Vector3 dashPredictorPosition;
+    Vector3 dashPredictorForward;
     [SerializeField] GameObject dashPredictor = null;
     // Start is called before the first frame update
     void Start()
@@ -92,6 +93,7 @@ public class PauseScript : MonoBehaviour
                 camOrigPos=Camera.main.transform.position;
                 GameObject.FindWithTag("Player").GetComponent<SoundBox>().TimeSlowSFX();
                 dashPredictorPosition = playerActions.gameObject.transform.position;
+                dashPredictorForward = playerActions.gameObject.transform.forward;
                 if(enemy!=null){
                     //stop enemy's action, somehow. If possible, find the hit box of the action before its disabled and have something that highlights that.
                     col=enemy.GetHitbox(ref isProjectile);
@@ -200,7 +202,7 @@ public class PauseScript : MonoBehaviour
             pauseQueue.Add(possibleComs[i]);
             DashAction dash = playerActions.GetDash(i);
             if(dash!=null){
-                dashPredictorPosition+=dash.Predictor(playerActions);
+                dashPredictorPosition+=dash.Predictor(playerActions, ref dashPredictorForward, dashPredictorPosition);
             }
             if(dashPredictor!=null){
                 dashPredictor.SetActive(true);
@@ -210,7 +212,7 @@ public class PauseScript : MonoBehaviour
     public void UpdateDash(int i){
         DashAction dash = playerActions.GetDash(possibleComs.IndexOf(pauseQueue[i]));
         if(dash!=null){
-                dashPredictorPosition-=dash.Predictor(playerActions);
+                //dashPredictorPosition-=dash.Predictor(playerActions);
                 if(dashPredictor!=null) dashPredictor.transform.position = dashPredictorPosition;
             }
     }
