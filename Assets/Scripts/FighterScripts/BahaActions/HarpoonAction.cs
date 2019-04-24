@@ -12,6 +12,7 @@ public class HarpoonAction : Action
     [SerializeField] float hit_delay;
     [SerializeField] string anim_name;
     [SerializeField] Transform playerDropPoint = null;
+    [SerializeField] float minDist = 7f;
     Rigidbody rb;
     LineRenderer rope;
     Harpooned hitCheck;
@@ -40,6 +41,10 @@ public class HarpoonAction : Action
         direction = opponentLoc.position - harpoonStart.transform.position;
         direction.y/=3;
         direction.Normalize();
+        if(Vector3.Distance(opponentLoc.position, transform.position)<minDist){
+            delayDone = true;
+            return;
+        }
         playerHit = false;
         hitCheck.playerAttached = false;
         returning = false;
