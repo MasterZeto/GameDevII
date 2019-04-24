@@ -144,6 +144,19 @@ using UnityEngine;
             currentPos.x -= buttonLoc[bttn].sizeDelta.x;
             Destroy(bttn.gameObject);
         }
+
+        public void PopBackQueue()
+        {
+            foreach (Button b in queueButtons.Keys)
+            {
+                if (queueButtons[b] == queueButtons.Count - 1)
+                {
+                    DeleteButton(b);
+                    return;
+                }
+            }
+        }
+
         public void SetUp(){
             currentIndex = 0;
             currentHeat = fc.heat;
