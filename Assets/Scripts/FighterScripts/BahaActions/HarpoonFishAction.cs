@@ -76,6 +76,8 @@ public class HarpoonFishAction : Action
         delayDone = false;
         harpoon.transform.position = harpoonStart.position;
         harpoon.SetActive(true);
+        opponentLoc = opponent.transform;
+        Vector3 aimTo = opponentLoc.position;
         for (t = 0f; t < hit_delay; t += Time.deltaTime) 
         {
             Debug.Log("skdjfskdjlflksdjflksjdflksjdf harpoon delay");
@@ -93,8 +95,7 @@ public class HarpoonFishAction : Action
             yield break;
         }*/
         harpoon.transform.position = harpoonStart.position;
-        opponentLoc = opponent.transform;
-        direction = opponentLoc.position - harpoonStart.transform.position;
+        direction = aimTo - harpoonStart.transform.position;
         direction.y/=3;
         direction.Normalize();
         rope.positionCount = 2;
@@ -209,6 +210,9 @@ public class HarpoonFishAction : Action
         if(bahaCam.enabled){
             bahaCam.enabled = false;
             mainCam.enabled = true;
+        }
+        if(hitCheck.isStunned){
+            hitCheck.isStunned = false;
         }
         rope.positionCount = 0;
         rb.velocity = Vector3.zero;
