@@ -136,6 +136,13 @@ public class HarpoonFishAction : Action
             while(harpoon.transform.position.y< playerHoistPoint.position.y){
                 Debug.Log("is it stuck going to hoist point?");
                 Debug.Log(direction);
+                while(paused){
+                    rope.SetPosition(0, harpoonStart.position);
+                    rope.SetPosition(1, harpoon.transform.position);
+                    rb.velocity = Vector3.zero;
+                    Debug.Log("AHHH");
+                    yield return null;
+                }
                 rb.velocity = direction*speed/1.5f;
                 t+=Time.deltaTime;
                 opponent.transform.position = harpoon.transform.position;
@@ -147,6 +154,13 @@ public class HarpoonFishAction : Action
             direction.Normalize();
             while(harpoon.transform.position.y> playerDropPoint.position.y){
                 Debug.Log("is it stuck going to drop point?");
+                while(paused){
+                    rope.SetPosition(0, harpoonStart.position);
+                    rope.SetPosition(1, harpoon.transform.position);
+                    rb.velocity = Vector3.zero;
+                    Debug.Log("AHHH");
+                    yield return null;
+                }
                 rb.velocity = direction*speed/1.5f;
                 t+=Time.deltaTime;
                 opponent.transform.position = harpoon.transform.position;
