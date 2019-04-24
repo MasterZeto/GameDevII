@@ -26,7 +26,7 @@ public class SaraRightAttack : Action
         }
        
         //instantiate one gem 
-        rand = Random.Range(0,5);
+        rand = Random.Range(0,4);
         Debug.Log("R-rand: " + rand);
         tempForGem = Instantiate(gems[rand], RightCannon.position, Quaternion.identity) as GameObject;
         box = tempForGem.GetComponent<HitboxForGems>();

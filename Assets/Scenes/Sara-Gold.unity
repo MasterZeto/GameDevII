@@ -52334,6 +52334,7 @@ MonoBehaviour:
   bahaCam: {fileID: 0}
   hurtBoxHighlight: {fileID: 0}
   lr: {fileID: 0}
+  dashPredictor: {fileID: 0}
 --- !u!114 &1134376067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96219,11 +96220,10 @@ MonoBehaviour:
   hit_duration: 0
   anim_name: RightAttack
   gems:
-  - {fileID: 2284354151114503244, guid: 698500bfc77bf3f498fc40e8a20de250, type: 3}
+  - {fileID: 2284354151114503244, guid: 40fbbdb97feccf24db461b2b228c2817, type: 3}
   - {fileID: 3110626345608838188, guid: 20ffb704f919ccc41a92e5126419d210, type: 3}
   - {fileID: 2475286761252978432, guid: 5925b14877e457f418fb290c63958f0a, type: 3}
   - {fileID: 7287420757950015633, guid: 7d5e4df837a5eae44ab02e6e64d4963a, type: 3}
-  - {fileID: 3110626345608838188, guid: 7f97041303a3bbd468457a07db423fb4, type: 3}
   RightCannon: {fileID: 945459142}
 --- !u!114 &147508556430982886
 MonoBehaviour:
@@ -96242,11 +96242,10 @@ MonoBehaviour:
   hit_duration: 0
   anim_name: LeftAttack
   gems:
-  - {fileID: 2284354151114503244, guid: 698500bfc77bf3f498fc40e8a20de250, type: 3}
-  - {fileID: 3110626345608838188, guid: 20ffb704f919ccc41a92e5126419d210, type: 3}
   - {fileID: 2475286761252978432, guid: 5925b14877e457f418fb290c63958f0a, type: 3}
+  - {fileID: 3110626345608838188, guid: 20ffb704f919ccc41a92e5126419d210, type: 3}
+  - {fileID: 2284354151114503244, guid: 40fbbdb97feccf24db461b2b228c2817, type: 3}
   - {fileID: 7287420757950015633, guid: 7d5e4df837a5eae44ab02e6e64d4963a, type: 3}
-  - {fileID: 3110626345608838188, guid: 7f97041303a3bbd468457a07db423fb4, type: 3}
   LeftCannon: {fileID: 121946091}
 --- !u!114 &147508556430982887
 MonoBehaviour:
