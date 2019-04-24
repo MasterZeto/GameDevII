@@ -28,8 +28,10 @@ public class SaraLeftAttack : Action
         rand = Random.Range(0, 4);
         Debug.Log("rand: " + rand);
         //why double add hitbox here?
-  
-        tempForGem = Instantiate(gems[0], LeftCannon.position,Quaternion.identity) as GameObject;
+        //gameobject.transform.rotation
+
+        tempForGem = Instantiate(gems[0], LeftCannon.position, Quaternion.LookRotation(gameObject.transform.forward, Vector3.up)
+            ) as GameObject;
         hitbox.Add(tempForGem.GetComponent<HitboxForGems>());
         box = tempForGem.GetComponent<HitboxForGems>();
         hitbox.Add(box);
