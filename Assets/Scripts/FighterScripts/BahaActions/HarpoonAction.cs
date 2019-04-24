@@ -179,7 +179,7 @@ public class HarpoonAction : Action
                 Debug.Log("Is breaking here?");
                 break;
             }
-            if(opponentLoc.position.y<0f){
+            if(opponentLoc.position.y<0f&&hitCheck.playerAttached){
                     break;
                 }
             yield return null;
